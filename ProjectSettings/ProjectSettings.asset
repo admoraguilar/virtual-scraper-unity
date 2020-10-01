@@ -551,7 +551,8 @@ PlayerSettings:
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
   webGLDecompressionFallback: 0
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    1: MLOG
   platformArchitecture: {}
   scriptingBackend: {}
   il2cppCompilerConfiguration: {}
