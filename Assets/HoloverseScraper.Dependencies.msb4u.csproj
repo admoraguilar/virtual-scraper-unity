@@ -33,7 +33,14 @@
   <Import Project="$(MSBuildForUnityGeneratedProjectDirectory)\$(MSBuildProjectName).g.props" />
   
   <ItemGroup>
-    <!--Add NuGet or Project references here-->
+  <!--Add NuGet or Project references here-->
+  <PackageReference Include="System.Reflection.Emit.Lightweight" Version="*">
+    <ExcludeAssets>all</ExcludeAssets>
+  </PackageReference>
+  <PackageReference Include="System.Reflection.Emit.ILGeneration" Version="*">
+    <ExcludeAssets>all</ExcludeAssets>
+  </PackageReference>
+  <PackageReference Include="YoutubeExplode" Version="5.1.5.1" />
   </ItemGroup>
 
   <!-- SDK.targets is imported inside this props file -->
