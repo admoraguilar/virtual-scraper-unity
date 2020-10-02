@@ -72,7 +72,7 @@ namespace Holoverse.Scraper
 
 			async Task ProcessChannelGroup(string header, bool shouldFilterContent, TextAsset channelGroupSource)
 			{
-				List<Channel> channels = new List<Channel>();
+				List<Author> authors = new List<Author>();
 
 				List<Video> videos = new List<Video>();
 				IReadOnlyList<string> channelUrls = GetNLSV(channelGroupSource.text);
@@ -81,7 +81,7 @@ namespace Holoverse.Scraper
 					(string url) => {
 						return ScrapeChannel(
 							header, url, shouldFilterContent,
-							(Channel info) => { channels.Add(info); },
+							(Author info) => { authors.Add(info); },
 							(Video video) => { videos.Add(video); }
 						);
 					},
@@ -100,9 +100,9 @@ namespace Holoverse.Scraper
 				);
 
 				// channels.json
-				channels = channels.OrderBy((Channel info) => info.name).ToList();
+				authors = authors.OrderBy((Author info) => info.name).ToList();
 				string channelsJsonPath = PathUtilities.CreateDataPath($"HoloverseScraper/{header}", "channels.json", PathType.Data);
-					JsonUtilities.SaveToDisk(channels, new JsonUtilities.SaveToDiskParameters {
+					JsonUtilities.SaveToDisk(authors, new JsonUtilities.SaveToDiskParameters {
 						filePath = channelsJsonPath,
 						onSave = (JsonUtilities.OperationResponse res) => {
 							MLog.Log($"{_debugPrepend} {header} channels scraped.");
@@ -113,7 +113,7 @@ namespace Holoverse.Scraper
 
 			async Task ScrapeChannel(
 				string subPath, string channelUrl, bool shouldFilterContent,
-				Action<Channel> onChannelScraped = null, Action<Video> onVideoScraped = null)
+				Action<Author> onChannelScraped = null, Action<Video> onVideoScraped = null)
 			{
 				// So we can have some form of identification per link
 				// easily keep track of which channels we have
@@ -126,7 +126,7 @@ namespace Holoverse.Scraper
 
 				// info.json
 				MLog.Log($"{_debugPrepend} [Start] Channel info scrape: {channel.Title}");
-				Channel channelInfo = new Channel() {
+				Author channelInfo = new Author() {
 					url = channel.Url,
 					id = channel.Id,
 					name = channel.Title,
@@ -184,16 +184,16 @@ namespace Holoverse.Scraper
 						id = processedVideo.Id,
 						title = processedVideo.Title,
 						description = processedVideo.Description,
-						duration = processedVideo.Duration.ToString(),
+						duration = processedVideo.Duration,
 						viewCount = processedVideo.Engagement.ViewCount,
-						mediumResThumbnailUrl = processedVideo.Thumbnails.MediumResUrl,
-						channel = processedVideo.Author,
-						channelId = processedVideo.ChannelId,
-						uploadDate = processedVideo.UploadDate.ToString()
+						thumbnailUrl = processedVideo.Thumbnails.MediumResUrl,
+						author = processedVideo.Author,
+						authorId = processedVideo.ChannelId,
+						uploadDate = processedVideo.UploadDate
 					};
 					videoInfos.Add(videoInfo);
 
-					MLog.Log($"{_debugPrepend} Scrapped video {videoInfo.title} - {videoInfo.channel}");
+					MLog.Log($"{_debugPrepend} Scrapped video {videoInfo.title} - {videoInfo.author}");
 					onVideoScraped?.Invoke(videoInfo);
 				}
 				string videosJsonPath = PathUtilities.CreateDataPath($"HoloverseScraper/{subPath}/{channel.Id}", "videos.json", PathType.Data);

@@ -17,41 +17,41 @@ namespace Holoverse.Scraper
 
 			public static bool IsLive(Broadcast broadcast)
 			{
-				return broadcast.IsLive;
+				return broadcast.isLive;
 			}
 
-			public static bool IsChannelIdMatch<T>(T video, Channel channel)
+			public static bool IsAuthorIdMatch<T>(T video, Author author)
 				where T : Video
 			{
-				return IsChannelIdMatch(video, new Channel[] { channel });
+				return IsAuthorIdMatch(video, new Author[] { author });
 			}
 
-			public static bool IsChannelIdMatch<T>(T video, IEnumerable<Channel> channels)
+			public static bool IsAuthorIdMatch<T>(T video, IEnumerable<Author> authors)
 				where T : Video
 			{
-				return channels.Any((Channel channel) => video.channelId.Contains(channel.id));
+				return authors.Any((Author author) => video.authorId.Contains(author.id));
 			}
 
-			public static bool IsChannelMatch<T>(T video, Channel channel)
+			public static bool IsAuthorMatch<T>(T video, Author author)
 				where T : Video
 			{
-				return IsChannelMatch(video, new Channel[] { channel });
+				return IsAuthorMatch(video, new Author[] { author });
 			}
 
-			public static bool IsChannelMatch<T>(T video, IEnumerable<Channel> channels)
+			public static bool IsAuthorMatch<T>(T video, IEnumerable<Author> authors)
 				where T : Video
 			{
-				return channels.Any(
-					(Channel channel) => {
-						return video.channelId.Contains(channel.id) ||
-							   video.title.Contains(channel.id) ||
-							   video.description.Contains(channel.id) ||
-							   video.channelId.Contains(channel.name) ||
-							   video.title.Contains(channel.name) ||
-							   video.description.Contains(channel.name) ||
-							   video.description.Contains(channel.url) ||
-							   channel.customKeywords.Any((string keyword) => {
-								   return video.channelId.Contains(keyword) ||
+				return authors.Any(
+					(Author author) => {
+						return video.authorId.Contains(author.id) ||
+							   video.title.Contains(author.id) ||
+							   video.description.Contains(author.id) ||
+							   video.authorId.Contains(author.name) ||
+							   video.title.Contains(author.name) ||
+							   video.description.Contains(author.name) ||
+							   video.description.Contains(author.url) ||
+							   author.customKeywords.Any((string keyword) => {
+								   return video.authorId.Contains(keyword) ||
 										  video.title.Contains(keyword) ||
 										  video.description.Contains(keyword);
 							   });

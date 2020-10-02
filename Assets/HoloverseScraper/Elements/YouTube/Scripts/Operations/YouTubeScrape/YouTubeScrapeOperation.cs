@@ -37,13 +37,13 @@ namespace Holoverse.Scraper
 
 			List<string> channelUrls = new List<string>();
 			channelUrls.AddRange(
-				_settings.idols.SelectMany((ChannelGroup cg) => {
-					return cg.channels.Select((Channel ch) => ch.url);
+				_settings.idols.SelectMany((AuthorGroup cg) => {
+					return cg.authors.Select((Author au) => au.url);
 				})
 			);
 			channelUrls.AddRange(
-				_settings.community.SelectMany((ChannelGroup cg) => {
-					return cg.channels.Select((Channel ch) => ch.url);
+				_settings.community.SelectMany((AuthorGroup cg) => {
+					return cg.authors.Select((Author au) => au.url);
 				})
 			);
 
@@ -51,21 +51,21 @@ namespace Holoverse.Scraper
 				MLog.Log($"VIDEOS: {channelUrl}");
 				List<Video> videos = await TaskExt.Retry(() => GetChannelVideos(channelUrl), TimeSpan.FromSeconds(3));
 				videos.ForEach((Video video) => {
-					MLog.Log($"Scraping ARCHIVE video: {video.channel} | {video.title}");
+					MLog.Log($"Scraping ARCHIVE video: {video.author} | {video.title}");
 					_map.Add(video);
 				});
 
 				MLog.Log($"UPCOMING broadcast: {channelUrl}");
 				List<Broadcast> upcomingBroadcasts = await TaskExt.Retry(() => GetChannelUpcomingBroadcasts(channelUrl), TimeSpan.FromSeconds(3));
 				upcomingBroadcasts.ForEach((Broadcast broadcast) => {
-					MLog.Log($"Scraping UPCOMING broadcast: {broadcast.channel} | {broadcast.title}");
+					MLog.Log($"Scraping UPCOMING broadcast: {broadcast.author} | {broadcast.title}");
 					_map.Add(broadcast);
 				});
 
 				MLog.Log($"NOW broadcast: {channelUrl}");
 				List<Broadcast> liveBroadcasts = await TaskExt.Retry(() => GetChannelLiveBroadcasts(channelUrl), TimeSpan.FromSeconds(3));
 				liveBroadcasts.ForEach((Broadcast broadcast) => {
-					MLog.Log($"Scraping NOW broadcast: {broadcast.channel} | {broadcast.title}");
+					MLog.Log($"Scraping NOW broadcast: {broadcast.author} | {broadcast.title}");
 					_map.Add(broadcast);
 				});
 			}
@@ -77,14 +77,14 @@ namespace Holoverse.Scraper
 			_map.Save();
 		}
 
-		public async Task<Channel> GetChannelInfo(string channelUrl)
+		public async Task<Author> GetChannelInfo(string channelUrl)
 		{
-			ExChannel channel = await _client.Channels.GetAsync(channelUrl);
-			return new Channel {
-				url = channel.Url,
-				id = channel.Id,
-				name = channel.Title,
-				avatarUrl = channel.LogoUrl
+			ExChannel author = await _client.Channels.GetAsync(channelUrl);
+			return new Author {
+				url = author.Url,
+				id = author.Id,
+				name = author.Title,
+				avatarUrl = author.LogoUrl
 			};
 		}
 
@@ -110,12 +110,12 @@ namespace Holoverse.Scraper
 					id = processedVideo.Id,
 					title = processedVideo.Title,
 					description = processedVideo.Description,
-					duration = processedVideo.Duration.ToString(),
+					duration = processedVideo.Duration,
 					viewCount = processedVideo.Engagement.ViewCount,
-					mediumResThumbnailUrl = processedVideo.Thumbnails.MediumResUrl,
-					channel = processedVideo.Author,
-					channelId = processedVideo.ChannelId,
-					uploadDate = processedVideo.UploadDate.ToString()
+					thumbnailUrl = processedVideo.Thumbnails.MediumResUrl,
+					author = processedVideo.Author,
+					authorId = processedVideo.ChannelId,
+					uploadDate = processedVideo.UploadDate
 				});
 			}
 
@@ -143,15 +143,15 @@ namespace Holoverse.Scraper
 					id = broadcast.Id,
 					title = broadcast.Title,
 					description = broadcast.Description,
-					duration = broadcast.Duration.ToString(),
+					duration = broadcast.Duration,
 					viewCount = broadcast.Engagement.ViewCount,
-					mediumResThumbnailUrl = broadcast.Thumbnails.MediumResUrl,
-					channel = broadcast.Author,
-					channelId = broadcast.ChannelId,
-					uploadDate = broadcast.UploadDate.ToString(),
-					IsLive = broadcast.IsLive,
+					thumbnailUrl = broadcast.Thumbnails.MediumResUrl,
+					author = broadcast.Author,
+					authorId = broadcast.ChannelId,
+					uploadDate = broadcast.UploadDate,
+					isLive = broadcast.IsLive,
 					viewerCount = broadcast.ViewerCount,
-					schedule = broadcast.Schedule.ToString()
+					schedule = broadcast.Schedule
 				});
 			}
 

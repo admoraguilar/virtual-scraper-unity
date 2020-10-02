@@ -11,67 +11,67 @@ namespace Holoverse.Scraper
 	{
 		public class AggregateMap : BaseMap
 		{
-			public List<ChannelMap> channels { get; private set; } = new List<ChannelMap>();
+			public List<AuthorMap> authors { get; private set; } = new List<AuthorMap>();
 
 			public AggregateMap(string saveDirectoryPath, Settings settings) : base(saveDirectoryPath)
 			{
-				channels.AddRange(
-					settings.idols.SelectMany((ChannelGroup cg) => 
-						cg.channels.Select((Channel ch) => {
-							return new ChannelMap(Path.Combine(this.saveDirectoryPath, ch.id), ch);
+				authors.AddRange(
+					settings.idols.SelectMany((AuthorGroup cg) => 
+						cg.authors.Select((Author ch) => {
+							return new AuthorMap(Path.Combine(this.saveDirectoryPath, ch.id), ch);
 						})
 					)
 				);
-				channels.AddRange(
-					settings.community.SelectMany((ChannelGroup cg) =>
-						cg.channels.Select((Channel ch) => {
-							return new ChannelMap(Path.Combine(this.saveDirectoryPath, ch.id), ch);
+				authors.AddRange(
+					settings.community.SelectMany((AuthorGroup cg) =>
+						cg.authors.Select((Author ch) => {
+							return new AuthorMap(Path.Combine(this.saveDirectoryPath, ch.id), ch);
 						})
 					)
 				);
 
 				discover.filters.Add((Video video) => 
-					Filters.IsChannelIdMatch(
+					Filters.IsAuthorIdMatch(
 						video,
-						settings.idols.SelectMany((ChannelGroup cg) => cg.channels)
+						settings.idols.SelectMany((AuthorGroup cg) => cg.authors)
 					)
 				);
 
 				community.filters.Add((Video video) =>
-					Filters.IsChannelIdMatch(
+					Filters.IsAuthorIdMatch(
 						video,
-						settings.community.SelectMany((ChannelGroup cg) => cg.channels)
+						settings.community.SelectMany((AuthorGroup cg) => cg.authors)
 					)
 				);
 				community.filters.Add((Video video) =>
-					Filters.IsChannelMatch(
+					Filters.IsAuthorMatch(
 						video,
-						settings.idols.SelectMany((ChannelGroup cg) => cg.channels)
+						settings.idols.SelectMany((AuthorGroup cg) => cg.authors)
 					)
 				);
 
 				anime.filters.Add((Video video) =>
-					Filters.IsChannelIdMatch(
+					Filters.IsAuthorIdMatch(
 						video,
 						settings.community
-							.Where((ChannelGroup cg) => cg.name.Contains("Anime"))
-							.SelectMany((ChannelGroup cg) => cg.channels)
+							.Where((AuthorGroup cg) => cg.name.Contains("Anime"))
+							.SelectMany((AuthorGroup cg) => cg.authors)
 					)
 				);
 				anime.filters.Add((Video video) => Filters.ContainsTextInTitle(video, "【アニメ】"));
 
 				live.filters.Add((Broadcast broadcast) =>
-					Filters.IsChannelIdMatch(
+					Filters.IsAuthorIdMatch(
 						broadcast,
-						settings.idols.SelectMany((ChannelGroup cg) => cg.channels)
+						settings.idols.SelectMany((AuthorGroup cg) => cg.authors)
 					)
 				);
 				live.filters.Add((Broadcast broadcast) => Filters.IsLive(broadcast));
 
 				schedule.filters.Add((Broadcast broadcast) =>
-					Filters.IsChannelIdMatch(
+					Filters.IsAuthorIdMatch(
 						broadcast,
-						settings.idols.SelectMany((ChannelGroup cg) => cg.channels)
+						settings.idols.SelectMany((AuthorGroup cg) => cg.authors)
 					)
 				);
 				schedule.filters.Add((Broadcast broadcast) => !Filters.IsLive(broadcast));
@@ -80,42 +80,42 @@ namespace Holoverse.Scraper
 			public override void Add(Video video)
 			{
 				base.Add(video);
-				channels.ForEach((ChannelMap map) => map.Add(video));
+				authors.ForEach((AuthorMap map) => map.Add(video));
 			}
 
 			public override void Add(Broadcast broadcast)
 			{
 				base.Add(broadcast);
-				channels.ForEach((ChannelMap map) => map.Add(broadcast));
+				authors.ForEach((AuthorMap map) => map.Add(broadcast));
 			}
 
 			public override void Save()
 			{
 				base.Save();
-				channels.ForEach((ChannelMap map) => map.Save());
+				authors.ForEach((AuthorMap map) => map.Save());
 			}
 		}
 
-		public class ChannelMap : BaseMap
+		public class AuthorMap : BaseMap
 		{
-			public readonly Channel channel = null;
+			public readonly Author author = null;
 
-			public ChannelMap(string saveDirectoryPath, Channel channel) : base(saveDirectoryPath)
+			public AuthorMap(string saveDirectoryPath, Author author) : base(saveDirectoryPath)
 			{
-				this.channel = channel;
+				this.author = author;
 
-				discover.filters.Add((Video video) => Filters.IsChannelIdMatch(video, channel));
+				discover.filters.Add((Video video) => Filters.IsAuthorIdMatch(video, author));
 
-				community.filters.Add((Video video) => !Filters.IsChannelIdMatch(video, channel));
-				community.filters.Add((Video video) => Filters.IsChannelMatch(video, channel));
+				community.filters.Add((Video video) => !Filters.IsAuthorIdMatch(video, author));
+				community.filters.Add((Video video) => Filters.IsAuthorMatch(video, author));
 
-				anime.filters.Add((Video video) => Filters.IsChannelMatch(video, channel));
+				anime.filters.Add((Video video) => Filters.IsAuthorMatch(video, author));
 				anime.filters.Add((Video video) => Filters.ContainsTextInTitle(video, "【アニメ】"));
 
-				live.filters.Add((Broadcast broadcast) => Filters.IsChannelIdMatch(broadcast, channel));
+				live.filters.Add((Broadcast broadcast) => Filters.IsAuthorIdMatch(broadcast, author));
 				live.filters.Add(Filters.IsLive);
 
-				schedule.filters.Add((Broadcast broadcast) => Filters.IsChannelIdMatch(broadcast, channel));
+				schedule.filters.Add((Broadcast broadcast) => Filters.IsAuthorIdMatch(broadcast, author));
 				schedule.filters.Add((Broadcast broadcast) => !Filters.IsLive(broadcast));
 			}
 		}
@@ -152,11 +152,11 @@ namespace Holoverse.Scraper
 
 			public virtual void Save()
 			{
-				discover.Replace(discover.OrderByDescending((Video video) => DateTimeOffset.Parse(video.uploadDate)).ToArray());
-				community.Replace(community.OrderByDescending((Video video) => DateTimeOffset.Parse(video.uploadDate)).ToArray());
-				anime.Replace(anime.OrderByDescending((Video video) => DateTimeOffset.Parse(video.uploadDate)).ToArray());
-				live.Replace(live.OrderByDescending((Broadcast broadcast) => DateTimeOffset.Parse(broadcast.schedule)).ToArray());
-				schedule.Replace(schedule.OrderByDescending((Broadcast broadcast) => DateTimeOffset.Parse(broadcast.schedule)).ToArray());
+				discover.Replace(discover.OrderByDescending((Video video) => video.uploadDate).ToArray());
+				community.Replace(community.OrderByDescending((Video video) => video.uploadDate).ToArray());
+				anime.Replace(anime.OrderByDescending((Video video) => video.uploadDate).ToArray());
+				live.Replace(live.OrderByDescending((Broadcast broadcast) => broadcast.schedule).ToArray());
+				schedule.Replace(schedule.OrderByDescending((Broadcast broadcast) => broadcast.schedule).ToArray());
 
 				PostProcess(discover);
 				PostProcess(community);
