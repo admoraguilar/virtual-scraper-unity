@@ -9,7 +9,7 @@ using YoutubeExplode.Videos;
 
 namespace Holoverse.Scraper
 {
-	using Api.Data.YouTube;
+	using Api.Data;
 
 	using ExChannel = YoutubeExplode.Channels.Channel;
 	using ExVideo = YoutubeExplode.Videos.Video;
@@ -38,12 +38,12 @@ namespace Holoverse.Scraper
 			List<string> channelUrls = new List<string>();
 			channelUrls.AddRange(
 				_settings.idols.SelectMany((AuthorGroup cg) => {
-					return cg.authors.Select((Author au) => au.url);
+					return cg.authors.Select((Author au) => au.wikiUrl);
 				})
 			);
 			channelUrls.AddRange(
 				_settings.community.SelectMany((AuthorGroup cg) => {
-					return cg.authors.Select((Author au) => au.url);
+					return cg.authors.Select((Author au) => au.wikiUrl);
 				})
 			);
 
@@ -81,7 +81,7 @@ namespace Holoverse.Scraper
 		{
 			ExChannel author = await _client.Channels.GetAsync(channelUrl);
 			return new Author {
-				url = author.Url,
+				wikiUrl = author.Url,
 				id = author.Id,
 				name = author.Title,
 				avatarUrl = author.LogoUrl

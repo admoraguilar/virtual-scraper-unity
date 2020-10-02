@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Holoverse.Scraper
 {
-	using Api.Data.YouTube;
+	using Api.Data;
 
 	public partial class YouTubeScrapeOperation
 	{

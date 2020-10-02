@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Holoverse.Scraper
 {
-	using Api.Data.YouTube;
+	using Api.Data;
 
 	public partial class YouTubeScrapeOperation
 	{
@@ -49,7 +49,7 @@ namespace Holoverse.Scraper
 							   video.authorId.Contains(author.name) ||
 							   video.title.Contains(author.name) ||
 							   video.description.Contains(author.name) ||
-							   video.description.Contains(author.url) ||
+							   video.description.Contains(author.wikiUrl) ||
 							   author.customKeywords.Any((string keyword) => {
 								   return video.authorId.Contains(keyword) ||
 										  video.title.Contains(keyword) ||

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Holoverse.Api.Data.YouTube;
+using Holoverse.Api.Data;
 
 namespace Holoverse.Scraper
 {

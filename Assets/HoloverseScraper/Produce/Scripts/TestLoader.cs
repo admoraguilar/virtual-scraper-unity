@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace Holoverse.Scraper
 {
-	using Api.Data.YouTube;
+	using Api.Data;
 
 	public class TestLoader : MonoBehaviour
 	{

@@ -12,7 +12,7 @@ using YoutubeExplode.Channels;
 
 namespace Holoverse.Scraper
 {
-	using Api.Data.YouTube;
+	using Api.Data;
 
 	using ExChannel = YoutubeExplode.Channels.Channel;
 	using ExVideo = YoutubeExplode.Videos.Video;
@@ -127,7 +127,7 @@ namespace Holoverse.Scraper
 				// info.json
 				MLog.Log($"{_debugPrepend} [Start] Channel info scrape: {channel.Title}");
 				Author channelInfo = new Author() {
-					url = channel.Url,
+					wikiUrl = channel.Url,
 					id = channel.Id,
 					name = channel.Title,
 					avatarUrl = channel.LogoUrl,
