@@ -16,6 +16,31 @@ namespace Holoverse.Scraper.Editor
 		private SerializedProperty _isHiddenProperty = null;
 		private bool _isHiddenOrig = false;
 
+		private List<CreatorObject> GetAllCreatorObjects()
+		{
+			string[] objGUIDs = AssetDatabase.FindAssets($"t:{nameof(CreatorObject)}");
+			return new List<CreatorObject>(
+				objGUIDs.Select(objGUID => AssetDatabase.LoadAssetAtPath<CreatorObject>(
+					AssetDatabase.GUIDToAssetPath(objGUID)
+				)
+			));
+		}
+
+		private IEnumerable<CreatorObject> GetAffiliations(CreatorObject creatorObj)
+		{
+			HashSet<CreatorObject> results = new HashSet<CreatorObject>();
+			foreach(CreatorObject affliation in Get(creatorObj)) { results.Add(affliation); }
+			return results;
+
+			IEnumerable<CreatorObject> Get(CreatorObject child)
+			{
+				return Enumerable.Concat(
+					child.affiliations,
+					child.affiliations.SelectMany(a => Get(a))
+				);
+			}
+		}
+
 		private void OnEnable()
 		{
 			_isHiddenProperty = serializedObject.FindProperty("isHidden");
@@ -46,31 +71,6 @@ namespace Holoverse.Scraper.Editor
 
 					AssetDatabase.Refresh();
 				}
-			}
-		}
-
-		private List<CreatorObject> GetAllCreatorObjects()
-		{
-			string[] objGUIDs = AssetDatabase.FindAssets($"t:{nameof(CreatorObject)}");
-			return new List<CreatorObject>(
-				objGUIDs.Select(objGUID => AssetDatabase.LoadAssetAtPath<CreatorObject>(
-					AssetDatabase.GUIDToAssetPath(objGUID)
-				)
-			));
-		}
-
-		private IEnumerable<CreatorObject> GetAffiliations(CreatorObject creatorObj)
-		{
-			HashSet<CreatorObject> results = new HashSet<CreatorObject>();
-			foreach(CreatorObject affliation in Get(creatorObj)) { results.Add(affliation); }
-			return results;
-
-			IEnumerable<CreatorObject> Get(CreatorObject child)
-			{
-				return Enumerable.Concat(
-					child.affiliations,
-					child.affiliations.SelectMany(a => Get(a))	
-				);
 			}
 		}
 	}

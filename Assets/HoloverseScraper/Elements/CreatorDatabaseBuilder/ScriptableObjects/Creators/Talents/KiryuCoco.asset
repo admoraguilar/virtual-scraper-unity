@@ -14,12 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   universalName: Kiryu Coco
   universalId: KiryuCoco
-  wikiUrl: 
-  avatarUrl: 
+  wikiUrl: https://virtualyoutuber.fandom.com/wiki/Kiryu_Coco
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJz_YJU2_OXLiMyWNFnGaC-LpYTs_06G22ozGVfw=s100-c-k-c0xffffffff-no-rj-mo
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: 1496fd442bd36d0479ff07ed348e7d09, type: 2}
   isGroup: 0
   depth: 0
-  socials: []
+  socials:
+  - name: "Coco Ch. \u6850\u751F\u30B3\u30B3"
+    platform: 1
+    id: UCS9uQI-jC3DE0L4IpXyvr6w
+    url: https://www.youtube.com/channel/UCS9uQI-jC3DE0L4IpXyvr6w
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJz_YJU2_OXLiMyWNFnGaC-LpYTs_06G22ozGVfw=s100-c-k-c0xffffffff-no-rj-mo
+    customKeywords:
+    - Kiryu Coco
+    - Coco Kiryu
+    - Coco
+    - Kiryu
+    - "\u6850\u751F\u30B3\u30B3"
+    - "\u6850\u751F"
+    - "\u30B3\u30B3"
   customKeywords: []

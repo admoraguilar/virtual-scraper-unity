@@ -16,7 +16,7 @@ MonoBehaviour:
   universalId: Nijisanji
   wikiUrl: 
   avatarUrl: 
-  isHidden: 0
+  isHidden: 1
   affiliations:
   - {fileID: 11400000, guid: 7b5abf72a9091c142bc1192693f3a49d, type: 2}
   isGroup: 1
