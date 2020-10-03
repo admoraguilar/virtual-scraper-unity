@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43910ccb2860f8646b8d5c01236b6542, type: 3}
+  m_Name: hololiveEnglish1stGen
+  m_EditorClassIdentifier: 
+  universalName: hololive English (1st Gen)
+  universalId: hololiveEnglish1stGen
+  wikiUrl: 
+  avatarUrl: 
+  isHidden: 0
+  affiliations:
+  - {fileID: 11400000, guid: e1b8f9b2b26b3ee44b46bd9dff6f3e16, type: 2}
+  isGroup: 1
+  depth: 2
+  socials: []
+  customKeywords: []

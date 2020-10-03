@@ -9,13 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adfd25bc4d7302144978ad157201a438, type: 3}
-  m_Name: TestYouTubeScraperSettings 2
+  m_Script: {fileID: 11500000, guid: 43910ccb2860f8646b8d5c01236b6542, type: 3}
+  m_Name: IchikaraInc
   m_EditorClassIdentifier: 
-  _settings:
-    _idols:
-    - name: 
-      authors: []
-    _community:
-    - name: Anime
-      authors: []
+  universalName: Ichikara Inc.
+  universalId: IchikaraInc
+  wikiUrl: 
+  avatarUrl: 
+  isHidden: 0
+  affiliations: []
+  isGroup: 1
+  depth: 0
+  socials: []
+  customKeywords: []
