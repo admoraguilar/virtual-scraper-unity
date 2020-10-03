@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,11 +30,8 @@ namespace Holoverse.Scraper
 		[SerializeField]
 		private CreatorObject[] _toExcludeCreators = new CreatorObject[0];
 
-		private List<CreatorObject> GetCreators()
-		{
-			// From Mongo?
-			return null;
-		}
+		[SerializeField]
+		private HoloverseDataClientSettings _dataClientSettings = new HoloverseDataClientSettings();
 
 #if UNITY_EDITOR
 		private string editor_creatorsJSONPath => PathUtilities.CreateDataPath("Holoverse", "creators.json", PathType.Data);
@@ -46,6 +44,29 @@ namespace Holoverse.Scraper
 			JsonUtilities.SaveToDisk(creators, new JsonUtilities.SaveToDiskParameters {
 				filePath = editor_creatorsJSONPath
 			});
+		}
+
+		public void Editor_WriteToCreatorsDB()
+		{
+			TaskExt.FireForget(Execute());
+
+			async Task Execute()
+			{
+				List<CreatorObject> creatorObjs = Editor_GetCreatorObjects();
+				Creator[] creators = creatorObjs.Select(obj => obj.ToCreator()).ToArray();
+
+				MLog.Log($"[{nameof(CreatorDatabaseBuilder)}] Start writing creators to database.");
+
+				Stopwatch stopwatch = new Stopwatch();
+				stopwatch.Start();
+
+				HoloverseDataClient client = new HoloverseDataClient(_dataClientSettings);
+				await client.UpsertManyCreatorsAndDeleteDanglingAsync(creators);
+
+				stopwatch.Stop();
+
+				MLog.Log($"[{nameof(CreatorDatabaseBuilder)}] Finished writing creators to database: {stopwatch.Elapsed}.");
+			}
 		}
 
 		public void Editor_ExportVideosJSON()

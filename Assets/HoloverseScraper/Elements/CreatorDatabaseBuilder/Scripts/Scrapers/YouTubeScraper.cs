@@ -65,8 +65,6 @@ namespace Holoverse.Scraper
 					creationDate = video.UploadDate,
 					tags = video.Keywords.ToArray(),
 
-					entryTimestamp = DateTimeOffset.UtcNow,
-
 					thumbnailUrl = video.Thumbnails.MediumResUrl,
 					description = video.Description,
 					duration = video.Duration,
@@ -114,8 +112,6 @@ namespace Holoverse.Scraper
 
 					creationDate = broadcast.UploadDate,
 					tags = broadcast.Keywords.ToArray(),
-
-					entryTimestamp = DateTimeOffset.UtcNow,
 
 					thumbnailUrl = broadcast.Thumbnails.MediumResUrl,
 					description = broadcast.Description,

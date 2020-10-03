@@ -15,3 +15,7 @@ MonoBehaviour:
   _creatorObjectsFolderPath: {fileID: 102900000, guid: a83073264a0ae05419e4a22ea4df7ac5,
     type: 3}
   _toExcludeCreators: []
+  _dataClientSettings:
+    connectionString: mongodb+srv://<username>:<password>@us-east-1-free.41hlb.mongodb.net/test
+    userName: holoverse-editor
+    password: RBqYN3ugVTb2stqD

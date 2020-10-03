@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43910ccb2860f8646b8d5c01236b6542, type: 3}
-  m_Name: IchikaraInc
+  m_Name: Test3
   m_EditorClassIdentifier: 
-  universalName: Ichikara Inc.
-  universalId: IchikaraInc
+  universalName: Test 3
+  universalId: Test3
   wikiUrl: 
   avatarUrl: 
   isHidden: 1
   affiliations: []
   isGroup: 1
-  depth: -1
+  depth: 0
   socials: []
   customKeywords: []

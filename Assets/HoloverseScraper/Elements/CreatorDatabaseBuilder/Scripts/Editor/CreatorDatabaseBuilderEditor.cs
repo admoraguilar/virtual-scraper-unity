@@ -14,6 +14,7 @@ namespace Holoverse.Scraper
 		{
 			EditorGUILayout.LabelField("creators.json");
 			if(GUILayout.Button("Export To Local JSON")) { target.Editor_ExportCreatorsJSON(); }
+			if(GUILayout.Button("Write To Database")) { target.Editor_WriteToCreatorsDB(); }
 		}
 
 		private void DrawVideosCollectionOperators()
