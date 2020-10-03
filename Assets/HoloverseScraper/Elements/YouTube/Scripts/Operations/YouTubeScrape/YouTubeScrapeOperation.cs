@@ -37,13 +37,13 @@ namespace Holoverse.Scraper
 
 			List<string> channelUrls = new List<string>();
 			channelUrls.AddRange(
-				_settings.idols.SelectMany((AuthorGroup cg) => {
-					return cg.authors.Select((Author au) => au.wikiUrl);
+				_settings.idols.SelectMany((CreatorGroup cg) => {
+					return cg.creators.Select((Creator cr) => cr.wikiUrl);
 				})
 			);
 			channelUrls.AddRange(
-				_settings.community.SelectMany((AuthorGroup cg) => {
-					return cg.authors.Select((Author au) => au.wikiUrl);
+				_settings.community.SelectMany((CreatorGroup cg) => {
+					return cg.creators.Select((Creator cr) => cr.wikiUrl);
 				})
 			);
 
@@ -51,21 +51,21 @@ namespace Holoverse.Scraper
 				MLog.Log($"VIDEOS: {channelUrl}");
 				List<Video> videos = await TaskExt.Retry(() => GetChannelVideos(channelUrl), TimeSpan.FromSeconds(3));
 				videos.ForEach((Video video) => {
-					MLog.Log($"Scraping ARCHIVE video: {video.author} | {video.title}");
+					MLog.Log($"Scraping ARCHIVE video: {video.creator} | {video.title}");
 					_map.Add(video);
 				});
 
 				MLog.Log($"UPCOMING broadcast: {channelUrl}");
 				List<Broadcast> upcomingBroadcasts = await TaskExt.Retry(() => GetChannelUpcomingBroadcasts(channelUrl), TimeSpan.FromSeconds(3));
 				upcomingBroadcasts.ForEach((Broadcast broadcast) => {
-					MLog.Log($"Scraping UPCOMING broadcast: {broadcast.author} | {broadcast.title}");
+					MLog.Log($"Scraping UPCOMING broadcast: {broadcast.creator} | {broadcast.title}");
 					_map.Add(broadcast);
 				});
 
 				MLog.Log($"NOW broadcast: {channelUrl}");
 				List<Broadcast> liveBroadcasts = await TaskExt.Retry(() => GetChannelLiveBroadcasts(channelUrl), TimeSpan.FromSeconds(3));
 				liveBroadcasts.ForEach((Broadcast broadcast) => {
-					MLog.Log($"Scraping NOW broadcast: {broadcast.author} | {broadcast.title}");
+					MLog.Log($"Scraping NOW broadcast: {broadcast.creator} | {broadcast.title}");
 					_map.Add(broadcast);
 				});
 			}
@@ -77,14 +77,14 @@ namespace Holoverse.Scraper
 			_map.Save();
 		}
 
-		public async Task<Author> GetChannelInfo(string channelUrl)
+		public async Task<Creator> GetChannelInfo(string channelUrl)
 		{
-			ExChannel author = await _client.Channels.GetAsync(channelUrl);
-			return new Author {
-				wikiUrl = author.Url,
-				id = author.Id,
-				name = author.Title,
-				avatarUrl = author.LogoUrl
+			ExChannel creator = await _client.Channels.GetAsync(channelUrl);
+			return new Creator {
+				wikiUrl = creator.Url,
+				universalId = creator.Id,
+				universalName = creator.Title,
+				avatarUrl = creator.LogoUrl
 			};
 		}
 
@@ -113,9 +113,9 @@ namespace Holoverse.Scraper
 					duration = processedVideo.Duration,
 					viewCount = processedVideo.Engagement.ViewCount,
 					thumbnailUrl = processedVideo.Thumbnails.MediumResUrl,
-					author = processedVideo.Author,
-					authorId = processedVideo.ChannelId,
-					uploadDate = processedVideo.UploadDate
+					creator = processedVideo.Author,
+					creatorId = processedVideo.ChannelId,
+					creationDate = processedVideo.UploadDate
 				});
 			}
 
@@ -146,9 +146,9 @@ namespace Holoverse.Scraper
 					duration = broadcast.Duration,
 					viewCount = broadcast.Engagement.ViewCount,
 					thumbnailUrl = broadcast.Thumbnails.MediumResUrl,
-					author = broadcast.Author,
-					authorId = broadcast.ChannelId,
-					uploadDate = broadcast.UploadDate,
+					creator = broadcast.Author,
+					creatorId = broadcast.ChannelId,
+					creationDate = broadcast.UploadDate,
 					isLive = broadcast.IsLive,
 					viewerCount = broadcast.ViewerCount,
 					schedule = broadcast.Schedule

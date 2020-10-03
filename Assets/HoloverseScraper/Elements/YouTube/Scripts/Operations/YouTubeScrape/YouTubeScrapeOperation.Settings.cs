@@ -11,21 +11,21 @@ namespace Holoverse.Scraper
 		[Serializable]
 		public class Settings
 		{
-			public List<AuthorGroup> idols => _idols;
+			public List<CreatorGroup> idols => _idols;
 			[Space]
 			[SerializeField]
-			private List<AuthorGroup> _idols = new List<AuthorGroup>();
+			private List<CreatorGroup> _idols = new List<CreatorGroup>();
 
-			public List<AuthorGroup> community => _community;
+			public List<CreatorGroup> community => _community;
 			[SerializeField]
-			private List<AuthorGroup> _community = new List<AuthorGroup>();
+			private List<CreatorGroup> _community = new List<CreatorGroup>();
 		}
 
 		[Serializable]
-		public class AuthorGroup
+		public class CreatorGroup
 		{
 			public string name = string.Empty;
-			public List<Author> authors = new List<Author>();
+			public List<Creator> creators = new List<Creator>();
 		}
 	}
 }
