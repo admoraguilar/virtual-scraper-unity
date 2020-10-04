@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e1634b50ba46114084d62d3ca654b37, type: 3}
   m_Name: CreatorDatabaseBuilder
   m_EditorClassIdentifier: 
-  _creatorObjectsFolderPath: {fileID: 102900000, guid: a83073264a0ae05419e4a22ea4df7ac5,
-    type: 3}
-  _toExcludeCreators: []
   _dataClientSettings:
     connectionString: mongodb+srv://<username>:<password>@us-east-1-free.41hlb.mongodb.net/test
     userName: holoverse-editor
     password: RBqYN3ugVTb2stqD
+  _editor_creatorObjectsFolderPath: {fileID: 102900000, guid: a83073264a0ae05419e4a22ea4df7ac5,
+    type: 3}
+  _editor_toExcludeCreators: []

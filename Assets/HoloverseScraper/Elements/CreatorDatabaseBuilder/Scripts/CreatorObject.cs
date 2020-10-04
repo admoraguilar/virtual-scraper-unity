@@ -5,7 +5,7 @@ namespace Holoverse.Scraper
 {
 	using Api.Data;
 
-	[CreateAssetMenu(menuName = "Holoverse/Creator Database/Creator Object")]
+	[CreateAssetMenu(menuName = "Holoverse/Content Database/Creator Object")]
 	public class CreatorObject : ScriptableObject
 	{
 		public static implicit operator Creator(CreatorObject obj) => obj.ToCreator();

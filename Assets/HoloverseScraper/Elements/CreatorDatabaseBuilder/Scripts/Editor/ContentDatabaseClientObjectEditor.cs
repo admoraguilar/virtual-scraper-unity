@@ -5,22 +5,23 @@ namespace Holoverse.Scraper
 {
 	using UEditor = UnityEditor.Editor;
 
-	[CustomEditor(typeof(CreatorDatabaseBuilder), true)]
-	public class CreatorDatabaseBuilderEditor : UEditor
+	[CustomEditor(typeof(ContentDatabaseClientObject), true)]
+	public class ContentDatabaseClientObjectEditor : UEditor
 	{
-		public new CreatorDatabaseBuilder target => (CreatorDatabaseBuilder)base.target;
+		public new ContentDatabaseClientObject target => (ContentDatabaseClientObject)base.target;
 
 		private void DrawCreatorsCollectionOperators()
 		{
 			EditorGUILayout.LabelField("creators.json");
 			if(GUILayout.Button("Export To Local JSON")) { target.Editor_ExportCreatorsJSON(); }
-			if(GUILayout.Button("Write To Database")) { target.Editor_WriteToCreatorsDB(); }
+			if(GUILayout.Button("Write To Creators Collection")) { target.Editor_WriteToCreatorsCollection(); }
 		}
 
 		private void DrawVideosCollectionOperators()
 		{
 			EditorGUILayout.LabelField("videos.json");
-			if(GUILayout.Button("Export To Local JSON")) { target.Editor_ExportVideosJSON(); }
+			if(GUILayout.Button("Export Videos Using Local Creators JSON")) { target.Editor_ExportVideosUsingLocalCreatorsJSON(); }
+			if(GUILayout.Button("Write To Videos Collection")) { target.Editor_WriteToVideosCollection(); }
 		}
 
 		public override void OnInspectorGUI()

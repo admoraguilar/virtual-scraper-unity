@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Collections;
 using System.Collections.Generic;
 using MongoDB.Bson;
 using MongoDB.Driver;
@@ -69,7 +68,7 @@ namespace Holoverse.Api.Data
 				void AddValueMatchFilters(Expression<Func<T, object>> field, IEnumerable<string> values)
 				{
 					foreach(string value in values) {
-						filters.Add(builder.Regex(field, $"/{value}/i"));
+						filters.Add(builder.Regex(field, new BsonRegularExpression($".*{value}.*", "i")));
 					}
 				}
 			}
