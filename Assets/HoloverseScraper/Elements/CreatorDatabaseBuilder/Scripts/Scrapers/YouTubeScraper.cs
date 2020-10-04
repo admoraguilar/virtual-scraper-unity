@@ -46,11 +46,11 @@ namespace Holoverse.Scraper
 				// the dates are messed up, so we run a correction to
 				// fix it
 				if(uploadDateAnchor != default && video.UploadDate.Subtract(uploadDateAnchor).TotalDays > 60) {
-					MLog.Log(
-						nameof(YouTubeScraper),
-						$"Wrong date detected from [L: {uploadDateAnchor} | C:{video.UploadDate}]! " +
-						$"Fixing {video.Title}..."
-					);
+					//MLog.Log(
+					//	nameof(YouTubeScraper),
+					//	$"Wrong date detected from [L: {uploadDateAnchor} | C:{video.UploadDate}]! " +
+					//	$"Fixing {video.Title}..."
+					//);
 					
 					// Disabled: We don't do a full checking of a the video anymore for
 					// full accuracy because it's too slow of a process especially if there's

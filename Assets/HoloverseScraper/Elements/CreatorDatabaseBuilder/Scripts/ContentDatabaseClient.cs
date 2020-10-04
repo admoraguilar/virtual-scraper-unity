@@ -13,6 +13,9 @@ namespace Holoverse.Scraper
 
 	public class ContentDatabaseClient
 	{
+		public event Action<string> onScrapeVideosProgressDetail = delegate { };
+		public event Action<string> onGetAndWriteToVideosCollectionFromCreatorsCollectionDetail = delegate { };
+
 		private string creatorsLocalJSONPath => PathUtilities.CreateDataPath("Holoverse", "creators.json", PathType.Data);
 		private string videosLocalJSONPath => PathUtilities.CreateDataPath("Holoverse", "videos.json", PathType.Data);
 
@@ -47,8 +50,6 @@ namespace Holoverse.Scraper
 
 		public async Task ExportVideosUsingLocalCreatorsJSONAsync()
 		{
-			MLog.Log($"[{nameof(ContentDatabaseClientObject)}] Start scraping videos.");
-
 			Creator[] creators = null;
 			JsonUtilities.LoadFromDisk(ref creators, new JsonUtilities.LoadFromDiskParameters {
 				filePath = creatorsLocalJSONPath
@@ -62,27 +63,44 @@ namespace Holoverse.Scraper
 					TypeNameHandling = TypeNameHandling.Auto
 				}
 			});
+		}
 
-			MLog.Log($"[{nameof(ContentDatabaseClientObject)}] Finish scraping videos.");
+		public async Task WriteToVideosCollectionUsingLocalJson()
+		{
+			MLog.Log($"Start loading local json videos...");
+			List<Video> videos = new List<Video>();
+			JsonUtilities.LoadFromDisk(ref videos, new JsonUtilities.LoadFromDiskParameters {
+				filePath = videosLocalJSONPath
+			});
+			MLog.Log($"Finish loading local json videos...");
+
+			await WriteToVideosCollectionAsync(videos);
 		}
 
 		public async Task GetAndWriteToVideosCollectionFromCreatorsCollection()
 		{
 			List<Video> videos = new List<Video>();
 
+			MLog.Log($"Start scraping videos...");
+			onGetAndWriteToVideosCollectionFromCreatorsCollectionDetail?.Invoke($"Start scraping videos...");
 			using(IAsyncCursor<Creator> cursor = await GetCreatorsAsync(20)) {
 				while(await cursor.MoveNextAsync()) {
 					videos.AddRange(await ScrapeVideosAsync(cursor.Current));
 				}
 			}
-
-			await _dataClient.UpsertManyVideosAndDeleteDanglingAsync(videos);
+			MLog.Log($"Finished scraping videos...");
+			onGetAndWriteToVideosCollectionFromCreatorsCollectionDetail?.Invoke($"Finished scraping videos...");
+			
+			onGetAndWriteToVideosCollectionFromCreatorsCollectionDetail?.Invoke($"Writing to videos collection...");
+			await WriteToVideosCollectionAsync(videos);
+			onGetAndWriteToVideosCollectionFromCreatorsCollectionDetail?.Invoke($"Finished writing to videos collection!");
 		}
 
 		public async Task<List<Video>> ScrapeVideosAsync(IEnumerable<Creator> creators)
 		{
 			List<Video> videos = new List<Video>();
 			await Concurrent.ForEachAsync(creators.ToList(), ProcessCreator, 5);
+			onScrapeVideosProgressDetail = delegate { };
 			return videos;
 
 			async Task ProcessCreator(Creator creator)
@@ -91,25 +109,35 @@ namespace Holoverse.Scraper
 
 				// YouTube
 				foreach(Social youtube in creator.socials.Where(s => s.platform == Platform.YouTube)) {
-					MLog.Log($"[{nameof(ContentDatabaseClient)}] [YouTube: {youtube.name}] Scraping videos...");
+					MLog.Log($"[YouTube: {youtube.name}] Scraping videos...");
+					onScrapeVideosProgressDetail($"[YouTube: {youtube.name}] Scraping videos...");
 					videos.AddRange(await TaskExt.Retry(
 						() => _youtubeScraper.GetChannelVideos(creator, youtube.url),
-						TimeSpan.FromSeconds(3)
+						TimeSpan.FromSeconds(3), 50
 					));
 
-					MLog.Log($"[{nameof(ContentDatabaseClient)}] [YouTube: {youtube.name}] Scraping upcoming broadcasts...");
+					MLog.Log($"[YouTube: {youtube.name}] Scraping upcoming broadcasts...");
+					onScrapeVideosProgressDetail($"[YouTube: {youtube.name}] Scraping upcoming broadcasts...");
 					videos.AddRange(await TaskExt.Retry(
 						() => _youtubeScraper.GetChannelUpcomingBroadcasts(creator, youtube.url),
-						TimeSpan.FromSeconds(3)
+						TimeSpan.FromSeconds(3), 50
 					));
 
-					MLog.Log($"[{nameof(ContentDatabaseClient)}] [YouTube: {youtube.name}] Scraping now broadcasts...");
+					MLog.Log($"[YouTube: {youtube.name}] Scraping now broadcasts...");
+					onScrapeVideosProgressDetail($"[YouTube: {youtube.name}] Scraping now broadcasts...");
 					videos.AddRange(await TaskExt.Retry(
 						() => _youtubeScraper.GetChannelLiveBroadcasts(creator, youtube.url),
-						TimeSpan.FromSeconds(3)
+						TimeSpan.FromSeconds(3), 50
 					));
 				}
 			}
+		}
+
+		public async Task WriteToVideosCollectionAsync(IEnumerable<Video> videos)
+		{
+			MLog.Log($"Writing to videos collection...");
+			await _dataClient.UpsertManyVideosAndDeleteDanglingAsync(videos);
+			MLog.Log($"Finished writing to videos collection!");
 		}
 	}
 }

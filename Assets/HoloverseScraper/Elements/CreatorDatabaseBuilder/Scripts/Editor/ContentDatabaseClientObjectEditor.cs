@@ -7,6 +7,7 @@ using UnityEngine.Assertions;
 using UnityEditor;
 using Midnight;
 using Midnight.Concurrency;
+using System.Security.Cryptography;
 
 namespace Holoverse.Scraper
 {
@@ -17,13 +18,15 @@ namespace Holoverse.Scraper
 	{
 		public new ContentDatabaseClientObject target => (ContentDatabaseClientObject)base.target;
 
+		private const string _updateCreatorsMetricKey = "Update Creator Details";
 		private const string _writeCreatorMetricKey = "Write Creator";
 		private const string _writeVideosMetricKey = "Write Videos";
-		private const string _updateCreatorsMetricKey = "Update Creator Details";
+		private const string _writeVideosUsingLocalMetricKey = "Write Videos Using Local";
 		private Dictionary<string, string> _metrics = new Dictionary<string, string> {
 			{ _updateCreatorsMetricKey, "-" },
 			{ _writeCreatorMetricKey, "-" },
-			{ _writeVideosMetricKey, "-" }
+			{ _writeVideosMetricKey, "-" },
+			{ _writeVideosUsingLocalMetricKey, "-" }
 		};
 
 		private void DrawHelperOperators()
@@ -43,6 +46,7 @@ namespace Holoverse.Scraper
 		{
 			EditorGUILayout.LabelField("videos.json");
 			if(GUILayout.Button("Export Videos Using Local Creators JSON")) { ExportVideosUsingLocalCreatorsJSON(); }
+			if(GUILayout.Button("Write To Videos Collection Using Local JSON")) { WriteToVideosCollectionUsingLocalJSON(); }
 			if(GUILayout.Button("Write To Videos Collection")) { WriteToVideosCollection(); }
 		}
 
@@ -82,7 +86,10 @@ namespace Holoverse.Scraper
 						}
 
 						AssetDatabase.Refresh();
-						EditorPrefs.SetString(_updateCreatorsMetricKey, _metrics[_updateCreatorsMetricKey] = stopwatch.elapsed.Duration().ToString());
+						EditorPrefs.SetString(
+							_updateCreatorsMetricKey, 
+							_metrics[_updateCreatorsMetricKey] = $"{stopwatch.elapsed.Duration()} - {DateTime.Now}"
+						);
 					}
 				}	
 			}
@@ -110,9 +117,12 @@ namespace Holoverse.Scraper
 							options = Progress.Options.Indefinite
 						}))
 					{
-						progress.Report(.5f);
+						progress.Report(.8f);
 						await target.client.WriteToCreatorsCollectionAsync(GetCreatorObjects().Select(obj => obj.ToCreator()).ToArray());
-						EditorPrefs.SetString(_writeCreatorMetricKey, _metrics[_writeCreatorMetricKey] = stopwatch.elapsed.Duration().ToString());
+						EditorPrefs.SetString(
+							_writeCreatorMetricKey, 
+							_metrics[_writeCreatorMetricKey] = $"{stopwatch.elapsed.Duration()} - {DateTime.Now}"
+						);
 					}
 				}
 			}
@@ -131,9 +141,33 @@ namespace Holoverse.Scraper
 							description = $"Running...",
 							options = Progress.Options.Indefinite
 						})) {
-						progress.Report(.5f);
+						progress.Report(.8f);
 						await target.client.ExportVideosUsingLocalCreatorsJSONAsync();
 						_metrics["Export Videos to JSON"] = stopwatch.elapsed.Duration().ToString();
+					}
+				}
+			}
+		}
+
+		public void WriteToVideosCollectionUsingLocalJSON()
+		{
+			TaskExt.FireForget(Execute());
+
+			async Task Execute()
+			{
+				using(StopwatchScope stopwatch = new StopwatchScope()) {
+					using(ProgressScope progress = new ProgressScope(
+						new ProgressScope.Parameters {
+							name = "Writing to videos collection using local creators JSON",
+							description = $"Running...",
+							options = Progress.Options.Indefinite
+						})) {
+						progress.Report(.8f);
+						await target.client.WriteToVideosCollectionUsingLocalJson();
+						EditorPrefs.SetString(
+							_writeVideosUsingLocalMetricKey,
+							_metrics[_writeVideosUsingLocalMetricKey] = $"{stopwatch.elapsed.Duration()} - {DateTime.Now}"
+						);
 					}
 				}
 			}
@@ -151,10 +185,23 @@ namespace Holoverse.Scraper
 							name = "Writing to videos collection",
 							description = $"Running...",
 							options = Progress.Options.Indefinite
-						})) {
-						progress.Report(.5f);
+						})) 
+					{
+						float step = 0f;
+
+						target.client.onScrapeVideosProgressDetail += UpdateProgress;
+						target.client.onGetAndWriteToVideosCollectionFromCreatorsCollectionDetail += UpdateProgress;
 						await target.client.GetAndWriteToVideosCollectionFromCreatorsCollection();
-						EditorPrefs.SetString(_writeVideosMetricKey, _metrics[_writeVideosMetricKey] = stopwatch.elapsed.Duration().ToString());
+						EditorPrefs.SetString(
+							_writeVideosMetricKey, 
+							_metrics[_writeVideosMetricKey] = $"{stopwatch.elapsed.Duration()} - {DateTime.Now}"
+						);
+
+						void UpdateProgress(string description)
+						{
+							progress.Report(step, description);
+							step = step > 1f ? 0f : step + .1f;
+						}
 					}
 				}
 			}
