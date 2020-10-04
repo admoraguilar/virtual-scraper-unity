@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using UnityEngine;
@@ -92,7 +91,7 @@ namespace Holoverse.Scraper
 		public void ExportCreatorsJSON()
 		{
 			using(StopwatchScope stopwatch = new StopwatchScope()) {
-				target.ExportCreatorsJSON(GetCreatorObjects().Select(obj => obj.ToCreator()).ToArray());
+				target.client.ExportCreatorsJSON(GetCreatorObjects().Select(obj => obj.ToCreator()).ToArray());
 				_metrics["Export Creators to JSON"] = stopwatch.elapsed.Duration().ToString();
 			}
 		}
@@ -112,7 +111,7 @@ namespace Holoverse.Scraper
 						}))
 					{
 						progress.Report(.5f);
-						await target.WriteToCreatorsCollectionAsync(GetCreatorObjects().Select(obj => obj.ToCreator()).ToArray());
+						await target.client.WriteToCreatorsCollectionAsync(GetCreatorObjects().Select(obj => obj.ToCreator()).ToArray());
 						EditorPrefs.SetString(_writeCreatorMetricKey, _metrics[_writeCreatorMetricKey] = stopwatch.elapsed.Duration().ToString());
 					}
 				}
@@ -133,7 +132,7 @@ namespace Holoverse.Scraper
 							options = Progress.Options.Indefinite
 						})) {
 						progress.Report(.5f);
-						await target.ExportVideosUsingLocalCreatorsJSONAsync();
+						await target.client.ExportVideosUsingLocalCreatorsJSONAsync();
 						_metrics["Export Videos to JSON"] = stopwatch.elapsed.Duration().ToString();
 					}
 				}
@@ -154,7 +153,7 @@ namespace Holoverse.Scraper
 							options = Progress.Options.Indefinite
 						})) {
 						progress.Report(.5f);
-						await target.WriteToVideosCollectionAsync();
+						await target.client.GetAndWriteToVideosCollectionFromCreatorsCollection();
 						EditorPrefs.SetString(_writeVideosMetricKey, _metrics[_writeVideosMetricKey] = stopwatch.elapsed.Duration().ToString());
 					}
 				}

@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using MongoDB.Driver;
+using Newtonsoft.Json;
 using Midnight;
 using Midnight.Concurrency;
 
@@ -12,6 +13,9 @@ namespace Holoverse.Scraper
 
 	public class ContentDatabaseClient
 	{
+		private string creatorsLocalJSONPath => PathUtilities.CreateDataPath("Holoverse", "creators.json", PathType.Data);
+		private string videosLocalJSONPath => PathUtilities.CreateDataPath("Holoverse", "videos.json", PathType.Data);
+
 		private HoloverseDataClient _dataClient = null;
 		private YouTubeScraper _youtubeScraper = null;
 
@@ -29,9 +33,50 @@ namespace Holoverse.Scraper
 			);
 		}
 
+		public void ExportCreatorsJSON(IEnumerable<Creator> creators)
+		{
+			JsonUtilities.SaveToDisk(creators, new JsonUtilities.SaveToDiskParameters {
+				filePath = creatorsLocalJSONPath
+			});
+		}
+
 		public async Task WriteToCreatorsCollectionAsync(IEnumerable<Creator> creators)
 		{
 			await _dataClient.UpsertManyCreatorsAndDeleteDanglingAsync(creators);
+		}
+
+		public async Task ExportVideosUsingLocalCreatorsJSONAsync()
+		{
+			MLog.Log($"[{nameof(ContentDatabaseClientObject)}] Start scraping videos.");
+
+			Creator[] creators = null;
+			JsonUtilities.LoadFromDisk(ref creators, new JsonUtilities.LoadFromDiskParameters {
+				filePath = creatorsLocalJSONPath
+			});
+
+			List<Video> videos = await ScrapeVideosAsync(creators);
+
+			JsonUtilities.SaveToDisk(videos, new JsonUtilities.SaveToDiskParameters {
+				filePath = videosLocalJSONPath,
+				jsonSerializerSettings = new JsonSerializerSettings {
+					TypeNameHandling = TypeNameHandling.Auto
+				}
+			});
+
+			MLog.Log($"[{nameof(ContentDatabaseClientObject)}] Finish scraping videos.");
+		}
+
+		public async Task GetAndWriteToVideosCollectionFromCreatorsCollection()
+		{
+			List<Video> videos = new List<Video>();
+
+			using(IAsyncCursor<Creator> cursor = await GetCreatorsAsync(20)) {
+				while(await cursor.MoveNextAsync()) {
+					videos.AddRange(await ScrapeVideosAsync(cursor.Current));
+				}
+			}
+
+			await _dataClient.UpsertManyVideosAndDeleteDanglingAsync(videos);
 		}
 
 		public async Task<List<Video>> ScrapeVideosAsync(IEnumerable<Creator> creators)
@@ -65,24 +110,6 @@ namespace Holoverse.Scraper
 					));
 				}
 			}
-		}
-
-		public async Task WriteToVideosCollectionAsync()
-		{
-			List<Video> videos = new List<Video>();
-
-			using(IAsyncCursor<Creator> cursor = await GetCreatorsAsync(20)) {
-				while(await cursor.MoveNextAsync()) {
-					videos.AddRange(await ScrapeVideosAsync(cursor.Current));
-				}
-			}
-
-			await WriteToVideosCollectionAsync(videos);
-		}
-
-		public async Task WriteToVideosCollectionAsync(IEnumerable<Video> videos)
-		{
-			await _dataClient.UpsertManyVideosAndDeleteDanglingAsync(videos);
 		}
 	}
 }
