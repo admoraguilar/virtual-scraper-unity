@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43910ccb2860f8646b8d5c01236b6542, type: 3}
+  m_Name: SakuraMiko
+  m_EditorClassIdentifier: 
+  universalName: Sakura Miko
+  universalId: SakuraMiko
+  wikiUrl: https://virtualyoutuber.fandom.com/wiki/Sakura_Miko
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJyKGBusDmf7stiwXDVORLo21xtnBj2YUHrPd-CxYA=s100-c-k-c0xffffffff-no-rj-mo
+  isHidden: 0
+  affiliations:
+  - {fileID: 11400000, guid: f3a53d8e797355b4d916d827a0a5b7ac, type: 2}
+  isGroup: 0
+  depth: 0
+  socials:
+  - name: "Miko Ch. \u3055\u304F\u3089\u307F\u3053"
+    platform: 1
+    id: UC-hM6YJuNYVAmUWxeIr9FeA
+    url: https://www.youtube.com/channel/UC-hM6YJuNYVAmUWxeIr9FeA
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJxvfkV0UikqTA-yx4opKjGB36TXtUG9jLX1PO1FOQ=s100-c-k-c0xffffffff-no-rj-mo
+    customKeywords:
+    - Miko Sakura
+    - Sakura Miko
+    - Miko
+    - Sakura
+    - "\u3055\u304F\u3089\u307F\u3053"
+    - "\u3055\u304F\u3089"
+    - "\u307F\u3053"
+  customKeywords: []

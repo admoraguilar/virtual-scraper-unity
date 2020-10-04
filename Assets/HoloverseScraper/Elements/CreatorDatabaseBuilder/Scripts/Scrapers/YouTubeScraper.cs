@@ -39,17 +39,31 @@ namespace Holoverse.Scraper
 			List<Video> results = new List<Video>();
 
 			IReadOnlyList<ExVideo> videos = await _client.Channels.GetUploadsAsync(channelUrl);
-			DateTimeOffset lastVideoDate = default;
+			DateTimeOffset uploadDateAnchor = default;
 			foreach(ExVideo video in videos) {
 				// We process the video date because sometimes
 				// the dates are messed up, so we run a correction to
 				// fix it
-				ExVideo processedVideo = video;
-				if(lastVideoDate != default && processedVideo.UploadDate.Subtract(lastVideoDate).TotalDays > 60) {
-					MLog.Log($"Wrong date detected! Fixing {processedVideo.Title}...");
-					processedVideo = await _client.Videos.GetAsync(processedVideo.Url);
+				if(uploadDateAnchor != default && video.UploadDate.Subtract(uploadDateAnchor).TotalDays > 60) {
+					MLog.Log(
+						nameof(YouTubeScraper),
+						$"Wrong date detected from [L: {uploadDateAnchor} | C:{video.UploadDate}]! " +
+						$"Fixing {video.Title}..."
+					);
+					
+					// Disabled: We don't do a full checking of a the video anymore for
+					// full accuracy because it's too slow of a process especially if there's
+					// too many discrepancies in dates
+					//processedVideo = await _client.Videos.GetAsync(processedVideo.Url);
+
+					// Hack: as the videos we're scraping are always descending
+					// we just put a date that's a bit behind the upload date anchor
+					// this is so if we put things the videos in order they'd still be
+					// in order albeit now with accurate dates
+					uploadDateAnchor = uploadDateAnchor.AddDays(-1);
+				} else {
+					uploadDateAnchor = video.UploadDate;
 				}
-				lastVideoDate = processedVideo.UploadDate;
 
 				results.Add(new Video {
 					title = video.Title,
@@ -62,7 +76,7 @@ namespace Holoverse.Scraper
 					creatorUniversal = creator.universalName,
 					creatorIdUniversal = creator.universalId,
 
-					creationDate = video.UploadDate,
+					creationDate = uploadDateAnchor,
 					tags = video.Keywords.ToArray(),
 
 					thumbnailUrl = video.Thumbnails.MediumResUrl,
@@ -78,7 +92,7 @@ namespace Holoverse.Scraper
 		public async Task<List<Broadcast>> GetChannelLiveBroadcasts(Creator creator, string channelUrl)
 		{
 			return await GetChannelBroadcasts(
-				creator, channelUrl, 
+				creator, channelUrl,
 				BroadcastType.Now
 			);
 		}
@@ -86,13 +100,13 @@ namespace Holoverse.Scraper
 		public async Task<List<Broadcast>> GetChannelUpcomingBroadcasts(Creator creator, string channelUrl)
 		{
 			return await GetChannelBroadcasts(
-				creator, channelUrl, 
+				creator, channelUrl,
 				BroadcastType.Upcoming
 			);
 		}
 
 		private async Task<List<Broadcast>> GetChannelBroadcasts(
-			Creator creator, string channelUrl, 
+			Creator creator, string channelUrl,
 			BroadcastType type)
 		{
 			List<Broadcast> results = new List<Broadcast>();

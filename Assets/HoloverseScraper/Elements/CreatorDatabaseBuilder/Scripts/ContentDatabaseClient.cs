@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using MongoDB.Driver;
@@ -25,8 +24,9 @@ namespace Holoverse.Scraper
 		public async Task<IAsyncCursor<Creator>> GetCreatorsAsync(int batchSize)
 		{
 			using(new StopwatchScope(
-				$"[{nameof(ContentDatabaseClient)}] Start getting creators from collection.",
-				$"[{nameof(ContentDatabaseClient)}] Finished getting creators from collection.")) 
+				nameof(ContentDatabaseClient),
+				$"Start getting creators from collection.",
+				$"Finished getting creators from collection.")) 
 			{
 				return await _dataClient.FindMatchingCreatorsAsync(
 					HoloverseDataFilter.Creator.All(),
@@ -38,8 +38,9 @@ namespace Holoverse.Scraper
 		public async Task WriteToCreatorsCollectionAsync(IEnumerable<Creator> creators)
 		{
 			using(new StopwatchScope(
-				$"[{nameof(ContentDatabaseClient)}] Start writing creators to collection.",
-				$"[{nameof(ContentDatabaseClient)}] Finished writing creators to collection.")) 
+				nameof(ContentDatabaseClient),
+				$"Start writing creators to collection.",
+				$"Finished writing creators to collection.")) 
 			{
 				await _dataClient.UpsertManyCreatorsAndDeleteDanglingAsync(creators);
 			}
@@ -50,8 +51,9 @@ namespace Holoverse.Scraper
 			List<Video> videos = new List<Video>();
 
 			using(new StopwatchScope(
-				$"[{nameof(ContentDatabaseClient)}] Start scraping videos of creators.",
-				$"[{nameof(ContentDatabaseClient)}] Finished scraping videos of creators.")) {
+				nameof(ContentDatabaseClient),
+				$"Start scraping videos of creators.",
+				$"Finished scraping videos of creators.")) {
 				await Concurrent.ForEachAsync(creators.ToList(), ProcessCreator, 5);
 			}
 
@@ -87,8 +89,9 @@ namespace Holoverse.Scraper
 		public async Task WriteToVideosCollectionAsync()
 		{
 			using(new StopwatchScope(
-				$"[{nameof(ContentDatabaseClient)}] Start gathering then writing videos from collection.",
-				$"[{nameof(ContentDatabaseClient)}] Finished gathering then writing videos to collection.")) 
+				nameof(ContentDatabaseClient),
+				$"Start gathering then writing videos from collection.",
+				$"Finished gathering then writing videos to collection.")) 
 			{
 				List<Video> videos = new List<Video>();
 
@@ -105,8 +108,9 @@ namespace Holoverse.Scraper
 		public async Task WriteToVideosCollectionAsync(IEnumerable<Video> videos)
 		{
 			using(new StopwatchScope(
-				$"[{nameof(ContentDatabaseClient)}] Start writing videos to collection.",
-				$"[{nameof(ContentDatabaseClient)}] Finished writing videos to collection.")) {
+				nameof(ContentDatabaseClient),
+				$"Start writing videos to collection.",
+				$"Finished writing videos to collection.")) {
 				await _dataClient.UpsertManyVideosAndDeleteDanglingAsync(videos);
 			}
 		}

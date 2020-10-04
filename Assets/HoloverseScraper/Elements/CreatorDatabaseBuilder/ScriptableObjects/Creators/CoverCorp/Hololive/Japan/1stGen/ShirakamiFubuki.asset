@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43910ccb2860f8646b8d5c01236b6542, type: 3}
+  m_Name: ShirakamiFubuki
+  m_EditorClassIdentifier: 
+  universalName: Shirakami Fubuki
+  universalId: ShirakamiFubuki
+  wikiUrl: https://virtualyoutuber.fandom.com/wiki/Shirakami_Fubuki
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJztvRXzNX8UtsaUZfLLBh32VBBwNPcvy_TklUjnWA=s100-c-k-c0xffffffff-no-rj-mo
+  isHidden: 0
+  affiliations:
+  - {fileID: 11400000, guid: 3a8cfb64d8c1c2843b45c2ee01972131, type: 2}
+  isGroup: 0
+  depth: 0
+  socials:
+  - name: "\u30D5\u30D6\u30ADCh\u3002\u767D\u4E0A\u30D5\u30D6\u30AD"
+    platform: 1
+    id: UCdn5BQ06XqgXoAxIhbqw5Rg
+    url: https://www.youtube.com/channel/UCdn5BQ06XqgXoAxIhbqw5Rg
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJztvRXzNX8UtsaUZfLLBh32VBBwNPcvy_TklUjnWA=s100-c-k-c0xffffffff-no-rj-mo
+    customKeywords:
+    - Shirakami Fubuki
+    - Fubuki Shirakami
+    - Shirakami
+    - Fubuki
+    - "\u30D5\u30D6\u30AD"
+  customKeywords: []
