@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEngine;
 
 namespace Holoverse.Scraper.Editor
 {
@@ -70,6 +71,13 @@ namespace Holoverse.Scraper.Editor
 					}
 
 					AssetDatabase.Refresh();
+				}
+			}
+
+			EditorGUILayout.LabelField("Helper Methods");
+			if(GUILayout.Button("Autofill")) {
+				foreach(CreatorObject target in targets) {
+					target.Editor_AutoFill();
 				}
 			}
 		}

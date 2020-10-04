@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Tokino Sora
   universalId: TokinoSora
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Tokino_Sora
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJxvfkV0UikqTA-yx4opKjGB36TXtUG9jLX1PO1FOQ=s100-c-k-c0xffffffff-no-rj-mo
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJxvfkV0UikqTA-yx4opKjGB36TXtUG9jLX1PO1FOQ=s900-c-k-c0xffffffff-no-rj-mo
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: f3a53d8e797355b4d916d827a0a5b7ac, type: 2}
@@ -26,13 +26,6 @@ MonoBehaviour:
     platform: 1
     id: UCp6993wxpyDPHUpavwDFqgg
     url: https://www.youtube.com/channel/UCp6993wxpyDPHUpavwDFqgg
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJxvfkV0UikqTA-yx4opKjGB36TXtUG9jLX1PO1FOQ=s100-c-k-c0xffffffff-no-rj-mo
-    customKeywords:
-    - Tokino Sora
-    - Sora Tokino
-    - Tokino
-    - Sora
-    - "\u3068\u304D\u306E\u305D\u3089"
-    - "\u3068\u304D\u306E"
-    - "\u305D\u3089"
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJxvfkV0UikqTA-yx4opKjGB36TXtUG9jLX1PO1FOQ=s900-c-k-c0xffffffff-no-rj-mo
+    customKeywords: []
   customKeywords: []

@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Aki Rosenthal
   universalId: AkiRosenthal
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Aki_Rosenthal
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJz-Y3lEysu2wkT7AdTaPU77l938jwf2p2r8hi7e=s100-c-k-c0xffffffff-no-rj-mo
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJz-Y3lEysu2wkT7AdTaPU77l938jwf2p2r8hi7e=s900-c-k-c0xffffffff-no-rj-mo
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: 3a8cfb64d8c1c2843b45c2ee01972131, type: 2}
@@ -26,13 +26,6 @@ MonoBehaviour:
     platform: 1
     id: UCFTLzh12_nrtzqBPsTCqenA
     url: https://www.youtube.com/channel/UCFTLzh12_nrtzqBPsTCqenA
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJz-Y3lEysu2wkT7AdTaPU77l938jwf2p2r8hi7e=s100-c-k-c0xffffffff-no-rj-mo
-    customKeywords:
-    - Aki Rosenthal
-    - Rosenthal Aki
-    - Aki
-    - Rosenthal
-    - "\u30A2\u30AD\u30ED\u30BC"
-    - "\u30A2\u30AD"
-    - "\u30ED\u30BC"
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJz-Y3lEysu2wkT7AdTaPU77l938jwf2p2r8hi7e=s900-c-k-c0xffffffff-no-rj-mo
+    customKeywords: []
   customKeywords: []

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: hololiveJapanGamers
   m_EditorClassIdentifier: 
   universalName: hololive Japan (GAMERS)
-  universalId: hololiveJapanGamers
-  wikiUrl: 
+  universalId: hololiveJapanGAMERS
+  wikiUrl: https://virtualyoutuber.fandom.com/wiki/hololive_Japan_(GAMERS)
   avatarUrl: 
   isHidden: 0
   affiliations:

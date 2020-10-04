@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: CoverCorp
   m_EditorClassIdentifier: 
   universalName: Cover Corp.
-  universalId: CoverCorp
-  wikiUrl: 
+  universalId: CoverCorp.
+  wikiUrl: https://virtualyoutuber.fandom.com/wiki/Cover_Corp.
   avatarUrl: 
   isHidden: 0
   affiliations: []

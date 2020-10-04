@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: hololiveJapanInonakaMusic
   m_EditorClassIdentifier: 
   universalName: hololive Japan (INoNaKa MUSIC)
-  universalId: hololiveJapanInonakaMusic
-  wikiUrl: 
+  universalId: hololiveJapanINoNaKaMUSIC
+  wikiUrl: https://virtualyoutuber.fandom.com/wiki/hololive_Japan_(INoNaKa_MUSIC)
   avatarUrl: 
   isHidden: 0
   affiliations:

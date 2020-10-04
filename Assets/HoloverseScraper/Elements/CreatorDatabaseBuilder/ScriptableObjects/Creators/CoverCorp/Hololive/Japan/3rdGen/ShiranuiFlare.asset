@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43910ccb2860f8646b8d5c01236b6542, type: 3}
+  m_Name: ShiranuiFlare
+  m_EditorClassIdentifier: 
+  universalName: Shiranui Flare
+  universalId: ShiranuiFlare
+  wikiUrl: https://virtualyoutuber.fandom.com/wiki/Shiranui_Flare
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJwGmRMcFMvE1JW3v152HnrXfMQxbI_Dw92KH0-CpA=s900-c-k-c0xffffffff-no-rj-mo
+  isHidden: 0
+  affiliations:
+  - {fileID: 11400000, guid: 3c29f7ecd18c7c54aa3587e875a65ea5, type: 2}
+  isGroup: 0
+  depth: 0
+  socials:
+  - name: "Flare Ch. \u4E0D\u77E5\u706B\u30D5\u30EC\u30A2"
+    platform: 1
+    id: UCvInZx9h3jC2JzsIzoOebWg
+    url: https://www.youtube.com/channel/UCvInZx9h3jC2JzsIzoOebWg
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJwGmRMcFMvE1JW3v152HnrXfMQxbI_Dw92KH0-CpA=s900-c-k-c0xffffffff-no-rj-mo
+    customKeywords: []
+  customKeywords: []

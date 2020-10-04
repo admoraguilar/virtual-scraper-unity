@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Akai Haato
   universalId: AkaiHaato
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Akai_Haato
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJw3IoOJZlLAn_Eyy0r6gJHR3vt64XHfuXCailaCPw=s100-c-k-c0xffffffff-no-rj-mo
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJw3IoOJZlLAn_Eyy0r6gJHR3vt64XHfuXCailaCPw=s900-c-k-c0xffffffff-no-rj-mo
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: 3a8cfb64d8c1c2843b45c2ee01972131, type: 2}
@@ -26,14 +26,6 @@ MonoBehaviour:
     platform: 1
     id: UC1CfXB_kRs3C-zaeTG3oGyg
     url: https://www.youtube.com/channel/UC1CfXB_kRs3C-zaeTG3oGyg
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJw3IoOJZlLAn_Eyy0r6gJHR3vt64XHfuXCailaCPw=s100-c-k-c0xffffffff-no-rj-mo
-    customKeywords:
-    - Akai Haato
-    - Haato Akai
-    - Akai
-    - Haato
-    - "\u8D64\u4E95\u306F\u3042\u3068"
-    - "\u8D64\u4E95"
-    - "\u306F\u3042\u3068"
-    - Haachama
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJw3IoOJZlLAn_Eyy0r6gJHR3vt64XHfuXCailaCPw=s900-c-k-c0xffffffff-no-rj-mo
+    customKeywords: []
   customKeywords: []

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   universalName: hololive English
   universalId: hololiveEnglish
-  wikiUrl: 
+  wikiUrl: https://virtualyoutuber.fandom.com/wiki/hololive_English
   avatarUrl: 
   isHidden: 0
   affiliations:

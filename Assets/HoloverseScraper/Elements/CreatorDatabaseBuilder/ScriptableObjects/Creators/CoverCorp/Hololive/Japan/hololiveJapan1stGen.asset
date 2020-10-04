@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43910ccb2860f8646b8d5c01236b6542, type: 3}
-  m_Name: hololiveJapan0thGen
+  m_Name: hololiveJapan1stGen
   m_EditorClassIdentifier: 
-  universalName: hololive Japan (0th Gen)
-  universalId: hololiveJapan0thGen
-  wikiUrl: 
+  universalName: hololive Japan (1st Gen)
+  universalId: hololiveJapan1stGen
+  wikiUrl: https://virtualyoutuber.fandom.com/wiki/hololive_Japan_(1st_Gen)
   avatarUrl: 
   isHidden: 0
   affiliations:

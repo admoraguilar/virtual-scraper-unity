@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: hololiveIndonesia1stGen
   m_EditorClassIdentifier: 
   universalName: hololive Indonedia (1st Gen)
-  universalId: hololiveIndonesia1stGen
-  wikiUrl: 
+  universalId: hololiveIndonedia1stGen
+  wikiUrl: https://virtualyoutuber.fandom.com/wiki/hololive_Indonedia_(1st_Gen)
   avatarUrl: 
   isHidden: 0
   affiliations:

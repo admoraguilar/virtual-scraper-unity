@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43910ccb2860f8646b8d5c01236b6542, type: 3}
+  m_Name: InugamiKorone
+  m_EditorClassIdentifier: 
+  universalName: Inugami Korone
+  universalId: InugamiKorone
+  wikiUrl: https://virtualyoutuber.fandom.com/wiki/Inugami_Korone
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJyvWtmcbmGiE0e1m316wI0MJN6-hGWxjhGZeCWhFA=s900-c-k-c0xffffffff-no-rj-mo
+  isHidden: 0
+  affiliations:
+  - {fileID: 11400000, guid: 28ba8c50d596f02479a1d5bd4a35dd75, type: 2}
+  isGroup: 0
+  depth: 0
+  socials:
+  - name: "Korone Ch. \u620C\u795E\u3053\u308D\u306D"
+    platform: 1
+    id: UChAnqc_AY5_I3Px5dig3X1Q
+    url: https://www.youtube.com/channel/UChAnqc_AY5_I3Px5dig3X1Q
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJyvWtmcbmGiE0e1m316wI0MJN6-hGWxjhGZeCWhFA=s900-c-k-c0xffffffff-no-rj-mo
+    customKeywords: []
+  customKeywords: []

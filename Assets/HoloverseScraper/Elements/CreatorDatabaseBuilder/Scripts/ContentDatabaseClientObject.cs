@@ -1,16 +1,8 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Assertions;
 using Newtonsoft.Json;
 using Midnight;
-using Midnight.Concurrency;
-
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 namespace Holoverse.Scraper
 {
@@ -71,54 +63,14 @@ namespace Holoverse.Scraper
 		}
 
 #if UNITY_EDITOR
+		public UObject editor_creatorObjectsFolderPath => _editor_creatorObjectsFolderPath;
 		[Header("Editor")]
 		[SerializeField]
 		private UObject _editor_creatorObjectsFolderPath = null;
 
+		public CreatorObject[] editor_toExcludeCreators => _editor_toExcludeCreators;
 		[SerializeField]
 		private CreatorObject[] _editor_toExcludeCreators = new CreatorObject[0];
-
-		public void Editor_ExportCreatorsJSON()
-		{
-			ExportCreatorsJSON(Editor_GetCreatorObjects().Select(obj => obj.ToCreator()).ToArray());
-		}
-
-		public void Editor_WriteToCreatorsCollection()
-		{
-			TaskExt.FireForget(WriteToCreatorsCollectionAsync(Editor_GetCreatorObjects().Select(obj => obj.ToCreator()).ToArray()));
-		}
-
-		public void Editor_ExportVideosUsingLocalCreatorsJSON()
-		{
-			TaskExt.FireForget(ExportVideosUsingLocalCreatorsJSONAsync());
-		}
-
-		public void Editor_WriteToVideosCollection()
-		{
-			TaskExt.FireForget(WriteToVideosCollectionAsync());
-		}
-
-		public List<CreatorObject> Editor_GetCreatorObjects()
-		{
-			Assert.IsNotNull(_editor_creatorObjectsFolderPath);
-
-			string assetPath = AssetDatabase.GetAssetPath(_editor_creatorObjectsFolderPath);
-			Assert.IsTrue(AssetDatabase.IsValidFolder(assetPath), $"[{nameof(ContentDatabaseClientObject)}] '{assetPath}' is not a valid folder.");
-
-			AssetDatabase.ImportAsset(assetPath, ImportAssetOptions.ForceUpdate);
-			string[] objGUIDs = AssetDatabase.FindAssets($"t:{nameof(CreatorObject)}", new string[] { assetPath });
-
-			List<CreatorObject> results = new List<CreatorObject>();
-			foreach(string objGUID in objGUIDs) {
-				string objPath = AssetDatabase.GUIDToAssetPath(objGUID);
-				CreatorObject creatorObj = AssetDatabase.LoadAssetAtPath<CreatorObject>(objPath);
-				if(creatorObj != null && !Array.Exists(_editor_toExcludeCreators, e => e == creatorObj)) {
-					results.Add(creatorObj);
-				}
-			}
-
-			return results;
-		}
 #endif
 	}
 }

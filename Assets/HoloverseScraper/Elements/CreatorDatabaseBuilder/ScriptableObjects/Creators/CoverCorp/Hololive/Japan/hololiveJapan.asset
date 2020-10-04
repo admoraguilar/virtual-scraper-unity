@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   universalName: hololive Japan
   universalId: hololiveJapan
-  wikiUrl: 
+  wikiUrl: https://virtualyoutuber.fandom.com/wiki/hololive_Japan
   avatarUrl: 
   isHidden: 0
   affiliations:

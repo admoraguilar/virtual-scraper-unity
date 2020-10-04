@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43910ccb2860f8646b8d5c01236b6542, type: 3}
+  m_Name: ManoAloe
+  m_EditorClassIdentifier: 
+  universalName: Mano Aloe
+  universalId: ManoAloe
+  wikiUrl: https://virtualyoutuber.fandom.com/wiki/Mano_Aloe
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJyYCsfSn428TJHQl090qek59epckWGsjto9ZOad=s900-c-k-c0xffffffff-no-rj-mo
+  isHidden: 0
+  affiliations:
+  - {fileID: 11400000, guid: 7e182ef624863a74994fd9ef531f536c, type: 2}
+  isGroup: 0
+  depth: 0
+  socials:
+  - name: "Aloe Ch.\u9B54\u4E43\u30A2\u30ED\u30A8"
+    platform: 1
+    id: UCgZuwn-O7Szh9cAgHqJ6vjw
+    url: https://www.youtube.com/channel/UCgZuwn-O7Szh9cAgHqJ6vjw
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJyYCsfSn428TJHQl090qek59epckWGsjto9ZOad=s900-c-k-c0xffffffff-no-rj-mo
+    customKeywords: []
+  customKeywords: []

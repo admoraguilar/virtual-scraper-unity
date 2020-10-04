@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: IchikaraInc
   m_EditorClassIdentifier: 
   universalName: Ichikara Inc.
-  universalId: IchikaraInc
-  wikiUrl: 
+  universalId: IchikaraInc.
+  wikiUrl: https://virtualyoutuber.fandom.com/wiki/Ichikara_Inc.
   avatarUrl: 
   isHidden: 1
   affiliations: []

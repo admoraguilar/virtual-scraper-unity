@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Roboco
   universalId: Roboco
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Roboco
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJwaRkjEGAJYsolluzMRIgGvapzUY06q87q4yGJJ_Q=s100-c-k-c0xffffffff-no-rj-mo
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJwaRkjEGAJYsolluzMRIgGvapzUY06q87q4yGJJ_Q=s900-c-k-c0xffffffff-no-rj-mo
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: f3a53d8e797355b4d916d827a0a5b7ac, type: 2}
@@ -26,8 +26,6 @@ MonoBehaviour:
     platform: 1
     id: UCDqI2jOz0weumE8s7paEk6g
     url: https://www.youtube.com/channel/UCDqI2jOz0weumE8s7paEk6g
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJwaRkjEGAJYsolluzMRIgGvapzUY06q87q4yGJJ_Q=s100-c-k-c0xffffffff-no-rj-mo
-    customKeywords:
-    - Roboco
-    - "\u30ED\u30DC\u5B50"
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJwaRkjEGAJYsolluzMRIgGvapzUY06q87q4yGJJ_Q=s900-c-k-c0xffffffff-no-rj-mo
+    customKeywords: []
   customKeywords: []

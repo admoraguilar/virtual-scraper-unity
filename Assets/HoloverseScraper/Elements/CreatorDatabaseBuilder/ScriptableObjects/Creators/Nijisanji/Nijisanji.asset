@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   universalName: Nijisanji
   universalId: Nijisanji
-  wikiUrl: 
+  wikiUrl: https://virtualyoutuber.fandom.com/wiki/Nijisanji
   avatarUrl: 
   isHidden: 1
   affiliations:

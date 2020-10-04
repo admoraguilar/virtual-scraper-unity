@@ -1,5 +1,8 @@
 ﻿using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
+using Midnight;
+using Midnight.Concurrency;
 
 namespace Holoverse.Scraper
 {
@@ -24,6 +27,26 @@ namespace Holoverse.Scraper
 		public Social[] socials = new Social[0];
 		public string[] customKeywords = new string[0];
 
+		private YouTubeScraper _youtubeScraper = new YouTubeScraper();
+
+		public async Task UpdateAsync()
+		{
+			universalId = universalName.RemoveSpecialCharacters().Replace(" ", "");
+			wikiUrl = $"https://virtualyoutuber.fandom.com/wiki/{universalName.Replace(" ", "_")}";
+
+			bool isMainAvatarUrlSet = false;
+			for(int i = 0; i < socials.Length; i++) {
+				Social social = socials[i];
+				if(social.platform == Platform.YouTube) {
+					social = socials[i] = await _youtubeScraper.GetChannelInfo(social.url);
+					if(!isMainAvatarUrlSet) {
+						isMainAvatarUrlSet = true;
+						avatarUrl = social.avatarUrl;
+					}
+				}
+			}
+		}
+
 		public Creator ToCreator()
 		{
 			return new Creator {
@@ -42,5 +65,12 @@ namespace Holoverse.Scraper
 				customKeywords = customKeywords
 			};
 		}
+
+#if UNITY_EDITOR
+		public void Editor_AutoFill()
+		{
+			TaskExt.FireForget(UpdateAsync());
+		}
+#endif
 	}
 }

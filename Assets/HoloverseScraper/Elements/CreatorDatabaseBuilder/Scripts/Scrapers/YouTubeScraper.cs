@@ -23,14 +23,15 @@ namespace Holoverse.Scraper
 			_client = new YoutubeClient();
 		}
 
-		public async Task<Creator> GetChannelInfo(string channelUrl)
+		public async Task<Social> GetChannelInfo(string channelUrl)
 		{
-			ExChannel creator = await _client.Channels.GetAsync(channelUrl);
-			return new Creator {
-				wikiUrl = creator.Url,
-				universalId = creator.Id,
-				universalName = creator.Title,
-				avatarUrl = creator.LogoUrl
+			ExChannel channel = await _client.Channels.GetAsync(channelUrl);
+			return new Social {
+				name = channel.Title,
+				platform = Platform.YouTube,
+				id = channel.Id,
+				url = channel.Url,
+				avatarUrl = channel.LogoUrl
 			};
 		}
 

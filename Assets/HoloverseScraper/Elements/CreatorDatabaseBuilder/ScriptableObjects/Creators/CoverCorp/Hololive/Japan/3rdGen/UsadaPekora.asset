@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43910ccb2860f8646b8d5c01236b6542, type: 3}
+  m_Name: UsadaPekora
+  m_EditorClassIdentifier: 
+  universalName: Usada Pekora
+  universalId: UsadaPekora
+  wikiUrl: https://virtualyoutuber.fandom.com/wiki/Usada_Pekora
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJwFs1D2-rT1XPz-fvlO5ZdnkKhPU-Uu6GDwNDn_FA=s900-c-k-c0xffffffff-no-rj-mo
+  isHidden: 0
+  affiliations:
+  - {fileID: 11400000, guid: 3c29f7ecd18c7c54aa3587e875a65ea5, type: 2}
+  isGroup: 0
+  depth: 0
+  socials:
+  - name: "Pekora Ch. \u514E\u7530\u307A\u3053\u3089"
+    platform: 1
+    id: UC1DCedRgGHBdm81E1llLhOQ
+    url: https://www.youtube.com/channel/UC1DCedRgGHBdm81E1llLhOQ
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJwFs1D2-rT1XPz-fvlO5ZdnkKhPU-Uu6GDwNDn_FA=s900-c-k-c0xffffffff-no-rj-mo
+    customKeywords: []
+  customKeywords: []

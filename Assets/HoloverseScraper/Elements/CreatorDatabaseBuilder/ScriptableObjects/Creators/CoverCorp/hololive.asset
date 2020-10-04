@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: hololive
   m_EditorClassIdentifier: 
   universalName: hololive Production
-  universalId: hololive
-  wikiUrl: 
+  universalId: hololiveProduction
+  wikiUrl: https://virtualyoutuber.fandom.com/wiki/hololive_Production
   avatarUrl: 
   isHidden: 0
   affiliations:

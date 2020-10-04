@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43910ccb2860f8646b8d5c01236b6542, type: 3}
+  m_Name: MurasakiShion
+  m_EditorClassIdentifier: 
+  universalName: Murasaki Shion
+  universalId: MurasakiShion
+  wikiUrl: https://virtualyoutuber.fandom.com/wiki/Murasaki_Shion
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJx2dQl8H1TG2HBy9bMCMP-nHxOVXALwAJz8MFS_rA=s900-c-k-c0xffffffff-no-rj-mo
+  isHidden: 0
+  affiliations:
+  - {fileID: 11400000, guid: 6e8dc2b9fc2154a4fa9575b307e7301b, type: 2}
+  isGroup: 0
+  depth: 0
+  socials:
+  - name: "Shion Ch. \u7D2B\u54B2\u30B7\u30AA\u30F3"
+    platform: 1
+    id: UCXTpFs_3PqI41qX2d9tL2Rw
+    url: https://www.youtube.com/channel/UCXTpFs_3PqI41qX2d9tL2Rw
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJx2dQl8H1TG2HBy9bMCMP-nHxOVXALwAJz8MFS_rA=s900-c-k-c0xffffffff-no-rj-mo
+    customKeywords: []
+  customKeywords: []

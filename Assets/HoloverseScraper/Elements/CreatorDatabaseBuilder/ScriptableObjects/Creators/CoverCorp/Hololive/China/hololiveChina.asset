@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   universalName: hololive China
   universalId: hololiveChina
-  wikiUrl: 
+  wikiUrl: https://virtualyoutuber.fandom.com/wiki/hololive_China
   avatarUrl: 
   isHidden: 0
   affiliations:

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e1634b50ba46114084d62d3ca654b37, type: 3}
-  m_Name: CreatorDatabaseBuilder
+  m_Name: ContentDatabaseClient
   m_EditorClassIdentifier: 
   _dataClientSettings:
     connectionString: mongodb+srv://<username>:<password>@us-east-1-free.41hlb.mongodb.net/test

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43910ccb2860f8646b8d5c01236b6542, type: 3}
+  m_Name: Rikka
+  m_EditorClassIdentifier: 
+  universalName: Rikka
+  universalId: Rikka
+  wikiUrl: https://virtualyoutuber.fandom.com/wiki/Rikka
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJz9svekb90aK-De-y1OsayRVNhL2t5PNaPIZGh0=s900-c-k-c0xffffffff-no-rj-mo
+  isHidden: 0
+  affiliations:
+  - {fileID: 11400000, guid: 9d007c255a7f9e14ea6fbbe4b468bb6d, type: 2}
+  isGroup: 0
+  depth: 2
+  socials:
+  - name: "Rikka ch.\u5F8B\u53EF"
+    platform: 1
+    id: UC9mf_ZVpouoILRY9NUIaK-w
+    url: https://www.youtube.com/channel/UC9mf_ZVpouoILRY9NUIaK-w
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJz9svekb90aK-De-y1OsayRVNhL2t5PNaPIZGh0=s900-c-k-c0xffffffff-no-rj-mo
+    customKeywords: []
+  customKeywords: []
