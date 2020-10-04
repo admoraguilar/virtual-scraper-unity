@@ -23,40 +23,21 @@ namespace Holoverse.Scraper
 
 		public async Task<IAsyncCursor<Creator>> GetCreatorsAsync(int batchSize)
 		{
-			using(new StopwatchScope(
-				nameof(ContentDatabaseClient),
-				$"Start getting creators from collection.",
-				$"Finished getting creators from collection.")) 
-			{
-				return await _dataClient.FindMatchingCreatorsAsync(
-					HoloverseDataFilter.Creator.All(),
-					batchSize
-				);
-			}
+			return await _dataClient.FindMatchingCreatorsAsync(
+				HoloverseDataFilter.Creator.All(),
+				batchSize
+			);
 		}
 
 		public async Task WriteToCreatorsCollectionAsync(IEnumerable<Creator> creators)
 		{
-			using(new StopwatchScope(
-				nameof(ContentDatabaseClient),
-				$"Start writing creators to collection.",
-				$"Finished writing creators to collection.")) 
-			{
-				await _dataClient.UpsertManyCreatorsAndDeleteDanglingAsync(creators);
-			}
+			await _dataClient.UpsertManyCreatorsAndDeleteDanglingAsync(creators);
 		}
 
 		public async Task<List<Video>> ScrapeVideosAsync(IEnumerable<Creator> creators)
 		{
 			List<Video> videos = new List<Video>();
-
-			using(new StopwatchScope(
-				nameof(ContentDatabaseClient),
-				$"Start scraping videos of creators.",
-				$"Finished scraping videos of creators.")) {
-				await Concurrent.ForEachAsync(creators.ToList(), ProcessCreator, 5);
-			}
-
+			await Concurrent.ForEachAsync(creators.ToList(), ProcessCreator, 5);
 			return videos;
 
 			async Task ProcessCreator(Creator creator)
@@ -88,31 +69,20 @@ namespace Holoverse.Scraper
 
 		public async Task WriteToVideosCollectionAsync()
 		{
-			using(new StopwatchScope(
-				nameof(ContentDatabaseClient),
-				$"Start gathering then writing videos from collection.",
-				$"Finished gathering then writing videos to collection.")) 
-			{
-				List<Video> videos = new List<Video>();
+			List<Video> videos = new List<Video>();
 
-				using(IAsyncCursor<Creator> cursor = await GetCreatorsAsync(20)) {
-					while(await cursor.MoveNextAsync()) {
-						videos.AddRange(await ScrapeVideosAsync(cursor.Current));
-					}
+			using(IAsyncCursor<Creator> cursor = await GetCreatorsAsync(20)) {
+				while(await cursor.MoveNextAsync()) {
+					videos.AddRange(await ScrapeVideosAsync(cursor.Current));
 				}
-
-				await WriteToVideosCollectionAsync(videos);
 			}
+
+			await WriteToVideosCollectionAsync(videos);
 		}
 
 		public async Task WriteToVideosCollectionAsync(IEnumerable<Video> videos)
 		{
-			using(new StopwatchScope(
-				nameof(ContentDatabaseClient),
-				$"Start writing videos to collection.",
-				$"Finished writing videos to collection.")) {
-				await _dataClient.UpsertManyVideosAndDeleteDanglingAsync(videos);
-			}
+			await _dataClient.UpsertManyVideosAndDeleteDanglingAsync(videos);
 		}
 	}
 }
