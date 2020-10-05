@@ -27,7 +27,7 @@
 
   <PropertyGroup>
     <!--<TargetFramework>$(UnityCurrentTargetFramework)</TargetFramework>-->
-	  <TargetFramework>net461</TargetFramework>
+	  <TargetFramework>net472</TargetFramework>
   </PropertyGroup>
 
   <!-- SDK.props is imported inside this props file -->
@@ -37,11 +37,12 @@
   <!--Add NuGet or Project references here-->
   <PackageReference Include="MongoDB.Driver" Version="2.11.2" />
   <PackageReference Include="YoutubeExplode" Version="5.1.5.4" />
+	 
   <PackageReference Include="System.Net.Http" Version="*">
-	  <ExcludeAssets>all</ExcludeAssets>
+	<ExcludeAssets>all</ExcludeAssets>
   </PackageReference>
   <PackageReference Include="System.ValueTuple" Version="*">
-	  <ExcludeAssets>all</ExcludeAssets>
+	<ExcludeAssets>all</ExcludeAssets>
   </PackageReference>
   <PackageReference Include="System.Reflection.Emit.Lightweight" Version="*">
     <ExcludeAssets>all</ExcludeAssets>
@@ -49,6 +50,7 @@
   <PackageReference Include="System.Reflection.Emit.ILGeneration" Version="*">
     <ExcludeAssets>all</ExcludeAssets>
   </PackageReference>
+
   </ItemGroup>
 
   <!-- SDK.targets is imported inside this props file -->
