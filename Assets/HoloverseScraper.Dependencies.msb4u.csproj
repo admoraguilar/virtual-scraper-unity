@@ -26,7 +26,8 @@
   <Import Project="$([MSBuild]::GetPathOfFileAbove(MSBuildForUnity.Common.props))" Condition="Exists('$([MSBuild]::GetPathOfFileAbove(MSBuildForUnity.Common.props))')" />
 
   <PropertyGroup>
-    <TargetFramework>$(UnityCurrentTargetFramework)</TargetFramework>
+    <!--<TargetFramework>$(UnityCurrentTargetFramework)</TargetFramework>-->
+	  <TargetFramework>net461</TargetFramework>
   </PropertyGroup>
 
   <!-- SDK.props is imported inside this props file -->
@@ -36,6 +37,12 @@
   <!--Add NuGet or Project references here-->
   <PackageReference Include="MongoDB.Driver" Version="2.11.2" />
   <PackageReference Include="YoutubeExplode" Version="5.1.5.4" />
+  <PackageReference Include="System.Net.Http" Version="*">
+	  <ExcludeAssets>all</ExcludeAssets>
+  </PackageReference>
+  <PackageReference Include="System.ValueTuple" Version="*">
+	  <ExcludeAssets>all</ExcludeAssets>
+  </PackageReference>
   <PackageReference Include="System.Reflection.Emit.Lightweight" Version="*">
     <ExcludeAssets>all</ExcludeAssets>
   </PackageReference>

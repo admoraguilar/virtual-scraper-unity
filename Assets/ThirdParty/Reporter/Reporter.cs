@@ -1841,7 +1841,7 @@ public class Reporter : MonoBehaviour
 	float lastUpdate2 = 0;
 #endif
 
-	void doShow()
+	public void doShow()
 	{
 		show = true;
 		currentView = ReportView.Logs;

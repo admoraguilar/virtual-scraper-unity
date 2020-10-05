@@ -34,6 +34,9 @@ namespace Holoverse.Scraper.UI
 		[SerializeField]
 		private Button _cancelButton = null;
 
+		[SerializeField]
+		private Button _showDebugButton = null;
+
 		private float iterationGapAmount
 		{
 			get => _iterationGapAmount;
@@ -124,11 +127,17 @@ namespace Holoverse.Scraper.UI
 			_iterationGapAmount = float.Parse(value);
 		}
 
+		private void OnShowDebugButton()
+		{
+			FindObjectOfType<Reporter>().doShow();
+		}
+
 		private void OnEnable()
 		{
 			_iterationGapAmountInputField.onValueChanged.AddListener(OnIterationGapInputFieldValueChanged);
 			_runButton.onClick.AddListener(Run);
 			_cancelButton.onClick.AddListener(Cancel);
+			_showDebugButton.onClick.AddListener(OnShowDebugButton);
 		}
 
 		private void OnDisable()
@@ -136,6 +145,7 @@ namespace Holoverse.Scraper.UI
 			_iterationGapAmountInputField.onValueChanged.RemoveListener(OnIterationGapInputFieldValueChanged);
 			_runButton.onClick.RemoveListener(Run);
 			_cancelButton.onClick.RemoveListener(Cancel);
+			_showDebugButton.onClick.RemoveListener(OnShowDebugButton);
 		}
 
 		private void Start()
