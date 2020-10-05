@@ -18,4 +18,5 @@ MonoBehaviour:
     password: RBqYN3ugVTb2stqD
   _editor_creatorObjectsFolderPath: {fileID: 102900000, guid: a83073264a0ae05419e4a22ea4df7ac5,
     type: 3}
-  _editor_toExcludeCreators: []
+  _editor_creatorsList: []
+  _editor_creatorListMode: 0

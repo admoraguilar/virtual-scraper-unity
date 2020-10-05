@@ -18,14 +18,24 @@ namespace Holoverse.Scraper
 		private HoloverseDataClientSettings _dataClientSettings = new HoloverseDataClientSettings();
 
 #if UNITY_EDITOR
+		public enum Editor_CreatorObjectsListMode
+		{
+			Include,
+			Exclude
+		};
+
 		public UObject editor_creatorObjectsFolderPath => _editor_creatorObjectsFolderPath;
 		[Header("Editor")]
 		[SerializeField]
 		private UObject _editor_creatorObjectsFolderPath = null;
 
-		public CreatorObject[] editor_toExcludeCreators => _editor_toExcludeCreators;
+		public CreatorObject[] editor_creatorsList => _editor_creatorsList;
 		[SerializeField]
-		private CreatorObject[] _editor_toExcludeCreators = new CreatorObject[0];
+		private CreatorObject[] _editor_creatorsList = new CreatorObject[0];
+
+		public Editor_CreatorObjectsListMode editor_creatorListMode => _editor_creatorListMode;
+		[SerializeField]
+		private Editor_CreatorObjectsListMode _editor_creatorListMode = Editor_CreatorObjectsListMode.Include;
 #endif
 	}
 }

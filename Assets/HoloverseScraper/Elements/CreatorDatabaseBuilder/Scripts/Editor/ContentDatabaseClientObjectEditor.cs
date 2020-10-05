@@ -218,10 +218,26 @@ namespace Holoverse.Scraper
 			string[] objGUIDs = AssetDatabase.FindAssets($"t:{nameof(CreatorObject)}", new string[] { assetPath });
 
 			List<CreatorObject> results = new List<CreatorObject>();
+
 			foreach(string objGUID in objGUIDs) {
 				string objPath = AssetDatabase.GUIDToAssetPath(objGUID);
 				CreatorObject creatorObj = AssetDatabase.LoadAssetAtPath<CreatorObject>(objPath);
-				if(creatorObj != null && !Array.Exists(target.editor_toExcludeCreators, e => e == creatorObj)) {
+				if(creatorObj == null) { continue; }
+
+				if(target.editor_creatorsList.Length > 0) {
+					switch(target.editor_creatorListMode) {
+						case ContentDatabaseClientObject.Editor_CreatorObjectsListMode.Include:
+							if(Array.Exists(target.editor_creatorsList, e => e == creatorObj)) {
+								results.Add(creatorObj);
+							}
+							break;
+						case ContentDatabaseClientObject.Editor_CreatorObjectsListMode.Exclude:
+							if(!Array.Exists(target.editor_creatorsList, e => e == creatorObj)) {
+								results.Add(creatorObj);
+							}
+							break;
+					}
+				} else {
 					results.Add(creatorObj);
 				}
 			}
