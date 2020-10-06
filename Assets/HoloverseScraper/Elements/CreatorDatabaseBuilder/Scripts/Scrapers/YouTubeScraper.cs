@@ -35,7 +35,9 @@ namespace Holoverse.Scraper
 			};
 		}
 
-		public async Task<List<Video>> GetChannelVideos(Creator creator, string channelUrl)
+		public async Task<List<Video>> GetChannelVideos(
+			Creator creator, string channelUrl,
+			ChannelVideoSettings settings = null)
 		{
 			List<Video> results = new List<Video>();
 
@@ -64,6 +66,11 @@ namespace Holoverse.Scraper
 					uploadDateAnchor = uploadDateAnchor.AddDays(-1);
 				} else {
 					uploadDateAnchor = video.UploadDate;
+				}
+
+				if(settings != null) {
+					if(settings.isForward && settings.anchorDate > uploadDateAnchor) { continue; }
+					if(!settings.isForward && settings.anchorDate < uploadDateAnchor) { continue; }
 				}
 
 				results.Add(new Video {
@@ -140,6 +147,13 @@ namespace Holoverse.Scraper
 			}
 
 			return results;
+		}
+
+		public class ChannelVideoSettings
+		{
+			public DateTimeOffset anchorDate = DateTimeOffset.MinValue;
+			public bool isForward = true;
+
 		}
 	}
 }

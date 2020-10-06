@@ -7,7 +7,6 @@ using UnityEngine.Assertions;
 using UnityEditor;
 using Midnight;
 using Midnight.Concurrency;
-using System.Security.Cryptography;
 
 namespace Holoverse.Scraper
 {
@@ -45,9 +44,11 @@ namespace Holoverse.Scraper
 		private void DrawVideosCollectionOperators()
 		{
 			EditorGUILayout.LabelField("videos.json");
-			if(GUILayout.Button("Export Videos Using Local Creators JSON")) { ExportVideosUsingLocalCreatorsJSON(); }
+			if(GUILayout.Button("[Full] Export Videos Using Local Creators JSON")) { ExportVideosUsingLocalCreatorsJSON(); }
+			if(GUILayout.Button("[Incremental] Export Videos Using Local Creators JSON")) { ExportVideosUsingLocalCreatorsJSON(true); }
 			if(GUILayout.Button("Write To Videos Collection Using Local JSON")) { WriteToVideosCollectionUsingLocalJSON(); }
-			if(GUILayout.Button("Write To Videos Collection")) { WriteToVideosCollection(); }
+			if(GUILayout.Button("[Full] Write To Videos Collection")) { WriteToVideosCollection(); }
+			if(GUILayout.Button("[Incremental] Write To Videos Collection")) { WriteToVideosCollection(true); }
 		}
 
 		private void DrawMetrics()
@@ -128,7 +129,7 @@ namespace Holoverse.Scraper
 			}
 		}
 
-		public void ExportVideosUsingLocalCreatorsJSON()
+		public void ExportVideosUsingLocalCreatorsJSON(bool incremental = false)
 		{
 			TaskExt.FireForget(Execute());
 
@@ -142,7 +143,7 @@ namespace Holoverse.Scraper
 							options = Progress.Options.Indefinite
 						})) {
 						progress.Report(.8f);
-						await target.client.ExportVideosUsingLocalCreatorsJSONAsync();
+						await target.client.ExportVideosUsingLocalCreatorsJSONAsync(incremental);
 						_metrics["Export Videos to JSON"] = stopwatch.elapsed.Duration().ToString();
 					}
 				}
@@ -173,7 +174,7 @@ namespace Holoverse.Scraper
 			}
 		}
 
-		public void WriteToVideosCollection()
+		public void WriteToVideosCollection(bool incremental = false)
 		{
 			TaskExt.FireForget(Execute());
 
@@ -187,21 +188,11 @@ namespace Holoverse.Scraper
 							options = Progress.Options.Indefinite
 						})) 
 					{
-						float step = 0f;
-
-						target.client.onScrapeVideosProgressDetail += UpdateProgress;
-						target.client.onGetAndWriteToVideosCollectionFromCreatorsCollectionDetail += UpdateProgress;
-						await target.client.GetAndWriteToVideosCollectionFromCreatorsCollection();
+						await target.client.GetAndWriteToVideosCollectionFromCreatorsCollection(incremental);
 						EditorPrefs.SetString(
 							_writeVideosMetricKey, 
 							_metrics[_writeVideosMetricKey] = $"{stopwatch.elapsed.Duration()} - {DateTime.Now}"
 						);
-
-						void UpdateProgress(string description)
-						{
-							progress.Report(step, description);
-							step = step > 1f ? 0f : step + .1f;
-						}
 					}
 				}
 			}
