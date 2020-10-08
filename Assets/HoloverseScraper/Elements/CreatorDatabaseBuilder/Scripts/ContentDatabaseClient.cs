@@ -92,8 +92,9 @@ namespace Holoverse.Scraper
 			List<Video> videos = new List<Video>();
 
 			MLog.Log(nameof(ContentDatabaseClient), $"Start scraping videos...");
-			using(IAsyncCursor<Creator> cursor = await GetCreatorsAsync(20)) {
+			using(IAsyncCursor<Creator> cursor = await GetCreatorsAsync(20, int.MaxValue, cancellationToken)) {
 				while(await cursor.MoveNextAsync()) {
+					cancellationToken.ThrowIfCancellationRequested();
 					videos.AddRange(await ScrapeVideosAsync(
 						cursor.Current, incremental,
 						cancellationToken));
@@ -133,18 +134,21 @@ namespace Holoverse.Scraper
 						() => _youtubeScraper.GetChannelVideos(creator, youtube.url, channelVideoSettings),
 						TimeSpan.FromSeconds(3), 50, cancellationToken
 					));
+					cancellationToken.ThrowIfCancellationRequested();
 
 					MLog.Log(nameof(ContentDatabaseClient), $"[YouTube: {youtube.name}] Scraping upcoming broadcasts...");
 					videos.AddRange(await TaskExt.Retry(
 						() => _youtubeScraper.GetChannelUpcomingBroadcasts(creator, youtube.url),
 						TimeSpan.FromSeconds(3), 50, cancellationToken
 					));
+					cancellationToken.ThrowIfCancellationRequested();
 
 					MLog.Log(nameof(ContentDatabaseClient), $"[YouTube: {youtube.name}] Scraping now broadcasts...");
 					videos.AddRange(await TaskExt.Retry(
 						() => _youtubeScraper.GetChannelLiveBroadcasts(creator, youtube.url),
 						TimeSpan.FromSeconds(3), 50, cancellationToken
 					));
+					cancellationToken.ThrowIfCancellationRequested();
 				}
 			}
 		}

@@ -7,6 +7,7 @@ using UnityEngine.Assertions;
 using UnityEditor;
 using Midnight;
 using Midnight.Concurrency;
+using System.Threading;
 
 namespace Holoverse.Scraper
 {
@@ -27,6 +28,8 @@ namespace Holoverse.Scraper
 			{ _writeVideosMetricKey, "-" },
 			{ _writeVideosUsingLocalMetricKey, "-" }
 		};
+
+		private CancellationTokenSource _cts = null;
 
 		private void DrawHelperOperators()
 		{
@@ -49,6 +52,12 @@ namespace Holoverse.Scraper
 			if(GUILayout.Button("Write To Videos Collection Using Local JSON")) { WriteToVideosCollectionUsingLocalJSON(); }
 			if(GUILayout.Button("[Full] Write To Videos Collection")) { WriteToVideosCollection(); }
 			if(GUILayout.Button("[Incremental] Write To Videos Collection")) { WriteToVideosCollection(true); }
+		}
+
+		private void DrawCommands()
+		{
+			EditorGUILayout.LabelField("Commands");
+			if(GUILayout.Button("Cancel")) { Cancel(); }
 		}
 
 		private void DrawMetrics()
@@ -106,9 +115,9 @@ namespace Holoverse.Scraper
 
 		public void WriteToCreatorsCollection()
 		{
-			TaskExt.FireForget(Execute());
+			CancellableFireForget(Execute);
 
-			async Task Execute()
+			async Task Execute(CancellationToken cancellationToken = default)
 			{
 				using(StopwatchScope stopwatch = new StopwatchScope()) {
 					using(ProgressScope progress = new ProgressScope(
@@ -119,7 +128,9 @@ namespace Holoverse.Scraper
 						}))
 					{
 						progress.Report(.8f);
-						await target.client.WriteToCreatorsCollectionAsync(GetCreatorObjects().Select(obj => obj.ToCreator()).ToArray());
+						await target.client.WriteToCreatorsCollectionAsync(
+							GetCreatorObjects().Select(obj => obj.ToCreator()).ToArray(),
+							cancellationToken);
 						EditorPrefs.SetString(
 							_writeCreatorMetricKey, 
 							_metrics[_writeCreatorMetricKey] = $"{stopwatch.elapsed.Duration()} - {DateTime.Now}"
@@ -131,9 +142,9 @@ namespace Holoverse.Scraper
 
 		public void ExportVideosUsingLocalCreatorsJSON(bool incremental = false)
 		{
-			TaskExt.FireForget(Execute());
+			CancellableFireForget(Execute);
 
-			async Task Execute()
+			async Task Execute(CancellationToken cancellationToken = default)
 			{
 				using(StopwatchScope stopwatch = new StopwatchScope()) {
 					using(ProgressScope progress = new ProgressScope(
@@ -143,18 +154,19 @@ namespace Holoverse.Scraper
 							options = Progress.Options.Indefinite
 						})) {
 						progress.Report(.8f);
-						await target.client.ExportVideosUsingLocalCreatorsJSONAsync(incremental);
+						await target.client.ExportVideosUsingLocalCreatorsJSONAsync(
+							incremental, cancellationToken);
 						_metrics["Export Videos to JSON"] = stopwatch.elapsed.Duration().ToString();
 					}
 				}
 			}
 		}
 
-		public void WriteToVideosCollectionUsingLocalJSON()
+		public void WriteToVideosCollectionUsingLocalJSON(bool incremetal = false)
 		{
-			TaskExt.FireForget(Execute());
+			CancellableFireForget(Execute);
 
-			async Task Execute()
+			async Task Execute(CancellationToken cancellationToken = default)
 			{
 				using(StopwatchScope stopwatch = new StopwatchScope()) {
 					using(ProgressScope progress = new ProgressScope(
@@ -164,7 +176,8 @@ namespace Holoverse.Scraper
 							options = Progress.Options.Indefinite
 						})) {
 						progress.Report(.8f);
-						await target.client.WriteToVideosCollectionUsingLocalJson();
+						await target.client.WriteToVideosCollectionUsingLocalJson(
+							incremetal, cancellationToken);
 						EditorPrefs.SetString(
 							_writeVideosUsingLocalMetricKey,
 							_metrics[_writeVideosUsingLocalMetricKey] = $"{stopwatch.elapsed.Duration()} - {DateTime.Now}"
@@ -176,9 +189,9 @@ namespace Holoverse.Scraper
 
 		public void WriteToVideosCollection(bool incremental = false)
 		{
-			TaskExt.FireForget(Execute());
+			CancellableFireForget(Execute);
 
-			async Task Execute()
+			async Task Execute(CancellationToken cancellationToken = default)
 			{
 				using(StopwatchScope stopwatch = new StopwatchScope()) {
 					using(ProgressScope progress = new ProgressScope(
@@ -188,7 +201,8 @@ namespace Holoverse.Scraper
 							options = Progress.Options.Indefinite
 						})) 
 					{
-						await target.client.GetAndWriteToVideosCollectionFromCreatorsCollection(incremental);
+						await target.client.GetAndWriteToVideosCollectionFromCreatorsCollection(
+							incremental, cancellationToken);
 						EditorPrefs.SetString(
 							_writeVideosMetricKey, 
 							_metrics[_writeVideosMetricKey] = $"{stopwatch.elapsed.Duration()} - {DateTime.Now}"
@@ -236,6 +250,26 @@ namespace Holoverse.Scraper
 			return results;
 		}
 
+		private void CancellableFireForget(
+			Func<CancellationToken, Task> task, Action<Exception> onException = null)
+		{
+			Cancel();
+
+			_cts = new CancellationTokenSource();
+			TaskExt.FireForget(task(_cts.Token), onException);
+		}
+
+		private void Cancel()
+		{
+			if(_cts != null) {
+				_cts.Cancel();
+				_cts.Dispose();
+
+				MLog.LogWarning(nameof(ContentDatabaseClientObjectEditor), $"Cancelled on-going tasks.");
+				_cts = null;
+			}
+		}
+
 		private void OnEnable()
 		{
 			foreach(string key in _metrics.Keys.ToArray()) {
@@ -255,6 +289,9 @@ namespace Holoverse.Scraper
 			DrawCreatorsCollectionOperators();
 			EditorGUILayout.Space();
 			DrawVideosCollectionOperators();
+
+			EditorGUILayout.Space();
+			DrawCommands();
 
 			EditorGUILayout.Space();
 			DrawMetrics();
