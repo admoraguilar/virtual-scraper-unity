@@ -130,21 +130,21 @@ namespace Holoverse.Scraper
 				// YouTube
 				foreach(Social youtube in creator.socials.Where(s => s.platform == Platform.YouTube)) {
 					MLog.Log(nameof(ContentDatabaseClient), $"[YouTube: {youtube.name}] Scraping videos...");
-					videos.AddRange(await TaskExt.Retry(
+					videos.AddRange(await TaskExt.RetryAsync(
 						() => _youtubeScraper.GetChannelVideos(creator, youtube.url, channelVideoSettings),
 						TimeSpan.FromSeconds(3), 50, cancellationToken
 					));
 					cancellationToken.ThrowIfCancellationRequested();
 
 					MLog.Log(nameof(ContentDatabaseClient), $"[YouTube: {youtube.name}] Scraping upcoming broadcasts...");
-					videos.AddRange(await TaskExt.Retry(
+					videos.AddRange(await TaskExt.RetryAsync(
 						() => _youtubeScraper.GetChannelUpcomingBroadcasts(creator, youtube.url),
 						TimeSpan.FromSeconds(3), 50, cancellationToken
 					));
 					cancellationToken.ThrowIfCancellationRequested();
 
 					MLog.Log(nameof(ContentDatabaseClient), $"[YouTube: {youtube.name}] Scraping now broadcasts...");
-					videos.AddRange(await TaskExt.Retry(
+					videos.AddRange(await TaskExt.RetryAsync(
 						() => _youtubeScraper.GetChannelLiveBroadcasts(creator, youtube.url),
 						TimeSpan.FromSeconds(3), 50, cancellationToken
 					));

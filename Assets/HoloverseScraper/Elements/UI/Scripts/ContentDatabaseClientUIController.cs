@@ -1,23 +1,32 @@
-﻿using System.Collections;
-using System.Threading.Tasks;
+﻿using System;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Midnight;
 using Midnight.Concurrency;
-using System;
 
 namespace Holoverse.Scraper.UI
 {
 	public class ContentDatabaseClientUIController : MonoBehaviour
 	{
+		private enum WriteMode
+		{
+			Full,
+			Incremental
+		}
+
 		[SerializeField]
 		private ContentDatabaseClientObject _contentDatabase = null;
 
 		[Header("UI")]
 		[SerializeField]
-		private TMP_Text _successText = null;
+		private TMP_Text _incrementalScanCountText = null;
+
+		[SerializeField]
+		private TMP_Text _fullScanCountText = null;
 
 		[SerializeField]
 		private TMP_Text _isRunningText = null;
@@ -49,17 +58,29 @@ namespace Holoverse.Scraper.UI
 		}
 		private float _iterationGapAmount = 5f;
 		
-		private int successCount
+		private int incrementalScanCount
 		{
-			get => _successCount;
+			get => _incrementalScanCount;
 			set {
-				_successCount = value;
-				if(_successText != null) {
-					_successText.text = $"Success Count: {_successCount}";
+				_incrementalScanCount = value;
+				if(_incrementalScanCountText != null) {
+					_incrementalScanCountText.text = $"Incremental Scan Count: {_incrementalScanCount}";
 				}
 			}
 		}
-		private int _successCount = 0;
+		private int _incrementalScanCount = 0;
+
+		private int fullScanCount
+		{
+			get => _fullScanCount;
+			set {
+				_fullScanCount = value;
+				if(_fullScanCountText != null) {
+					_fullScanCountText.text = $"Full Scan Count: {_fullScanCount}";
+				}
+			}
+		}
+		private int _fullScanCount = 0;
 
 		private bool isRunning
 		{
@@ -85,41 +106,88 @@ namespace Holoverse.Scraper.UI
 		}
 		private string _lastRunDetails = string.Empty;
 
-		public void Run()
+		private Stack<WriteMode> _writeMode = new Stack<WriteMode>();
+		private DateTime _lastFullRun = DateTime.MinValue;
+		private CancellationTokenSource _cts = null;
+
+		private void Run()
 		{
 			if(isRunning) { return; }
 			isRunning = true;
 
-			TaskExt.FireForget(Execute());
+			incrementalScanCount = 0;
+			fullScanCount = 0;
 
-			async Task Execute()
+			_writeMode.Push(WriteMode.Full);
+			_lastFullRun = DateTime.Now;
+
+			CancellableFireForget(
+				Execute,
+				(Exception e) => {
+					if(e is OperationCanceledException) {
+						isRunning = false;
+					}
+				});
+
+			async Task Execute(CancellationToken cancellationToken = default)
 			{
 				while(isRunning) {
-					MLog.Log(nameof(ContentDatabaseClientUIController), "Start running content database client from UI!");
+					WriteMode curWriteMode = _writeMode.Pop();
+
+					cancellationToken.ThrowIfCancellationRequested();
+					MLog.Log(
+						nameof(ContentDatabaseClientUIController), 
+						$"[WriteMode: {curWriteMode}] Start running content database client from UI!"
+					);
 
 					using(StopwatchScope stopwatch = new StopwatchScope()) {
-						await TaskExt.Retry(
-							() => _contentDatabase.client.GetAndWriteToVideosCollectionFromCreatorsCollection(),
+						bool isIncremental = false;
+						if(curWriteMode == WriteMode.Full) { isIncremental = false; }
+						else { isIncremental = true; }
+
+						await TaskExt.RetryAsync(
+							() => _contentDatabase.client.GetAndWriteToVideosCollectionFromCreatorsCollection(
+								isIncremental, cancellationToken),
 							TimeSpan.FromSeconds(3),
-							100
+							100, cancellationToken
 						);
 						lastRunDetails = $"{stopwatch.elapsed.Duration()} - {DateTime.Now}";
 					}
-					
-					successCount++;
+
+					if(curWriteMode == WriteMode.Full) { fullScanCount++; }
+					else { incrementalScanCount++; }
+
+					if(DateTime.Now.Subtract(_lastFullRun).Days > 0) {
+						_writeMode.Push(WriteMode.Full);
+						_lastFullRun = DateTime.Now;
+					} else {
+						_writeMode.Push(WriteMode.Incremental);
+					}
 
 					MLog.Log(nameof(ContentDatabaseClientUIController), "Sucess! Taking a break before next iteration.");
-					await Task.Delay(TimeSpan.FromSeconds(iterationGapAmount));
+					await Task.Delay(TimeSpan.FromSeconds(iterationGapAmount), cancellationToken);
 				}
-
-				successCount = 0;
 			}
 		}
 
-		public void Cancel()
+		private void CancellableFireForget(
+			Func<CancellationToken, Task> task, Action<Exception> onException = null)
 		{
-			isRunning = false;
-			
+			Cancel();
+
+			_cts = new CancellationTokenSource();
+			TaskExt.FireForget(task(_cts.Token), onException);
+		}
+
+		private void Cancel()
+		{
+			if(_cts != null) {
+				_cts.Cancel();
+				_cts.Dispose();
+
+				MLog.LogWarning(nameof(ContentDatabaseClientUIController), $"Cancelled on-going tasks.");
+				_cts = null;
+			}
 		}
 
 		private void OnIterationGapInputFieldValueChanged(string value)
@@ -151,7 +219,8 @@ namespace Holoverse.Scraper.UI
 		private void Start()
 		{
 			iterationGapAmount = float.Parse(_iterationGapAmountInputField.text);
-			successCount = 0;
+			incrementalScanCount = 0;
+			fullScanCount = 0;
 			isRunning = false;
 			lastRunDetails = "--";
 		}
