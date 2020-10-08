@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using MongoDB.Bson;
@@ -28,126 +29,134 @@ namespace Holoverse.Api.Data
 		}
 
 		public async Task<IAsyncCursor<Creator>> FindMatchingCreatorsAsync(
-			FilterDefinition<Creator> filter, int batchSize)
+			FilterDefinition<Creator> filter, int batchSize, 
+			int resultsLimit = _defaultFindResultsLimit, CancellationToken cancellationToken = default)
 		{
 			return await FindAsync(
 				_contentDatabase.GetCollection<Creator>(_creatorsCollectionName),
-				filter, batchSize
-			);
+				filter, batchSize,
+				resultsLimit, cancellationToken);
 		}
 
-		public async Task UpsertCreatorAsync(Creator creator)
+		public async Task UpsertCreatorAsync(
+			Creator creator, CancellationToken cancellationToken = default)
 		{
 			await UpsertAsync(
 				_contentDatabase.GetCollection<Creator>(_creatorsCollectionName),
 				HoloverseDataFilter.Creator.UniversalIdEquals(creator.universalId),
-				creator
-			);
+				creator, cancellationToken);
 		}
 
-		public async Task UpsertManyCreatorsAsync(IEnumerable<Creator> creators)
+		public async Task UpsertManyCreatorsAsync(
+			IEnumerable<Creator> creators, CancellationToken cancellationToken = default)
 		{
 			await UpsertManyAsync(
 				_contentDatabase.GetCollection<BsonDocument>(_creatorsCollectionName),
 				(Creator creator) => HoloverseDataFilter.BsonDocument.StringEquals("universalId", creator.universalId),
-				creators,
-				DateTimeOffset.UtcNow.DateTime
-			);
+				creators, DateTimeOffset.UtcNow.DateTime,
+				cancellationToken);
 		}
 
-		public async Task UpsertManyCreatorsAndDeleteDanglingAsync(IEnumerable<Creator> creators)
+		public async Task UpsertManyCreatorsAndDeleteDanglingAsync(
+			IEnumerable<Creator> creators, CancellationToken cancellationToken = default)
 		{
 			await UpsertManyAndDeleteDanglingAsync(
 				_contentDatabase.GetCollection<BsonDocument>(_creatorsCollectionName),
 				(Creator creator) => HoloverseDataFilter.BsonDocument.StringEquals("universalId", creator.universalId),
-				creators
-			);
+				creators, cancellationToken);
 		}
 
 		public async Task<IAsyncCursor<T>> FindMatchingVideosAsync<T>(
-			FilterDefinition<T> filter, int batchSize) where T : Video
+			FilterDefinition<T> filter, int batchSize,
+			int resultsLimit = _defaultFindResultsLimit, CancellationToken cancellationToken = default) where T : Video
 		{
 			return await FindAsync(
 				_contentDatabase.GetCollection<T>(_videosCollectionName),
-				filter, batchSize
-			);
+				filter, batchSize, 
+				resultsLimit, cancellationToken);
 		}
 
-		public async Task UpsertVideoAsync<T>(T video) where T : Video
+		public async Task UpsertVideoAsync<T>(
+			T video, CancellationToken cancellationToken = default) where T : Video
 		{
 			await UpsertAsync(
 				_contentDatabase.GetCollection<T>(_videosCollectionName),
 				HoloverseDataFilter.Video<T>.IdEquals(video.id),
-				video
-			);
+				video, cancellationToken);
 		}
 
-		public async Task UpsertManyVideosAsync<T>(IEnumerable<T> videos) where T : Video
+		public async Task UpsertManyVideosAsync<T>(
+			IEnumerable<T> videos, CancellationToken cancellationToken = default) where T : Video
 		{
 			await UpsertManyAsync(
 				_contentDatabase.GetCollection<BsonDocument>(_videosCollectionName),
 				(T video) => HoloverseDataFilter.BsonDocument.StringEquals("id", video.id),
-				videos,
-				DateTimeOffset.UtcNow.DateTime
-			);
+				videos, DateTimeOffset.UtcNow.DateTime,
+				cancellationToken);
 		}
 
-		public async Task UpsertManyVideosAndDeleteDanglingAsync<T>(IEnumerable<T> videos) where T : Video
+		public async Task UpsertManyVideosAndDeleteDanglingAsync<T>(
+			IEnumerable<T> videos, CancellationToken cancellationToken = default) where T : Video
 		{
 			await UpsertManyAndDeleteDanglingAsync(
 				_contentDatabase.GetCollection<BsonDocument>(_videosCollectionName),
 				(T video) => HoloverseDataFilter.BsonDocument.StringEquals("id", video.id),
-				videos
-			);
+				videos, cancellationToken);
 		}
 
 		private async Task<IAsyncCursor<T>> FindAsync<T>(
 			IMongoCollection<T> collection, FilterDefinition<T> filter,
-			int batchSize, int resultsLimit = _defaultFindResultsLimit)
+			int batchSize, int resultsLimit = _defaultFindResultsLimit,
+			CancellationToken cancellationToken = default)
 		{
 			return await collection.FindAsync(
 				filter, 
 				new FindOptions<T>() {
 					BatchSize = batchSize,
 					Limit = resultsLimit
-				}
-			);
+				}, cancellationToken);
 		}
 
 		private async Task UpsertAsync<T>(
 			IMongoCollection<T> collection, FilterDefinition<T> filter,
-			T obj)
+			T obj, CancellationToken cancellationToken = default)
 		{
 			await collection.ReplaceOneAsync(
 				filter, obj,
 				new ReplaceOptions {
 					IsUpsert = true
-				}
-			);
-		}
-
-		private async Task UpsertManyAsync<T>(
-			IMongoCollection<BsonDocument> collection, Func<T, FilterDefinition<BsonDocument>> filter,
-			IEnumerable<T> objs, DateTime timestamp)
-		{
-			List<WriteModel<BsonDocument>> bulkReplace = new List<WriteModel<BsonDocument>>();
-			foreach(T obj in objs) {
-				bulkReplace.Add(
-					new ReplaceOneModel<BsonDocument>(filter(obj), ToBsonDocumentWithTimestamp(obj, timestamp)) {
-						IsUpsert = true
-					}
-				);
-			}
-			await collection.BulkWriteAsync(bulkReplace);
+				}, cancellationToken);
 		}
 
 		private async Task UpsertManyAndDeleteDanglingAsync<T>(
 			IMongoCollection<BsonDocument> collection, Func<T, FilterDefinition<BsonDocument>> filter,
-			IEnumerable<T> objs)
+			IEnumerable<T> objs, CancellationToken cancellationToken = default)
 		{
 			DateTime timestamp = DateTimeOffset.UtcNow.DateTime;
-			await UpsertManyAsync(collection, filter, objs, timestamp);
-			await collection.DeleteManyAsync(!HoloverseDataFilter.BsonDocument.TimestampEquals(_lastOperationTimestampFieldName, timestamp));
+			await UpsertManyAsync(
+				collection, filter, 
+				objs, timestamp, cancellationToken);
+			await collection.DeleteManyAsync(
+				!HoloverseDataFilter.BsonDocument.TimestampEquals(_lastOperationTimestampFieldName, timestamp),
+				cancellationToken);
+		}
+
+		private async Task UpsertManyAsync<T>(
+			IMongoCollection<BsonDocument> collection, Func<T, FilterDefinition<BsonDocument>> filter,
+			IEnumerable<T> objs, DateTime timestamp, CancellationToken cancellationToken = default)
+		{
+			List<WriteModel<BsonDocument>> bulkReplace = new List<WriteModel<BsonDocument>>();
+			foreach(T obj in objs) {
+				bulkReplace.Add(
+					new ReplaceOneModel<BsonDocument>(
+						filter(obj), ToBsonDocumentWithTimestamp(obj, timestamp)) 
+					{
+						IsUpsert = true
+					});
+			}
+			await collection.BulkWriteAsync(
+				bulkReplace, null, 
+				cancellationToken);
 		}
 
 		private BsonDocument ToBsonDocumentWithTimestamp<T>(T obj, DateTime timestamp)

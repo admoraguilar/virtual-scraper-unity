@@ -101,16 +101,14 @@ namespace Holoverse.Scraper
 		{
 			return await GetChannelBroadcasts(
 				creator, channelUrl,
-				BroadcastType.Now
-			);
+				BroadcastType.Now);
 		}
 
 		public async Task<List<Broadcast>> GetChannelUpcomingBroadcasts(Creator creator, string channelUrl)
 		{
 			return await GetChannelBroadcasts(
 				creator, channelUrl,
-				BroadcastType.Upcoming
-			);
+				BroadcastType.Upcoming);
 		}
 
 		private async Task<List<Broadcast>> GetChannelBroadcasts(

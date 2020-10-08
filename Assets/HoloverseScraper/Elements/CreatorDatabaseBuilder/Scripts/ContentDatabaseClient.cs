@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Newtonsoft.Json;
@@ -25,11 +26,14 @@ namespace Holoverse.Scraper
 			_youtubeScraper = new YouTubeScraper();
 		}
 
-		public async Task<IAsyncCursor<Creator>> GetCreatorsAsync(int batchSize)
+		public async Task<IAsyncCursor<Creator>> GetCreatorsAsync(
+			int batchSize, int resultsLimit = int.MaxValue, 
+			CancellationToken cancellationToken = default)
 		{
 			return await _dataClient.FindMatchingCreatorsAsync(
 				HoloverseDataFilter.Creator.All(),
-				batchSize
+				batchSize, resultsLimit,
+				cancellationToken
 			);
 		}
 
@@ -40,19 +44,24 @@ namespace Holoverse.Scraper
 			});
 		}
 
-		public async Task WriteToCreatorsCollectionAsync(IEnumerable<Creator> creators)
+		public async Task WriteToCreatorsCollectionAsync(
+			IEnumerable<Creator> creators, CancellationToken cancellationToken = default)
 		{
-			await _dataClient.UpsertManyCreatorsAndDeleteDanglingAsync(creators);
+			await _dataClient.UpsertManyCreatorsAndDeleteDanglingAsync(
+				creators, cancellationToken);
 		}
 
-		public async Task ExportVideosUsingLocalCreatorsJSONAsync(bool incremental = false)
+		public async Task ExportVideosUsingLocalCreatorsJSONAsync(
+			bool incremental = false, CancellationToken cancellationToken = default)
 		{
 			Creator[] creators = null;
 			JsonUtilities.LoadFromDisk(ref creators, new JsonUtilities.LoadFromDiskParameters {
 				filePath = creatorsLocalJSONPath
 			});
 
-			List<Video> videos = await ScrapeVideosAsync(creators, incremental);
+			List<Video> videos = await ScrapeVideosAsync(
+				creators, incremental, 
+				cancellationToken);
 
 			JsonUtilities.SaveToDisk(videos, new JsonUtilities.SaveToDiskParameters {
 				filePath = videosLocalJSONPath,
@@ -62,37 +71,47 @@ namespace Holoverse.Scraper
 			});
 		}
 
-		public async Task WriteToVideosCollectionUsingLocalJson()
+		public async Task WriteToVideosCollectionUsingLocalJson(
+			bool incremental = false, CancellationToken cancellationToken = default)
 		{
-			MLog.Log($"Start loading local json videos...");
+			MLog.Log(nameof(ContentDatabaseClient), $"Start loading local json videos...");
 			List<Video> videos = new List<Video>();
 			JsonUtilities.LoadFromDisk(ref videos, new JsonUtilities.LoadFromDiskParameters {
 				filePath = videosLocalJSONPath
 			});
-			MLog.Log($"Finish loading local json videos...");
+			MLog.Log(nameof(ContentDatabaseClient), $"Finish loading local json videos...");
 
-			await WriteToVideosCollectionAsync(videos);
+			await WriteToVideosCollectionAsync(
+				videos, incremental, 
+				cancellationToken);
 		}
 
-		public async Task GetAndWriteToVideosCollectionFromCreatorsCollection(bool incremental = false)
+		public async Task GetAndWriteToVideosCollectionFromCreatorsCollection(
+			bool incremental = false, CancellationToken cancellationToken = default)
 		{
 			List<Video> videos = new List<Video>();
 
-			MLog.Log($"Start scraping videos...");
+			MLog.Log(nameof(ContentDatabaseClient), $"Start scraping videos...");
 			using(IAsyncCursor<Creator> cursor = await GetCreatorsAsync(20)) {
 				while(await cursor.MoveNextAsync()) {
-					videos.AddRange(await ScrapeVideosAsync(cursor.Current, incremental));
+					videos.AddRange(await ScrapeVideosAsync(
+						cursor.Current, incremental,
+						cancellationToken));
 				}
 			}
-			MLog.Log($"Finished scraping videos...");
+			MLog.Log(nameof(ContentDatabaseClient), $"Finished scraping videos...");
 
-			await WriteToVideosCollectionAsync(videos);
+			await WriteToVideosCollectionAsync(videos, incremental, cancellationToken);
 		}
 
-		private async Task<List<Video>> ScrapeVideosAsync(IEnumerable<Creator> creators, bool incremental = false)
+		private async Task<List<Video>> ScrapeVideosAsync(
+			IEnumerable<Creator> creators, bool incremental = false,
+			CancellationToken cancellationToken = default)
 		{
 			List<Video> videos = new List<Video>();
-			await Concurrent.ForEachAsync(creators.ToList(), ProcessCreator, 5);
+			await Concurrent.ForEachAsync(
+				creators.ToList(), ProcessCreator,
+				5, cancellationToken);
 			return videos;
 
 			async Task ProcessCreator(Creator creator)
@@ -109,33 +128,35 @@ namespace Holoverse.Scraper
 
 				// YouTube
 				foreach(Social youtube in creator.socials.Where(s => s.platform == Platform.YouTube)) {
-					MLog.Log($"[YouTube: {youtube.name}] Scraping videos...");
+					MLog.Log(nameof(ContentDatabaseClient), $"[YouTube: {youtube.name}] Scraping videos...");
 					videos.AddRange(await TaskExt.Retry(
 						() => _youtubeScraper.GetChannelVideos(creator, youtube.url, channelVideoSettings),
-						TimeSpan.FromSeconds(3), 50
+						TimeSpan.FromSeconds(3), 50, cancellationToken
 					));
 
-					MLog.Log($"[YouTube: {youtube.name}] Scraping upcoming broadcasts...");
+					MLog.Log(nameof(ContentDatabaseClient), $"[YouTube: {youtube.name}] Scraping upcoming broadcasts...");
 					videos.AddRange(await TaskExt.Retry(
 						() => _youtubeScraper.GetChannelUpcomingBroadcasts(creator, youtube.url),
-						TimeSpan.FromSeconds(3), 50
+						TimeSpan.FromSeconds(3), 50, cancellationToken
 					));
 
-					MLog.Log($"[YouTube: {youtube.name}] Scraping now broadcasts...");
+					MLog.Log(nameof(ContentDatabaseClient), $"[YouTube: {youtube.name}] Scraping now broadcasts...");
 					videos.AddRange(await TaskExt.Retry(
 						() => _youtubeScraper.GetChannelLiveBroadcasts(creator, youtube.url),
-						TimeSpan.FromSeconds(3), 50
+						TimeSpan.FromSeconds(3), 50, cancellationToken
 					));
 				}
 			}
 		}
 
-		private async Task WriteToVideosCollectionAsync(IEnumerable<Video> videos, bool incremental = false)
+		private async Task WriteToVideosCollectionAsync(
+			IEnumerable<Video> videos, bool incremental = false,
+			CancellationToken cancellationToken = default)
 		{
-			MLog.Log($"Writing to videos collection...");
-			if(incremental) { await _dataClient.UpsertManyVideosAsync(videos); }
-			else { await _dataClient.UpsertManyVideosAndDeleteDanglingAsync(videos); }
-			MLog.Log($"Finished writing to videos collection!");
+			MLog.Log(nameof(ContentDatabaseClient), $"Writing to videos collection...");
+			if(incremental) { await _dataClient.UpsertManyVideosAsync(videos, cancellationToken); }
+			else { await _dataClient.UpsertManyVideosAndDeleteDanglingAsync(videos, cancellationToken); }
+			MLog.Log(nameof(ContentDatabaseClient), $"Finished writing to videos collection!");
 		}
 	}
 }
