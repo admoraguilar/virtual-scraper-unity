@@ -10,12 +10,12 @@ namespace Holoverse.Scraper
 	public class ContentDatabaseClientObject : ScriptableObject
 	{
 		public ContentDatabaseClient client =>
-			_contentDBClient == null ? _contentDBClient = new ContentDatabaseClient(_dataClientSettings) :
+			_contentDBClient == null ? _contentDBClient = new ContentDatabaseClient(_settings) :
 			_contentDBClient;
 		private ContentDatabaseClient _contentDBClient = null;
 
 		[SerializeField]
-		private HoloverseDataClientSettings _dataClientSettings = new HoloverseDataClientSettings();
+		private ContentDatabaseClientSettings _settings = new ContentDatabaseClientSettings();
 
 #if UNITY_EDITOR
 		public enum Editor_CreatorObjectsListMode

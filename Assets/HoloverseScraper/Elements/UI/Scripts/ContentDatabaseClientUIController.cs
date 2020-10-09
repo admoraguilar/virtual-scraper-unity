@@ -124,8 +124,10 @@ namespace Holoverse.Scraper.UI
 			CancellableFireForget(
 				Execute,
 				(Exception e) => {
-					_cts.Dispose();
-					_cts = null;
+					if(_cts != null) {
+						_cts.Dispose();
+						_cts = null;
+					}
 
 					isRunning = false;
 				});
