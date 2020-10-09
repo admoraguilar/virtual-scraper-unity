@@ -19,7 +19,9 @@ namespace Holoverse.Scraper.UI
 		}
 
 		[SerializeField]
-		private ContentDatabaseClientObject _contentDatabase = null;
+		private ContentDatabaseClientObject _object = null;
+		private ContentDatabaseClientSettings _settings = null;
+		private ContentDatabaseClient _client = null;
 
 		[Header("UI")]
 		[SerializeField]
@@ -36,6 +38,12 @@ namespace Holoverse.Scraper.UI
 
 		[SerializeField]
 		private TMP_InputField _iterationGapAmountInputField = null;
+
+		[SerializeField]
+		private Toggle _useProxiesToggle = null;
+
+		[SerializeField]
+		private TMP_InputField _proxiesListInputField = null;
 
 		[SerializeField]
 		private Button _runButton = null;
@@ -115,6 +123,10 @@ namespace Holoverse.Scraper.UI
 			if(isRunning) { return; }
 			isRunning = true;
 
+			_settings.isUseProxy = _useProxiesToggle;
+			_settings.proxyList = _proxiesListInputField.text;
+			_client = new ContentDatabaseClient(_settings);
+
 			incrementalScanCount = 0;
 			fullScanCount = 0;
 
@@ -149,7 +161,7 @@ namespace Holoverse.Scraper.UI
 						else { isIncremental = true; }
 
 						await TaskExt.RetryAsync(
-							() => _contentDatabase.client.GetAndWriteToVideosCollectionFromCreatorsCollection(
+							() => _client.GetAndWriteToVideosCollectionFromCreatorsCollection(
 								isIncremental, cancellationToken),
 							TimeSpan.FromSeconds(3),
 							100, cancellationToken
@@ -226,6 +238,14 @@ namespace Holoverse.Scraper.UI
 			fullScanCount = 0;
 			isRunning = false;
 			lastRunDetails = "--";
+
+			_settings = new ContentDatabaseClientSettings();
+			_settings.dataClient = _object.settings.dataClient;
+			_settings.isUseProxy = _object.settings.isUseProxy;
+			_settings.proxyList = _object.settings.proxyList;
+
+			_useProxiesToggle.isOn = _settings.isUseProxy;
+			_proxiesListInputField.text = _settings.proxyList;
 		}
 	}
 }

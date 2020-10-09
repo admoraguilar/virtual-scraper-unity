@@ -14,6 +14,7 @@ namespace Holoverse.Scraper
 			_contentDBClient;
 		private ContentDatabaseClient _contentDBClient = null;
 
+		public ContentDatabaseClientSettings settings => _settings;
 		[SerializeField]
 		private ContentDatabaseClientSettings _settings = new ContentDatabaseClientSettings();
 
