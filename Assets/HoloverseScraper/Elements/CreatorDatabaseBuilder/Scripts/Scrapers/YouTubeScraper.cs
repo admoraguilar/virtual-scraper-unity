@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Midnight;
@@ -21,6 +22,11 @@ namespace Holoverse.Scraper
 		public YouTubeScraper()
 		{
 			_client = new YoutubeClient();
+		}
+
+		public YouTubeScraper(HttpClient httpClient)
+		{
+			_client = new YoutubeClient(httpClient);
 		}
 
 		public async Task<Social> GetChannelInfo(string channelUrl)
@@ -151,7 +157,6 @@ namespace Holoverse.Scraper
 		{
 			public DateTimeOffset anchorDate = DateTimeOffset.MinValue;
 			public bool isForward = true;
-
 		}
 	}
 }

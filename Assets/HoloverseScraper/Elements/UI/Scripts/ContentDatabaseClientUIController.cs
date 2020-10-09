@@ -124,9 +124,10 @@ namespace Holoverse.Scraper.UI
 			CancellableFireForget(
 				Execute,
 				(Exception e) => {
-					if(e is OperationCanceledException) {
-						isRunning = false;
-					}
+					_cts.Dispose();
+					_cts = null;
+
+					isRunning = false;
 				});
 
 			async Task Execute(CancellationToken cancellationToken = default)
