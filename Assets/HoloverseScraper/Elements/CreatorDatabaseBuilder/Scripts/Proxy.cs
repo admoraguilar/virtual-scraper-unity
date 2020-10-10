@@ -24,7 +24,7 @@ namespace Holoverse.Scraper
 			if(IPAddress.TryParse(split[0], out address)) {
 				if(split.Length > 1) {
 					if(int.TryParse(split[1], out port)) {
-						if(port >= 0 && port < 65536) {
+						if(port > 0 && port < 65536) {
 							result = true;
 						}
 					}
