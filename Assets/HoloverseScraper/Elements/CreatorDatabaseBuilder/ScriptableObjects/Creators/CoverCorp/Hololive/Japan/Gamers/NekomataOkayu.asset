@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Nekomata Okayu
   universalId: NekomataOkayu
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Nekomata_Okayu
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJxiB3oU3X4_wTHHAay43njgJgzw-2qKPeYIjDH2=s900-c-k-c0xffffffff-no-rj-mo
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJxiB3oU3X4_wTHHAay43njgJgzw-2qKPeYIjDH2=s900-c-k-c0x00ffffff-no-rj
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: 28ba8c50d596f02479a1d5bd4a35dd75, type: 2}
@@ -26,6 +26,6 @@ MonoBehaviour:
     platform: 1
     id: UCvaTdHTWBGv3MKj3KVqJVCw
     url: https://www.youtube.com/channel/UCvaTdHTWBGv3MKj3KVqJVCw
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJxiB3oU3X4_wTHHAay43njgJgzw-2qKPeYIjDH2=s900-c-k-c0xffffffff-no-rj-mo
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJxiB3oU3X4_wTHHAay43njgJgzw-2qKPeYIjDH2=s900-c-k-c0x00ffffff-no-rj
     customKeywords: []
   customKeywords: []

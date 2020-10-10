@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Yuzuki Choco
   universalId: YuzukiChoco
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Yuzuki_Choco
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJyy9e7DUSSfuWdROtr9oJxho6jVqSDhGdsRESDU=s900-c-k-c0xffffffff-no-rj-mo
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJyy9e7DUSSfuWdROtr9oJxho6jVqSDhGdsRESDU=s900-c-k-c0x00ffffff-no-rj
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: 6e8dc2b9fc2154a4fa9575b307e7301b, type: 2}
@@ -26,6 +26,6 @@ MonoBehaviour:
     platform: 1
     id: UC1suqwovbL1kzsoaZgFZLKg
     url: https://www.youtube.com/channel/UC1suqwovbL1kzsoaZgFZLKg
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJyy9e7DUSSfuWdROtr9oJxho6jVqSDhGdsRESDU=s900-c-k-c0xffffffff-no-rj-mo
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJyy9e7DUSSfuWdROtr9oJxho6jVqSDhGdsRESDU=s900-c-k-c0x00ffffff-no-rj
     customKeywords: []
   customKeywords: []

@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Shirogane Noel
   universalId: ShiroganeNoel
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Shirogane_Noel
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJyflKVfVjZg11sLPRv8BrLT-8ltdeRcTyKTWlXV=s900-c-k-c0xffffffff-no-rj-mo
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJyflKVfVjZg11sLPRv8BrLT-8ltdeRcTyKTWlXV=s900-c-k-c0x00ffffff-no-rj
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: 3c29f7ecd18c7c54aa3587e875a65ea5, type: 2}
@@ -26,6 +26,6 @@ MonoBehaviour:
     platform: 1
     id: UCdyqAaZDKHXg4Ahi7VENThQ
     url: https://www.youtube.com/channel/UCdyqAaZDKHXg4Ahi7VENThQ
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJyflKVfVjZg11sLPRv8BrLT-8ltdeRcTyKTWlXV=s900-c-k-c0xffffffff-no-rj-mo
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJyflKVfVjZg11sLPRv8BrLT-8ltdeRcTyKTWlXV=s900-c-k-c0x00ffffff-no-rj
     customKeywords: []
   customKeywords: []

@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Shishiro Botan
   universalId: ShishiroBotan
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Shishiro_Botan
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJzO_bOBHuKPycvddNd88hozl2OjaNC-uR7lOAXa=s900-c-k-c0xffffffff-no-rj-mo
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJzO_bOBHuKPycvddNd88hozl2OjaNC-uR7lOAXa=s900-c-k-c0x00ffffff-no-rj
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: 7e182ef624863a74994fd9ef531f536c, type: 2}
@@ -26,6 +26,6 @@ MonoBehaviour:
     platform: 1
     id: UCUKD-uaobj9jiqB-VXt71mA
     url: https://www.youtube.com/channel/UCUKD-uaobj9jiqB-VXt71mA
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJzO_bOBHuKPycvddNd88hozl2OjaNC-uR7lOAXa=s900-c-k-c0xffffffff-no-rj-mo
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJzO_bOBHuKPycvddNd88hozl2OjaNC-uR7lOAXa=s900-c-k-c0x00ffffff-no-rj
     customKeywords: []
   customKeywords: []

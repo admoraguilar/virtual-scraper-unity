@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Ookami Mio
   universalId: OokamiMio
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Ookami_Mio
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJzFpyPB7LFGFq5DIX2x7pvIblA9Ksz99TrDYvOa5w=s900-c-k-c0xffffffff-no-rj-mo
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJzFpyPB7LFGFq5DIX2x7pvIblA9Ksz99TrDYvOa5w=s900-c-k-c0x00ffffff-no-rj
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: 28ba8c50d596f02479a1d5bd4a35dd75, type: 2}
@@ -26,6 +26,6 @@ MonoBehaviour:
     platform: 1
     id: UCp-5t9SrOQwXMU7iIjQfARg
     url: https://www.youtube.com/channel/UCp-5t9SrOQwXMU7iIjQfARg
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJzFpyPB7LFGFq5DIX2x7pvIblA9Ksz99TrDYvOa5w=s900-c-k-c0xffffffff-no-rj-mo
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJzFpyPB7LFGFq5DIX2x7pvIblA9Ksz99TrDYvOa5w=s900-c-k-c0x00ffffff-no-rj
     customKeywords: []
   customKeywords: []

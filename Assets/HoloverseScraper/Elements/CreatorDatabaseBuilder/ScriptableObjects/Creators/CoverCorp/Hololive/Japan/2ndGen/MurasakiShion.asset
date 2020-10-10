@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Murasaki Shion
   universalId: MurasakiShion
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Murasaki_Shion
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJx2dQl8H1TG2HBy9bMCMP-nHxOVXALwAJz8MFS_rA=s900-c-k-c0xffffffff-no-rj-mo
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJx2dQl8H1TG2HBy9bMCMP-nHxOVXALwAJz8MFS_rA=s900-c-k-c0x00ffffff-no-rj
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: 6e8dc2b9fc2154a4fa9575b307e7301b, type: 2}
@@ -26,6 +26,6 @@ MonoBehaviour:
     platform: 1
     id: UCXTpFs_3PqI41qX2d9tL2Rw
     url: https://www.youtube.com/channel/UCXTpFs_3PqI41qX2d9tL2Rw
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJx2dQl8H1TG2HBy9bMCMP-nHxOVXALwAJz8MFS_rA=s900-c-k-c0xffffffff-no-rj-mo
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJx2dQl8H1TG2HBy9bMCMP-nHxOVXALwAJz8MFS_rA=s900-c-k-c0x00ffffff-no-rj
     customKeywords: []
   customKeywords: []

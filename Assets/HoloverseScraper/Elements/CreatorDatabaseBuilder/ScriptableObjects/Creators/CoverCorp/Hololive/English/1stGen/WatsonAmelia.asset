@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Watson Amelia
   universalId: WatsonAmelia
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Watson_Amelia
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJy4N7OLrI5euxdzCX_OiS6hDbHUSqqIJoWK_170=s900-c-k-c0xffffffff-no-rj-mo
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJy4N7OLrI5euxdzCX_OiS6hDbHUSqqIJoWK_170=s900-c-k-c0x00ffffff-no-rj
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: 1cd301e1f260b054383356b5fa04bc6c, type: 2}
@@ -26,6 +26,6 @@ MonoBehaviour:
     platform: 1
     id: UCyl1z3jo3XHR1riLFKG5UAg
     url: https://www.youtube.com/channel/UCyl1z3jo3XHR1riLFKG5UAg
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJy4N7OLrI5euxdzCX_OiS6hDbHUSqqIJoWK_170=s900-c-k-c0xffffffff-no-rj-mo
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJy4N7OLrI5euxdzCX_OiS6hDbHUSqqIJoWK_170=s900-c-k-c0x00ffffff-no-rj
     customKeywords: []
   customKeywords: []

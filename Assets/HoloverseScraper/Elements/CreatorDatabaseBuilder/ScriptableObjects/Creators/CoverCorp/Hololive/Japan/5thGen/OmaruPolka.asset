@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Omaru Polka
   universalId: OmaruPolka
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Omaru_Polka
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJzMPMCRzpyIsPyp8cOdA2FUwkBotqe6Dh0CmKgA=s900-c-k-c0xffffffff-no-rj-mo
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJzMPMCRzpyIsPyp8cOdA2FUwkBotqe6Dh0CmKgA=s900-c-k-c0x00ffffff-no-rj
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: 7e182ef624863a74994fd9ef531f536c, type: 2}
@@ -26,6 +26,6 @@ MonoBehaviour:
     platform: 1
     id: UCK9V2B22uJYu3N7eR_BT9QA
     url: https://www.youtube.com/channel/UCK9V2B22uJYu3N7eR_BT9QA
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJzMPMCRzpyIsPyp8cOdA2FUwkBotqe6Dh0CmKgA=s900-c-k-c0xffffffff-no-rj-mo
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJzMPMCRzpyIsPyp8cOdA2FUwkBotqe6Dh0CmKgA=s900-c-k-c0x00ffffff-no-rj
     customKeywords: []
   customKeywords: []

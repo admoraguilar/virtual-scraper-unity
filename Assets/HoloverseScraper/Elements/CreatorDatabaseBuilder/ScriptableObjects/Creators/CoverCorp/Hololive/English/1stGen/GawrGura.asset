@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Gawr Gura
   universalId: GawrGura
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Gawr_Gura
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJwyNfLKBDLZoKA3c7u_vPOKbQitz4fcDwi7Iqhi=s900-c-k-c0xffffffff-no-rj-mo
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJwyNfLKBDLZoKA3c7u_vPOKbQitz4fcDwi7Iqhi=s900-c-k-c0x00ffffff-no-rj
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: 1cd301e1f260b054383356b5fa04bc6c, type: 2}
@@ -26,6 +26,6 @@ MonoBehaviour:
     platform: 1
     id: UCoSrY_IQQVpmIRZ9Xf-y93g
     url: https://www.youtube.com/channel/UCoSrY_IQQVpmIRZ9Xf-y93g
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJwyNfLKBDLZoKA3c7u_vPOKbQitz4fcDwi7Iqhi=s900-c-k-c0xffffffff-no-rj-mo
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJwyNfLKBDLZoKA3c7u_vPOKbQitz4fcDwi7Iqhi=s900-c-k-c0x00ffffff-no-rj
     customKeywords: []
   customKeywords: []

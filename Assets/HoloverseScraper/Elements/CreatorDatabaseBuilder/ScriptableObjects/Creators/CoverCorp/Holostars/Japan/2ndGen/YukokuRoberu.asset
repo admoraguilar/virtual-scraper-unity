@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Yukoku Roberu
   universalId: YukokuRoberu
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Yukoku_Roberu
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJynglX3XaMMRa_dMLGP_jjcPNAWc7typZ8B-64g=s900-c-k-c0xffffffff-no-rj-mo
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJynglX3XaMMRa_dMLGP_jjcPNAWc7typZ8B-64g=s900-c-k-c0x00ffffff-no-rj
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: 409d2ac6bcfb67d4086578a5c0dc8f6d, type: 2}
@@ -26,6 +26,6 @@ MonoBehaviour:
     platform: 1
     id: UCANDOlYTJT7N5jlRC3zfzVA
     url: https://www.youtube.com/channel/UCANDOlYTJT7N5jlRC3zfzVA
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJynglX3XaMMRa_dMLGP_jjcPNAWc7typZ8B-64g=s900-c-k-c0xffffffff-no-rj-mo
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJynglX3XaMMRa_dMLGP_jjcPNAWc7typZ8B-64g=s900-c-k-c0x00ffffff-no-rj
     customKeywords: []
   customKeywords: []

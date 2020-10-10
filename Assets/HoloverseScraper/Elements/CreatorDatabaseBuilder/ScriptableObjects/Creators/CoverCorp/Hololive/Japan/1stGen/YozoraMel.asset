@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Yozora Mel
   universalId: YozoraMel
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Yozora_Mel
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJxGYXGi2fgjHoYCSuqLzsh6p-CrlNvRTRFmZmK_=s900-c-k-c0xffffffff-no-rj-mo
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJxGYXGi2fgjHoYCSuqLzsh6p-CrlNvRTRFmZmK_=s900-c-k-c0x00ffffff-no-rj
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: 3a8cfb64d8c1c2843b45c2ee01972131, type: 2}
@@ -26,6 +26,6 @@ MonoBehaviour:
     platform: 1
     id: UCD8HOxPs4Xvsm8H0ZxXGiBw
     url: https://www.youtube.com/channel/UCD8HOxPs4Xvsm8H0ZxXGiBw
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJxGYXGi2fgjHoYCSuqLzsh6p-CrlNvRTRFmZmK_=s900-c-k-c0xffffffff-no-rj-mo
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJxGYXGi2fgjHoYCSuqLzsh6p-CrlNvRTRFmZmK_=s900-c-k-c0x00ffffff-no-rj
     customKeywords: []
   customKeywords: []

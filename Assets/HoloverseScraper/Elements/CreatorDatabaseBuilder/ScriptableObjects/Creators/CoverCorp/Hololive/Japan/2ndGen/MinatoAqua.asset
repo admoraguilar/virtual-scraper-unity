@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Minato Aqua
   universalId: MinatoAqua
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Minato_Aqua
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJxXeCPuSGxq-_NfKX4WSpCf7FtnOkPNzHd2s9Sh9g=s900-c-k-c0xffffffff-no-rj-mo
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJxXeCPuSGxq-_NfKX4WSpCf7FtnOkPNzHd2s9Sh9g=s900-c-k-c0x00ffffff-no-rj
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: 6e8dc2b9fc2154a4fa9575b307e7301b, type: 2}
@@ -26,6 +26,6 @@ MonoBehaviour:
     platform: 1
     id: UC1opHUrw8rvnsadT-iGp7Cg
     url: https://www.youtube.com/channel/UC1opHUrw8rvnsadT-iGp7Cg
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJxXeCPuSGxq-_NfKX4WSpCf7FtnOkPNzHd2s9Sh9g=s900-c-k-c0xffffffff-no-rj-mo
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJxXeCPuSGxq-_NfKX4WSpCf7FtnOkPNzHd2s9Sh9g=s900-c-k-c0x00ffffff-no-rj
     customKeywords: []
   customKeywords: []

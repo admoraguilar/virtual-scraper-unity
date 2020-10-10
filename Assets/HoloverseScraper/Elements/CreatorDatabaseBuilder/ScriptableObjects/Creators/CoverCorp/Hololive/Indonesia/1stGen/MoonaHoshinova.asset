@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Moona Hoshinova
   universalId: MoonaHoshinova
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Moona_Hoshinova
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJz0VbMygCxDQdJwB5LNRSdcXgyGegDBA6pyxs3EJQ=s900-c-k-c0xffffffff-no-rj-mo
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJz0VbMygCxDQdJwB5LNRSdcXgyGegDBA6pyxs3EJQ=s900-c-k-c0x00ffffff-no-rj
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: bc2eb0e43192b48468329b1590ab357a, type: 2}
@@ -26,6 +26,6 @@ MonoBehaviour:
     platform: 1
     id: UCP0BspO_AMEe3aQqqpo89Dg
     url: https://www.youtube.com/channel/UCP0BspO_AMEe3aQqqpo89Dg
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJz0VbMygCxDQdJwB5LNRSdcXgyGegDBA6pyxs3EJQ=s900-c-k-c0xffffffff-no-rj-mo
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJz0VbMygCxDQdJwB5LNRSdcXgyGegDBA6pyxs3EJQ=s900-c-k-c0x00ffffff-no-rj
     customKeywords: []
   customKeywords: []

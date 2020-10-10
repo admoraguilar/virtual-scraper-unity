@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Kageyama Shien
   universalId: KageyamaShien
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Kageyama_Shien
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJyUvNr6KLbI-LIfXzutjY6Z6eWwEH-Kwi4rLbWk=s900-c-k-c0xffffffff-no-rj-mo
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJyUvNr6KLbI-LIfXzutjY6Z6eWwEH-Kwi4rLbWk=s900-c-k-c0x00ffffff-no-rj
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: 5f24838fcbe20474689b5c46a7bc8488, type: 2}
@@ -26,6 +26,6 @@ MonoBehaviour:
     platform: 1
     id: UChSvpZYRPh0FvG4SJGSga3g
     url: https://www.youtube.com/channel/UChSvpZYRPh0FvG4SJGSga3g
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJyUvNr6KLbI-LIfXzutjY6Z6eWwEH-Kwi4rLbWk=s900-c-k-c0xffffffff-no-rj-mo
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJyUvNr6KLbI-LIfXzutjY6Z6eWwEH-Kwi4rLbWk=s900-c-k-c0x00ffffff-no-rj
     customKeywords: []
   customKeywords: []
