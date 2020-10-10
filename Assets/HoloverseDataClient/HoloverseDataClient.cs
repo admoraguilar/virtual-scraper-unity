@@ -22,9 +22,15 @@ namespace Holoverse.Api.Data
 		private IMongoClient _client = null;
 		private IMongoDatabase _contentDatabase = null;
 
-		public HoloverseDataClient(HoloverseDataClientSettings settings)
+		public HoloverseDataClient(
+			string connectionString, string userName, 
+			string password)
 		{
-			_client = HoloverseDataFactory.GetMongoClient(settings.BuildConnectionString());
+			string connection = connectionString
+				.Replace("<username>", userName)
+				.Replace("<password>", password);
+
+			_client = HoloverseDataFactory.GetMongoClient(connection);
 			_contentDatabase = _client.GetDatabase(_contentDatabaseName);
 		}
 

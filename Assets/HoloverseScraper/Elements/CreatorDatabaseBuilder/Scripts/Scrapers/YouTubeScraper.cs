@@ -17,6 +17,12 @@ namespace Holoverse.Scraper
 
 	public class YouTubeScraper
 	{
+		public class ChannelVideoSettings
+		{
+			public DateTimeOffset anchorDate = DateTimeOffset.MinValue;
+			public bool isForward = true;
+		}
+
 		private YoutubeClient _client = null;
 
 		public YouTubeScraper()
@@ -151,12 +157,6 @@ namespace Holoverse.Scraper
 			}
 
 			return results;
-		}
-
-		public class ChannelVideoSettings
-		{
-			public DateTimeOffset anchorDate = DateTimeOffset.MinValue;
-			public bool isForward = true;
 		}
 	}
 }

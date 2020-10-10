@@ -12,31 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e1634b50ba46114084d62d3ca654b37, type: 3}
   m_Name: ContentDatabaseClient
   m_EditorClassIdentifier: 
-  _settings:
-    isUseProxy: 1
-    proxyList: '64.34.204.163:24519
+  _connectionString: mongodb+srv://<username>:<password>@us-east-1-free.41hlb.mongodb.net/test
+  _userName: holoverse-editor
+  _password: RBqYN3ugVTb2stqD
+  _isUseProxy: 1
+  _proxyList: '64.34.204.163:24519
 
-      64.34.204.163:26254
+    64.34.204.163:26254
 
-      64.34.204.163:18597
+    64.34.204.163:18597
 
-      64.34.204.163:17189
+    64.34.204.163:17189
 
-      64.34.204.163:25251
+    64.34.204.163:25251
 
-      64.34.204.163:32774
+    64.34.204.163:32774
 
-      64.34.204.163:22603
+    64.34.204.163:22603
 
-      64.34.204.163:11431
+    64.34.204.163:11431
 
-      64.34.204.163:22349
+    64.34.204.163:22349
 
-      64.34.204.163:26922'
-    dataClient:
-      connectionString: mongodb+srv://<username>:<password>@us-east-1-free.41hlb.mongodb.net/test
-      userName: holoverse-editor
-      password: RBqYN3ugVTb2stqD
+    64.34.204.163:26922'
   _editor_creatorObjectsFolderPath: {fileID: 102900000, guid: a83073264a0ae05419e4a22ea4df7ac5,
     type: 3}
   _editor_creatorsList: []

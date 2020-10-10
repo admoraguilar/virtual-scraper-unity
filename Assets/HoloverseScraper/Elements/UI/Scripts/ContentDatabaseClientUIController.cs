@@ -19,9 +19,7 @@ namespace Holoverse.Scraper.UI
 		}
 
 		[SerializeField]
-		private ContentDatabaseClientObject _object = null;
-		private ContentDatabaseClientSettings _settings = null;
-		private ContentDatabaseClient _client = null;
+		private ContentDatabaseClientObject _clientObject = null;
 
 		[Header("UI")]
 		[SerializeField]
@@ -123,9 +121,8 @@ namespace Holoverse.Scraper.UI
 			if(isRunning) { return; }
 			isRunning = true;
 
-			_settings.isUseProxy = _useProxiesToggle;
-			_settings.proxyList = _proxiesListInputField.text;
-			_client = new ContentDatabaseClient(_settings);
+			_clientObject.isUseProxy = _useProxiesToggle.isOn;
+			_clientObject.proxyList = _proxiesListInputField.text;
 
 			incrementalScanCount = 0;
 			fullScanCount = 0;
@@ -161,10 +158,10 @@ namespace Holoverse.Scraper.UI
 						else { isIncremental = true; }
 
 						await TaskExt.RetryAsync(
-							() => _client.GetAndWriteToVideosCollectionFromCreatorsCollection(
+							() => _clientObject.GetAndWriteToVideosCollectionFromCreatorsCollection(
 								isIncremental, cancellationToken),
 							TimeSpan.FromSeconds(3),
-							100, cancellationToken
+							0, cancellationToken
 						);
 						lastRunDetails = $"{stopwatch.elapsed.Duration()} - {DateTime.Now}";
 					}
@@ -210,9 +207,19 @@ namespace Holoverse.Scraper.UI
 			_iterationGapAmount = float.Parse(value);
 		}
 
-		private void OnShowDebugButton()
+		private void OnShowDebugButtonClicked()
 		{
 			FindObjectOfType<Reporter>().doShow();
+		}
+
+		private void OnUseProxiesToggleValueChanged(bool value)
+		{
+			_clientObject.isUseProxy = value;
+		}
+
+		private void OnProxiesListInputFieldValueChanged(string value)
+		{
+			_clientObject.proxyList = value;
 		}
 
 		private void OnEnable()
@@ -220,7 +227,10 @@ namespace Holoverse.Scraper.UI
 			_iterationGapAmountInputField.onValueChanged.AddListener(OnIterationGapInputFieldValueChanged);
 			_runButton.onClick.AddListener(Run);
 			_cancelButton.onClick.AddListener(Cancel);
-			_showDebugButton.onClick.AddListener(OnShowDebugButton);
+			_showDebugButton.onClick.AddListener(OnShowDebugButtonClicked);
+
+			_useProxiesToggle.onValueChanged.AddListener(OnUseProxiesToggleValueChanged);
+			_proxiesListInputField.onValueChanged.AddListener(OnProxiesListInputFieldValueChanged);
 		}
 
 		private void OnDisable()
@@ -228,7 +238,10 @@ namespace Holoverse.Scraper.UI
 			_iterationGapAmountInputField.onValueChanged.RemoveListener(OnIterationGapInputFieldValueChanged);
 			_runButton.onClick.RemoveListener(Run);
 			_cancelButton.onClick.RemoveListener(Cancel);
-			_showDebugButton.onClick.RemoveListener(OnShowDebugButton);
+			_showDebugButton.onClick.RemoveListener(OnShowDebugButtonClicked);
+
+			_useProxiesToggle.onValueChanged.RemoveListener(OnUseProxiesToggleValueChanged);
+			_proxiesListInputField.onValueChanged.RemoveListener(OnProxiesListInputFieldValueChanged);
 		}
 
 		private void Start()
@@ -239,13 +252,8 @@ namespace Holoverse.Scraper.UI
 			isRunning = false;
 			lastRunDetails = "--";
 
-			_settings = new ContentDatabaseClientSettings();
-			_settings.dataClient = _object.settings.dataClient;
-			_settings.isUseProxy = _object.settings.isUseProxy;
-			_settings.proxyList = _object.settings.proxyList;
-
-			_useProxiesToggle.isOn = _settings.isUseProxy;
-			_proxiesListInputField.text = _settings.proxyList;
+			_useProxiesToggle.isOn = _clientObject.isUseProxy;
+			_proxiesListInputField.text = _clientObject.proxyList;
 		}
 	}
 }

@@ -5,10 +5,10 @@ namespace Holoverse.Scraper
 {
 	public static class HttpClientFactory
 	{
-		public static HttpClient CreateProxyClient(string host, int port)
+		public static HttpClient CreateProxyClient(Proxy proxy)
 		{
 			HttpClientHandler handler = new HttpClientHandler();
-			handler.Proxy = new WebProxy(host, port);
+			handler.Proxy = new WebProxy(proxy.host, proxy.port);
 			handler.UseCookies = false;
 
 			if(handler.SupportsAutomaticDecompression) {

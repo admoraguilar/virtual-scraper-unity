@@ -108,7 +108,7 @@ namespace Holoverse.Scraper
 		public void ExportCreatorsJSON()
 		{
 			using(StopwatchScope stopwatch = new StopwatchScope()) {
-				target.client.ExportCreatorsJSON(GetCreatorObjects().Select(obj => obj.ToCreator()).ToArray());
+				target.ExportCreatorsJSON(GetCreatorObjects().Select(obj => obj.ToCreator()).ToArray());
 				_metrics["Export Creators to JSON"] = stopwatch.elapsed.Duration().ToString();
 			}
 		}
@@ -128,7 +128,7 @@ namespace Holoverse.Scraper
 						}))
 					{
 						progress.Report(.8f);
-						await target.client.WriteToCreatorsCollectionAsync(
+						await target.WriteToCreatorsCollectionAsync(
 							GetCreatorObjects().Select(obj => obj.ToCreator()).ToArray(),
 							cancellationToken);
 						EditorPrefs.SetString(
@@ -154,7 +154,7 @@ namespace Holoverse.Scraper
 							options = Progress.Options.Indefinite
 						})) {
 						progress.Report(.8f);
-						await target.client.ExportVideosUsingLocalCreatorsJSONAsync(
+						await target.ExportVideosUsingLocalCreatorsJSONAsync(
 							incremental, cancellationToken);
 						_metrics["Export Videos to JSON"] = stopwatch.elapsed.Duration().ToString();
 					}
@@ -176,7 +176,7 @@ namespace Holoverse.Scraper
 							options = Progress.Options.Indefinite
 						})) {
 						progress.Report(.8f);
-						await target.client.WriteToVideosCollectionUsingLocalJson(
+						await target.WriteToVideosCollectionUsingLocalJson(
 							incremetal, cancellationToken);
 						EditorPrefs.SetString(
 							_writeVideosUsingLocalMetricKey,
@@ -201,7 +201,7 @@ namespace Holoverse.Scraper
 							options = Progress.Options.Indefinite
 						})) 
 					{
-						await target.client.GetAndWriteToVideosCollectionFromCreatorsCollection(
+						await target.GetAndWriteToVideosCollectionFromCreatorsCollection(
 							incremental, cancellationToken);
 						EditorPrefs.SetString(
 							_writeVideosMetricKey, 

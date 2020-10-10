@@ -17,18 +17,22 @@ namespace Holoverse.Scraper
 		private string creatorsLocalJSONPath => PathUtilities.CreateDataPath("Holoverse", "creators.json", PathType.Data);
 		private string videosLocalJSONPath => PathUtilities.CreateDataPath("Holoverse", "videos.json", PathType.Data);
 
-		private ContentDatabaseClientSettings _settings = null;
 		private HoloverseDataClient _dataClient = null;
+
+		public bool isUseProxy { get; set; } = false;
+
+		public ICollection<Proxy> proxies => _proxyList;
+		private List<Proxy> _proxyList = new List<Proxy>();
 
 		private YouTubeScraper youtubeScraper
 		{
 			get {
-				if(_settings.isUseProxy) {
-					(string, int) proxy = _settings.GetRandomProxy();
-					MLog.Log(nameof(ContentDatabaseClient), $"Proxy = Host: {proxy.Item1} | Port: {proxy.Item2}");
-					_youtubeScraper = new YouTubeScraper(
-						HttpClientFactory.CreateProxyClient(
-							proxy.Item1, proxy.Item2));
+				if(isUseProxy) {
+					Random r = new Random();
+					Proxy proxy = _proxyList[r.Next(0, _proxyList.Count + 1)];
+					MLog.Log(nameof(ContentDatabaseClient), $"Proxy: {proxy}");
+
+					_youtubeScraper = new YouTubeScraper(HttpClientFactory.CreateProxyClient(proxy));
 				} else {
 					if(_youtubeScraper == null) {
 						_youtubeScraper = new YouTubeScraper();
@@ -40,12 +44,20 @@ namespace Holoverse.Scraper
 		}
 		private YouTubeScraper _youtubeScraper = null;
 
-		public ContentDatabaseClient(ContentDatabaseClientSettings settings)
+		public ContentDatabaseClient(
+			string connectionString, string userName,
+			string password)
 		{
-			_settings = settings;
-
-			_dataClient = new HoloverseDataClient(_settings.dataClient);
+			_dataClient = new HoloverseDataClient(connectionString, userName, password);
 			_youtubeScraper = new YouTubeScraper();
+		}
+
+		public void SetProxies(string proxiesText)
+		{
+			_proxyList.Clear();
+
+			IReadOnlyList<string> rawProxies = TextFileUtilities.GetNLSV(proxiesText);
+			_proxyList.AddRange(rawProxies.Select(r => new Proxy(r)));
 		}
 
 		public async Task<IAsyncCursor<Creator>> GetCreatorsAsync(
@@ -154,7 +166,7 @@ namespace Holoverse.Scraper
 					MLog.Log(nameof(ContentDatabaseClient), $"[YouTube: {youtube.name}] Scraping videos...");
 					videos.AddRange(await TaskExt.RetryAsync(
 						() => youtubeScraper.GetChannelVideos(creator, youtube.url, channelVideoSettings),
-						TimeSpan.FromSeconds(0), 50, cancellationToken
+						TimeSpan.FromSeconds(0), 0, cancellationToken
 					));
 					cancellationToken.ThrowIfCancellationRequested();
 
