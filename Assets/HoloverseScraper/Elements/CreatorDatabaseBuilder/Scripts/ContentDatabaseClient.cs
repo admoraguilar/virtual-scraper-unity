@@ -57,7 +57,11 @@ namespace Holoverse.Scraper
 			_proxyList.Clear();
 
 			IReadOnlyList<string> rawProxies = TextFileUtilities.GetNLSV(proxiesText);
-			_proxyList.AddRange(rawProxies.Select(r => new Proxy(r)));
+			foreach(string rawProxy in rawProxies) {
+				if(Proxy.TryParse(rawProxy, out Proxy proxy)) {
+					_proxyList.Add(proxy);
+				}
+			}
 		}
 
 		public async Task<IAsyncCursor<Creator>> GetCreatorsAsync(

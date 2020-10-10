@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -217,7 +217,7 @@ namespace Holoverse.Scraper.UI
 			_clientObject.isUseProxy = value;
 		}
 
-		private void OnProxiesListInputFieldValueChanged(string value)
+		private void OnProxiesListInputFieldOnValueChanged(string value)
 		{
 			_clientObject.proxyList = value;
 		}
@@ -230,7 +230,7 @@ namespace Holoverse.Scraper.UI
 			_showDebugButton.onClick.AddListener(OnShowDebugButtonClicked);
 
 			_useProxiesToggle.onValueChanged.AddListener(OnUseProxiesToggleValueChanged);
-			_proxiesListInputField.onValueChanged.AddListener(OnProxiesListInputFieldValueChanged);
+			_proxiesListInputField.onValueChanged.AddListener(OnProxiesListInputFieldOnValueChanged);
 		}
 
 		private void OnDisable()
@@ -241,7 +241,7 @@ namespace Holoverse.Scraper.UI
 			_showDebugButton.onClick.RemoveListener(OnShowDebugButtonClicked);
 
 			_useProxiesToggle.onValueChanged.RemoveListener(OnUseProxiesToggleValueChanged);
-			_proxiesListInputField.onValueChanged.RemoveListener(OnProxiesListInputFieldValueChanged);
+			_proxiesListInputField.onValueChanged.RemoveListener(OnProxiesListInputFieldOnValueChanged);
 		}
 
 		private void Start()
