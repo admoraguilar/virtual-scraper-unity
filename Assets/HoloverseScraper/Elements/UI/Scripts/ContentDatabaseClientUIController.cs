@@ -133,11 +133,7 @@ namespace Holoverse.Scraper.UI
 			CancellableFireForget(
 				Execute,
 				(Exception e) => {
-					if(_cts != null) {
-						_cts.Dispose();
-						_cts = null;
-					}
-
+					Cancel();
 					isRunning = false;
 				});
 
@@ -161,7 +157,7 @@ namespace Holoverse.Scraper.UI
 							() => _clientObject.GetAndWriteToVideosCollectionFromCreatorsCollection(
 								isIncremental, cancellationToken),
 							TimeSpan.FromSeconds(3),
-							0, cancellationToken
+							3, cancellationToken
 						);
 						lastRunDetails = $"{stopwatch.elapsed.Duration()} - {DateTime.Now}";
 					}

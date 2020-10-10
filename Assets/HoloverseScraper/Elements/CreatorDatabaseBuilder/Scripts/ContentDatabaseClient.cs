@@ -23,15 +23,19 @@ namespace Holoverse.Scraper
 
 		public ICollection<Proxy> proxies => _proxyList;
 		private List<Proxy> _proxyList = new List<Proxy>();
+		private Queue<Proxy> _proxyQueue = new Queue<Proxy>();
 
 		private YouTubeScraper youtubeScraper
 		{
 			get {
 				if(isUseProxy) {
-					Random r = new Random();
-					Proxy proxy = _proxyList[r.Next(0, _proxyList.Count + 1)];
-					MLog.Log(nameof(ContentDatabaseClient), $"Proxy: {proxy}");
+					if(_proxyQueue.Count <= 0) {
+						_proxyList.Shuffle();
+						_proxyQueue = new Queue<Proxy>(_proxyList);
+					}
+					Proxy proxy = _proxyQueue.Dequeue();
 
+					MLog.Log(nameof(ContentDatabaseClient), $"Proxy: {proxy}");
 					_youtubeScraper = new YouTubeScraper(HttpClientFactory.CreateProxyClient(proxy));
 				} else {
 					if(_youtubeScraper == null) {
@@ -170,21 +174,21 @@ namespace Holoverse.Scraper
 					MLog.Log(nameof(ContentDatabaseClient), $"[YouTube: {youtube.name}] Scraping videos...");
 					videos.AddRange(await TaskExt.RetryAsync(
 						() => youtubeScraper.GetChannelVideos(creator, youtube.url, channelVideoSettings),
-						TimeSpan.FromSeconds(0), 0, cancellationToken
+						TimeSpan.FromSeconds(1), 3, cancellationToken
 					));
 					cancellationToken.ThrowIfCancellationRequested();
 
 					MLog.Log(nameof(ContentDatabaseClient), $"[YouTube: {youtube.name}] Scraping upcoming broadcasts...");
 					videos.AddRange(await TaskExt.RetryAsync(
 						() => youtubeScraper.GetChannelUpcomingBroadcasts(creator, youtube.url),
-						TimeSpan.FromSeconds(0), 50, cancellationToken
+						TimeSpan.FromSeconds(1), 3, cancellationToken
 					));
 					cancellationToken.ThrowIfCancellationRequested();
 
 					MLog.Log(nameof(ContentDatabaseClient), $"[YouTube: {youtube.name}] Scraping now broadcasts...");
 					videos.AddRange(await TaskExt.RetryAsync(
 						() => youtubeScraper.GetChannelLiveBroadcasts(creator, youtube.url),
-						TimeSpan.FromSeconds(0), 50, cancellationToken
+						TimeSpan.FromSeconds(1), 3, cancellationToken
 					));
 					cancellationToken.ThrowIfCancellationRequested();
 				}
