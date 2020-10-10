@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43910ccb2860f8646b8d5c01236b6542, type: 3}
+  m_Name: KirukuTranslations
+  m_EditorClassIdentifier: 
+  universalName: Kiriku Translations
+  universalId: KirikuTranslations
+  wikiUrl: https://virtualyoutuber.fandom.com/wiki/Kiriku_Translations
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJwp2cZHLleDDdnYEsUbRPbOLo57JZJFLHoDURvP=s900-c-k-c0x00ffffff-no-rj
+  isHidden: 0
+  affiliations:
+  - {fileID: 11400000, guid: 76cb7fac7c2f0474f9185618939d8ec8, type: 2}
+  isGroup: 0
+  depth: 0
+  socials:
+  - name: Kiriku Translation
+    platform: 1
+    id: UCsYcCwDqv6Sg8KMIIMF54SA
+    url: https://www.youtube.com/channel/UCsYcCwDqv6Sg8KMIIMF54SA
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJwp2cZHLleDDdnYEsUbRPbOLo57JZJFLHoDURvP=s900-c-k-c0x00ffffff-no-rj
+    customKeywords: []
+  customKeywords: []

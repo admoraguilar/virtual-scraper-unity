@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Hoshimachi Suisei
   universalId: HoshimachiSuisei
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Hoshimachi_Suisei
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJzbRjSTNu3QQ7pia2yR5oVTcds7MpmeA3a1xE-h=s900-c-k-c0xffffffff-no-rj-mo
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJzbRjSTNu3QQ7pia2yR5oVTcds7MpmeA3a1xE-h=s900-c-k-c0x00ffffff-no-rj
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: f3a53d8e797355b4d916d827a0a5b7ac, type: 2}
@@ -26,6 +26,6 @@ MonoBehaviour:
     platform: 1
     id: UC5CwaMl1eIgY8h02uZw7u8A
     url: https://www.youtube.com/channel/UC5CwaMl1eIgY8h02uZw7u8A
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJzbRjSTNu3QQ7pia2yR5oVTcds7MpmeA3a1xE-h=s900-c-k-c0xffffffff-no-rj-mo
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJzbRjSTNu3QQ7pia2yR5oVTcds7MpmeA3a1xE-h=s900-c-k-c0x00ffffff-no-rj
     customKeywords: []
   customKeywords: []

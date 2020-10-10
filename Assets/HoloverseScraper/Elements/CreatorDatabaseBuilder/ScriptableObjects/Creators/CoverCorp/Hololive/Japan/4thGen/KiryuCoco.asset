@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Kiryu Coco
   universalId: KiryuCoco
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Kiryu_Coco
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJz_YJU2_OXLiMyWNFnGaC-LpYTs_06G22ozGVfw=s900-c-k-c0xffffffff-no-rj-mo
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJz_YJU2_OXLiMyWNFnGaC-LpYTs_06G22ozGVfw=s900-c-k-c0x00ffffff-no-rj
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: 1496fd442bd36d0479ff07ed348e7d09, type: 2}
@@ -26,6 +26,6 @@ MonoBehaviour:
     platform: 1
     id: UCS9uQI-jC3DE0L4IpXyvr6w
     url: https://www.youtube.com/channel/UCS9uQI-jC3DE0L4IpXyvr6w
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJz_YJU2_OXLiMyWNFnGaC-LpYTs_06G22ozGVfw=s900-c-k-c0xffffffff-no-rj-mo
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJz_YJU2_OXLiMyWNFnGaC-LpYTs_06G22ozGVfw=s900-c-k-c0x00ffffff-no-rj
     customKeywords: []
   customKeywords: []

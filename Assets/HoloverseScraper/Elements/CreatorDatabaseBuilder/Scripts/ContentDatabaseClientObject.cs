@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace Holoverse.Scraper
 {
@@ -9,13 +12,74 @@ namespace Holoverse.Scraper
 	[CreateAssetMenu(menuName = "Holoverse/Content Database/Client Object")]
 	public class ContentDatabaseClientObject : ScriptableObject
 	{
-		public ContentDatabaseClient client =>
-			_contentDBClient == null ? _contentDBClient = new ContentDatabaseClient(_dataClientSettings) :
-			_contentDBClient;
-		private ContentDatabaseClient _contentDBClient = null;
+		[SerializeField]
+		public string _connectionString = string.Empty;
 
 		[SerializeField]
-		private HoloverseDataClientSettings _dataClientSettings = new HoloverseDataClientSettings();
+		public string _userName = string.Empty;
+
+		[SerializeField]
+		public string _password = string.Empty;
+
+		public bool isUseProxy
+		{
+			get => _isUseProxy;
+			set {
+				_isUseProxy = value;
+				client.isUseProxy = _isUseProxy;
+			}
+		}
+		[SerializeField]
+		private bool _isUseProxy = false;
+
+		public string proxyList
+		{
+			get => _proxyList;
+			set {
+				_proxyList = value;
+				client.SetProxies(_proxyList);
+			}
+		}
+		[TextArea(5, 5)]
+		[SerializeField]
+		private string _proxyList = string.Empty;
+
+		private ContentDatabaseClient client 
+		{
+			get 
+			{
+				if(_client == null) {
+					_client = new ContentDatabaseClient(
+						_connectionString, _userName,
+						_password);
+
+					_client.isUseProxy = isUseProxy;
+					_client.SetProxies(proxyList);
+				}
+
+				return _client;
+			}	
+		}
+		private ContentDatabaseClient _client = null;
+
+		public void ExportCreatorsJSON(IEnumerable<Creator> creators) => 
+			client.ExportCreatorsJSON(creators);
+
+		public async Task WriteToCreatorsCollectionAsync(
+			IEnumerable<Creator> creators, CancellationToken cancellationToken = default) =>
+				await client.WriteToCreatorsCollectionAsync(creators, cancellationToken);
+
+		public async Task ExportVideosUsingLocalCreatorsJSONAsync(
+			bool incremental = false, CancellationToken cancellationToken = default) =>
+				await client.ExportVideosUsingLocalCreatorsJSONAsync(incremental, cancellationToken);
+
+		public async Task WriteToVideosCollectionUsingLocalJson(
+			bool incremental = false, CancellationToken cancellationToken = default) =>
+				await client.WriteToVideosCollectionUsingLocalJson(incremental, cancellationToken);
+
+		public async Task GetAndWriteToVideosCollectionFromCreatorsCollection(
+			bool incremental = false, CancellationToken cancellationToken = default) =>
+				await client.GetAndWriteToVideosCollectionFromCreatorsCollection(incremental, cancellationToken);
 
 #if UNITY_EDITOR
 		public enum Editor_CreatorObjectsListMode

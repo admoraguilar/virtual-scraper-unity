@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Yukihana Lamy
   universalId: YukihanaLamy
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Yukihana_Lamy
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJzPYUSxysPc7CWjvXdT3CjFYKJtmC9ak1CP9Z3f=s900-c-k-c0xffffffff-no-rj-mo
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJzPYUSxysPc7CWjvXdT3CjFYKJtmC9ak1CP9Z3f=s900-c-k-c0x00ffffff-no-rj
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: 7e182ef624863a74994fd9ef531f536c, type: 2}
@@ -26,6 +26,6 @@ MonoBehaviour:
     platform: 1
     id: UCFKOVgVbGmX65RxO3EtH3iw
     url: https://www.youtube.com/channel/UCFKOVgVbGmX65RxO3EtH3iw
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJzPYUSxysPc7CWjvXdT3CjFYKJtmC9ak1CP9Z3f=s900-c-k-c0xffffffff-no-rj-mo
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJzPYUSxysPc7CWjvXdT3CjFYKJtmC9ak1CP9Z3f=s900-c-k-c0x00ffffff-no-rj
     customKeywords: []
   customKeywords: []

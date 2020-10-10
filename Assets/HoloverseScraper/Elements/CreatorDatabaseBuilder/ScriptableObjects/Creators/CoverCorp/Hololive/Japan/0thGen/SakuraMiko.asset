@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Sakura Miko
   universalId: SakuraMiko
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Sakura_Miko
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJyKGBusDmf7stiwXDVORLo21xtnBj2YUHrPd-CxYA=s900-c-k-c0xffffffff-no-rj-mo
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJyKGBusDmf7stiwXDVORLo21xtnBj2YUHrPd-CxYA=s900-c-k-c0x00ffffff-no-rj
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: f3a53d8e797355b4d916d827a0a5b7ac, type: 2}
@@ -26,6 +26,6 @@ MonoBehaviour:
     platform: 1
     id: UC-hM6YJuNYVAmUWxeIr9FeA
     url: https://www.youtube.com/channel/UC-hM6YJuNYVAmUWxeIr9FeA
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJyKGBusDmf7stiwXDVORLo21xtnBj2YUHrPd-CxYA=s900-c-k-c0xffffffff-no-rj-mo
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJyKGBusDmf7stiwXDVORLo21xtnBj2YUHrPd-CxYA=s900-c-k-c0x00ffffff-no-rj
     customKeywords: []
   customKeywords: []

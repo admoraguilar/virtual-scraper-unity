@@ -18,12 +18,54 @@ namespace Holoverse.Scraper
 		private string videosLocalJSONPath => PathUtilities.CreateDataPath("Holoverse", "videos.json", PathType.Data);
 
 		private HoloverseDataClient _dataClient = null;
+
+		public bool isUseProxy { get; set; } = false;
+
+		public ICollection<Proxy> proxies => _proxyList;
+		private List<Proxy> _proxyList = new List<Proxy>();
+		private Queue<Proxy> _proxyQueue = new Queue<Proxy>();
+
+		private YouTubeScraper youtubeScraper
+		{
+			get {
+				if(isUseProxy) {
+					if(_proxyQueue.Count <= 0) {
+						_proxyList.Shuffle();
+						_proxyQueue = new Queue<Proxy>(_proxyList);
+					}
+					Proxy proxy = _proxyQueue.Dequeue();
+
+					MLog.Log(nameof(ContentDatabaseClient), $"Proxy: {proxy}");
+					_youtubeScraper = new YouTubeScraper(HttpClientFactory.CreateProxyClient(proxy));
+				} else {
+					if(_youtubeScraper == null) {
+						_youtubeScraper = new YouTubeScraper();
+					}
+				}
+
+				return _youtubeScraper;
+			}
+		}
 		private YouTubeScraper _youtubeScraper = null;
 
-		public ContentDatabaseClient(HoloverseDataClientSettings settings)
+		public ContentDatabaseClient(
+			string connectionString, string userName,
+			string password)
 		{
-			_dataClient = new HoloverseDataClient(settings);
+			_dataClient = new HoloverseDataClient(connectionString, userName, password);
 			_youtubeScraper = new YouTubeScraper();
+		}
+
+		public void SetProxies(string proxiesText)
+		{
+			_proxyList.Clear();
+
+			IReadOnlyList<string> rawProxies = TextFileUtilities.GetNLSV(proxiesText);
+			foreach(string rawProxy in rawProxies) {
+				if(Proxy.TryParse(rawProxy, out Proxy proxy)) {
+					_proxyList.Add(proxy);
+				}
+			}
 		}
 
 		public async Task<IAsyncCursor<Creator>> GetCreatorsAsync(
@@ -131,22 +173,22 @@ namespace Holoverse.Scraper
 				foreach(Social youtube in creator.socials.Where(s => s.platform == Platform.YouTube)) {
 					MLog.Log(nameof(ContentDatabaseClient), $"[YouTube: {youtube.name}] Scraping videos...");
 					videos.AddRange(await TaskExt.RetryAsync(
-						() => _youtubeScraper.GetChannelVideos(creator, youtube.url, channelVideoSettings),
-						TimeSpan.FromSeconds(3), 50, cancellationToken
+						() => youtubeScraper.GetChannelVideos(creator, youtube.url, channelVideoSettings),
+						TimeSpan.FromSeconds(1), 3, cancellationToken
 					));
 					cancellationToken.ThrowIfCancellationRequested();
 
 					MLog.Log(nameof(ContentDatabaseClient), $"[YouTube: {youtube.name}] Scraping upcoming broadcasts...");
 					videos.AddRange(await TaskExt.RetryAsync(
-						() => _youtubeScraper.GetChannelUpcomingBroadcasts(creator, youtube.url),
-						TimeSpan.FromSeconds(3), 50, cancellationToken
+						() => youtubeScraper.GetChannelUpcomingBroadcasts(creator, youtube.url),
+						TimeSpan.FromSeconds(1), 3, cancellationToken
 					));
 					cancellationToken.ThrowIfCancellationRequested();
 
 					MLog.Log(nameof(ContentDatabaseClient), $"[YouTube: {youtube.name}] Scraping now broadcasts...");
 					videos.AddRange(await TaskExt.RetryAsync(
-						() => _youtubeScraper.GetChannelLiveBroadcasts(creator, youtube.url),
-						TimeSpan.FromSeconds(3), 50, cancellationToken
+						() => youtubeScraper.GetChannelLiveBroadcasts(creator, youtube.url),
+						TimeSpan.FromSeconds(1), 3, cancellationToken
 					));
 					cancellationToken.ThrowIfCancellationRequested();
 				}

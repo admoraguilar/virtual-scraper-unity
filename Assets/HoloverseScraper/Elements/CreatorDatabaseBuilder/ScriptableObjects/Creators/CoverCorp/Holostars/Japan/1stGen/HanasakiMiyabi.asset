@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Hanasaki Miyabi
   universalId: HanasakiMiyabi
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Hanasaki_Miyabi
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJxB0OqaMlTW_mviIOFpcA5T7BednuyLzWTqh5DX=s900-c-k-c0xffffffff-no-rj-mo
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJxB0OqaMlTW_mviIOFpcA5T7BednuyLzWTqh5DX=s900-c-k-c0x00ffffff-no-rj
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: 9d007c255a7f9e14ea6fbbe4b468bb6d, type: 2}
@@ -26,6 +26,6 @@ MonoBehaviour:
     platform: 1
     id: UC6t3-_N8A6ME1JShZHHqOMw
     url: https://www.youtube.com/channel/UC6t3-_N8A6ME1JShZHHqOMw
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJxB0OqaMlTW_mviIOFpcA5T7BednuyLzWTqh5DX=s900-c-k-c0xffffffff-no-rj-mo
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJxB0OqaMlTW_mviIOFpcA5T7BednuyLzWTqh5DX=s900-c-k-c0x00ffffff-no-rj
     customKeywords: []
   customKeywords: []

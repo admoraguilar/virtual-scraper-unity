@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Tokoyami Towa
   universalId: TokoyamiTowa
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Tokoyami_Towa
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJwvh1krTC77V1xFYngwDN4W7x96yl4WBxV5cOaA=s900-c-k-c0xffffffff-no-rj-mo
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJwvh1krTC77V1xFYngwDN4W7x96yl4WBxV5cOaA=s900-c-k-c0x00ffffff-no-rj
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: 1496fd442bd36d0479ff07ed348e7d09, type: 2}
@@ -26,6 +26,6 @@ MonoBehaviour:
     platform: 1
     id: UC1uv2Oq6kNxgATlCiez59hw
     url: https://www.youtube.com/channel/UC1uv2Oq6kNxgATlCiez59hw
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJwvh1krTC77V1xFYngwDN4W7x96yl4WBxV5cOaA=s900-c-k-c0xffffffff-no-rj-mo
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJwvh1krTC77V1xFYngwDN4W7x96yl4WBxV5cOaA=s900-c-k-c0x00ffffff-no-rj
     customKeywords: []
   customKeywords: []

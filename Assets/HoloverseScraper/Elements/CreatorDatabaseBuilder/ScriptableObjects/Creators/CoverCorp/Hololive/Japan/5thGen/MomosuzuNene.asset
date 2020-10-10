@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Momosuzu Nene
   universalId: MomosuzuNene
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Momosuzu_Nene
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJyy0MDi5ux-dNieMyjSCs4xBUQWHOfkPfsz5Xrw=s900-c-k-c0xffffffff-no-rj-mo
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJyy0MDi5ux-dNieMyjSCs4xBUQWHOfkPfsz5Xrw=s900-c-k-c0x00ffffff-no-rj
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: 7e182ef624863a74994fd9ef531f536c, type: 2}
@@ -26,6 +26,6 @@ MonoBehaviour:
     platform: 1
     id: UCAWSyEs_Io8MtpY3m-zqILA
     url: https://www.youtube.com/channel/UCAWSyEs_Io8MtpY3m-zqILA
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJyy0MDi5ux-dNieMyjSCs4xBUQWHOfkPfsz5Xrw=s900-c-k-c0xffffffff-no-rj-mo
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJyy0MDi5ux-dNieMyjSCs4xBUQWHOfkPfsz5Xrw=s900-c-k-c0x00ffffff-no-rj
     customKeywords: []
   customKeywords: []

@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Airani Iofifteen
   universalId: AiraniIofifteen
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Airani_Iofifteen
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJx28lrJ1bpfUSNv3cakn59hdqx7YOGpnvJJ9Tof=s900-c-k-c0xffffffff-no-rj-mo
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJx28lrJ1bpfUSNv3cakn59hdqx7YOGpnvJJ9Tof=s900-c-k-c0x00ffffff-no-rj
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: bc2eb0e43192b48468329b1590ab357a, type: 2}
@@ -26,6 +26,6 @@ MonoBehaviour:
     platform: 1
     id: UCAoy6rzhSf4ydcYjJw3WoVg
     url: https://www.youtube.com/channel/UCAoy6rzhSf4ydcYjJw3WoVg
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJx28lrJ1bpfUSNv3cakn59hdqx7YOGpnvJJ9Tof=s900-c-k-c0xffffffff-no-rj-mo
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJx28lrJ1bpfUSNv3cakn59hdqx7YOGpnvJJ9Tof=s900-c-k-c0x00ffffff-no-rj
     customKeywords: []
   customKeywords: []

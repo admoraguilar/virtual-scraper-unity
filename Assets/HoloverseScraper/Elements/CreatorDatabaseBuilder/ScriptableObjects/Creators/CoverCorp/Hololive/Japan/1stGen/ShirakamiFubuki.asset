@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Shirakami Fubuki
   universalId: ShirakamiFubuki
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Shirakami_Fubuki
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJztvRXzNX8UtsaUZfLLBh32VBBwNPcvy_TklUjnWA=s900-c-k-c0xffffffff-no-rj-mo
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJztvRXzNX8UtsaUZfLLBh32VBBwNPcvy_TklUjnWA=s900-c-k-c0x00ffffff-no-rj
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: 3a8cfb64d8c1c2843b45c2ee01972131, type: 2}
@@ -27,6 +27,6 @@ MonoBehaviour:
     platform: 1
     id: UCdn5BQ06XqgXoAxIhbqw5Rg
     url: https://www.youtube.com/channel/UCdn5BQ06XqgXoAxIhbqw5Rg
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJztvRXzNX8UtsaUZfLLBh32VBBwNPcvy_TklUjnWA=s900-c-k-c0xffffffff-no-rj-mo
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJztvRXzNX8UtsaUZfLLBh32VBBwNPcvy_TklUjnWA=s900-c-k-c0x00ffffff-no-rj
     customKeywords: []
   customKeywords: []

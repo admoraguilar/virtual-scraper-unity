@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Amane Kanata
   universalId: AmaneKanata
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Amane_Kanata
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJwu4OylyCnOP8gGbO8hINCbwCfPzhBY5JrS0htm=s900-c-k-c0xffffffff-no-rj-mo
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJwu4OylyCnOP8gGbO8hINCbwCfPzhBY5JrS0htm=s900-c-k-c0x00ffffff-no-rj
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: 1496fd442bd36d0479ff07ed348e7d09, type: 2}
@@ -26,6 +26,6 @@ MonoBehaviour:
     platform: 1
     id: UCZlDXzGoo7d44bwdNObFacg
     url: https://www.youtube.com/channel/UCZlDXzGoo7d44bwdNObFacg
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJwu4OylyCnOP8gGbO8hINCbwCfPzhBY5JrS0htm=s900-c-k-c0xffffffff-no-rj-mo
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJwu4OylyCnOP8gGbO8hINCbwCfPzhBY5JrS0htm=s900-c-k-c0x00ffffff-no-rj
     customKeywords: []
   customKeywords: []

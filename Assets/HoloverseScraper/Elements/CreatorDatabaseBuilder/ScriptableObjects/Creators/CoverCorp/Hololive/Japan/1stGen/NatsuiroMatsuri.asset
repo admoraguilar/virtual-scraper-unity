@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Natsuiro Matsuri
   universalId: NatsuiroMatsuri
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Natsuiro_Matsuri
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJw8RXWyEofFZFI5EwEb7lXDq3Cm6l0SThQxT9XG=s900-c-k-c0xffffffff-no-rj-mo
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJw8RXWyEofFZFI5EwEb7lXDq3Cm6l0SThQxT9XG=s900-c-k-c0x00ffffff-no-rj
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: 3a8cfb64d8c1c2843b45c2ee01972131, type: 2}
@@ -26,6 +26,6 @@ MonoBehaviour:
     platform: 1
     id: UCQ0UDLQCjY0rmuxCDE38FGg
     url: https://www.youtube.com/channel/UCQ0UDLQCjY0rmuxCDE38FGg
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJw8RXWyEofFZFI5EwEb7lXDq3Cm6l0SThQxT9XG=s900-c-k-c0xffffffff-no-rj-mo
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJw8RXWyEofFZFI5EwEb7lXDq3Cm6l0SThQxT9XG=s900-c-k-c0x00ffffff-no-rj
     customKeywords: []
   customKeywords: []

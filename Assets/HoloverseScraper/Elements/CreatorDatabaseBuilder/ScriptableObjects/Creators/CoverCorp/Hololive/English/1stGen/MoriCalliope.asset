@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Mori Calliope
   universalId: MoriCalliope
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Mori_Calliope
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJwBT0RCEyLDyqdqy4m-Ig5U7axjMnl6neaWHhFa=s900-c-k-c0xffffffff-no-rj-mo
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJwBT0RCEyLDyqdqy4m-Ig5U7axjMnl6neaWHhFa=s900-c-k-c0x00ffffff-no-rj
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: 1cd301e1f260b054383356b5fa04bc6c, type: 2}
@@ -26,6 +26,6 @@ MonoBehaviour:
     platform: 1
     id: UCL_qhgtOy0dy1Agp8vkySQg
     url: https://www.youtube.com/channel/UCL_qhgtOy0dy1Agp8vkySQg
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJwBT0RCEyLDyqdqy4m-Ig5U7axjMnl6neaWHhFa=s900-c-k-c0xffffffff-no-rj-mo
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJwBT0RCEyLDyqdqy4m-Ig5U7axjMnl6neaWHhFa=s900-c-k-c0x00ffffff-no-rj
     customKeywords: []
   customKeywords: []

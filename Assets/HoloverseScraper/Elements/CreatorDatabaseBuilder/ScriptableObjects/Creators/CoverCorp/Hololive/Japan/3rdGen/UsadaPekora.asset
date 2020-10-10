@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Usada Pekora
   universalId: UsadaPekora
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Usada_Pekora
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJwFs1D2-rT1XPz-fvlO5ZdnkKhPU-Uu6GDwNDn_FA=s900-c-k-c0xffffffff-no-rj-mo
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJwFs1D2-rT1XPz-fvlO5ZdnkKhPU-Uu6GDwNDn_FA=s900-c-k-c0x00ffffff-no-rj
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: 3c29f7ecd18c7c54aa3587e875a65ea5, type: 2}
@@ -26,6 +26,6 @@ MonoBehaviour:
     platform: 1
     id: UC1DCedRgGHBdm81E1llLhOQ
     url: https://www.youtube.com/channel/UC1DCedRgGHBdm81E1llLhOQ
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJwFs1D2-rT1XPz-fvlO5ZdnkKhPU-Uu6GDwNDn_FA=s900-c-k-c0xffffffff-no-rj-mo
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJwFs1D2-rT1XPz-fvlO5ZdnkKhPU-Uu6GDwNDn_FA=s900-c-k-c0x00ffffff-no-rj
     customKeywords: []
   customKeywords: []

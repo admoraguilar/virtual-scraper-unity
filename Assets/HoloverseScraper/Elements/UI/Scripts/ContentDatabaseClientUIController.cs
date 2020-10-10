@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -19,7 +19,7 @@ namespace Holoverse.Scraper.UI
 		}
 
 		[SerializeField]
-		private ContentDatabaseClientObject _contentDatabase = null;
+		private ContentDatabaseClientObject _clientObject = null;
 
 		[Header("UI")]
 		[SerializeField]
@@ -36,6 +36,12 @@ namespace Holoverse.Scraper.UI
 
 		[SerializeField]
 		private TMP_InputField _iterationGapAmountInputField = null;
+
+		[SerializeField]
+		private Toggle _useProxiesToggle = null;
+
+		[SerializeField]
+		private TMP_InputField _proxiesListInputField = null;
 
 		[SerializeField]
 		private Button _runButton = null;
@@ -115,6 +121,9 @@ namespace Holoverse.Scraper.UI
 			if(isRunning) { return; }
 			isRunning = true;
 
+			_clientObject.isUseProxy = _useProxiesToggle.isOn;
+			_clientObject.proxyList = _proxiesListInputField.text;
+
 			incrementalScanCount = 0;
 			fullScanCount = 0;
 
@@ -124,9 +133,8 @@ namespace Holoverse.Scraper.UI
 			CancellableFireForget(
 				Execute,
 				(Exception e) => {
-					if(e is OperationCanceledException) {
-						isRunning = false;
-					}
+					Cancel();
+					isRunning = false;
 				});
 
 			async Task Execute(CancellationToken cancellationToken = default)
@@ -146,10 +154,10 @@ namespace Holoverse.Scraper.UI
 						else { isIncremental = true; }
 
 						await TaskExt.RetryAsync(
-							() => _contentDatabase.client.GetAndWriteToVideosCollectionFromCreatorsCollection(
+							() => _clientObject.GetAndWriteToVideosCollectionFromCreatorsCollection(
 								isIncremental, cancellationToken),
 							TimeSpan.FromSeconds(3),
-							100, cancellationToken
+							3, cancellationToken
 						);
 						lastRunDetails = $"{stopwatch.elapsed.Duration()} - {DateTime.Now}";
 					}
@@ -195,9 +203,19 @@ namespace Holoverse.Scraper.UI
 			_iterationGapAmount = float.Parse(value);
 		}
 
-		private void OnShowDebugButton()
+		private void OnShowDebugButtonClicked()
 		{
 			FindObjectOfType<Reporter>().doShow();
+		}
+
+		private void OnUseProxiesToggleValueChanged(bool value)
+		{
+			_clientObject.isUseProxy = value;
+		}
+
+		private void OnProxiesListInputFieldOnValueChanged(string value)
+		{
+			_clientObject.proxyList = value;
 		}
 
 		private void OnEnable()
@@ -205,7 +223,10 @@ namespace Holoverse.Scraper.UI
 			_iterationGapAmountInputField.onValueChanged.AddListener(OnIterationGapInputFieldValueChanged);
 			_runButton.onClick.AddListener(Run);
 			_cancelButton.onClick.AddListener(Cancel);
-			_showDebugButton.onClick.AddListener(OnShowDebugButton);
+			_showDebugButton.onClick.AddListener(OnShowDebugButtonClicked);
+
+			_useProxiesToggle.onValueChanged.AddListener(OnUseProxiesToggleValueChanged);
+			_proxiesListInputField.onValueChanged.AddListener(OnProxiesListInputFieldOnValueChanged);
 		}
 
 		private void OnDisable()
@@ -213,7 +234,10 @@ namespace Holoverse.Scraper.UI
 			_iterationGapAmountInputField.onValueChanged.RemoveListener(OnIterationGapInputFieldValueChanged);
 			_runButton.onClick.RemoveListener(Run);
 			_cancelButton.onClick.RemoveListener(Cancel);
-			_showDebugButton.onClick.RemoveListener(OnShowDebugButton);
+			_showDebugButton.onClick.RemoveListener(OnShowDebugButtonClicked);
+
+			_useProxiesToggle.onValueChanged.RemoveListener(OnUseProxiesToggleValueChanged);
+			_proxiesListInputField.onValueChanged.RemoveListener(OnProxiesListInputFieldOnValueChanged);
 		}
 
 		private void Start()
@@ -223,6 +247,9 @@ namespace Holoverse.Scraper.UI
 			fullScanCount = 0;
 			isRunning = false;
 			lastRunDetails = "--";
+
+			_useProxiesToggle.isOn = _clientObject.isUseProxy;
+			_proxiesListInputField.text = _clientObject.proxyList;
 		}
 	}
 }

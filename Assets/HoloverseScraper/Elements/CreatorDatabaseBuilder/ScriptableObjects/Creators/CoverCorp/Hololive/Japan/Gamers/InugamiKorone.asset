@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Inugami Korone
   universalId: InugamiKorone
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Inugami_Korone
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJyvWtmcbmGiE0e1m316wI0MJN6-hGWxjhGZeCWhFA=s900-c-k-c0xffffffff-no-rj-mo
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJyvWtmcbmGiE0e1m316wI0MJN6-hGWxjhGZeCWhFA=s900-c-k-c0x00ffffff-no-rj
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: 28ba8c50d596f02479a1d5bd4a35dd75, type: 2}
@@ -26,6 +26,6 @@ MonoBehaviour:
     platform: 1
     id: UChAnqc_AY5_I3Px5dig3X1Q
     url: https://www.youtube.com/channel/UChAnqc_AY5_I3Px5dig3X1Q
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJyvWtmcbmGiE0e1m316wI0MJN6-hGWxjhGZeCWhFA=s900-c-k-c0xffffffff-no-rj-mo
+    avatarUrl: https://yt3.ggpht.com/a/AATXAJyvWtmcbmGiE0e1m316wI0MJN6-hGWxjhGZeCWhFA=s900-c-k-c0x00ffffff-no-rj
     customKeywords: []
   customKeywords: []
