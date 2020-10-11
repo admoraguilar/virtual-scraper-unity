@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Holoverse.Scraper
 {
-	using Api.Data;
+	using Api.Data.Contents.Creators;
 
 	using UObject = UnityEngine.Object;
 

@@ -20,7 +20,7 @@ MonoBehaviour:
   affiliations:
   - {fileID: 11400000, guid: 5f24838fcbe20474689b5c46a7bc8488, type: 2}
   isGroup: 0
-  depth: 2
+  depth: 0
   socials:
   - name: "Shien Ch.\u5F71\u5C71\u30B7\u30A8\u30F3"
     platform: 1

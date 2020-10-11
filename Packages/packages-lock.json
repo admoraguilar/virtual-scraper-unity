@@ -14,14 +14,17 @@
       "dependencies": {
         "com.midnight-cigarettes.midnight-unity": "0.1.0"
       },
-      "hash": "d6eceba790199bae816860e5920386928db59482"
+      "hash": "8995814d864b2d80de05f68afcbc6e86bbac04df"
     },
     "com.midnight-cigarettes.midnight-unity": {
       "version": "ssh://git@github.com-midnight-cigarettes/midnight-cigarettes/com.midnight-cigarettes.midnight-unity.git#develop",
       "depth": 0,
       "source": "git",
-      "dependencies": {},
-      "hash": "1b06e3c307d4d6523c2fe5d30544aafe62e4d82e"
+      "dependencies": {
+        "com.unity.scriptablebuildpipeline": "1.11.2",
+        "jillejr.newtonsoft.json-for-unity": "12.0.301"
+      },
+      "hash": "869686f06b6049e56ea7ed7a84a43c5d860201a0"
     },
     "com.unity.2d.animation": {
       "version": "4.2.5",

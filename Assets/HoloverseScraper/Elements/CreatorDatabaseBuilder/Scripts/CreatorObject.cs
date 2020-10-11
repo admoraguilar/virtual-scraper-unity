@@ -6,7 +6,9 @@ using Midnight.Concurrency;
 
 namespace Holoverse.Scraper
 {
-	using Api.Data;
+	using Api.Data.Contents;
+	using Api.Data.Contents.Creators;
+	using System.Collections.Generic;
 
 	[CreateAssetMenu(menuName = "Holoverse/Content Database/Creator Object")]
 	public class CreatorObject : ScriptableObject
@@ -47,9 +49,31 @@ namespace Holoverse.Scraper
 			}
 		}
 
+		public CreatorObject[] GetAffiliations()
+		{
+			List<CreatorObject> results = new List<CreatorObject>();
+
+			foreach(CreatorObject creator in affiliations) {
+				foreach(CreatorObject affiliation in creator.GetAffiliations()) {
+					AddAffiliation(affiliation);
+				}
+				AddAffiliation(creator);
+				
+				void AddAffiliation(CreatorObject value)
+				{
+					if(!results.Contains(value)) {
+						results.Add(value);
+					}
+				}
+			}
+
+			return results.OrderByDescending((CreatorObject obj) => obj.depth).ToArray();
+		}
+
 		public Creator ToCreator()
 		{
-			return new Creator {
+			return new Creator 
+			{
 				universalName = universalName,
 				universalId = universalId,
 				wikiUrl = wikiUrl,
@@ -57,7 +81,7 @@ namespace Holoverse.Scraper
 
 				isHidden = isHidden,
 
-				affiliations = affiliations.Select(a => a.ToCreator()).ToArray(),
+				affiliations = GetAffiliations().Select(a => a.universalId).ToArray(),
 				isGroup = isGroup,
 				depth = depth,
 

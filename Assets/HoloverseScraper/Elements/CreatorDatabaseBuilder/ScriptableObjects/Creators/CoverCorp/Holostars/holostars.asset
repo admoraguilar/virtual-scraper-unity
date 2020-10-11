@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43910ccb2860f8646b8d5c01236b6542, type: 3}
-  m_Name: hololive
+  m_Name: holostars
   m_EditorClassIdentifier: 
-  universalName: hololive Production
-  universalId: hololiveProduction
+  universalName: holostars
+  universalId: holostars
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/hololive_Production
   avatarUrl: 
   isHidden: 0
   affiliations:
-  - {fileID: 11400000, guid: 8ab8cefd7fd4f5e41922ca6a0c7cb899, type: 2}
+  - {fileID: 11400000, guid: b93ac27ceed404443a97a833f861c1e3, type: 2}
   isGroup: 1
-  depth: 0
+  depth: 1
   socials: []
   customKeywords: []

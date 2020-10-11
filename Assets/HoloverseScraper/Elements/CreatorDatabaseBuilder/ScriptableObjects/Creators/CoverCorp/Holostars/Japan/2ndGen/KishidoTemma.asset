@@ -20,7 +20,7 @@ MonoBehaviour:
   affiliations:
   - {fileID: 11400000, guid: 409d2ac6bcfb67d4086578a5c0dc8f6d, type: 2}
   isGroup: 0
-  depth: 2
+  depth: 0
   socials:
   - name: "Temma Ch. \u5CB8\u5802\u5929\u771F"
     platform: 1

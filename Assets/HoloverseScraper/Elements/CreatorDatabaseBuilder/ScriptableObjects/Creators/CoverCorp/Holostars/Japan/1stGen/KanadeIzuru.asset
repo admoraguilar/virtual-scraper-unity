@@ -20,7 +20,7 @@ MonoBehaviour:
   affiliations:
   - {fileID: 11400000, guid: 9d007c255a7f9e14ea6fbbe4b468bb6d, type: 2}
   isGroup: 0
-  depth: 2
+  depth: 0
   socials:
   - name: "Izuru Ch. \u594F\u624B\u30A4\u30C5\u30EB"
     platform: 1

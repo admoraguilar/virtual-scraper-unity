@@ -20,6 +20,6 @@ MonoBehaviour:
   affiliations:
   - {fileID: 11400000, guid: 6ee2164cb6acfe247b815dcda5470d68, type: 2}
   isGroup: 1
-  depth: 2
+  depth: 3
   socials: []
   customKeywords: []

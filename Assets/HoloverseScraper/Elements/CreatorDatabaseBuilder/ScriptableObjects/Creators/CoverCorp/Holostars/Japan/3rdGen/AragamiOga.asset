@@ -20,7 +20,7 @@ MonoBehaviour:
   affiliations:
   - {fileID: 11400000, guid: 5f24838fcbe20474689b5c46a7bc8488, type: 2}
   isGroup: 0
-  depth: 2
+  depth: 0
   socials:
   - name: "Oga Ch.\u8352\u54AC\u30AA\u30A6\u30AC"
     platform: 1

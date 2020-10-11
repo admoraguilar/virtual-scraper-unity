@@ -4,13 +4,16 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Newtonsoft.Json;
-using MongoDB.Driver;
 using Midnight;
 using Midnight.Concurrency;
 
 namespace Holoverse.Scraper
 {
 	using Api.Data;
+	using Api.Data.Common;
+	using Api.Data.Contents;
+	using Api.Data.Contents.Creators;
+	using Api.Data.Contents.Videos;
 
 	public class ContentDatabaseClient
 	{
@@ -68,15 +71,11 @@ namespace Holoverse.Scraper
 			}
 		}
 
-		public async Task<IAsyncCursor<Creator>> GetCreatorsAsync(
-			int batchSize, int resultsLimit = int.MaxValue, 
+		public async Task<FindResults<Creator>> GetAllCreatorsAsync(
 			CancellationToken cancellationToken = default)
 		{
-			return await _dataClient.FindMatchingCreatorsAsync(
-				HoloverseDataFilter.Creator.All(),
-				batchSize, resultsLimit,
-				cancellationToken
-			);
+			return await _dataClient.contents.creators.FindCreatorsAsync(
+				new FindCreatorsSettings { isAll = true }, cancellationToken);
 		}
 
 		public void ExportCreatorsJSON(IEnumerable<Creator> creators)
@@ -89,7 +88,7 @@ namespace Holoverse.Scraper
 		public async Task WriteToCreatorsCollectionAsync(
 			IEnumerable<Creator> creators, CancellationToken cancellationToken = default)
 		{
-			await _dataClient.UpsertManyCreatorsAndDeleteDanglingAsync(
+			await _dataClient.contents.creators.UpsertManyCreatorsAndDeleteDanglingAsync(
 				creators, cancellationToken);
 		}
 
@@ -134,11 +133,11 @@ namespace Holoverse.Scraper
 			List<Video> videos = new List<Video>();
 
 			MLog.Log(nameof(ContentDatabaseClient), $"Start scraping videos...");
-			using(IAsyncCursor<Creator> cursor = await GetCreatorsAsync(20, int.MaxValue, cancellationToken)) {
+			using(FindResults<Creator> cursor = await GetAllCreatorsAsync(cancellationToken)) {
 				while(await cursor.MoveNextAsync()) {
 					cancellationToken.ThrowIfCancellationRequested();
 					videos.AddRange(await ScrapeVideosAsync(
-						cursor.Current, incremental,
+						cursor.current, incremental,
 						cancellationToken));
 				}
 			}
@@ -200,8 +199,8 @@ namespace Holoverse.Scraper
 			CancellationToken cancellationToken = default)
 		{
 			MLog.Log(nameof(ContentDatabaseClient), $"Writing to videos collection...");
-			if(incremental) { await _dataClient.UpsertManyVideosAsync(videos, cancellationToken); }
-			else { await _dataClient.UpsertManyVideosAndDeleteDanglingAsync(videos, cancellationToken); }
+			if(incremental) { await _dataClient.contents.videos.UpsertManyVideosAsync(videos, cancellationToken); }
+			else { await _dataClient.contents.videos.UpsertManyVideosAndDeleteDanglingAsync(videos, cancellationToken); }
 			MLog.Log(nameof(ContentDatabaseClient), $"Finished writing to videos collection!");
 		}
 	}

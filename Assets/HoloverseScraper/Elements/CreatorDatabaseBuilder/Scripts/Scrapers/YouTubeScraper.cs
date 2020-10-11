@@ -9,7 +9,9 @@ using YoutubeExplode.Videos;
 
 namespace Holoverse.Scraper
 {
-	using Api.Data;
+	using Api.Data.Contents;
+	using Api.Data.Contents.Creators;
+	using Api.Data.Contents.Videos;
 
 	using ExChannel = YoutubeExplode.Channels.Channel;
 	using ExVideo = YoutubeExplode.Videos.Video;
