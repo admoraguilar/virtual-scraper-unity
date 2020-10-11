@@ -14,7 +14,7 @@
       "dependencies": {
         "com.midnight-cigarettes.midnight-unity": "0.1.0"
       },
-      "hash": "45fc07bed47c73780d4fbe9cb07c4882ed99f6c3"
+      "hash": "6d9a35a9cf6576dd6a8adcc512466d46c7d45428"
     },
     "com.midnight-cigarettes.midnight-unity": {
       "version": "ssh://git@github.com-midnight-cigarettes/midnight-cigarettes/com.midnight-cigarettes.midnight-unity.git#develop",
