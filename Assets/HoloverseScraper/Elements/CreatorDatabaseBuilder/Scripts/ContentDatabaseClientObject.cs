@@ -100,6 +100,12 @@ namespace Holoverse.Scraper
 		public Editor_CreatorObjectsListMode editor_creatorListMode => _editor_creatorListMode;
 		[SerializeField]
 		private Editor_CreatorObjectsListMode _editor_creatorListMode = Editor_CreatorObjectsListMode.Include;
+
+		private void OnValidate()
+		{
+			isUseProxy = _isUseProxy;
+			proxyList = _proxyList;
+		}
 #endif
 	}
 }

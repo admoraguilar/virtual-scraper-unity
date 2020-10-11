@@ -118,7 +118,10 @@ namespace Holoverse.Scraper
 			MLog.Log(nameof(ContentDatabaseClient), $"Start loading local json videos...");
 			List<Video> videos = new List<Video>();
 			JsonUtilities.LoadFromDisk(ref videos, new JsonUtilities.LoadFromDiskParameters {
-				filePath = videosLocalJSONPath
+				filePath = videosLocalJSONPath,
+				jsonSerializerSettings = new JsonSerializerSettings {
+					TypeNameHandling = TypeNameHandling.Auto
+				}
 			});
 			MLog.Log(nameof(ContentDatabaseClient), $"Finish loading local json videos...");
 
@@ -199,9 +202,17 @@ namespace Holoverse.Scraper
 			CancellationToken cancellationToken = default)
 		{
 			MLog.Log(nameof(ContentDatabaseClient), $"Writing to videos collection...");
-			if(incremental) { await _dataClient.contents.videos.UpsertManyVideosAsync(videos, cancellationToken); }
-			else { await _dataClient.contents.videos.UpsertManyVideosAndDeleteDanglingAsync(videos, cancellationToken); }
+			await TaskExt.RetryAsync(
+				() => WriteAsync(),
+				TimeSpan.FromSeconds(1), 3,
+				cancellationToken);
 			MLog.Log(nameof(ContentDatabaseClient), $"Finished writing to videos collection!");
+
+			Task WriteAsync()
+			{
+				if(incremental) { return _dataClient.contents.videos.UpsertManyVideosAsync(videos, cancellationToken); }
+				else { return _dataClient.contents.videos.UpsertManyVideosAndDeleteDanglingAsync(videos, cancellationToken); }
+			}
 		}
 	}
 }
