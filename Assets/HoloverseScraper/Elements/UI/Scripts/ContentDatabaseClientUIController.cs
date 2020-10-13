@@ -135,6 +135,7 @@ namespace Holoverse.Scraper.UI
 				(Exception e) => {
 					Cancel();
 					isRunning = false;
+					MLog.LogWarning(nameof(ContentDatabaseClientUIController), $"Cancelled on-going tasks.");
 				});
 
 			async Task Execute(CancellationToken cancellationToken = default)
@@ -192,8 +193,6 @@ namespace Holoverse.Scraper.UI
 			if(_cts != null) {
 				_cts.Cancel();
 				_cts.Dispose();
-
-				MLog.LogWarning(nameof(ContentDatabaseClientUIController), $"Cancelled on-going tasks.");
 				_cts = null;
 			}
 		}
@@ -203,9 +202,15 @@ namespace Holoverse.Scraper.UI
 			_iterationGapAmount = float.Parse(value);
 		}
 
+		private void OnTriggerCancelButton()
+		{
+			Cancel();
+			MLog.LogWarning(nameof(ContentDatabaseClientUIController), $"Cancelled on-going tasks.");
+		}
+
 		private void OnShowDebugButtonClicked()
 		{
-			FindObjectOfType<Reporter>().doShow();
+			SRDebug.Instance.ShowDebugPanel();
 		}
 
 		private void OnUseProxiesToggleValueChanged(bool value)
@@ -222,7 +227,7 @@ namespace Holoverse.Scraper.UI
 		{
 			_iterationGapAmountInputField.onValueChanged.AddListener(OnIterationGapInputFieldValueChanged);
 			_runButton.onClick.AddListener(Run);
-			_cancelButton.onClick.AddListener(Cancel);
+			_cancelButton.onClick.AddListener(OnTriggerCancelButton);
 			_showDebugButton.onClick.AddListener(OnShowDebugButtonClicked);
 
 			_useProxiesToggle.onValueChanged.AddListener(OnUseProxiesToggleValueChanged);
@@ -233,7 +238,7 @@ namespace Holoverse.Scraper.UI
 		{
 			_iterationGapAmountInputField.onValueChanged.RemoveListener(OnIterationGapInputFieldValueChanged);
 			_runButton.onClick.RemoveListener(Run);
-			_cancelButton.onClick.RemoveListener(Cancel);
+			_cancelButton.onClick.RemoveListener(OnTriggerCancelButton);
 			_showDebugButton.onClick.RemoveListener(OnShowDebugButtonClicked);
 
 			_useProxiesToggle.onValueChanged.RemoveListener(OnUseProxiesToggleValueChanged);

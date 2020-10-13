@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3895d0256efc76c4c8b95c14a38b0245, type: 3}
   m_Name: Bootstrapper
   m_EditorClassIdentifier: 
-  prefabs:
-  - {fileID: 5668698818128819926, guid: e54278e19aec70648b572c91055f83a5, type: 3}
+  prefabs: []
