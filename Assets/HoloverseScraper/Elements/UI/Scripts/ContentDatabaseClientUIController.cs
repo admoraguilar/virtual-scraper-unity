@@ -47,6 +47,9 @@ namespace Holoverse.Scraper.UI
 		private Button _runButton = null;
 
 		[SerializeField]
+		private Button _runStartIncrementalButton = null;
+
+		[SerializeField]
 		private Button _cancelButton = null;
 
 		[SerializeField]
@@ -116,7 +119,7 @@ namespace Holoverse.Scraper.UI
 		private DateTime _lastFullRun = DateTime.MinValue;
 		private CancellationTokenSource _cts = null;
 
-		private void Run()
+		private void Run(bool isStartIncremental = false)
 		{
 			if(isRunning) { return; }
 			isRunning = true;
@@ -127,15 +130,24 @@ namespace Holoverse.Scraper.UI
 			incrementalScanCount = 0;
 			fullScanCount = 0;
 
-			_writeMode.Push(WriteMode.Full);
+			if(isStartIncremental) { _writeMode.Push(WriteMode.Incremental); } 
+			else { _writeMode.Push(WriteMode.Full); }
+			
 			_lastFullRun = DateTime.Now;
 
 			CancellableFireForget(
 				Execute,
 				(Exception e) => {
-					Cancel();
+					if(e is OperationCanceledException) {
+						MLog.LogWarning(nameof(ContentDatabaseClientUIController), $"Cancelled on-going tasks.");
+					} else {
+						Cancel();
+					}
+
+					_cts.Dispose();
+					_cts = null;
+
 					isRunning = false;
-					MLog.LogWarning(nameof(ContentDatabaseClientUIController), $"Cancelled on-going tasks.");
 				});
 
 			async Task Execute(CancellationToken cancellationToken = default)
@@ -190,11 +202,7 @@ namespace Holoverse.Scraper.UI
 
 		private void Cancel()
 		{
-			if(_cts != null) {
-				_cts.Cancel();
-				_cts.Dispose();
-				_cts = null;
-			}
+			if(_cts != null) { _cts.Cancel(); }
 		}
 
 		private void OnIterationGapInputFieldValueChanged(string value)
@@ -202,14 +210,26 @@ namespace Holoverse.Scraper.UI
 			_iterationGapAmount = float.Parse(value);
 		}
 
+		private void OnTriggerRunButton()
+		{
+			Run();
+		}
+
+		private void OnTriggerRunStartIncrementalButton()
+		{
+			Run(true);
+			MLog.Log(nameof(ContentDatabaseClientUIController), "Starting incremental...");
+		}
+
 		private void OnTriggerCancelButton()
 		{
+			MLog.LogWarning(nameof(ContentDatabaseClientUIController), $"Cancelling on-going tasks...");
 			Cancel();
-			MLog.LogWarning(nameof(ContentDatabaseClientUIController), $"Cancelled on-going tasks.");
 		}
 
 		private void OnShowDebugButtonClicked()
 		{
+			SRDebug.Init();
 			SRDebug.Instance.ShowDebugPanel();
 		}
 
@@ -226,7 +246,8 @@ namespace Holoverse.Scraper.UI
 		private void OnEnable()
 		{
 			_iterationGapAmountInputField.onValueChanged.AddListener(OnIterationGapInputFieldValueChanged);
-			_runButton.onClick.AddListener(Run);
+			_runButton.onClick.AddListener(OnTriggerRunButton);
+			_runStartIncrementalButton.onClick.AddListener(OnTriggerRunStartIncrementalButton);
 			_cancelButton.onClick.AddListener(OnTriggerCancelButton);
 			_showDebugButton.onClick.AddListener(OnShowDebugButtonClicked);
 
@@ -237,7 +258,8 @@ namespace Holoverse.Scraper.UI
 		private void OnDisable()
 		{
 			_iterationGapAmountInputField.onValueChanged.RemoveListener(OnIterationGapInputFieldValueChanged);
-			_runButton.onClick.RemoveListener(Run);
+			_runButton.onClick.RemoveListener(OnTriggerRunButton);
+			_runStartIncrementalButton.onClick.RemoveListener(OnTriggerRunStartIncrementalButton);
 			_cancelButton.onClick.RemoveListener(OnTriggerCancelButton);
 			_showDebugButton.onClick.RemoveListener(OnShowDebugButtonClicked);
 
