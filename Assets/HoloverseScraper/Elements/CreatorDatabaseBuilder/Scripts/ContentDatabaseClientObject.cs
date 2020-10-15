@@ -75,11 +75,11 @@ namespace Holoverse.Scraper
 
 		public async Task WriteToVideosCollectionUsingLocalJson(
 			bool incremental = false, CancellationToken cancellationToken = default) =>
-				await client.WriteToVideosCollectionUsingLocalJson(incremental, cancellationToken);
+				await client.WriteToVideosCollectionUsingLocalJsonAsync(incremental, cancellationToken);
 
 		public async Task GetAndWriteToVideosCollectionFromCreatorsCollection(
 			bool incremental = false, CancellationToken cancellationToken = default) =>
-				await client.GetAndWriteToVideosCollectionFromCreatorsCollection(incremental, cancellationToken);
+				await client.GetAndWriteToVideosCollectionFromCreatorsCollectionAsync(incremental, cancellationToken);
 
 #if UNITY_EDITOR
 		public enum Editor_CreatorObjectsListMode

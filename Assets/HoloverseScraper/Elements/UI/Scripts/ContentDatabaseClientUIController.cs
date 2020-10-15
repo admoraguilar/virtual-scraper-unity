@@ -55,6 +55,15 @@ namespace Holoverse.Scraper.UI
 		[SerializeField]
 		private Button _showDebugButton = null;
 
+		[SerializeField]
+		private TMP_Text _normalLogText = null;
+
+		[SerializeField]
+		private TMP_Text _warningLogText = null;
+
+		[SerializeField]
+		private TMP_Text _errorLogText = null;
+
 		private float iterationGapAmount
 		{
 			get => _iterationGapAmount;
@@ -233,6 +242,18 @@ namespace Holoverse.Scraper.UI
 			SRDebug.Instance.ShowDebugPanel();
 		}
 
+		private void OnLogReceived(string condition, string stackTrace, LogType type)
+		{
+			if(type == LogType.Log) {
+				_normalLogText.text = $"[{DateTime.Now}] {condition}";
+			} else if(type == LogType.Warning) {
+				_warningLogText.text = $"[{DateTime.Now}] {condition}";
+			} else if(type == LogType.Error) {
+				if(condition.Contains("Cancel")) { return; }
+				_errorLogText.text = $"[{DateTime.Now}] {condition}";
+			}
+		}
+
 		private void OnUseProxiesToggleValueChanged(bool value)
 		{
 			_clientObject.isUseProxy = value;
@@ -253,6 +274,8 @@ namespace Holoverse.Scraper.UI
 
 			_useProxiesToggle.onValueChanged.AddListener(OnUseProxiesToggleValueChanged);
 			_proxiesListInputField.onValueChanged.AddListener(OnProxiesListInputFieldOnValueChanged);
+
+			Application.logMessageReceived += OnLogReceived;
 		}
 
 		private void OnDisable()
@@ -265,6 +288,8 @@ namespace Holoverse.Scraper.UI
 
 			_useProxiesToggle.onValueChanged.RemoveListener(OnUseProxiesToggleValueChanged);
 			_proxiesListInputField.onValueChanged.RemoveListener(OnProxiesListInputFieldOnValueChanged);
+
+			Application.logMessageReceived -= OnLogReceived;
 		}
 
 		private void Start()

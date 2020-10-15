@@ -40,7 +40,7 @@ namespace Holoverse.Scraper
 			for(int i = 0; i < socials.Length; i++) {
 				Social social = socials[i];
 				if(social.platform == Platform.YouTube) {
-					social = socials[i] = await _youtubeScraper.GetChannelInfo(social.url);
+					social = socials[i] = await _youtubeScraper.GetChannelInfoAsync(social.url);
 					if(!isMainAvatarUrlSet) {
 						isMainAvatarUrlSet = true;
 						avatarUrl = social.avatarUrl;

@@ -37,7 +37,7 @@ namespace Holoverse.Scraper
 			_client = new YoutubeClient(httpClient);
 		}
 
-		public async Task<Social> GetChannelInfo(string channelUrl)
+		public async Task<Social> GetChannelInfoAsync(string channelUrl)
 		{
 			ExChannel channel = await _client.Channels.GetAsync(channelUrl);
 			return new Social {
@@ -49,7 +49,7 @@ namespace Holoverse.Scraper
 			};
 		}
 
-		public async Task<List<Video>> GetChannelVideos(
+		public async Task<List<Video>> GetChannelVideosAsync(
 			Creator creator, string channelUrl,
 			ChannelVideoSettings settings = null)
 		{
@@ -111,21 +111,21 @@ namespace Holoverse.Scraper
 			return results;
 		}
 
-		public async Task<List<Broadcast>> GetChannelLiveBroadcasts(Creator creator, string channelUrl)
+		public async Task<List<Broadcast>> GetChannelLiveBroadcastsAsync(Creator creator, string channelUrl)
 		{
-			return await GetChannelBroadcasts(
+			return await GetChannelBroadcastsAsync(
 				creator, channelUrl,
 				BroadcastType.Now);
 		}
 
-		public async Task<List<Broadcast>> GetChannelUpcomingBroadcasts(Creator creator, string channelUrl)
+		public async Task<List<Broadcast>> GetChannelUpcomingBroadcastsAsync(Creator creator, string channelUrl)
 		{
-			return await GetChannelBroadcasts(
+			return await GetChannelBroadcastsAsync(
 				creator, channelUrl,
 				BroadcastType.Upcoming);
 		}
 
-		private async Task<List<Broadcast>> GetChannelBroadcasts(
+		private async Task<List<Broadcast>> GetChannelBroadcastsAsync(
 			Creator creator, string channelUrl,
 			BroadcastType type)
 		{

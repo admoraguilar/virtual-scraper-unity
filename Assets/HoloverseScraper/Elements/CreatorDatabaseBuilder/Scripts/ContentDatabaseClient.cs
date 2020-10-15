@@ -112,7 +112,7 @@ namespace Holoverse.Scraper
 			});
 		}
 
-		public async Task WriteToVideosCollectionUsingLocalJson(
+		public async Task WriteToVideosCollectionUsingLocalJsonAsync(
 			bool incremental = false, CancellationToken cancellationToken = default)
 		{
 			MLog.Log(nameof(ContentDatabaseClient), $"Start loading local json videos...");
@@ -130,7 +130,7 @@ namespace Holoverse.Scraper
 				cancellationToken);
 		}
 
-		public async Task GetAndWriteToVideosCollectionFromCreatorsCollection(
+		public async Task GetAndWriteToVideosCollectionFromCreatorsCollectionAsync(
 			bool incremental = false, CancellationToken cancellationToken = default)
 		{
 			List<Video> videos = new List<Video>();
@@ -161,7 +161,10 @@ namespace Holoverse.Scraper
 
 			async Task ProcessCreator(Creator creator)
 			{
-				if(creator.isGroup) { return; }
+				if(creator.isGroup) {
+					await Task.CompletedTask;
+					return;
+				}
 
 				YouTubeScraper.ChannelVideoSettings channelVideoSettings = null;
 				if(incremental) {
@@ -175,21 +178,21 @@ namespace Holoverse.Scraper
 				foreach(Social youtube in creator.socials.Where(s => s.platform == Platform.YouTube)) {
 					MLog.Log(nameof(ContentDatabaseClient), $"[YouTube: {youtube.name}] Scraping videos...");
 					videos.AddRange(await TaskExt.RetryAsync(
-						() => youtubeScraper.GetChannelVideos(creator, youtube.url, channelVideoSettings),
+						() => youtubeScraper.GetChannelVideosAsync(creator, youtube.url, channelVideoSettings),
 						TimeSpan.FromSeconds(1), 3, cancellationToken
 					));
 					cancellationToken.ThrowIfCancellationRequested();
 
 					MLog.Log(nameof(ContentDatabaseClient), $"[YouTube: {youtube.name}] Scraping upcoming broadcasts...");
 					videos.AddRange(await TaskExt.RetryAsync(
-						() => youtubeScraper.GetChannelUpcomingBroadcasts(creator, youtube.url),
+						() => youtubeScraper.GetChannelUpcomingBroadcastsAsync(creator, youtube.url),
 						TimeSpan.FromSeconds(1), 3, cancellationToken
 					));
 					cancellationToken.ThrowIfCancellationRequested();
 
 					MLog.Log(nameof(ContentDatabaseClient), $"[YouTube: {youtube.name}] Scraping now broadcasts...");
 					videos.AddRange(await TaskExt.RetryAsync(
-						() => youtubeScraper.GetChannelLiveBroadcasts(creator, youtube.url),
+						() => youtubeScraper.GetChannelLiveBroadcastsAsync(creator, youtube.url),
 						TimeSpan.FromSeconds(1), 3, cancellationToken
 					));
 					cancellationToken.ThrowIfCancellationRequested();
