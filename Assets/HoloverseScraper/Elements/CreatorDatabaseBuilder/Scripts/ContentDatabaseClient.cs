@@ -39,7 +39,7 @@ namespace Holoverse.Scraper
 					Proxy proxy = _proxyQueue.Dequeue();
 
 					MLog.Log(nameof(ContentDatabaseClient), $"Proxy: {proxy}");
-					_youtubeScraper = new YouTubeScraper(HttpClientFactory.CreateProxyClient(proxy));
+					_youtubeScraper = new YouTubeScraper(HttpClientFactory.CreateOrGetProxyClient(proxy));
 				} else {
 					if(_youtubeScraper == null) {
 						_youtubeScraper = new YouTubeScraper();

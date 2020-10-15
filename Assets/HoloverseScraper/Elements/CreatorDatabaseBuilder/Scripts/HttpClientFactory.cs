@@ -1,25 +1,35 @@
 ﻿using System.Net;
 using System.Net.Http;
+using System.Collections.Generic;
 
 namespace Holoverse.Scraper
 {
 	public static class HttpClientFactory
 	{
-		public static HttpClient CreateProxyClient(Proxy proxy)
+		private static Dictionary<string, HttpClient> _clients = new Dictionary<string, HttpClient>();
+
+		public static HttpClient CreateOrGetProxyClient(Proxy proxy)
 		{
-			HttpClientHandler handler = new HttpClientHandler();
-			handler.Proxy = new WebProxy(proxy.host, proxy.port);
-			handler.UseCookies = false;
+			string proxyString = proxy.ToString();
 
-			if(handler.SupportsAutomaticDecompression) {
-				handler.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
+			if(!_clients.TryGetValue(proxyString, out HttpClient client)) {
+				HttpClientHandler clientHandler = new HttpClientHandler();
+				clientHandler.Proxy = new WebProxy(proxy.host, proxy.port);
+				clientHandler.UseCookies = false;
+
+				if(clientHandler.SupportsAutomaticDecompression) {
+					clientHandler.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
+				}
+
+				client = new HttpClient(clientHandler, true);
+				client.DefaultRequestHeaders.Add(
+					"User-Agent",
+					"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36"
+				);
+				client.DefaultRequestHeaders.ConnectionClose = true;
+
+				_clients[proxyString] = client;
 			}
-
-			HttpClient client = new HttpClient(handler, true);
-			client.DefaultRequestHeaders.Add(
-				"User-Agent",
-				"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36"
-			);
 
 			return client;
 		}
