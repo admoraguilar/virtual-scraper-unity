@@ -17,7 +17,7 @@
   ],
   "dependencies": {
     "com.microsoft.msbuildforunity": "0.9.2-20200131.11",
-    "com.midnight-cigarettes.holoverse-data-api-unity": "ssh://git@github.com-midnight-cigarettes/midnight-cigarettes/com.midnight-cigarettes.holoverse-data-api-unity.git#develop",
+    "com.midnight-cigarettes.virtualhole-api-unity": "ssh://git@github.com-midnight-cigarettes/midnight-cigarettes/com.midnight-cigarettes.holoverse-data-api-unity.git#develop",
     "com.midnight-cigarettes.midnight-unity": "ssh://git@github.com-midnight-cigarettes/midnight-cigarettes/com.midnight-cigarettes.midnight-unity.git#develop",
     "com.unity.2d.animation": "4.2.5",
     "com.unity.2d.pixel-perfect": "3.0.2",

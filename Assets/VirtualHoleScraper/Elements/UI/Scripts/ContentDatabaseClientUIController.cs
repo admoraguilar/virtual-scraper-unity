@@ -8,7 +8,7 @@ using TMPro;
 using Midnight;
 using Midnight.Concurrency;
 
-namespace Holoverse.Scraper.UI
+namespace VirtualHole.Scraper.UI
 {
 	public class ContentDatabaseClientUIController : MonoBehaviour
 	{

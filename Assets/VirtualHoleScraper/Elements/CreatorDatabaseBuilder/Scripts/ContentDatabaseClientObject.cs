@@ -3,13 +3,13 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Holoverse.Scraper
+namespace VirtualHole.Scraper
 {
-	using Api.Data.Contents.Creators;
+	using Api.DB.Contents.Creators;
 
 	using UObject = UnityEngine.Object;
 
-	[CreateAssetMenu(menuName = "Holoverse/Content Database/Client Object")]
+	[CreateAssetMenu(menuName = "VirtualHole/Content Database/Client Object")]
 	public class ContentDatabaseClientObject : ScriptableObject
 	{
 		[SerializeField]

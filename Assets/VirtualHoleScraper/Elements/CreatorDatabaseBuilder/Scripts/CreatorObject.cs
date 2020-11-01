@@ -1,16 +1,16 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 using UnityEngine;
 using Midnight;
 using Midnight.Concurrency;
 
-namespace Holoverse.Scraper
+namespace VirtualHole.Scraper
 {
-	using Api.Data.Contents;
-	using Api.Data.Contents.Creators;
-	using System.Collections.Generic;
+	using Api.DB.Contents;
+	using Api.DB.Contents.Creators;
 
-	[CreateAssetMenu(menuName = "Holoverse/Content Database/Creator Object")]
+	[CreateAssetMenu(menuName = "VirtualHole/Content Database/Creator Object")]
 	public class CreatorObject : ScriptableObject
 	{
 		public static implicit operator Creator(CreatorObject obj) => obj.ToCreator();

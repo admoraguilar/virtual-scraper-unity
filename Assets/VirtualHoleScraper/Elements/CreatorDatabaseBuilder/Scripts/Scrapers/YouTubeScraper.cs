@@ -7,11 +7,11 @@ using Midnight;
 using YoutubeExplode;
 using YoutubeExplode.Videos;
 
-namespace Holoverse.Scraper
+namespace VirtualHole.Scraper
 {
-	using Api.Data.Contents;
-	using Api.Data.Contents.Creators;
-	using Api.Data.Contents.Videos;
+	using Api.DB.Contents;
+	using Api.DB.Contents.Creators;
+	using Api.DB.Contents.Videos;
 
 	using ExChannel = YoutubeExplode.Channels.Channel;
 	using ExVideo = YoutubeExplode.Videos.Video;

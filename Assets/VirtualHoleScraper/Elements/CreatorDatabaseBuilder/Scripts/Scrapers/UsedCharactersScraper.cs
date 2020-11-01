@@ -4,7 +4,7 @@ using UnityEngine;
 using Midnight;
 using System.Linq;
 
-namespace Holoverse.Scraper
+namespace VirtualHole.Scraper
 {
 	public class UsedCharactersScraper : MonoBehaviour
 	{
@@ -23,7 +23,7 @@ namespace Holoverse.Scraper
 					foreach(char ch in textAsset.text) { _usedCharactersSet.Add(ch); }
 				}
 			} else {
-				string folderPath = PathUtilities.CreateDataPath("HoloverseScraper", string.Empty, PathType.Data);
+				string folderPath = PathUtilities.CreateDataPath("VirtualHoleScraper", string.Empty, PathType.Data);
 				List<string> ext = new List<string>() { "json" };
 				IEnumerable<string> filePaths = Directory
 					.EnumerateFiles(folderPath, "*", SearchOption.AllDirectories)
@@ -37,7 +37,7 @@ namespace Holoverse.Scraper
 			Debug.Log($"Finished. Total characters used: {_usedCharactersSet.Count}");
 
 			string allCharacters = new string(_usedCharactersSet.ToArray());
-			string outputFilePath = PathUtilities.CreateDataPath("HoloverseScraper", "usedCharacters.txt", PathType.Data);
+			string outputFilePath = PathUtilities.CreateDataPath("VirtualHoleScraper", "usedCharacters.txt", PathType.Data);
 			File.WriteAllText(AssetUtilities.CreatePath(outputFilePath), allCharacters);
 		}
 	}

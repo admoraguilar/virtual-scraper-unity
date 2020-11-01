@@ -9,7 +9,7 @@ using YoutubeExplode;
 using YoutubeExplode.Channels;
 using YoutubeExplode.Videos;
 
-namespace Holoverse.Sandbox
+namespace VirtualHole.Sandbox
 {
 	public class VideoLoadTest : MonoBehaviour
 	{

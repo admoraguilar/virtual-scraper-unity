@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net;
 
-namespace Holoverse.Scraper
+namespace VirtualHole.Scraper
 {
 	public struct Proxy
 	{

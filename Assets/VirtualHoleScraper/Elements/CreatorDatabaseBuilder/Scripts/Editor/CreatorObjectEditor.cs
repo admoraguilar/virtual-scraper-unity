@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace Holoverse.Scraper.Editor
+namespace VirtualHole.Scraper.Editor
 {
 	using UEditor = UnityEditor.Editor;
 

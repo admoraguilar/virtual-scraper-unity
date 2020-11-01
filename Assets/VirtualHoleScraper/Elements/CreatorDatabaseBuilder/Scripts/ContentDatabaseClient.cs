@@ -7,20 +7,20 @@ using Newtonsoft.Json;
 using Midnight;
 using Midnight.Concurrency;
 
-namespace Holoverse.Scraper
+namespace VirtualHole.Scraper
 {
-	using Api.Data;
-	using Api.Data.Common;
-	using Api.Data.Contents;
-	using Api.Data.Contents.Creators;
-	using Api.Data.Contents.Videos;
+	using Api.DB;
+	using Api.DB.Common;
+	using Api.DB.Contents;
+	using Api.DB.Contents.Creators;
+	using Api.DB.Contents.Videos;
 
 	public class ContentDatabaseClient
 	{
-		private string creatorsLocalJSONPath => PathUtilities.CreateDataPath("Holoverse", "creators.json", PathType.Data);
-		private string videosLocalJSONPath => PathUtilities.CreateDataPath("Holoverse", "videos.json", PathType.Data);
+		private string creatorsLocalJSONPath => PathUtilities.CreateDataPath("VirtualHole", "creators.json", PathType.Data);
+		private string videosLocalJSONPath => PathUtilities.CreateDataPath("VirtualHole", "videos.json", PathType.Data);
 
-		private HoloverseDataClient _dataClient = null;
+		private VirtualHoleDBClient _dataClient = null;
 
 		public bool isUseProxy { get; set; } = false;
 
@@ -55,7 +55,7 @@ namespace Holoverse.Scraper
 			string connectionString, string userName,
 			string password)
 		{
-			_dataClient = new HoloverseDataClient(connectionString, userName, password);
+			_dataClient = new VirtualHoleDBClient(connectionString, userName, password);
 			_youtubeScraper = new YouTubeScraper();
 		}
 
@@ -75,7 +75,7 @@ namespace Holoverse.Scraper
 			CancellationToken cancellationToken = default)
 		{
 			return await _dataClient.contents.creators.FindCreatorsAsync(
-				new FindCreatorsSettings { isAll = true }, cancellationToken);
+				new FindCreatorsStrictSettings { isAll = true }, cancellationToken);
 		}
 
 		public void ExportCreatorsJSON(IEnumerable<Creator> creators)

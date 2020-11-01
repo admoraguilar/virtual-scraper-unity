@@ -2,7 +2,7 @@
 using System.Net.Http;
 using System.Collections.Generic;
 
-namespace Holoverse.Scraper
+namespace VirtualHole.Scraper
 {
 	public static class HttpClientFactory
 	{

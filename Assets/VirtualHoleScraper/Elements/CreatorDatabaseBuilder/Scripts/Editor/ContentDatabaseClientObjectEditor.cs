@@ -9,7 +9,7 @@ using UnityEditor;
 using Midnight;
 using Midnight.Concurrency;
 
-namespace Holoverse.Scraper
+namespace VirtualHole.Scraper
 {
 	using UEditor = UnityEditor.Editor;
 
