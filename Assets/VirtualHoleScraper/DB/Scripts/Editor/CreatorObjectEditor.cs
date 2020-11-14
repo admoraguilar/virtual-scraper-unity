@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using UnityEditor;
 using UnityEngine;
 using Midnight.Concurrency;
@@ -16,7 +15,7 @@ namespace VirtualHole.Scraper.Editor
 		public new CreatorObject target => (CreatorObject)base.target;
 		public new IEnumerable<CreatorObject> targets => base.targets.Cast<CreatorObject>();
 
-		private SerializedProperty _isHiddenProperty = null;
+		private SerializedProperty _isHiddenProp = null;
 		private bool _isHiddenOrig = false;
 
 		private List<CreatorObject> GetAllCreatorObjects()
@@ -32,7 +31,9 @@ namespace VirtualHole.Scraper.Editor
 		private IEnumerable<CreatorObject> GetAffiliations(CreatorObject creatorObj)
 		{
 			HashSet<CreatorObject> results = new HashSet<CreatorObject>();
-			foreach(CreatorObject affliation in Get(creatorObj)) { results.Add(affliation); }
+			foreach(CreatorObject affliation in Get(creatorObj)) { 
+				results.Add(affliation); 
+			}
 			return results;
 
 			IEnumerable<CreatorObject> Get(CreatorObject child)
@@ -46,8 +47,8 @@ namespace VirtualHole.Scraper.Editor
 
 		private void OnEnable()
 		{
-			_isHiddenProperty = serializedObject.FindProperty("isHidden");
-			_isHiddenOrig = _isHiddenProperty.boolValue;
+			_isHiddenProp = serializedObject.FindProperty("isHidden");
+			_isHiddenOrig = _isHiddenProp.boolValue;
 		}
 
 		public override void OnInspectorGUI()
@@ -58,8 +59,8 @@ namespace VirtualHole.Scraper.Editor
 			using(EditorGUI.ChangeCheckScope ccs1 = new EditorGUI.ChangeCheckScope()) {
 				base.OnInspectorGUI();
 				
-				if(ccs1.changed && _isHiddenProperty.boolValue != _isHiddenOrig) {
-					_isHiddenOrig = _isHiddenProperty.boolValue;
+				if(ccs1.changed && _isHiddenProp.boolValue != _isHiddenOrig) {
+					_isHiddenOrig = _isHiddenProp.boolValue;
 
 					foreach(CreatorObject creatorObj in GetAllCreatorObjects()) {
 						IEnumerable<CreatorObject> affiliations = GetAffiliations(creatorObj);
@@ -76,8 +77,11 @@ namespace VirtualHole.Scraper.Editor
 				}
 			}
 
-			EditorGUILayout.LabelField("Helper Methods");
-			if(GUILayout.Button("Autofill")) {
+			EditorGUILayout.Space();
+			EditorGUILayout.LabelField("Helper Methods", EditorStyles.boldLabel);
+
+			EditorGUILayout.HelpBox("In order to use Autofill, universal name and social (youtube) must be filled first.", MessageType.Info);
+			if(GUILayout.Button("Autofill Information")) {
 				foreach(CreatorObject target in targets) {
 					TaskExt.FireForget(target.AutoFillInfoAsync());
 				}

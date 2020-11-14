@@ -13,10 +13,10 @@ namespace VirtualHole.Scraper
 {
 	using UEditor = UnityEditor.Editor;
 
-	[CustomEditor(typeof(ContentDatabaseClientObject), true)]
-	public class ContentDatabaseClientObjectEditor : UEditor
+	[CustomEditor(typeof(ContentClientObject), true)]
+	public class ContentBuilderObjectEditor : UEditor
 	{
-		public new ContentDatabaseClientObject target => (ContentDatabaseClientObject)base.target;
+		public new ContentClientObject target => (ContentClientObject)base.target;
 
 		private const string _updateCreatorsMetricKey = "Update Creator Details";
 		private const string _writeCreatorMetricKey = "Write Creator";
@@ -128,7 +128,7 @@ namespace VirtualHole.Scraper
 						}))
 					{
 						progress.Report(.8f);
-						await target.WriteToCreatorsCollectionAsync(
+						await target.WriteToCreatorsDBAsync(
 							GetCreatorObjects().Select(obj => obj.ToCreator()).ToArray(),
 							cancellationToken);
 						EditorPrefs.SetString(
@@ -154,7 +154,7 @@ namespace VirtualHole.Scraper
 							options = Progress.Options.Indefinite
 						})) {
 						progress.Report(.8f);
-						await target.ExportVideosUsingLocalCreatorsJSONAsync(
+						await target.WriteToVideosJsonUsingCreatorsJsonAsync(
 							incremental, cancellationToken);
 						_metrics["Export Videos to JSON"] = stopwatch.elapsed.Duration().ToString();
 					}
@@ -176,7 +176,7 @@ namespace VirtualHole.Scraper
 							options = Progress.Options.Indefinite
 						})) {
 						progress.Report(.8f);
-						await target.WriteToVideosCollectionUsingLocalJson(
+						await target.WriteToVideosDBUsingJsonAsync(
 							incremetal, cancellationToken);
 						EditorPrefs.SetString(
 							_writeVideosUsingLocalMetricKey,
@@ -201,7 +201,7 @@ namespace VirtualHole.Scraper
 							options = Progress.Options.Indefinite
 						})) 
 					{
-						await target.GetAndWriteToVideosCollectionFromCreatorsCollection(
+						await target.WriteToVideosDBUsingCreatorsDBAsync(
 							incremental, cancellationToken);
 						EditorPrefs.SetString(
 							_writeVideosMetricKey, 
@@ -217,7 +217,7 @@ namespace VirtualHole.Scraper
 			Assert.IsNotNull(target.editor_creatorObjectsFolderPath);
 
 			string assetPath = AssetDatabase.GetAssetPath(target.editor_creatorObjectsFolderPath);
-			Assert.IsTrue(AssetDatabase.IsValidFolder(assetPath), $"[{nameof(ContentDatabaseClientObject)}] '{assetPath}' is not a valid folder.");
+			Assert.IsTrue(AssetDatabase.IsValidFolder(assetPath), $"[{nameof(ContentClientObject)}] '{assetPath}' is not a valid folder.");
 
 			AssetDatabase.ImportAsset(assetPath, ImportAssetOptions.ForceUpdate);
 			string[] objGUIDs = AssetDatabase.FindAssets($"t:{nameof(CreatorObject)}", new string[] { assetPath });
@@ -231,12 +231,12 @@ namespace VirtualHole.Scraper
 
 				if(target.editor_creatorsList.Length > 0) {
 					switch(target.editor_creatorListMode) {
-						case ContentDatabaseClientObject.Editor_CreatorObjectsListMode.Include:
+						case ContentClientObject.Editor_CreatorObjectsListMode.Include:
 							if(Array.Exists(target.editor_creatorsList, e => e == creatorObj)) {
 								results.Add(creatorObj);
 							}
 							break;
-						case ContentDatabaseClientObject.Editor_CreatorObjectsListMode.Exclude:
+						case ContentClientObject.Editor_CreatorObjectsListMode.Exclude:
 							if(!Array.Exists(target.editor_creatorsList, e => e == creatorObj)) {
 								results.Add(creatorObj);
 							}
@@ -265,7 +265,7 @@ namespace VirtualHole.Scraper
 				_cts.Cancel();
 				_cts.Dispose();
 
-				MLog.LogWarning(nameof(ContentDatabaseClientObjectEditor), $"Cancelled on-going tasks.");
+				MLog.LogWarning(nameof(ContentBuilderObjectEditor), $"Cancelled on-going tasks.");
 				_cts = null;
 			}
 		}

@@ -29,7 +29,7 @@ namespace VirtualHole.Scraper
 		public Social[] socials = new Social[0];
 		public string[] customKeywords = new string[0];
 
-		private YouTubeScraper _youtubeScraper = YouTubeScraperFactory.Get();
+		private YouTubeScraper _youtubeScraper = null;
 
 		public async Task AutoFillInfoAsync()
 		{

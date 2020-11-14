@@ -19,7 +19,7 @@ namespace VirtualHole.Scraper.UI
 		}
 
 		[SerializeField]
-		private ContentDatabaseClientObject _clientObject = null;
+		private ContentClientObject _clientObject = null;
 
 		[Header("UI")]
 		[SerializeField]
@@ -176,7 +176,7 @@ namespace VirtualHole.Scraper.UI
 						else { isIncremental = true; }
 
 						await TaskExt.RetryAsync(
-							() => _clientObject.GetAndWriteToVideosCollectionFromCreatorsCollection(
+							() => _clientObject.WriteToVideosDBUsingCreatorsDBAsync(
 								isIncremental, cancellationToken),
 							TimeSpan.FromSeconds(3),
 							3, cancellationToken

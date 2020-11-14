@@ -13,9 +13,9 @@ namespace VirtualHole.Scraper
 	using DB.Contents.Creators;
 	using DB.Contents.Videos;
 
-	using ExChannel = YoutubeExplode.Channels.Channel;
-	using ExVideo = YoutubeExplode.Videos.Video;
-	using ExBroadcast = YoutubeExplode.Videos.Broadcast;
+	using ExplodeChannel = YoutubeExplode.Channels.Channel;
+	using ExplodeVideo = YoutubeExplode.Videos.Video;
+	using ExplodeBroadcast = YoutubeExplode.Videos.Broadcast;
 
 	public class YouTubeScraper
 	{
@@ -39,7 +39,7 @@ namespace VirtualHole.Scraper
 
 		public async Task<Social> GetChannelInfoAsync(string channelUrl)
 		{
-			ExChannel channel = await _client.Channels.GetAsync(channelUrl);
+			ExplodeChannel channel = await _client.Channels.GetAsync(channelUrl);
 			return new Social {
 				Name = channel.Title,
 				Platform = Platform.YouTube,
@@ -55,9 +55,9 @@ namespace VirtualHole.Scraper
 		{
 			List<Video> results = new List<Video>();
 
-			IReadOnlyList<ExVideo> videos = await _client.Channels.GetUploadsAsync(channelUrl);
+			IReadOnlyList<ExplodeVideo> videos = await _client.Channels.GetUploadsAsync(channelUrl);
 			DateTimeOffset uploadDateAnchor = default;
-			foreach(ExVideo video in videos) {
+			foreach(ExplodeVideo video in videos) {
 				// We process the video date because sometimes
 				// the dates are messed up, so we run a correction to
 				// fix it
@@ -87,7 +87,7 @@ namespace VirtualHole.Scraper
 					if(!settings.isForward && settings.anchorDate < uploadDateAnchor) { continue; }
 				}
 
-				results.Add(new Video {
+				results.Add(new Video() {
 					Title = video.Title,
 					Platform = Platform.YouTube,
 					Id = video.Id,
@@ -113,16 +113,12 @@ namespace VirtualHole.Scraper
 
 		public async Task<List<Broadcast>> GetChannelLiveBroadcastsAsync(Creator creator, string channelUrl)
 		{
-			return await GetChannelBroadcastsAsync(
-				creator, channelUrl,
-				BroadcastType.Now);
+			return await GetChannelBroadcastsAsync(creator, channelUrl, BroadcastType.Now);
 		}
 
 		public async Task<List<Broadcast>> GetChannelUpcomingBroadcastsAsync(Creator creator, string channelUrl)
 		{
-			return await GetChannelBroadcastsAsync(
-				creator, channelUrl,
-				BroadcastType.Upcoming);
+			return await GetChannelBroadcastsAsync(creator, channelUrl, BroadcastType.Upcoming);
 		}
 
 		private async Task<List<Broadcast>> GetChannelBroadcastsAsync(
@@ -131,9 +127,9 @@ namespace VirtualHole.Scraper
 		{
 			List<Broadcast> results = new List<Broadcast>();
 
-			IReadOnlyList<ExVideo> broadcasts = await _client.Channels.GetBroadcastsAsync(channelUrl, type);
-			foreach(ExBroadcast broadcast in broadcasts.Select(v => v as ExBroadcast)) {
-				results.Add(new Broadcast {
+			IReadOnlyList<ExplodeVideo> broadcasts = await _client.Channels.GetBroadcastsAsync(channelUrl, type);
+			foreach(ExplodeBroadcast broadcast in broadcasts.Select(v => v as ExplodeBroadcast)) {
+				results.Add(new Broadcast() {
 					Title = broadcast.Title,
 					Platform = Platform.YouTube,
 					Id = broadcast.Id,

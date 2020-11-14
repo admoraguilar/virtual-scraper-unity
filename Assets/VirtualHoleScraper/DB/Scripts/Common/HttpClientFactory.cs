@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace VirtualHole.Scraper
 {
-	public static class HttpClientFactory
+	public class HttpClientFactory
 	{
 		private static Dictionary<string, HttpClient> _lookup = new Dictionary<string, HttpClient>();
 
