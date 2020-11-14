@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Takanashi Kiara
   universalId: TakanashiKiara
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Takanashi_Kiara
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJz1t3Qobm0uF0QZs4iNYnfQ4PT0iiq4cUs8mTrt=s900-c-k-c0x00ffffff-no-rj
+  avatarUrl: https://yt3.ggpht.com/ytc/AAUvwnicJ682cy4GKD-ulxRnE2jOuihNWCULnqW2caej=s900-c-k-c0x00ffffff-no-rj
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: 1cd301e1f260b054383356b5fa04bc6c, type: 2}
@@ -26,6 +26,6 @@ MonoBehaviour:
     Platform: 1
     Id: UCHsx4Hqa-1ORjQTh9TYDhww
     Url: https://www.youtube.com/channel/UCHsx4Hqa-1ORjQTh9TYDhww
-    AvatarUrl: https://yt3.ggpht.com/a/AATXAJz1t3Qobm0uF0QZs4iNYnfQ4PT0iiq4cUs8mTrt=s900-c-k-c0x00ffffff-no-rj
+    AvatarUrl: https://yt3.ggpht.com/ytc/AAUvwnicJ682cy4GKD-ulxRnE2jOuihNWCULnqW2caej=s900-c-k-c0x00ffffff-no-rj
     CustomKeywords: []
   customKeywords: []

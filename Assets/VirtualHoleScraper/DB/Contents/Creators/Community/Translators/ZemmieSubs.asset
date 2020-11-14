@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Zemmie Subs
   universalId: ZemmieSubs
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Zemmie_Subs
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJyEEVyl4LmRg6HNz-8R5Q7Cu_qMZOADSSK207p8=s900-c-k-c0x00ffffff-no-rj
+  avatarUrl: https://yt3.ggpht.com/ytc/AAUvwnjE9tYFoU_Y-JVT2x9M7u1FpoN_T6wtMzx6OpAc=s900-c-k-c0x00ffffff-no-rj
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: 76cb7fac7c2f0474f9185618939d8ec8, type: 2}
@@ -26,6 +26,6 @@ MonoBehaviour:
     Platform: 1
     Id: UCTtUroUYrtBxDZyO7d2-hBg
     Url: https://www.youtube.com/channel/UCTtUroUYrtBxDZyO7d2-hBg
-    AvatarUrl: https://yt3.ggpht.com/a/AATXAJyEEVyl4LmRg6HNz-8R5Q7Cu_qMZOADSSK207p8=s900-c-k-c0x00ffffff-no-rj
+    AvatarUrl: https://yt3.ggpht.com/ytc/AAUvwnjE9tYFoU_Y-JVT2x9M7u1FpoN_T6wtMzx6OpAc=s900-c-k-c0x00ffffff-no-rj
     CustomKeywords: []
   customKeywords: []

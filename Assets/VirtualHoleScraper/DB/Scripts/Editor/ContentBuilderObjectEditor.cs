@@ -59,13 +59,14 @@ namespace VirtualHole.Scraper
 			async Task Execute(CancellationToken cancellationToken = default)
 			{
 				List<CreatorObject> creatorObjs = GetCreatorObjects();
+				await Concurrent.ForEachAsync(creatorObjs, Process, 5, cancellationToken);
+				AssetDatabase.Refresh();
 
-				foreach(CreatorObject creatorObj in creatorObjs) {
+				async Task Process(CreatorObject creatorObj)
+				{
 					await creatorObj.AutoFillInfoAsync();
 					EditorUtility.SetDirty(creatorObj);
 				}
-
-				AssetDatabase.Refresh();
 			}
 		}
 

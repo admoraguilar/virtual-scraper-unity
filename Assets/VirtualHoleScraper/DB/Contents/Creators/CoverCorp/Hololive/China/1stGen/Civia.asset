@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Civia
   universalId: Civia
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Civia
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJz8mEDtNAWGZMqRhgo2o7zgLLipBC3oa7JJ8YzT=s900-c-k-c0x00ffffff-no-rj
+  avatarUrl: https://yt3.ggpht.com/ytc/AAUvwniNDYN3cj4yjZjdHo5w31Poq4IbvNrjb0lwXcD0=s900-c-k-c0x00ffffff-no-rj
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: 9316acd9c6bd9d2449754bbfb37b6b9b, type: 2}
@@ -26,6 +26,6 @@ MonoBehaviour:
     Platform: 1
     Id: UCgNVXGlZIFK96XdEY20sVjg
     Url: https://www.youtube.com/channel/UCgNVXGlZIFK96XdEY20sVjg
-    AvatarUrl: https://yt3.ggpht.com/a/AATXAJz8mEDtNAWGZMqRhgo2o7zgLLipBC3oa7JJ8YzT=s900-c-k-c0x00ffffff-no-rj
+    AvatarUrl: https://yt3.ggpht.com/ytc/AAUvwniNDYN3cj4yjZjdHo5w31Poq4IbvNrjb0lwXcD0=s900-c-k-c0x00ffffff-no-rj
     CustomKeywords: []
   customKeywords: []

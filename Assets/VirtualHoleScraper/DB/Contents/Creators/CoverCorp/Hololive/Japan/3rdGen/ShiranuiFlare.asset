@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Shiranui Flare
   universalId: ShiranuiFlare
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Shiranui_Flare
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJwGmRMcFMvE1JW3v152HnrXfMQxbI_Dw92KH0-CpA=s900-c-k-c0x00ffffff-no-rj
+  avatarUrl: https://yt3.ggpht.com/ytc/AAUvwngtkUgGkgWTz57Er3GSzuMUR07HISM_yDhKQFnR_A=s900-c-k-c0x00ffffff-no-rj
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: 3c29f7ecd18c7c54aa3587e875a65ea5, type: 2}
@@ -26,6 +26,6 @@ MonoBehaviour:
     Platform: 1
     Id: UCvInZx9h3jC2JzsIzoOebWg
     Url: https://www.youtube.com/channel/UCvInZx9h3jC2JzsIzoOebWg
-    AvatarUrl: https://yt3.ggpht.com/a/AATXAJwGmRMcFMvE1JW3v152HnrXfMQxbI_Dw92KH0-CpA=s900-c-k-c0x00ffffff-no-rj
+    AvatarUrl: https://yt3.ggpht.com/ytc/AAUvwngtkUgGkgWTz57Er3GSzuMUR07HISM_yDhKQFnR_A=s900-c-k-c0x00ffffff-no-rj
     CustomKeywords: []
   customKeywords: []

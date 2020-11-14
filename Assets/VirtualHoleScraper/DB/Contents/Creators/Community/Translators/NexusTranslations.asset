@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Nexus Translations
   universalId: NexusTranslations
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Nexus_Translations
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJzitkSXcthrirNS7caDEFM0QKfBWezm8QXsoLXo=s900-c-k-c0x00ffffff-no-rj
+  avatarUrl: https://yt3.ggpht.com/ytc/AAUvwniR2yLyYKw4-Z4_2keqyTCZBDX2ZROBrA8G0oto=s900-c-k-c0x00ffffff-no-rj
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: 76cb7fac7c2f0474f9185618939d8ec8, type: 2}
@@ -26,6 +26,6 @@ MonoBehaviour:
     Platform: 1
     Id: UCc8suhQbSoSHuiuStu1o8GQ
     Url: https://www.youtube.com/channel/UCc8suhQbSoSHuiuStu1o8GQ
-    AvatarUrl: https://yt3.ggpht.com/a/AATXAJzitkSXcthrirNS7caDEFM0QKfBWezm8QXsoLXo=s900-c-k-c0x00ffffff-no-rj
+    AvatarUrl: https://yt3.ggpht.com/ytc/AAUvwniR2yLyYKw4-Z4_2keqyTCZBDX2ZROBrA8G0oto=s900-c-k-c0x00ffffff-no-rj
     CustomKeywords: []
   customKeywords: []

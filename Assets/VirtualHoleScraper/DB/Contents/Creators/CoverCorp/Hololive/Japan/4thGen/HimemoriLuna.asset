@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Himemori Luna
   universalId: HimemoriLuna
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Himemori_Luna
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJzKYMVgjGOC0-yLuJs8TidP_YB3Yks6VmDI0pgo=s900-c-k-c0x00ffffff-no-rj
+  avatarUrl: https://yt3.ggpht.com/ytc/AAUvwnh8JcbM8f3Zvl9eszRVnuqrAF3bjQIEjuOPdBR2=s900-c-k-c0x00ffffff-no-rj
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: 1496fd442bd36d0479ff07ed348e7d09, type: 2}
@@ -26,6 +26,6 @@ MonoBehaviour:
     Platform: 1
     Id: UCa9Y57gfeY0Zro_noHRVrnw
     Url: https://www.youtube.com/channel/UCa9Y57gfeY0Zro_noHRVrnw
-    AvatarUrl: https://yt3.ggpht.com/a/AATXAJzKYMVgjGOC0-yLuJs8TidP_YB3Yks6VmDI0pgo=s900-c-k-c0x00ffffff-no-rj
+    AvatarUrl: https://yt3.ggpht.com/ytc/AAUvwnh8JcbM8f3Zvl9eszRVnuqrAF3bjQIEjuOPdBR2=s900-c-k-c0x00ffffff-no-rj
     CustomKeywords: []
   customKeywords: []

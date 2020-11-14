@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Oozora Subaru
   universalId: OozoraSubaru
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Oozora_Subaru
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJx_CMc_Ne4b93d6Hr3nMSqLbijvq6UxzPO8apsk=s900-c-k-c0x00ffffff-no-rj
+  avatarUrl: https://yt3.ggpht.com/ytc/AAUvwniCgko15I_x5bYWm0G2vnf5hZqD5hLOtLEDw0Na=s900-c-k-c0x00ffffff-no-rj
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: 6e8dc2b9fc2154a4fa9575b307e7301b, type: 2}
@@ -26,6 +26,6 @@ MonoBehaviour:
     Platform: 1
     Id: UCvzGlP9oQwU--Y0r9id_jnA
     Url: https://www.youtube.com/channel/UCvzGlP9oQwU--Y0r9id_jnA
-    AvatarUrl: https://yt3.ggpht.com/a/AATXAJx_CMc_Ne4b93d6Hr3nMSqLbijvq6UxzPO8apsk=s900-c-k-c0x00ffffff-no-rj
+    AvatarUrl: https://yt3.ggpht.com/ytc/AAUvwniCgko15I_x5bYWm0G2vnf5hZqD5hLOtLEDw0Na=s900-c-k-c0x00ffffff-no-rj
     CustomKeywords: []
   customKeywords: []

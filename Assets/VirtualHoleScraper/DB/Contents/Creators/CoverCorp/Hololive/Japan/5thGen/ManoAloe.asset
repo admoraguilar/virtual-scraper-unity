@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Mano Aloe
   universalId: ManoAloe
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Mano_Aloe
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJyYCsfSn428TJHQl090qek59epckWGsjto9ZOad=s900-c-k-c0x00ffffff-no-rj
+  avatarUrl: https://yt3.ggpht.com/ytc/AAUvwni4JJ7xrgCiWZNN7HxhjHQbbf5raOz8syF9zsnv=s900-c-k-c0x00ffffff-no-rj
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: 7e182ef624863a74994fd9ef531f536c, type: 2}
@@ -26,6 +26,6 @@ MonoBehaviour:
     Platform: 1
     Id: UCgZuwn-O7Szh9cAgHqJ6vjw
     Url: https://www.youtube.com/channel/UCgZuwn-O7Szh9cAgHqJ6vjw
-    AvatarUrl: https://yt3.ggpht.com/a/AATXAJyYCsfSn428TJHQl090qek59epckWGsjto9ZOad=s900-c-k-c0x00ffffff-no-rj
+    AvatarUrl: https://yt3.ggpht.com/ytc/AAUvwni4JJ7xrgCiWZNN7HxhjHQbbf5raOz8syF9zsnv=s900-c-k-c0x00ffffff-no-rj
     CustomKeywords: []
   customKeywords: []

@@ -15,7 +15,7 @@ MonoBehaviour:
   universalName: Kishido Temma
   universalId: KishidoTemma
   wikiUrl: https://virtualyoutuber.fandom.com/wiki/Kishido_Temma
-  avatarUrl: https://yt3.ggpht.com/a/AATXAJyy6jwwbrJeM8GiPWE-qJlGSmecBZnfCX5ms3Bj=s900-c-k-c0x00ffffff-no-rj
+  avatarUrl: https://yt3.ggpht.com/ytc/AAUvwnjek7CeN83n90k6OaFaezz0vdgXe5RYaxl_nPaX=s900-c-k-c0x00ffffff-no-rj
   isHidden: 0
   affiliations:
   - {fileID: 11400000, guid: 409d2ac6bcfb67d4086578a5c0dc8f6d, type: 2}
@@ -26,6 +26,6 @@ MonoBehaviour:
     Platform: 1
     Id: UCGNI4MENvnsymYjKiZwv9eg
     Url: https://www.youtube.com/channel/UCGNI4MENvnsymYjKiZwv9eg
-    AvatarUrl: https://yt3.ggpht.com/a/AATXAJyy6jwwbrJeM8GiPWE-qJlGSmecBZnfCX5ms3Bj=s900-c-k-c0x00ffffff-no-rj
+    AvatarUrl: https://yt3.ggpht.com/ytc/AAUvwnjek7CeN83n90k6OaFaezz0vdgXe5RYaxl_nPaX=s900-c-k-c0x00ffffff-no-rj
     CustomKeywords: []
   customKeywords: []
