@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: "Watame Ch. \u89D2\u5DFB\u308F\u305F\u3081"
-    platform: 1
-    id: UCqm3BQLlJfvkTsX_hvm0UmA
-    url: https://www.youtube.com/channel/UCqm3BQLlJfvkTsX_hvm0UmA
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJzqZYR2ukuLZqCDgdsg9eid13borfDPzVBwTIDc=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: "Watame Ch. \u89D2\u5DFB\u308F\u305F\u3081"
+    Platform: 1
+    Id: UCqm3BQLlJfvkTsX_hvm0UmA
+    Url: https://www.youtube.com/channel/UCqm3BQLlJfvkTsX_hvm0UmA
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJzqZYR2ukuLZqCDgdsg9eid13borfDPzVBwTIDc=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

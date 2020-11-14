@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: "Luna Ch. \u59EB\u68EE\u30EB\u30FC\u30CA"
-    platform: 1
-    id: UCa9Y57gfeY0Zro_noHRVrnw
-    url: https://www.youtube.com/channel/UCa9Y57gfeY0Zro_noHRVrnw
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJzKYMVgjGOC0-yLuJs8TidP_YB3Yks6VmDI0pgo=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: "Luna Ch. \u59EB\u68EE\u30EB\u30FC\u30CA"
+    Platform: 1
+    Id: UCa9Y57gfeY0Zro_noHRVrnw
+    Url: https://www.youtube.com/channel/UCa9Y57gfeY0Zro_noHRVrnw
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJzKYMVgjGOC0-yLuJs8TidP_YB3Yks6VmDI0pgo=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

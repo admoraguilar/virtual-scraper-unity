@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: Moona Hoshinova hololive-ID
-    platform: 1
-    id: UCP0BspO_AMEe3aQqqpo89Dg
-    url: https://www.youtube.com/channel/UCP0BspO_AMEe3aQqqpo89Dg
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJz0VbMygCxDQdJwB5LNRSdcXgyGegDBA6pyxs3EJQ=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: Moona Hoshinova hololive-ID
+    Platform: 1
+    Id: UCP0BspO_AMEe3aQqqpo89Dg
+    Url: https://www.youtube.com/channel/UCP0BspO_AMEe3aQqqpo89Dg
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJz0VbMygCxDQdJwB5LNRSdcXgyGegDBA6pyxs3EJQ=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

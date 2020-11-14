@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: "Korone Ch. \u620C\u795E\u3053\u308D\u306D"
-    platform: 1
-    id: UChAnqc_AY5_I3Px5dig3X1Q
-    url: https://www.youtube.com/channel/UChAnqc_AY5_I3Px5dig3X1Q
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJyvWtmcbmGiE0e1m316wI0MJN6-hGWxjhGZeCWhFA=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: "Korone Ch. \u620C\u795E\u3053\u308D\u306D"
+    Platform: 1
+    Id: UChAnqc_AY5_I3Px5dig3X1Q
+    Url: https://www.youtube.com/channel/UChAnqc_AY5_I3Px5dig3X1Q
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJyvWtmcbmGiE0e1m316wI0MJN6-hGWxjhGZeCWhFA=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: Holo FAV clip
-    platform: 1
-    id: UCya1PA60eFentfXclcYOxQw
-    url: https://www.youtube.com/channel/UCya1PA60eFentfXclcYOxQw
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJwMLt2xonDltpXJlO6yz-zMYM4WWe_gra2mw9YdQg=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: Holo FAV clip
+    Platform: 1
+    Id: UCya1PA60eFentfXclcYOxQw
+    Url: https://www.youtube.com/channel/UCya1PA60eFentfXclcYOxQw
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJwMLt2xonDltpXJlO6yz-zMYM4WWe_gra2mw9YdQg=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

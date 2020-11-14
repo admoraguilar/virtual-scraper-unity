@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: "Miyabi Ch. \u82B1\u54B2\u307F\u3084\u3073"
-    platform: 1
-    id: UC6t3-_N8A6ME1JShZHHqOMw
-    url: https://www.youtube.com/channel/UC6t3-_N8A6ME1JShZHHqOMw
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJxB0OqaMlTW_mviIOFpcA5T7BednuyLzWTqh5DX=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: "Miyabi Ch. \u82B1\u54B2\u307F\u3084\u3073"
+    Platform: 1
+    Id: UC6t3-_N8A6ME1JShZHHqOMw
+    Url: https://www.youtube.com/channel/UC6t3-_N8A6ME1JShZHHqOMw
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJxB0OqaMlTW_mviIOFpcA5T7BednuyLzWTqh5DX=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

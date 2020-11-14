@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: '[Vtuber Eng, Jpn Sub] Nexus'
-    platform: 1
-    id: UCc8suhQbSoSHuiuStu1o8GQ
-    url: https://www.youtube.com/channel/UCc8suhQbSoSHuiuStu1o8GQ
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJzitkSXcthrirNS7caDEFM0QKfBWezm8QXsoLXo=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: '[Vtuber Eng, Jpn Sub] Nexus'
+    Platform: 1
+    Id: UCc8suhQbSoSHuiuStu1o8GQ
+    Url: https://www.youtube.com/channel/UCc8suhQbSoSHuiuStu1o8GQ
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJzitkSXcthrirNS7caDEFM0QKfBWezm8QXsoLXo=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

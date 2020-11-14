@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: "Miko Ch. \u3055\u304F\u3089\u307F\u3053"
-    platform: 1
-    id: UC-hM6YJuNYVAmUWxeIr9FeA
-    url: https://www.youtube.com/channel/UC-hM6YJuNYVAmUWxeIr9FeA
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJyKGBusDmf7stiwXDVORLo21xtnBj2YUHrPd-CxYA=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: "Miko Ch. \u3055\u304F\u3089\u307F\u3053"
+    Platform: 1
+    Id: UC-hM6YJuNYVAmUWxeIr9FeA
+    Url: https://www.youtube.com/channel/UC-hM6YJuNYVAmUWxeIr9FeA
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJyKGBusDmf7stiwXDVORLo21xtnBj2YUHrPd-CxYA=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

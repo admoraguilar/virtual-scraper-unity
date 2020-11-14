@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: "Shion Ch. \u7D2B\u54B2\u30B7\u30AA\u30F3"
-    platform: 1
-    id: UCXTpFs_3PqI41qX2d9tL2Rw
-    url: https://www.youtube.com/channel/UCXTpFs_3PqI41qX2d9tL2Rw
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJx2dQl8H1TG2HBy9bMCMP-nHxOVXALwAJz8MFS_rA=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: "Shion Ch. \u7D2B\u54B2\u30B7\u30AA\u30F3"
+    Platform: 1
+    Id: UCXTpFs_3PqI41qX2d9tL2Rw
+    Url: https://www.youtube.com/channel/UCXTpFs_3PqI41qX2d9tL2Rw
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJx2dQl8H1TG2HBy9bMCMP-nHxOVXALwAJz8MFS_rA=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

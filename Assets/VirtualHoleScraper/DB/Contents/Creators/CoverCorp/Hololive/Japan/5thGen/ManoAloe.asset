@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: "Aloe Ch.\u9B54\u4E43\u30A2\u30ED\u30A8"
-    platform: 1
-    id: UCgZuwn-O7Szh9cAgHqJ6vjw
-    url: https://www.youtube.com/channel/UCgZuwn-O7Szh9cAgHqJ6vjw
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJyYCsfSn428TJHQl090qek59epckWGsjto9ZOad=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: "Aloe Ch.\u9B54\u4E43\u30A2\u30ED\u30A8"
+    Platform: 1
+    Id: UCgZuwn-O7Szh9cAgHqJ6vjw
+    Url: https://www.youtube.com/channel/UCgZuwn-O7Szh9cAgHqJ6vjw
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJyYCsfSn428TJHQl090qek59epckWGsjto9ZOad=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

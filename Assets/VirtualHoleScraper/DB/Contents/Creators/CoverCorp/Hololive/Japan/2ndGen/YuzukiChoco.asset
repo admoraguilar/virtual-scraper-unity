@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: "Choco Ch. \u7652\u6708\u3061\u3087\u3053"
-    platform: 1
-    id: UC1suqwovbL1kzsoaZgFZLKg
-    url: https://www.youtube.com/channel/UC1suqwovbL1kzsoaZgFZLKg
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJyy9e7DUSSfuWdROtr9oJxho6jVqSDhGdsRESDU=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: "Choco Ch. \u7652\u6708\u3061\u3087\u3053"
+    Platform: 1
+    Id: UC1suqwovbL1kzsoaZgFZLKg
+    Url: https://www.youtube.com/channel/UC1suqwovbL1kzsoaZgFZLKg
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJyy9e7DUSSfuWdROtr9oJxho6jVqSDhGdsRESDU=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

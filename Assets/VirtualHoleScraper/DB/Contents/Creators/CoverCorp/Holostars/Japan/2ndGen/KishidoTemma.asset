@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: "Temma Ch. \u5CB8\u5802\u5929\u771F"
-    platform: 1
-    id: UCGNI4MENvnsymYjKiZwv9eg
-    url: https://www.youtube.com/channel/UCGNI4MENvnsymYjKiZwv9eg
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJyy6jwwbrJeM8GiPWE-qJlGSmecBZnfCX5ms3Bj=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: "Temma Ch. \u5CB8\u5802\u5929\u771F"
+    Platform: 1
+    Id: UCGNI4MENvnsymYjKiZwv9eg
+    Url: https://www.youtube.com/channel/UCGNI4MENvnsymYjKiZwv9eg
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJyy6jwwbrJeM8GiPWE-qJlGSmecBZnfCX5ms3Bj=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

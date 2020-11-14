@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: "astel ch.\u30A2\u30B9\u30C6\u30EB"
-    platform: 1
-    id: UCNVEsYbiZjH5QLmGeSgTSzg
-    url: https://www.youtube.com/channel/UCNVEsYbiZjH5QLmGeSgTSzg
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJwiDWcr9ZJra0fV3WRyF9GmXmRnTznOATl_qKza=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: "astel ch.\u30A2\u30B9\u30C6\u30EB"
+    Platform: 1
+    Id: UCNVEsYbiZjH5QLmGeSgTSzg
+    Url: https://www.youtube.com/channel/UCNVEsYbiZjH5QLmGeSgTSzg
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJwiDWcr9ZJra0fV3WRyF9GmXmRnTznOATl_qKza=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

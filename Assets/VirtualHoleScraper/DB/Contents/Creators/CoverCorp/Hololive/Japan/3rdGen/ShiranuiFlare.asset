@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: "Flare Ch. \u4E0D\u77E5\u706B\u30D5\u30EC\u30A2"
-    platform: 1
-    id: UCvInZx9h3jC2JzsIzoOebWg
-    url: https://www.youtube.com/channel/UCvInZx9h3jC2JzsIzoOebWg
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJwGmRMcFMvE1JW3v152HnrXfMQxbI_Dw92KH0-CpA=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: "Flare Ch. \u4E0D\u77E5\u706B\u30D5\u30EC\u30A2"
+    Platform: 1
+    Id: UCvInZx9h3jC2JzsIzoOebWg
+    Url: https://www.youtube.com/channel/UCvInZx9h3jC2JzsIzoOebWg
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJwGmRMcFMvE1JW3v152HnrXfMQxbI_Dw92KH0-CpA=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

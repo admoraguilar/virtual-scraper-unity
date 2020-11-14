@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: "Towa Ch. \u5E38\u95C7\u30C8\u30EF"
-    platform: 1
-    id: UC1uv2Oq6kNxgATlCiez59hw
-    url: https://www.youtube.com/channel/UC1uv2Oq6kNxgATlCiez59hw
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJwvh1krTC77V1xFYngwDN4W7x96yl4WBxV5cOaA=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: "Towa Ch. \u5E38\u95C7\u30C8\u30EF"
+    Platform: 1
+    Id: UC1uv2Oq6kNxgATlCiez59hw
+    Url: https://www.youtube.com/channel/UC1uv2Oq6kNxgATlCiez59hw
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJwvh1krTC77V1xFYngwDN4W7x96yl4WBxV5cOaA=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

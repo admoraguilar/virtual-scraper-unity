@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: "Mel Channel \u591C\u7A7A\u30E1\u30EB\u30C1\u30E3\u30F3\u30CD\u30EB"
-    platform: 1
-    id: UCD8HOxPs4Xvsm8H0ZxXGiBw
-    url: https://www.youtube.com/channel/UCD8HOxPs4Xvsm8H0ZxXGiBw
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJxGYXGi2fgjHoYCSuqLzsh6p-CrlNvRTRFmZmK_=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: "Mel Channel \u591C\u7A7A\u30E1\u30EB\u30C1\u30E3\u30F3\u30CD\u30EB"
+    Platform: 1
+    Id: UCD8HOxPs4Xvsm8H0ZxXGiBw
+    Url: https://www.youtube.com/channel/UCD8HOxPs4Xvsm8H0ZxXGiBw
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJxGYXGi2fgjHoYCSuqLzsh6p-CrlNvRTRFmZmK_=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

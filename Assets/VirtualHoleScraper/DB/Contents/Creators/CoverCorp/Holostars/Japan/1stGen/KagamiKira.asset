@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: "Kira Ch. \u93E1\u898B\u30AD\u30E9"
-    platform: 1
-    id: UCEzsociuFqVwgZuMaZqaCsg
-    url: https://www.youtube.com/channel/UCEzsociuFqVwgZuMaZqaCsg
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJzr9QwLFAq9sDSM8lnYIqUloCKjJucw2AmXY35O=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: "Kira Ch. \u93E1\u898B\u30AD\u30E9"
+    Platform: 1
+    Id: UCEzsociuFqVwgZuMaZqaCsg
+    Url: https://www.youtube.com/channel/UCEzsociuFqVwgZuMaZqaCsg
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJzr9QwLFAq9sDSM8lnYIqUloCKjJucw2AmXY35O=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: Civia Ch.
-    platform: 1
-    id: UCgNVXGlZIFK96XdEY20sVjg
-    url: https://www.youtube.com/channel/UCgNVXGlZIFK96XdEY20sVjg
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJz8mEDtNAWGZMqRhgo2o7zgLLipBC3oa7JJ8YzT=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: Civia Ch.
+    Platform: 1
+    Id: UCgNVXGlZIFK96XdEY20sVjg
+    Url: https://www.youtube.com/channel/UCgNVXGlZIFK96XdEY20sVjg
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJz8mEDtNAWGZMqRhgo2o7zgLLipBC3oa7JJ8YzT=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

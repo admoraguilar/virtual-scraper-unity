@@ -23,10 +23,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: "\u30D5\u30D6\u30ADCh\u3002\u767D\u4E0A\u30D5\u30D6\u30AD"
-    platform: 1
-    id: UCdn5BQ06XqgXoAxIhbqw5Rg
-    url: https://www.youtube.com/channel/UCdn5BQ06XqgXoAxIhbqw5Rg
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJztvRXzNX8UtsaUZfLLBh32VBBwNPcvy_TklUjnWA=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: "\u30D5\u30D6\u30ADCh\u3002\u767D\u4E0A\u30D5\u30D6\u30AD"
+    Platform: 1
+    Id: UCdn5BQ06XqgXoAxIhbqw5Rg
+    Url: https://www.youtube.com/channel/UCdn5BQ06XqgXoAxIhbqw5Rg
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJztvRXzNX8UtsaUZfLLBh32VBBwNPcvy_TklUjnWA=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

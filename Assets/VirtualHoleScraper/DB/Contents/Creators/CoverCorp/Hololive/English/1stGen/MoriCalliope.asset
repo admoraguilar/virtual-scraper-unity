@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: Mori Calliope Ch. hololive-EN
-    platform: 1
-    id: UCL_qhgtOy0dy1Agp8vkySQg
-    url: https://www.youtube.com/channel/UCL_qhgtOy0dy1Agp8vkySQg
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJwBT0RCEyLDyqdqy4m-Ig5U7axjMnl6neaWHhFa=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: Mori Calliope Ch. hololive-EN
+    Platform: 1
+    Id: UCL_qhgtOy0dy1Agp8vkySQg
+    Url: https://www.youtube.com/channel/UCL_qhgtOy0dy1Agp8vkySQg
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJwBT0RCEyLDyqdqy4m-Ig5U7axjMnl6neaWHhFa=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

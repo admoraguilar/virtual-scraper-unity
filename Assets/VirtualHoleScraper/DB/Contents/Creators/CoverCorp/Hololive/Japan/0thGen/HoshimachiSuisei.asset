@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: Suisei Channel
-    platform: 1
-    id: UC5CwaMl1eIgY8h02uZw7u8A
-    url: https://www.youtube.com/channel/UC5CwaMl1eIgY8h02uZw7u8A
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJzbRjSTNu3QQ7pia2yR5oVTcds7MpmeA3a1xE-h=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: Suisei Channel
+    Platform: 1
+    Id: UC5CwaMl1eIgY8h02uZw7u8A
+    Url: https://www.youtube.com/channel/UC5CwaMl1eIgY8h02uZw7u8A
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJzbRjSTNu3QQ7pia2yR5oVTcds7MpmeA3a1xE-h=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

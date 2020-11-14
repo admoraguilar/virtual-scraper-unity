@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: Zemmie Subs
-    platform: 1
-    id: UCTtUroUYrtBxDZyO7d2-hBg
-    url: https://www.youtube.com/channel/UCTtUroUYrtBxDZyO7d2-hBg
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJyEEVyl4LmRg6HNz-8R5Q7Cu_qMZOADSSK207p8=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: Zemmie Subs
+    Platform: 1
+    Id: UCTtUroUYrtBxDZyO7d2-hBg
+    Url: https://www.youtube.com/channel/UCTtUroUYrtBxDZyO7d2-hBg
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJyEEVyl4LmRg6HNz-8R5Q7Cu_qMZOADSSK207p8=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

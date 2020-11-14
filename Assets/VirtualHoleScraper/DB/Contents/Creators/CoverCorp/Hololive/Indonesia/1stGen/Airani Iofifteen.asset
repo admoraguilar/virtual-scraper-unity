@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: Airani Iofifteen Channel hololive-ID
-    platform: 1
-    id: UCAoy6rzhSf4ydcYjJw3WoVg
-    url: https://www.youtube.com/channel/UCAoy6rzhSf4ydcYjJw3WoVg
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJx28lrJ1bpfUSNv3cakn59hdqx7YOGpnvJJ9Tof=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: Airani Iofifteen Channel hololive-ID
+    Platform: 1
+    Id: UCAoy6rzhSf4ydcYjJw3WoVg
+    Url: https://www.youtube.com/channel/UCAoy6rzhSf4ydcYjJw3WoVg
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJx28lrJ1bpfUSNv3cakn59hdqx7YOGpnvJJ9Tof=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: Rice Bowl Ch.
-    platform: 1
-    id: UC7pSADPlrYPF7uxUwN4RafA
-    url: https://www.youtube.com/channel/UC7pSADPlrYPF7uxUwN4RafA
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJw3y3b0sr8B_8--bttKyhwQJq7OJ9SkFPq8PMwj=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: Rice Bowl Ch.
+    Platform: 1
+    Id: UC7pSADPlrYPF7uxUwN4RafA
+    Url: https://www.youtube.com/channel/UC7pSADPlrYPF7uxUwN4RafA
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJw3y3b0sr8B_8--bttKyhwQJq7OJ9SkFPq8PMwj=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: VTuber for ALL
-    platform: 1
-    id: UCwq_gUBsgrO-X-J8Z5e7q8g
-    url: https://www.youtube.com/channel/UCwq_gUBsgrO-X-J8Z5e7q8g
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJyPlb6ddz1_rQPaSXNqIHT3QwMfeuG0iuzEfGff=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: VTuber for ALL
+    Platform: 1
+    Id: UCwq_gUBsgrO-X-J8Z5e7q8g
+    Url: https://www.youtube.com/channel/UCwq_gUBsgrO-X-J8Z5e7q8g
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJyPlb6ddz1_rQPaSXNqIHT3QwMfeuG0iuzEfGff=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: birdkun21
-    platform: 1
-    id: UCi3RiY2dus-oeBRvxRBNJgg
-    url: https://www.youtube.com/channel/UCi3RiY2dus-oeBRvxRBNJgg
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJyDa5pLFe4mmYVk3UYagYOLrZfL1qyRnloTRsYoVA=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: birdkun21
+    Platform: 1
+    Id: UCi3RiY2dus-oeBRvxRBNJgg
+    Url: https://www.youtube.com/channel/UCi3RiY2dus-oeBRvxRBNJgg
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJyDa5pLFe4mmYVk3UYagYOLrZfL1qyRnloTRsYoVA=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

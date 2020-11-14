@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: Ritore Translations
-    platform: 1
-    id: UCoe3QLdQk2TTJd8iXJkQLmA
-    url: https://www.youtube.com/channel/UCoe3QLdQk2TTJd8iXJkQLmA
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJzeX4VNDwUtfq2H5yPbGr-Mua6md50DHc0ljcu8=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: Ritore Translations
+    Platform: 1
+    Id: UCoe3QLdQk2TTJd8iXJkQLmA
+    Url: https://www.youtube.com/channel/UCoe3QLdQk2TTJd8iXJkQLmA
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJzeX4VNDwUtfq2H5yPbGr-Mua6md50DHc0ljcu8=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: Takanashi Kiara Ch. hololive-EN
-    platform: 1
-    id: UCHsx4Hqa-1ORjQTh9TYDhww
-    url: https://www.youtube.com/channel/UCHsx4Hqa-1ORjQTh9TYDhww
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJz1t3Qobm0uF0QZs4iNYnfQ4PT0iiq4cUs8mTrt=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: Takanashi Kiara Ch. hololive-EN
+    Platform: 1
+    Id: UCHsx4Hqa-1ORjQTh9TYDhww
+    Url: https://www.youtube.com/channel/UCHsx4Hqa-1ORjQTh9TYDhww
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJz1t3Qobm0uF0QZs4iNYnfQ4PT0iiq4cUs8mTrt=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

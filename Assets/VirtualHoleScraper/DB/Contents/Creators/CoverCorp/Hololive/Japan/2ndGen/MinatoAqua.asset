@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: "Aqua Ch. \u6E4A\u3042\u304F\u3042"
-    platform: 1
-    id: UC1opHUrw8rvnsadT-iGp7Cg
-    url: https://www.youtube.com/channel/UC1opHUrw8rvnsadT-iGp7Cg
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJxXeCPuSGxq-_NfKX4WSpCf7FtnOkPNzHd2s9Sh9g=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: "Aqua Ch. \u6E4A\u3042\u304F\u3042"
+    Platform: 1
+    Id: UC1opHUrw8rvnsadT-iGp7Cg
+    Url: https://www.youtube.com/channel/UC1opHUrw8rvnsadT-iGp7Cg
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJxXeCPuSGxq-_NfKX4WSpCf7FtnOkPNzHd2s9Sh9g=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

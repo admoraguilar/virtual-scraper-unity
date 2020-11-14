@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: Kanata Ch. Kanata Amane
-    platform: 1
-    id: UCZlDXzGoo7d44bwdNObFacg
-    url: https://www.youtube.com/channel/UCZlDXzGoo7d44bwdNObFacg
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJwu4OylyCnOP8gGbO8hINCbwCfPzhBY5JrS0htm=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: Kanata Ch. Kanata Amane
+    Platform: 1
+    Id: UCZlDXzGoo7d44bwdNObFacg
+    Url: https://www.youtube.com/channel/UCZlDXzGoo7d44bwdNObFacg
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJwu4OylyCnOP8gGbO8hINCbwCfPzhBY5JrS0htm=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

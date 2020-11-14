@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: "Izuru Ch. \u594F\u624B\u30A4\u30C5\u30EB"
-    platform: 1
-    id: UCZgOv3YDEs-ZnZWDYVwJdmA
-    url: https://www.youtube.com/channel/UCZgOv3YDEs-ZnZWDYVwJdmA
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJwOmYURgX4xTy99WZCB2xp1KbZklWcBQuDTcS0t=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: "Izuru Ch. \u594F\u624B\u30A4\u30C5\u30EB"
+    Platform: 1
+    Id: UCZgOv3YDEs-ZnZWDYVwJdmA
+    Url: https://www.youtube.com/channel/UCZgOv3YDEs-ZnZWDYVwJdmA
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJwOmYURgX4xTy99WZCB2xp1KbZklWcBQuDTcS0t=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

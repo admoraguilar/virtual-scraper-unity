@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: "Okayu Ch. \u732B\u53C8\u304A\u304B\u3086"
-    platform: 1
-    id: UCvaTdHTWBGv3MKj3KVqJVCw
-    url: https://www.youtube.com/channel/UCvaTdHTWBGv3MKj3KVqJVCw
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJxiB3oU3X4_wTHHAay43njgJgzw-2qKPeYIjDH2=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: "Okayu Ch. \u732B\u53C8\u304A\u304B\u3086"
+    Platform: 1
+    Id: UCvaTdHTWBGv3MKj3KVqJVCw
+    Url: https://www.youtube.com/channel/UCvaTdHTWBGv3MKj3KVqJVCw
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJxiB3oU3X4_wTHHAay43njgJgzw-2qKPeYIjDH2=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: Watson Amelia Ch. hololive-EN
-    platform: 1
-    id: UCyl1z3jo3XHR1riLFKG5UAg
-    url: https://www.youtube.com/channel/UCyl1z3jo3XHR1riLFKG5UAg
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJy4N7OLrI5euxdzCX_OiS6hDbHUSqqIJoWK_170=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: Watson Amelia Ch. hololive-EN
+    Platform: 1
+    Id: UCyl1z3jo3XHR1riLFKG5UAg
+    Url: https://www.youtube.com/channel/UCyl1z3jo3XHR1riLFKG5UAg
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJy4N7OLrI5euxdzCX_OiS6hDbHUSqqIJoWK_170=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

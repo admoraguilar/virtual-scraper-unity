@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: "Subaru Ch. \u5927\u7A7A\u30B9\u30D0\u30EB"
-    platform: 1
-    id: UCvzGlP9oQwU--Y0r9id_jnA
-    url: https://www.youtube.com/channel/UCvzGlP9oQwU--Y0r9id_jnA
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJx_CMc_Ne4b93d6Hr3nMSqLbijvq6UxzPO8apsk=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: "Subaru Ch. \u5927\u7A7A\u30B9\u30D0\u30EB"
+    Platform: 1
+    Id: UCvzGlP9oQwU--Y0r9id_jnA
+    Url: https://www.youtube.com/channel/UCvzGlP9oQwU--Y0r9id_jnA
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJx_CMc_Ne4b93d6Hr3nMSqLbijvq6UxzPO8apsk=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

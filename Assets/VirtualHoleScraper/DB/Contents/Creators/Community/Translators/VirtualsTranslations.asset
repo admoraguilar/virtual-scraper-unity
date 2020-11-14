@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: Virtuals Translated
-    platform: 1
-    id: UCg-5I4KD3L2zBTTbFKid91w
-    url: https://www.youtube.com/channel/UCg-5I4KD3L2zBTTbFKid91w
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJwRxb3ZZ2xOrU9w11dwlekeSKNfIxfoXSwlFYZc=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: Virtuals Translated
+    Platform: 1
+    Id: UCg-5I4KD3L2zBTTbFKid91w
+    Url: https://www.youtube.com/channel/UCg-5I4KD3L2zBTTbFKid91w
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJwRxb3ZZ2xOrU9w11dwlekeSKNfIxfoXSwlFYZc=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

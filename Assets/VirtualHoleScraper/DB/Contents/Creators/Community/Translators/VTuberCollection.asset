@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: Vtuber Collection
-    platform: 1
-    id: UCdcKhwo8Fw54WRk7w_kiJrQ
-    url: https://www.youtube.com/channel/UCdcKhwo8Fw54WRk7w_kiJrQ
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJxTRYbvvL95k31Lny2aXW0X89HsZ8lcb3kRmVxS=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: Vtuber Collection
+    Platform: 1
+    Id: UCdcKhwo8Fw54WRk7w_kiJrQ
+    Url: https://www.youtube.com/channel/UCdcKhwo8Fw54WRk7w_kiJrQ
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJxTRYbvvL95k31Lny2aXW0X89HsZ8lcb3kRmVxS=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

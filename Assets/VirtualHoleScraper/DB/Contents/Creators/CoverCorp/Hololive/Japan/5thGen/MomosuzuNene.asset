@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: "Nene Ch.\u6843\u9234\u306D\u306D"
-    platform: 1
-    id: UCAWSyEs_Io8MtpY3m-zqILA
-    url: https://www.youtube.com/channel/UCAWSyEs_Io8MtpY3m-zqILA
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJyy0MDi5ux-dNieMyjSCs4xBUQWHOfkPfsz5Xrw=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: "Nene Ch.\u6843\u9234\u306D\u306D"
+    Platform: 1
+    Id: UCAWSyEs_Io8MtpY3m-zqILA
+    Url: https://www.youtube.com/channel/UCAWSyEs_Io8MtpY3m-zqILA
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJyy0MDi5ux-dNieMyjSCs4xBUQWHOfkPfsz5Xrw=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

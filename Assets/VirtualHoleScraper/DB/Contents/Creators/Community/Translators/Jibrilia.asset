@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: Jibrilia
-    platform: 1
-    id: UCTFk3mQVDFhYhtfD2VNYt3g
-    url: https://www.youtube.com/channel/UCTFk3mQVDFhYhtfD2VNYt3g
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJyOLmV1pvl1BLyZbFqta-IjbDB44MvLjbt4F2S4NQ=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: Jibrilia
+    Platform: 1
+    Id: UCTFk3mQVDFhYhtfD2VNYt3g
+    Url: https://www.youtube.com/channel/UCTFk3mQVDFhYhtfD2VNYt3g
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJyOLmV1pvl1BLyZbFqta-IjbDB44MvLjbt4F2S4NQ=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

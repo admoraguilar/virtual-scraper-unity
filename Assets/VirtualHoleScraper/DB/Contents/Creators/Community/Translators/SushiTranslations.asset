@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: Sushi [Hololive and Vtubers]
-    platform: 1
-    id: UC4Fh9OcvIEWK405Cvg25jDw
-    url: https://www.youtube.com/channel/UC4Fh9OcvIEWK405Cvg25jDw
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJyDYo588HZmkw_0XGuHWTR4GkPZXlX0Xq_8RgYe=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: Sushi [Hololive and Vtubers]
+    Platform: 1
+    Id: UC4Fh9OcvIEWK405Cvg25jDw
+    Url: https://www.youtube.com/channel/UC4Fh9OcvIEWK405Cvg25jDw
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJyDYo588HZmkw_0XGuHWTR4GkPZXlX0Xq_8RgYe=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

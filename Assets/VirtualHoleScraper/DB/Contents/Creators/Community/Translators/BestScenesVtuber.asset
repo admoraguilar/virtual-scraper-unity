@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: BestScenes Vtuber
-    platform: 1
-    id: UCL0i8LHjtOZ7eXnZD4xqFXw
-    url: https://www.youtube.com/channel/UCL0i8LHjtOZ7eXnZD4xqFXw
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJwtJYZlqKCANOHLrV1zix_xDKF7VsE5F9SDmy_f=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: BestScenes Vtuber
+    Platform: 1
+    Id: UCL0i8LHjtOZ7eXnZD4xqFXw
+    Url: https://www.youtube.com/channel/UCL0i8LHjtOZ7eXnZD4xqFXw
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJwtJYZlqKCANOHLrV1zix_xDKF7VsE5F9SDmy_f=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

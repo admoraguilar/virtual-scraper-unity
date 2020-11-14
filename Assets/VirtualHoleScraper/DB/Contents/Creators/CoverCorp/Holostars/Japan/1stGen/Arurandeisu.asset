@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: "Aruran Ch. \u30A2\u30EB\u30E9\u30F3\u30C7\u30A3\u30B9"
-    platform: 1
-    id: UCKeAhJvy8zgXWbh9duVjIaQ
-    url: https://www.youtube.com/channel/UCKeAhJvy8zgXWbh9duVjIaQ
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJztxlOTq8L18iF3ZAEjKtmi6QidpScnKRRYtBHL=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: "Aruran Ch. \u30A2\u30EB\u30E9\u30F3\u30C7\u30A3\u30B9"
+    Platform: 1
+    Id: UCKeAhJvy8zgXWbh9duVjIaQ
+    Url: https://www.youtube.com/channel/UCKeAhJvy8zgXWbh9duVjIaQ
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJztxlOTq8L18iF3ZAEjKtmi6QidpScnKRRYtBHL=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

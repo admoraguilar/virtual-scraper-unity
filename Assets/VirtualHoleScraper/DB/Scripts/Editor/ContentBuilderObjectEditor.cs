@@ -24,6 +24,7 @@ namespace VirtualHole.Scraper
 		{
 			EditorGUILayout.LabelField("Helpers");
 			if(GUILayout.Button("Autofill Creater Object Infos")) { AutoFillCreaterObjectInfos(); }
+			if(GUILayout.Button("Autofill Creator Object Infos From Json")) { AutofillCreatorObjectInfosFromJson(); }
 		}
 
 		private void DrawCreatorsCollectionOperators()

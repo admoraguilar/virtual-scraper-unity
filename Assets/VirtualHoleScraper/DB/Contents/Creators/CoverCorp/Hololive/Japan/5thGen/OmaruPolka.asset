@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: "Polka Ch. \u5C3E\u4E38\u30DD\u30EB\u30AB"
-    platform: 1
-    id: UCK9V2B22uJYu3N7eR_BT9QA
-    url: https://www.youtube.com/channel/UCK9V2B22uJYu3N7eR_BT9QA
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJzMPMCRzpyIsPyp8cOdA2FUwkBotqe6Dh0CmKgA=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: "Polka Ch. \u5C3E\u4E38\u30DD\u30EB\u30AB"
+    Platform: 1
+    Id: UCK9V2B22uJYu3N7eR_BT9QA
+    Url: https://www.youtube.com/channel/UCK9V2B22uJYu3N7eR_BT9QA
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJzMPMCRzpyIsPyp8cOdA2FUwkBotqe6Dh0CmKgA=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

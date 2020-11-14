@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: "Oga Ch.\u8352\u54AC\u30AA\u30A6\u30AC"
-    platform: 1
-    id: UCwL7dgTxKo8Y4RFIKWaf8gA
-    url: https://www.youtube.com/channel/UCwL7dgTxKo8Y4RFIKWaf8gA
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJxHDvBIDa7-BqA8KnWhyS45S6k1-yHe8syfeEri=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: "Oga Ch.\u8352\u54AC\u30AA\u30A6\u30AC"
+    Platform: 1
+    Id: UCwL7dgTxKo8Y4RFIKWaf8gA
+    Url: https://www.youtube.com/channel/UCwL7dgTxKo8Y4RFIKWaf8gA
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJxHDvBIDa7-BqA8KnWhyS45S6k1-yHe8syfeEri=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

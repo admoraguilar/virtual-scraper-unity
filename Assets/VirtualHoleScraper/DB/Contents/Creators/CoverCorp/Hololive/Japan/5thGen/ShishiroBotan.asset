@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: "Botan Ch.\u7345\u767D\u307C\u305F\u3093"
-    platform: 1
-    id: UCUKD-uaobj9jiqB-VXt71mA
-    url: https://www.youtube.com/channel/UCUKD-uaobj9jiqB-VXt71mA
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJzO_bOBHuKPycvddNd88hozl2OjaNC-uR7lOAXa=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: "Botan Ch.\u7345\u767D\u307C\u305F\u3093"
+    Platform: 1
+    Id: UCUKD-uaobj9jiqB-VXt71mA
+    Url: https://www.youtube.com/channel/UCUKD-uaobj9jiqB-VXt71mA
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJzO_bOBHuKPycvddNd88hozl2OjaNC-uR7lOAXa=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

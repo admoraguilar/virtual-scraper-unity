@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: AZKi Channel
-    platform: 1
-    id: UC0TXe_LYZ4scaW2XMyi5_kw
-    url: https://www.youtube.com/channel/UC0TXe_LYZ4scaW2XMyi5_kw
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJz2wM8qDGZZDt9Uedg6AEznFZPi85WPgtkjP6-n=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: AZKi Channel
+    Platform: 1
+    Id: UC0TXe_LYZ4scaW2XMyi5_kw
+    Url: https://www.youtube.com/channel/UC0TXe_LYZ4scaW2XMyi5_kw
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJz2wM8qDGZZDt9Uedg6AEznFZPi85WPgtkjP6-n=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

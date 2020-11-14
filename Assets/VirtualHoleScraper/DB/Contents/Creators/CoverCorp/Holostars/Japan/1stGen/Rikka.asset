@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: "Rikka ch.\u5F8B\u53EF"
-    platform: 1
-    id: UC9mf_ZVpouoILRY9NUIaK-w
-    url: https://www.youtube.com/channel/UC9mf_ZVpouoILRY9NUIaK-w
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJz9svekb90aK-De-y1OsayRVNhL2t5PNaPIZGh0=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: "Rikka ch.\u5F8B\u53EF"
+    Platform: 1
+    Id: UC9mf_ZVpouoILRY9NUIaK-w
+    Url: https://www.youtube.com/channel/UC9mf_ZVpouoILRY9NUIaK-w
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJz9svekb90aK-De-y1OsayRVNhL2t5PNaPIZGh0=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

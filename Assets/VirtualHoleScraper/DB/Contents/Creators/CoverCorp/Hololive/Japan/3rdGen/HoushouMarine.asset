@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: "Marine Ch. \u5B9D\u9418\u30DE\u30EA\u30F3"
-    platform: 1
-    id: UCCzUftO8KOVkV4wQG1vkUvg
-    url: https://www.youtube.com/channel/UCCzUftO8KOVkV4wQG1vkUvg
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJwAAoZPNqrR0udm1KMznPYUUTbW-sERt_LZU-af=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: "Marine Ch. \u5B9D\u9418\u30DE\u30EA\u30F3"
+    Platform: 1
+    Id: UCCzUftO8KOVkV4wQG1vkUvg
+    Url: https://www.youtube.com/channel/UCCzUftO8KOVkV4wQG1vkUvg
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJwAAoZPNqrR0udm1KMznPYUUTbW-sERt_LZU-af=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

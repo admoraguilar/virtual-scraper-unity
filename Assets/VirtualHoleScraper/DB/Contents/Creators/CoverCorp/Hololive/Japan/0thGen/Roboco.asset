@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: "Roboco Ch. - \u30ED\u30DC\u5B50"
-    platform: 1
-    id: UCDqI2jOz0weumE8s7paEk6g
-    url: https://www.youtube.com/channel/UCDqI2jOz0weumE8s7paEk6g
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJwaRkjEGAJYsolluzMRIgGvapzUY06q87q4yGJJ_Q=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: "Roboco Ch. - \u30ED\u30DC\u5B50"
+    Platform: 1
+    Id: UCDqI2jOz0weumE8s7paEk6g
+    Url: https://www.youtube.com/channel/UCDqI2jOz0weumE8s7paEk6g
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJwaRkjEGAJYsolluzMRIgGvapzUY06q87q4yGJJ_Q=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

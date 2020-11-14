@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: "SoraCh. \u3068\u304D\u306E\u305D\u3089\u30C1\u30E3\u30F3\u30CD\u30EB"
-    platform: 1
-    id: UCp6993wxpyDPHUpavwDFqgg
-    url: https://www.youtube.com/channel/UCp6993wxpyDPHUpavwDFqgg
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJxvfkV0UikqTA-yx4opKjGB36TXtUG9jLX1PO1FOQ=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: "SoraCh. \u3068\u304D\u306E\u305D\u3089\u30C1\u30E3\u30F3\u30CD\u30EB"
+    Platform: 1
+    Id: UCp6993wxpyDPHUpavwDFqgg
+    Url: https://www.youtube.com/channel/UCp6993wxpyDPHUpavwDFqgg
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJxvfkV0UikqTA-yx4opKjGB36TXtUG9jLX1PO1FOQ=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

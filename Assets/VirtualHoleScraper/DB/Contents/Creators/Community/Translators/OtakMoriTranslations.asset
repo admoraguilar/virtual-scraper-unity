@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: OtakMori Translations - VTubers
-    platform: 1
-    id: UCF4-I8ZQL6Aa-iHfdz-B9KQ
-    url: https://www.youtube.com/channel/UCF4-I8ZQL6Aa-iHfdz-B9KQ
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJzoyAsIB4R1DQuNXdY3l-SBzTD8h6YGHvD05WIe=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: OtakMori Translations - VTubers
+    Platform: 1
+    Id: UCF4-I8ZQL6Aa-iHfdz-B9KQ
+    Url: https://www.youtube.com/channel/UCF4-I8ZQL6Aa-iHfdz-B9KQ
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJzoyAsIB4R1DQuNXdY3l-SBzTD8h6YGHvD05WIe=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: "Mio Channel \u5927\u795E\u30DF\u30AA"
-    platform: 1
-    id: UCp-5t9SrOQwXMU7iIjQfARg
-    url: https://www.youtube.com/channel/UCp-5t9SrOQwXMU7iIjQfARg
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJzFpyPB7LFGFq5DIX2x7pvIblA9Ksz99TrDYvOa5w=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: "Mio Channel \u5927\u795E\u30DF\u30AA"
+    Platform: 1
+    Id: UCp-5t9SrOQwXMU7iIjQfARg
+    Url: https://www.youtube.com/channel/UCp-5t9SrOQwXMU7iIjQfARg
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJzFpyPB7LFGFq5DIX2x7pvIblA9Ksz99TrDYvOa5w=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

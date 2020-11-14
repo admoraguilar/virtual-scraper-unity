@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: TOKI Vtuber Clips
-    platform: 1
-    id: UCtN-Y-PyeERTe7m0aAk3Zhg
-    url: https://www.youtube.com/channel/UCtN-Y-PyeERTe7m0aAk3Zhg
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJwLKir9lmQCgMobsxiX387Cqe0q1_FdoCcHjXEc=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: TOKI Vtuber Clips
+    Platform: 1
+    Id: UCtN-Y-PyeERTe7m0aAk3Zhg
+    Url: https://www.youtube.com/channel/UCtN-Y-PyeERTe7m0aAk3Zhg
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJwLKir9lmQCgMobsxiX387Cqe0q1_FdoCcHjXEc=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

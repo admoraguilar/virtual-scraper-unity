@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: "Lamy Ch. \u96EA\u82B1\u30E9\u30DF\u30A3"
-    platform: 1
-    id: UCFKOVgVbGmX65RxO3EtH3iw
-    url: https://www.youtube.com/channel/UCFKOVgVbGmX65RxO3EtH3iw
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJzPYUSxysPc7CWjvXdT3CjFYKJtmC9ak1CP9Z3f=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: "Lamy Ch. \u96EA\u82B1\u30E9\u30DF\u30A3"
+    Platform: 1
+    Id: UCFKOVgVbGmX65RxO3EtH3iw
+    Url: https://www.youtube.com/channel/UCFKOVgVbGmX65RxO3EtH3iw
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJzPYUSxysPc7CWjvXdT3CjFYKJtmC9ak1CP9Z3f=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

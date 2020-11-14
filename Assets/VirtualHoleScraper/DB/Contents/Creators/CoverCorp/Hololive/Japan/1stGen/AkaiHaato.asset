@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: "Haachama Ch. \u8D64\u4E95\u306F\u3042\u3068"
-    platform: 1
-    id: UC1CfXB_kRs3C-zaeTG3oGyg
-    url: https://www.youtube.com/channel/UC1CfXB_kRs3C-zaeTG3oGyg
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJw3IoOJZlLAn_Eyy0r6gJHR3vt64XHfuXCailaCPw=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: "Haachama Ch. \u8D64\u4E95\u306F\u3042\u3068"
+    Platform: 1
+    Id: UC1CfXB_kRs3C-zaeTG3oGyg
+    Url: https://www.youtube.com/channel/UC1CfXB_kRs3C-zaeTG3oGyg
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJw3IoOJZlLAn_Eyy0r6gJHR3vt64XHfuXCailaCPw=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: Yukaichuu
-    platform: 1
-    id: UC8WcaoThxlPJh7F-uPpBS8Q
-    url: https://www.youtube.com/channel/UC8WcaoThxlPJh7F-uPpBS8Q
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJzUN76DXo1_tfFJH-daYdephyAge6vciyihHg=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: Yukaichuu
+    Platform: 1
+    Id: UC8WcaoThxlPJh7F-uPpBS8Q
+    Url: https://www.youtube.com/channel/UC8WcaoThxlPJh7F-uPpBS8Q
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJzUN76DXo1_tfFJH-daYdephyAge6vciyihHg=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: Ninomae Ina'nis Ch. hololive-EN
-    platform: 1
-    id: UCMwGHR0BTZuLsmjY_NT5Pwg
-    url: https://www.youtube.com/channel/UCMwGHR0BTZuLsmjY_NT5Pwg
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJzBLvl1RZPueVo8gVdFbSK7M8MDIbWb-ISuwv6K=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: Ninomae Ina'nis Ch. hololive-EN
+    Platform: 1
+    Id: UCMwGHR0BTZuLsmjY_NT5Pwg
+    Url: https://www.youtube.com/channel/UCMwGHR0BTZuLsmjY_NT5Pwg
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJzBLvl1RZPueVo8gVdFbSK7M8MDIbWb-ISuwv6K=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

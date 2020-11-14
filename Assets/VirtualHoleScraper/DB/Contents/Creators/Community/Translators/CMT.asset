@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: CMT
-    platform: 1
-    id: UCqG7LH8EGewYNmfjkW9S1HA
-    url: https://www.youtube.com/channel/UCqG7LH8EGewYNmfjkW9S1HA
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJyoM5BrVYTYrPhMNg1qUYIAgNSQ8EYeQ_afPc9o3g=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: CMT
+    Platform: 1
+    Id: UCqG7LH8EGewYNmfjkW9S1HA
+    Url: https://www.youtube.com/channel/UCqG7LH8EGewYNmfjkW9S1HA
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJyoM5BrVYTYrPhMNg1qUYIAgNSQ8EYeQ_afPc9o3g=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

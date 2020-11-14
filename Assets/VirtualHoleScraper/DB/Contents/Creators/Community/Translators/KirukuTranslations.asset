@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: Kiriku Translation
-    platform: 1
-    id: UCsYcCwDqv6Sg8KMIIMF54SA
-    url: https://www.youtube.com/channel/UCsYcCwDqv6Sg8KMIIMF54SA
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJwp2cZHLleDDdnYEsUbRPbOLo57JZJFLHoDURvP=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: Kiriku Translation
+    Platform: 1
+    Id: UCsYcCwDqv6Sg8KMIIMF54SA
+    Url: https://www.youtube.com/channel/UCsYcCwDqv6Sg8KMIIMF54SA
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJwp2cZHLleDDdnYEsUbRPbOLo57JZJFLHoDURvP=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

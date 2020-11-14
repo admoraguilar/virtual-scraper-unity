@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: "Nakiri Ayame Ch. \u767E\u9B3C\u3042\u3084\u3081"
-    platform: 1
-    id: UC7fk0CB07ly8oSl0aqKkqFg
-    url: https://www.youtube.com/channel/UC7fk0CB07ly8oSl0aqKkqFg
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJybvEUdsgDTZasoeAgVPHwDcWzmfLdngzWFcLx7=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: "Nakiri Ayame Ch. \u767E\u9B3C\u3042\u3084\u3081"
+    Platform: 1
+    Id: UC7fk0CB07ly8oSl0aqKkqFg
+    Url: https://www.youtube.com/channel/UC7fk0CB07ly8oSl0aqKkqFg
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJybvEUdsgDTZasoeAgVPHwDcWzmfLdngzWFcLx7=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

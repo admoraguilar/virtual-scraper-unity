@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: "Roberu Ch. \u5915\u523B\u30ED\u30D9\u30EB"
-    platform: 1
-    id: UCANDOlYTJT7N5jlRC3zfzVA
-    url: https://www.youtube.com/channel/UCANDOlYTJT7N5jlRC3zfzVA
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJynglX3XaMMRa_dMLGP_jjcPNAWc7typZ8B-64g=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: "Roberu Ch. \u5915\u523B\u30ED\u30D9\u30EB"
+    Platform: 1
+    Id: UCANDOlYTJT7N5jlRC3zfzVA
+    Url: https://www.youtube.com/channel/UCANDOlYTJT7N5jlRC3zfzVA
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJynglX3XaMMRa_dMLGP_jjcPNAWc7typZ8B-64g=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

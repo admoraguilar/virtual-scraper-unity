@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: Gawr Gura Ch. hololive-EN
-    platform: 1
-    id: UCoSrY_IQQVpmIRZ9Xf-y93g
-    url: https://www.youtube.com/channel/UCoSrY_IQQVpmIRZ9Xf-y93g
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJwyNfLKBDLZoKA3c7u_vPOKbQitz4fcDwi7Iqhi=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: Gawr Gura Ch. hololive-EN
+    Platform: 1
+    Id: UCoSrY_IQQVpmIRZ9Xf-y93g
+    Url: https://www.youtube.com/channel/UCoSrY_IQQVpmIRZ9Xf-y93g
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJwyNfLKBDLZoKA3c7u_vPOKbQitz4fcDwi7Iqhi=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

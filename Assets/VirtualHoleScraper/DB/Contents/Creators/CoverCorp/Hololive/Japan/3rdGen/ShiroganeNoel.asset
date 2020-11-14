@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: "Noel Ch. \u767D\u9280\u30CE\u30A8\u30EB"
-    platform: 1
-    id: UCdyqAaZDKHXg4Ahi7VENThQ
-    url: https://www.youtube.com/channel/UCdyqAaZDKHXg4Ahi7VENThQ
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJyflKVfVjZg11sLPRv8BrLT-8ltdeRcTyKTWlXV=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: "Noel Ch. \u767D\u9280\u30CE\u30A8\u30EB"
+    Platform: 1
+    Id: UCdyqAaZDKHXg4Ahi7VENThQ
+    Url: https://www.youtube.com/channel/UCdyqAaZDKHXg4Ahi7VENThQ
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJyflKVfVjZg11sLPRv8BrLT-8ltdeRcTyKTWlXV=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

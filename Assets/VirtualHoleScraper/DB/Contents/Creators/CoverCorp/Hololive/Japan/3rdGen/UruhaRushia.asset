@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: "Rushia Ch. \u6F64\u7FBD\u308B\u3057\u3042"
-    platform: 1
-    id: UCl_gCybOJRIgOXw6Qb4qJzQ
-    url: https://www.youtube.com/channel/UCl_gCybOJRIgOXw6Qb4qJzQ
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJwi-Xs0ChOThMuUzFsl3cNZYgdP12Witb0cNSf9=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: "Rushia Ch. \u6F64\u7FBD\u308B\u3057\u3042"
+    Platform: 1
+    Id: UCl_gCybOJRIgOXw6Qb4qJzQ
+    Url: https://www.youtube.com/channel/UCl_gCybOJRIgOXw6Qb4qJzQ
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJwi-Xs0ChOThMuUzFsl3cNZYgdP12Witb0cNSf9=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

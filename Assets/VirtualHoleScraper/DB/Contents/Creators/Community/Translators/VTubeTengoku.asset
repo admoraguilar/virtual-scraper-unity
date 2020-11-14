@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: Vtube Tengoku
-    platform: 1
-    id: UCg02KL1G0nmH0QzFuLsVoRQ
-    url: https://www.youtube.com/channel/UCg02KL1G0nmH0QzFuLsVoRQ
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJxcfelNehKxST15CSxobhMqZPEjMo_Y2kj3SRMu=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: Vtube Tengoku
+    Platform: 1
+    Id: UCg02KL1G0nmH0QzFuLsVoRQ
+    Url: https://www.youtube.com/channel/UCg02KL1G0nmH0QzFuLsVoRQ
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJxcfelNehKxST15CSxobhMqZPEjMo_Y2kj3SRMu=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []
