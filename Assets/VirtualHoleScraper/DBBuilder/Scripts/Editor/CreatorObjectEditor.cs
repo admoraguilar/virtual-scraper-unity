@@ -1,7 +1,9 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEditor;
 using UnityEngine;
+using Midnight.Concurrency;
 
 namespace VirtualHole.Scraper.Editor
 {
@@ -77,7 +79,7 @@ namespace VirtualHole.Scraper.Editor
 			EditorGUILayout.LabelField("Helper Methods");
 			if(GUILayout.Button("Autofill")) {
 				foreach(CreatorObject target in targets) {
-					target.Editor_AutoFill();
+					TaskExt.FireForget(target.AutoFillInfoAsync());
 				}
 			}
 		}

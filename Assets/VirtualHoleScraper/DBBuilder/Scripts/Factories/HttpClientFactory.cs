@@ -6,13 +6,13 @@ namespace VirtualHole.Scraper
 {
 	public static class HttpClientFactory
 	{
-		private static Dictionary<string, HttpClient> _clients = new Dictionary<string, HttpClient>();
+		private static Dictionary<string, HttpClient> _lookup = new Dictionary<string, HttpClient>();
 
-		public static HttpClient CreateOrGetProxyClient(Proxy proxy)
+		public static HttpClient Get(Proxy proxy)
 		{
 			string proxyString = proxy.ToString();
 
-			if(!_clients.TryGetValue(proxyString, out HttpClient client)) {
+			if(!_lookup.TryGetValue(proxyString, out HttpClient client)) {
 				HttpClientHandler clientHandler = new HttpClientHandler();
 				clientHandler.Proxy = new WebProxy(proxy.host, proxy.port);
 				clientHandler.UseCookies = false;
@@ -28,7 +28,7 @@ namespace VirtualHole.Scraper
 				);
 				client.DefaultRequestHeaders.ConnectionClose = true;
 
-				_clients[proxyString] = client;
+				_lookup[proxyString] = client;
 			}
 
 			return client;

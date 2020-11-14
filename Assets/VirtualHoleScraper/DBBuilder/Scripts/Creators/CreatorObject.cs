@@ -3,14 +3,13 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using UnityEngine;
 using Midnight;
-using Midnight.Concurrency;
 
 namespace VirtualHole.Scraper
 {
 	using DB.Contents;
 	using DB.Contents.Creators;
 
-	[CreateAssetMenu(menuName = "VirtualHole/Content Database/Creator Object")]
+	[CreateAssetMenu(menuName = "VirtualHole/DB Builder/Creator Object")]
 	public class CreatorObject : ScriptableObject
 	{
 		public static implicit operator Creator(CreatorObject obj) => obj.ToCreator();
@@ -19,19 +18,20 @@ namespace VirtualHole.Scraper
 		public string universalId = string.Empty;
 		public string wikiUrl = string.Empty;
 		public string avatarUrl = string.Empty;
-
 		public bool isHidden = false;
 
+		[Space]
 		public CreatorObject[] affiliations = new CreatorObject[0];
 		public bool isGroup = false;
 		public int depth = 0;
 
+		[Space]
 		public Social[] socials = new Social[0];
 		public string[] customKeywords = new string[0];
 
-		private YouTubeScraper _youtubeScraper = new YouTubeScraper();
+		private YouTubeScraper _youtubeScraper = YouTubeScraperFactory.Get();
 
-		public async Task UpdateAsync()
+		public async Task AutoFillInfoAsync()
 		{
 			universalId = universalName.RemoveSpecialCharacters().Replace(" ", "");
 			wikiUrl = $"https://virtualyoutuber.fandom.com/wiki/{universalName.Replace(" ", "_")}";
@@ -89,12 +89,5 @@ namespace VirtualHole.Scraper
 				CustomKeywords = customKeywords
 			};
 		}
-
-#if UNITY_EDITOR
-		public void Editor_AutoFill()
-		{
-			TaskExt.FireForget(UpdateAsync());
-		}
-#endif
 	}
 }

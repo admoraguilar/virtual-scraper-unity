@@ -90,7 +90,7 @@ namespace VirtualHole.Scraper
 						int index = 0;
 						foreach(CreatorObject creatorObj in creatorObjs) {
 							progress.Report((float)index / creatorObjs.Count, $"Updating {creatorObj.universalName}...");
-							await creatorObj.UpdateAsync();
+							await creatorObj.AutoFillInfoAsync();
 							EditorUtility.SetDirty(creatorObj);
 							index++;
 						}

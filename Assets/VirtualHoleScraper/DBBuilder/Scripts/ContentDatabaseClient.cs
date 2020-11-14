@@ -39,7 +39,7 @@ namespace VirtualHole.Scraper
 					Proxy proxy = _proxyQueue.Dequeue();
 
 					MLog.Log(nameof(ContentDatabaseClient), $"Proxy: {proxy}");
-					_youtubeScraper = new YouTubeScraper(HttpClientFactory.CreateOrGetProxyClient(proxy));
+					_youtubeScraper = new YouTubeScraper(HttpClientFactory.Get(proxy));
 				} else {
 					if(_youtubeScraper == null) {
 						_youtubeScraper = new YouTubeScraper();
