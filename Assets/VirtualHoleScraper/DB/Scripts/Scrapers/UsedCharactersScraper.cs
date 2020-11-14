@@ -8,9 +8,9 @@ namespace VirtualHole.Scraper
 {
 	public class UsedCharactersScraper : MonoBehaviour
 	{
-		[SerializeField]
-		private TextAsset[] _textAssets = null;
+		public ContentClientObject _client = null;
 
+		private string[] txtPaths = null;
 		private HashSet<char> _usedCharactersSet = new HashSet<char>();
 
 		[ContextMenu("Run")]
@@ -18,9 +18,15 @@ namespace VirtualHole.Scraper
 		{
 			Debug.Log($"Start used characters scraper.");
 
-			if(_textAssets != null || _textAssets.Length > 0) {
-				foreach(TextAsset textAsset in _textAssets) {
-					foreach(char ch in textAsset.text) { _usedCharactersSet.Add(ch); }
+			txtPaths = new string[] {
+				_client.Get().creators.localJsonPath,
+				_client.Get().videos.localJsonPath
+			};
+
+			if(txtPaths != null || txtPaths.Length > 0) {
+				foreach(string txtPath in txtPaths) {
+					string txtContent = File.ReadAllText(txtPath);
+					foreach(char ch in txtContent) { _usedCharactersSet.Add(ch); }
 				}
 			} else {
 				string folderPath = PathUtilities.CreateDataPath("VirtualHoleScraper", string.Empty, PathType.Data);

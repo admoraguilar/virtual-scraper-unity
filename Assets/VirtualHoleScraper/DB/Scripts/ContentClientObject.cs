@@ -1,15 +1,16 @@
 ﻿using System.IO;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using UnityEngine;
+using Midnight;
 
 namespace VirtualHole.Scraper
 {
 	using DB.Contents.Videos;
 	using DB.Contents.Creators;
 	using UObject = UnityEngine.Object;
-	using Midnight;
 
 	[CreateAssetMenu(menuName = "VirtualHole/DB/Content Client Object")]
 	public class ContentClientObject : ScriptableObject
@@ -89,10 +90,13 @@ namespace VirtualHole.Scraper
 		{
 			IEnumerable<Creator> creators = await client.creators.GetAllFromDBAsync(cancellationToken);
 
+			MLog.Log($"Found creators: {creators.Count()}");
 			List<Video> videos = new List<Video>();
 			videos.AddRange(await client.videos.ScrapeAsync(creators, incremental, cancellationToken));
 
-			await client.videos.WriteToDBAsync(videos, incremental, cancellationToken);
+			if(videos.Count > 0) {
+				await client.videos.WriteToDBAsync(videos, incremental, cancellationToken);
+			}
 		}
 
 		public async Task WriteToVideosDBUsingJsonAsync(

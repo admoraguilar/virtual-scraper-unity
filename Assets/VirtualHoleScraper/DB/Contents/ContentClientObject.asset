@@ -16,11 +16,7 @@ MonoBehaviour:
   _userName: holoverse-editor
   _password: RBqYN3ugVTb2stqD
   _isUseProxy: 1
-  _proxyListText: {fileID: 4900000, guid: ab6bacd96c15541498e47f2f3608c7f2, type: 3}
   _editor_creatorObjectsFolderPath: {fileID: 102900000, guid: a83073264a0ae05419e4a22ea4df7ac5,
     type: 3}
-  _editor_creatorsList:
-  - {fileID: 11400000, guid: 4b2290d380862804db932ee61d1c3cf8, type: 2}
-  - {fileID: 11400000, guid: c1a4ea0c7279b9745be35f14bb5be9bc, type: 2}
-  - {fileID: 11400000, guid: 7b814e1117001494e83dfdcb2b789b1d, type: 2}
+  _editor_creatorsList: []
   _editor_creatorListMode: 0

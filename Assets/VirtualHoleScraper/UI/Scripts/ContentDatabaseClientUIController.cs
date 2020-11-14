@@ -52,15 +52,6 @@ namespace VirtualHole.Scraper.UI
 		[SerializeField]
 		private Button _showDebugButton = null;
 
-		[SerializeField]
-		private TMP_Text _normalLogText = null;
-
-		[SerializeField]
-		private TMP_Text _warningLogText = null;
-
-		[SerializeField]
-		private TMP_Text _errorLogText = null;
-
 		private float iterationGapAmount
 		{
 			get => _iterationGapAmount;
@@ -139,44 +130,28 @@ namespace VirtualHole.Scraper.UI
 			else { _writeMode.Push(WriteMode.Full); }
 			
 			_lastFullRun = DateTime.Now;
-
-			CancellableFireForget(
-				Execute,
-				(Exception e) => {
-					if(e is OperationCanceledException) {
-						MLog.LogWarning(nameof(ContentDatabaseClientUIController), $"Cancelled on-going tasks.");
-					} else {
-						Cancel();
-					}
-
-					_cts.Dispose();
-					_cts = null;
-
-					isRunning = false;
-				});
+			RunTask(Execute);
 
 			async Task Execute(CancellationToken cancellationToken = default)
 			{
 				while(isRunning) {
 					WriteMode curWriteMode = _writeMode.Pop();
-
 					cancellationToken.ThrowIfCancellationRequested();
-					MLog.Log(
-						nameof(ContentDatabaseClientUIController), 
-						$"[WriteMode: {curWriteMode}] Start running content database client from UI!"
-					);
 
-					using(StopwatchScope stopwatch = new StopwatchScope()) {
+					using(StopwatchScope stopwatch = new StopwatchScope(
+						nameof(ContentDatabaseClientUIController),
+						"Start run..",
+						"Success! Taking a break before next iteration.")) {
 						bool isIncremental = false;
-						if(curWriteMode == WriteMode.Full) { isIncremental = false; }
+						if(curWriteMode == WriteMode.Full) { isIncremental = false; } 
 						else { isIncremental = true; }
 
 						await TaskExt.RetryAsync(
 							() => _clientObject.WriteToVideosDBUsingCreatorsDBAsync(
 								isIncremental, cancellationToken),
-							TimeSpan.FromSeconds(3),
-							3, cancellationToken
+							TimeSpan.FromSeconds(3), 3, cancellationToken
 						);
+
 						lastRunDetails = $"{stopwatch.elapsed.Duration()} - {DateTime.Now}";
 					}
 
@@ -190,24 +165,28 @@ namespace VirtualHole.Scraper.UI
 						_writeMode.Push(WriteMode.Incremental);
 					}
 
-					MLog.Log(nameof(ContentDatabaseClientUIController), "Sucess! Taking a break before next iteration.");
 					await Task.Delay(TimeSpan.FromSeconds(iterationGapAmount), cancellationToken);
 				}
 			}
 		}
 
-		private void CancellableFireForget(
-			Func<CancellationToken, Task> task, Action<Exception> onException = null)
+		private void RunTask(Func<CancellationToken, Task> taskFactory)
 		{
-			Cancel();
+			CancellationTokenSourceFactory.CancelAndCreateCancellationTokenSource(ref _cts);
 
-			_cts = new CancellationTokenSource();
-			TaskExt.FireForget(task(_cts.Token), onException);
+			isRunning = true;
+			TaskExt.FireForget(Execute(), (Exception e) => { isRunning = false; });
+
+			async Task Execute()
+			{
+				await taskFactory(_cts.Token);
+				isRunning = false;
+			}
 		}
 
 		private void Cancel()
 		{
-			if(_cts != null) { _cts.Cancel(); }
+			CancellationTokenSourceFactory.CancelToken(ref _cts);
 		}
 
 		private void OnIterationGapInputFieldValueChanged(string value)
@@ -238,18 +217,6 @@ namespace VirtualHole.Scraper.UI
 			SRDebug.Instance.ShowDebugPanel();
 		}
 
-		private void OnLogReceived(string condition, string stackTrace, LogType type)
-		{
-			if(type == LogType.Log) {
-				_normalLogText.text = $"[{DateTime.Now}] {condition}";
-			} else if(type == LogType.Warning) {
-				_warningLogText.text = $"[{DateTime.Now}] {condition}";
-			} else if(type == LogType.Error) {
-				if(condition.Contains("Cancel")) { return; }
-				_errorLogText.text = $"[{DateTime.Now}] {condition}";
-			}
-		}
-
 		private void OnUseProxiesToggleValueChanged(bool value)
 		{
 			_clientObject.isUseProxy = value;
@@ -264,8 +231,6 @@ namespace VirtualHole.Scraper.UI
 			_showDebugButton.onClick.AddListener(OnShowDebugButtonClicked);
 
 			_useProxiesToggle.onValueChanged.AddListener(OnUseProxiesToggleValueChanged);
-
-			Application.logMessageReceived += OnLogReceived;
 		}
 
 		private void OnDisable()
@@ -277,8 +242,6 @@ namespace VirtualHole.Scraper.UI
 			_showDebugButton.onClick.RemoveListener(OnShowDebugButtonClicked);
 
 			_useProxiesToggle.onValueChanged.RemoveListener(OnUseProxiesToggleValueChanged);
-
-			Application.logMessageReceived -= OnLogReceived;
 		}
 
 		private void Start()
