@@ -20,9 +20,10 @@ namespace VirtualHole.Scraper
 		{
 			if(isUseProxy || _proxyPool == null) {
 				Proxy proxy = _proxyPool.Get();
-				MLog.Log(nameof(ContentClient), $"Proxy: {proxy}");
+				MLog.Log(typeof(ScraperFactory<T>).GetPrettyClassName(), $"Proxy: {proxy}");
 				return InternalGet(proxy); 
-			} else { 
+			} else {
+				MLog.Log(typeof(ScraperFactory<T>).GetPrettyClassName(), $"Proxy: None");
 				return InternalGet(); 
 			}
 		}

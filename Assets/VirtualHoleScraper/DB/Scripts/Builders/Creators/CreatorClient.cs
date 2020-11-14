@@ -28,10 +28,15 @@ namespace VirtualHole.Scraper
 		{
 			List<Creator> results = new List<Creator>();
 
-			FindCreatorsStrictSettings findSettings = new FindCreatorsStrictSettings { IsAll = true };
-			FindResults<Creator> findResults = await _dbClient.Contents.Creators.FindCreatorsAsync(findSettings, cancellationToken);
-			while(!await findResults.MoveNextAsync(cancellationToken)) {
-				results.AddRange(findResults.Current);
+			using(StopwatchScope stopwatch = new StopwatchScope(
+				nameof(CreatorClient),
+				"Start getting all creators from DB",
+				"Finished getting all creators from DB")) {
+				FindCreatorsStrictSettings findSettings = new FindCreatorsStrictSettings { IsAll = true };
+				FindResults<Creator> findResults = await _dbClient.Contents.Creators.FindCreatorsAsync(findSettings, cancellationToken);
+				while(!await findResults.MoveNextAsync(cancellationToken)) {
+					results.AddRange(findResults.Current);
+				}
 			}
 
 			return results;
@@ -39,7 +44,13 @@ namespace VirtualHole.Scraper
 
 		public async Task WriteToDBAsync(IEnumerable<Creator> creators, CancellationToken cancellationToken = default)
 		{
-			await _dbClient.Contents.Creators.UpsertManyCreatorsAndDeleteDanglingAsync(creators, cancellationToken);
+			using(StopwatchScope stopwatchScope = new StopwatchScope(
+				nameof(CreatorClient),
+				"Start writing creators to DB",
+				"Finished writing creators to DB")) {
+				await _dbClient.Contents.Creators.UpsertManyCreatorsAndDeleteDanglingAsync(creators, cancellationToken);
+			}
+			
 		}
 
 		public IEnumerable<Creator> LoadFromJson()

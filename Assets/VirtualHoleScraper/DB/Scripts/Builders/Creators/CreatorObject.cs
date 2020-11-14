@@ -9,7 +9,7 @@ namespace VirtualHole.Scraper
 	using DB.Contents;
 	using DB.Contents.Creators;
 
-	[CreateAssetMenu(menuName = "VirtualHole/DB Builder/Creator Object")]
+	[CreateAssetMenu(menuName = "VirtualHole/DB/Creator Object")]
 	public class CreatorObject : ScriptableObject
 	{
 		public static implicit operator Creator(CreatorObject obj) => obj.ToCreator();
@@ -33,20 +33,26 @@ namespace VirtualHole.Scraper
 
 		public async Task AutoFillInfoAsync()
 		{
-			universalId = universalName.RemoveSpecialCharacters().Replace(" ", "");
-			wikiUrl = $"https://virtualyoutuber.fandom.com/wiki/{universalName.Replace(" ", "_")}";
+			using(StopwatchScope stopwatchScope = new StopwatchScope(
+				nameof(CreatorObject),
+				$"Start [{universalName}] auto filling creator object info",
+				$"Finsihed [{universalName}] auto filling creator object info")) {
+				universalId = universalName.RemoveSpecialCharacters().Replace(" ", "");
+				wikiUrl = $"https://virtualyoutuber.fandom.com/wiki/{universalName.Replace(" ", "_")}";
 
-			bool isMainAvatarUrlSet = false;
-			for(int i = 0; i < socials.Length; i++) {
-				Social social = socials[i];
-				if(social.Platform == Platform.YouTube) {
-					social = socials[i] = await _youtubeScraper.GetChannelInfoAsync(social.Url);
-					if(!isMainAvatarUrlSet) {
-						isMainAvatarUrlSet = true;
-						avatarUrl = social.AvatarUrl;
+				bool isMainAvatarUrlSet = false;
+				for(int i = 0; i < socials.Length; i++) {
+					Social social = socials[i];
+					if(social.Platform == Platform.YouTube) {
+						social = socials[i] = await _youtubeScraper.GetChannelInfoAsync(social.Url);
+						if(!isMainAvatarUrlSet) {
+							isMainAvatarUrlSet = true;
+							avatarUrl = social.AvatarUrl;
+						}
 					}
 				}
 			}
+		
 		}
 
 		public CreatorObject[] GetAffiliations()

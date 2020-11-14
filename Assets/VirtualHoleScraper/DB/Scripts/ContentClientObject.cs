@@ -9,7 +9,7 @@ namespace VirtualHole.Scraper
 	using DB.Contents.Creators;
 	using UObject = UnityEngine.Object;
 
-	[CreateAssetMenu(menuName = "VirtualHole/DB Builder/Content Builder Object")]
+	[CreateAssetMenu(menuName = "VirtualHole/DB/Content Client Object")]
 	public class ContentClientObject : ScriptableObject
 	{
 		[SerializeField]
@@ -44,23 +44,25 @@ namespace VirtualHole.Scraper
 		[SerializeField]
 		private string _proxyList = string.Empty;
 
-		private ContentClient client
-		{
-			get {
-				if(_client == null) {
-					_client = new ContentClient(
-						new ContentBuilderSettings() {
-							connectionString = _connectionString,
-							userName = _userName,
-							password = _password,
-							proxyPool = new ProxyPool(proxyList)
-						});
-				}
-
-				return _client;
-			}
-		}
+		private ContentClient client => Get();
 		private ContentClient _client = null;
+
+		public ContentClient Get()
+		{
+			if(_client != null) { return _client; }
+
+			_client = new ContentClient(new ContentBuilderSettings() {
+				connectionString = _connectionString,
+				userName = _userName,
+				password = _password,
+				proxyPool = new ProxyPool()
+			});
+
+			_client.isUseProxy = isUseProxy;
+			_client.SetProxies(proxyList);
+
+			return _client;
+		}
 
 		public void ExportCreatorsJSON(IEnumerable<Creator> creators)
 		{

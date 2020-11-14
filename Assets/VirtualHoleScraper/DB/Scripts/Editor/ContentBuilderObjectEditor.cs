@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEditor;
-using Midnight;
 using Midnight.Concurrency;
 
 namespace VirtualHole.Scraper
@@ -18,197 +17,101 @@ namespace VirtualHole.Scraper
 	{
 		public new ContentClientObject target => (ContentClientObject)base.target;
 
-		private const string _updateCreatorsMetricKey = "Update Creator Details";
-		private const string _writeCreatorMetricKey = "Write Creator";
-		private const string _writeVideosMetricKey = "Write Videos";
-		private const string _writeVideosUsingLocalMetricKey = "Write Videos Using Local";
-		private Dictionary<string, string> _metrics = new Dictionary<string, string> {
-			{ _updateCreatorsMetricKey, "-" },
-			{ _writeCreatorMetricKey, "-" },
-			{ _writeVideosMetricKey, "-" },
-			{ _writeVideosUsingLocalMetricKey, "-" }
-		};
-
+		private bool _isRunning = false;
 		private CancellationTokenSource _cts = null;
 
 		private void DrawHelperOperators()
 		{
 			EditorGUILayout.LabelField("Helpers");
-			if(GUILayout.Button("Update Creator Objects Details")) { UpdateCreatorObjectsDetails(); }
+			if(GUILayout.Button("Autofill Creater Object Infos")) { AutoFillCreaterObjectInfos(); }
 		}
 
 		private void DrawCreatorsCollectionOperators()
 		{
-			EditorGUILayout.LabelField("creators.json");
-			if(GUILayout.Button("Export To Local JSON")) { ExportCreatorsJSON(); }
-			if(GUILayout.Button("Write To Creators Collection")) { WriteToCreatorsCollection(); }
+			EditorGUILayout.LabelField("Creators");
+			if(GUILayout.Button("Export Creators JSON")) { ExportCreatorsJSON(); }
+			if(GUILayout.Button("Write To Creators DB")) { WriteToCreatorsDB(); }
 		}
 
 		private void DrawVideosCollectionOperators()
 		{
-			EditorGUILayout.LabelField("videos.json");
-			if(GUILayout.Button("[Full] Export Videos Using Local Creators JSON")) { ExportVideosUsingLocalCreatorsJSON(); }
-			if(GUILayout.Button("[Incremental] Export Videos Using Local Creators JSON")) { ExportVideosUsingLocalCreatorsJSON(true); }
-			if(GUILayout.Button("Write To Videos Collection Using Local JSON")) { WriteToVideosCollectionUsingLocalJSON(); }
-			if(GUILayout.Button("[Full] Write To Videos Collection")) { WriteToVideosCollection(); }
-			if(GUILayout.Button("[Incremental] Write To Videos Collection")) { WriteToVideosCollection(true); }
+			EditorGUILayout.LabelField("Videos");
+			if(GUILayout.Button("[Full] Write to Json Using Creators JSON")) { WriteToVideosJsonUsingCreatorsJson(); }
+			if(GUILayout.Button("[Incremental] Write to Json Using Creators JSON")) { WriteToVideosJsonUsingCreatorsJson(true); }
+
+			EditorGUILayout.Space();
+			if(GUILayout.Button("Write to DB Using Json")) { WriteToVideosDBUsingJson(); }
+			if(GUILayout.Button("[Full] Write to DB Using Creators DB")) { WriteToVideosDBUsingCreatorsDB(); }
+			if(GUILayout.Button("[Incremental Write to DB Using Creators DB")) { WriteToVideosDBUsingCreatorsDB(true); }
 		}
 
 		private void DrawCommands()
 		{
 			EditorGUILayout.LabelField("Commands");
-			if(GUILayout.Button("Cancel")) { Cancel(); }
+			if(GUILayout.Button("Cancel")) { CancellationTokenSourceFactory.CancelToken(ref _cts); }
 		}
 
-		private void DrawMetrics()
+		public void AutoFillCreaterObjectInfos()
 		{
-			EditorGUILayout.LabelField("Metrics");
-			using(new EditorGUILayout.VerticalScope()) {
-				foreach(KeyValuePair<string, string> kvp in _metrics) {
-					using(new EditorGUILayout.HorizontalScope()) {
-						EditorGUILayout.PrefixLabel($"{kvp.Key}: ");
-						EditorGUILayout.LabelField($"{kvp.Value}");
-					}
-				}
-			}
-		}
+			RunTask(Execute);
 
-		public void UpdateCreatorObjectsDetails()
-		{
-			TaskExt.FireForget(Execute());
-
-			async Task Execute()
+			async Task Execute(CancellationToken cancellationToken = default)
 			{
 				List<CreatorObject> creatorObjs = GetCreatorObjects();
 
-				using(StopwatchScope stopwatch = new StopwatchScope()) {
-					using(ProgressScope progress = new ProgressScope(
-						new ProgressScope.Parameters {
-							name = "Updating all creator objects"
-						})) 
-					{
-						int index = 0;
-						foreach(CreatorObject creatorObj in creatorObjs) {
-							progress.Report((float)index / creatorObjs.Count, $"Updating {creatorObj.universalName}...");
-							await creatorObj.AutoFillInfoAsync();
-							EditorUtility.SetDirty(creatorObj);
-							index++;
-						}
+				foreach(CreatorObject creatorObj in creatorObjs) {
+					await creatorObj.AutoFillInfoAsync();
+					EditorUtility.SetDirty(creatorObj);
+				}
 
-						AssetDatabase.Refresh();
-						EditorPrefs.SetString(
-							_updateCreatorsMetricKey, 
-							_metrics[_updateCreatorsMetricKey] = $"{stopwatch.elapsed.Duration()} - {DateTime.Now}"
-						);
-					}
-				}	
+				AssetDatabase.Refresh();
 			}
 		}
 
 		public void ExportCreatorsJSON()
 		{
-			using(StopwatchScope stopwatch = new StopwatchScope()) {
-				target.ExportCreatorsJSON(GetCreatorObjects().Select(obj => obj.ToCreator()).ToArray());
-				_metrics["Export Creators to JSON"] = stopwatch.elapsed.Duration().ToString();
-			}
+			target.ExportCreatorsJSON(GetCreatorObjects().Select(obj => obj.ToCreator()).ToArray());
 		}
 
-		public void WriteToCreatorsCollection()
+		public void WriteToCreatorsDB()
 		{
-			CancellableFireForget(Execute);
+			RunTask(Execute);
 
 			async Task Execute(CancellationToken cancellationToken = default)
 			{
-				using(StopwatchScope stopwatch = new StopwatchScope()) {
-					using(ProgressScope progress = new ProgressScope(
-						new ProgressScope.Parameters {
-							name = "Writing to creators collection",
-							description = $"Running...",
-							options = Progress.Options.Indefinite
-						}))
-					{
-						progress.Report(.8f);
-						await target.WriteToCreatorsDBAsync(
-							GetCreatorObjects().Select(obj => obj.ToCreator()).ToArray(),
-							cancellationToken);
-						EditorPrefs.SetString(
-							_writeCreatorMetricKey, 
-							_metrics[_writeCreatorMetricKey] = $"{stopwatch.elapsed.Duration()} - {DateTime.Now}"
-						);
-					}
-				}
+				await target.WriteToCreatorsDBAsync(
+					GetCreatorObjects().Select(obj => obj.ToCreator()).ToArray(),
+					cancellationToken);
 			}
 		}
 
-		public void ExportVideosUsingLocalCreatorsJSON(bool incremental = false)
+		public void WriteToVideosJsonUsingCreatorsJson(bool incremental = false)
 		{
-			CancellableFireForget(Execute);
+			RunTask(Execute);
 
 			async Task Execute(CancellationToken cancellationToken = default)
 			{
-				using(StopwatchScope stopwatch = new StopwatchScope()) {
-					using(ProgressScope progress = new ProgressScope(
-						new ProgressScope.Parameters {
-							name = "Export videos using local creators JSON",
-							description = $"Running...",
-							options = Progress.Options.Indefinite
-						})) {
-						progress.Report(.8f);
-						await target.WriteToVideosJsonUsingCreatorsJsonAsync(
-							incremental, cancellationToken);
-						_metrics["Export Videos to JSON"] = stopwatch.elapsed.Duration().ToString();
-					}
-				}
+				await target.WriteToVideosJsonUsingCreatorsJsonAsync(incremental, cancellationToken);
 			}
 		}
 
-		public void WriteToVideosCollectionUsingLocalJSON(bool incremetal = false)
+		public void WriteToVideosDBUsingJson(bool incremetal = false)
 		{
-			CancellableFireForget(Execute);
+			RunTask(Execute);
 
 			async Task Execute(CancellationToken cancellationToken = default)
 			{
-				using(StopwatchScope stopwatch = new StopwatchScope()) {
-					using(ProgressScope progress = new ProgressScope(
-						new ProgressScope.Parameters {
-							name = "Writing to videos collection using local creators JSON",
-							description = $"Running...",
-							options = Progress.Options.Indefinite
-						})) {
-						progress.Report(.8f);
-						await target.WriteToVideosDBUsingJsonAsync(
-							incremetal, cancellationToken);
-						EditorPrefs.SetString(
-							_writeVideosUsingLocalMetricKey,
-							_metrics[_writeVideosUsingLocalMetricKey] = $"{stopwatch.elapsed.Duration()} - {DateTime.Now}"
-						);
-					}
-				}
+				await target.WriteToVideosDBUsingJsonAsync(incremetal, cancellationToken);
 			}
 		}
 
-		public void WriteToVideosCollection(bool incremental = false)
+		public void WriteToVideosDBUsingCreatorsDB(bool incremental = false)
 		{
-			CancellableFireForget(Execute);
+			RunTask(Execute);
 
 			async Task Execute(CancellationToken cancellationToken = default)
 			{
-				using(StopwatchScope stopwatch = new StopwatchScope()) {
-					using(ProgressScope progress = new ProgressScope(
-						new ProgressScope.Parameters {
-							name = "Writing to videos collection",
-							description = $"Running...",
-							options = Progress.Options.Indefinite
-						})) 
-					{
-						await target.WriteToVideosDBUsingCreatorsDBAsync(
-							incremental, cancellationToken);
-						EditorPrefs.SetString(
-							_writeVideosMetricKey, 
-							_metrics[_writeVideosMetricKey] = $"{stopwatch.elapsed.Duration()} - {DateTime.Now}"
-						);
-					}
-				}
+				await target.WriteToVideosDBUsingCreatorsDBAsync(incremental, cancellationToken);
 			}
 		}
 
@@ -250,30 +153,20 @@ namespace VirtualHole.Scraper
 			return results;
 		}
 
-		private void CancellableFireForget(
-			Func<CancellationToken, Task> task, Action<Exception> onException = null)
+		private void RunTask(Func<CancellationToken, Task> taskFactory)
 		{
-			Cancel();
+			CancellationTokenSourceFactory.CancelAndCreateCancellationTokenSource(ref _cts);
 
-			_cts = new CancellationTokenSource();
-			TaskExt.FireForget(task(_cts.Token), onException);
-		}
-
-		private void Cancel()
-		{
-			if(_cts != null) {
-				_cts.Cancel();
-				_cts.Dispose();
-
-				MLog.LogWarning(nameof(ContentBuilderObjectEditor), $"Cancelled on-going tasks.");
-				_cts = null;
+			try {
+				_isRunning = true;
+				TaskExt.FireForget(Execute());
+			} finally {
+				_isRunning = false;
 			}
-		}
-
-		private void OnEnable()
-		{
-			foreach(string key in _metrics.Keys.ToArray()) {
-				_metrics[key] = EditorPrefs.GetString(key);
+			
+			async Task Execute()
+			{
+				await taskFactory(_cts.Token);
 			}
 		}
 
@@ -284,17 +177,16 @@ namespace VirtualHole.Scraper
 			EditorGUILayout.Space();
 			EditorGUILayout.LabelField("Operators", EditorStyles.boldLabel);
 
-			DrawHelperOperators();
-			EditorGUILayout.Space();
-			DrawCreatorsCollectionOperators();
-			EditorGUILayout.Space();
-			DrawVideosCollectionOperators();
+			using(new EditorGUI.DisabledGroupScope(_isRunning)) {
+				DrawHelperOperators();
+				EditorGUILayout.Space();
+				DrawCreatorsCollectionOperators();
+				EditorGUILayout.Space();
+				DrawVideosCollectionOperators();
+			}
 
 			EditorGUILayout.Space();
 			DrawCommands();
-
-			EditorGUILayout.Space();
-			DrawMetrics();
 		}
 	}
 }
