@@ -64,7 +64,7 @@ namespace VirtualHole.Scraper
 			return _client;
 		}
 
-		public void ExportCreatorsJSON(IEnumerable<Creator> creators)
+		public void SaveCreatorsToJson(IEnumerable<Creator> creators)
 		{
 			client.creators.SaveToJson(creators);
 		}
@@ -79,7 +79,8 @@ namespace VirtualHole.Scraper
 			bool incremental = false, CancellationToken cancellationToken = default)
 		{
 			IEnumerable<Creator> creators = client.creators.LoadFromJson();
-			await client.videos.ScrapeAsync(creators, incremental, cancellationToken);
+			List<Video> videos = await client.videos.ScrapeAsync(creators, incremental, cancellationToken);
+			client.videos.SaveToJson(videos);
 		}
 
 		public async Task WriteToVideosDBUsingCreatorsDBAsync(

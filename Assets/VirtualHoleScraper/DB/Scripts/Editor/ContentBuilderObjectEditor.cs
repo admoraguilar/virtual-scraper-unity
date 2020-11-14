@@ -30,7 +30,7 @@ namespace VirtualHole.Scraper
 		private void DrawCreatorsCollectionOperators()
 		{
 			EditorGUILayout.LabelField("Creators");
-			if(GUILayout.Button("Export Creators JSON")) { ExportCreatorsJSON(); }
+			if(GUILayout.Button("Save Creators To JSON")) { SaveCreatorsToJson(); }
 			if(GUILayout.Button("Write To Creators DB")) { WriteToCreatorsDB(); }
 		}
 
@@ -81,9 +81,9 @@ namespace VirtualHole.Scraper
 			AssetDatabase.Refresh();
 		}
 
-		public void ExportCreatorsJSON()
+		public void SaveCreatorsToJson()
 		{
-			target.ExportCreatorsJSON(GetCreatorObjects().Select(obj => obj.ToCreator()).ToArray());
+			target.SaveCreatorsToJson(GetCreatorObjects().Select(obj => obj.ToCreator()).ToArray());
 		}
 
 		public void WriteToCreatorsDB()
