@@ -171,16 +171,13 @@ namespace VirtualHole.Scraper
 		{
 			CancellationTokenSourceFactory.CancelAndCreateCancellationTokenSource(ref _cts);
 
-			try {
-				_isRunning = true;
-				TaskExt.FireForget(Execute());
-			} finally {
-				_isRunning = false;
-			}
-			
+			_isRunning = true;
+			TaskExt.FireForget(Execute(), (Exception e) => { _isRunning = false; });
+
 			async Task Execute()
 			{
 				await taskFactory(_cts.Token);
+				_isRunning = false;
 			}
 		}
 

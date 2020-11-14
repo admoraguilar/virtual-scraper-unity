@@ -41,9 +41,6 @@ namespace VirtualHole.Scraper.UI
 		private Toggle _useProxiesToggle = null;
 
 		[SerializeField]
-		private TMP_InputField _proxiesListInputField = null;
-
-		[SerializeField]
 		private Button _runButton = null;
 
 		[SerializeField]
@@ -134,7 +131,6 @@ namespace VirtualHole.Scraper.UI
 			isRunning = true;
 
 			_clientObject.isUseProxy = _useProxiesToggle.isOn;
-			_clientObject.proxyList = _proxiesListInputField.text;
 
 			incrementalScanCount = 0;
 			fullScanCount = 0;
@@ -259,11 +255,6 @@ namespace VirtualHole.Scraper.UI
 			_clientObject.isUseProxy = value;
 		}
 
-		private void OnProxiesListInputFieldOnValueChanged(string value)
-		{
-			_clientObject.proxyList = value;
-		}
-
 		private void OnEnable()
 		{
 			_iterationGapAmountInputField.onValueChanged.AddListener(OnIterationGapInputFieldValueChanged);
@@ -273,7 +264,6 @@ namespace VirtualHole.Scraper.UI
 			_showDebugButton.onClick.AddListener(OnShowDebugButtonClicked);
 
 			_useProxiesToggle.onValueChanged.AddListener(OnUseProxiesToggleValueChanged);
-			_proxiesListInputField.onValueChanged.AddListener(OnProxiesListInputFieldOnValueChanged);
 
 			Application.logMessageReceived += OnLogReceived;
 		}
@@ -287,7 +277,6 @@ namespace VirtualHole.Scraper.UI
 			_showDebugButton.onClick.RemoveListener(OnShowDebugButtonClicked);
 
 			_useProxiesToggle.onValueChanged.RemoveListener(OnUseProxiesToggleValueChanged);
-			_proxiesListInputField.onValueChanged.RemoveListener(OnProxiesListInputFieldOnValueChanged);
 
 			Application.logMessageReceived -= OnLogReceived;
 		}
@@ -301,7 +290,6 @@ namespace VirtualHole.Scraper.UI
 			lastRunDetails = "--";
 
 			_useProxiesToggle.isOn = _clientObject.isUseProxy;
-			_proxiesListInputField.text = _clientObject.proxyList;
 		}
 	}
 }

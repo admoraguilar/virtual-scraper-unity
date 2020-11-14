@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.IO;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,10 +9,16 @@ namespace VirtualHole.Scraper
 	using DB.Contents.Videos;
 	using DB.Contents.Creators;
 	using UObject = UnityEngine.Object;
+	using Midnight;
 
 	[CreateAssetMenu(menuName = "VirtualHole/DB/Content Client Object")]
 	public class ContentClientObject : ScriptableObject
 	{
+		public string proxyListTxtPath
+		{
+			get => PathUtilities.CreateDataPath("VirtualHoleScraper/config", "proxy-list.txt", PathType.Data);
+		}
+
 		[SerializeField]
 		public string _connectionString = string.Empty;
 
@@ -29,20 +36,9 @@ namespace VirtualHole.Scraper
 				client.isUseProxy = _isUseProxy;
 			}
 		}
+		[Space]
 		[SerializeField]
 		private bool _isUseProxy = false;
-
-		public string proxyList
-		{
-			get => _proxyList;
-			set {
-				_proxyList = value;
-				client.SetProxies(_proxyList);
-			}
-		}
-		[TextArea(5, 5)]
-		[SerializeField]
-		private string _proxyList = string.Empty;
 
 		private ContentClient client => Get();
 		private ContentClient _client = null;
@@ -58,8 +54,13 @@ namespace VirtualHole.Scraper
 				proxyPool = new ProxyPool()
 			});
 
-			_client.isUseProxy = isUseProxy;
-			_client.SetProxies(proxyList);
+			string proxyListText = File.ReadAllText(proxyListTxtPath);
+			if(!string.IsNullOrEmpty(proxyListText)) {
+				_client.SetProxies(proxyListText);
+				_client.isUseProxy = isUseProxy;
+			} else {
+				_client.isUseProxy = false;
+			}
 
 			return _client;
 		}
@@ -124,7 +125,6 @@ namespace VirtualHole.Scraper
 		private void OnValidate()
 		{
 			isUseProxy = _isUseProxy;
-			proxyList = _proxyList;
 		}
 #endif
 	}
