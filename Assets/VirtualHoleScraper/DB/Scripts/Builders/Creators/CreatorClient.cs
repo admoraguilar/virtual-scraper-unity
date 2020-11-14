@@ -14,7 +14,7 @@ namespace VirtualHole.Scraper
 	{
 		public string localJsonPath
 		{
-			get => PathUtilities.CreateDataPath("VirtualHole", "creators.json", PathType.Data);
+			get => PathUtilities.CreateDataPath("VirtualHoleScraper", "creators.json", PathType.Data);
 		}
 
 		private VirtualHoleDBClient _dbClient = null;
@@ -56,14 +56,16 @@ namespace VirtualHole.Scraper
 		public IEnumerable<Creator> LoadFromJson()
 		{
 			return JsonUtilities.LoadFromDisk<Creator[]>(new JsonUtilities.LoadFromDiskParameters {
-				filePath = localJsonPath
+				filePath = localJsonPath,
+				jsonSerializerSettings = JsonConfig.DefaultSettings
 			});
 		}
 
 		public void SaveToJson(IEnumerable<Creator> creators)
 		{
 			JsonUtilities.SaveToDisk(creators, new JsonUtilities.SaveToDiskParameters {
-				filePath = localJsonPath
+				filePath = localJsonPath,
+				jsonSerializerSettings = JsonConfig.DefaultSettings
 			});
 		}
 	}

@@ -22,10 +22,10 @@ MonoBehaviour:
   isGroup: 0
   depth: 0
   socials:
-  - name: Aonahara Translations
-    platform: 1
-    id: UCzD0rLDQQ69DdJfbqDXlB9Q
-    url: https://www.youtube.com/channel/UCzD0rLDQQ69DdJfbqDXlB9Q
-    avatarUrl: https://yt3.ggpht.com/a/AATXAJy2sZMYEaXTS66dNL2UR1-de3rWzUL3EBRaaZdz=s900-c-k-c0x00ffffff-no-rj
-    customKeywords: []
+  - Name: Aonahara Translations
+    Platform: 1
+    Id: UCzD0rLDQQ69DdJfbqDXlB9Q
+    Url: https://www.youtube.com/channel/UCzD0rLDQQ69DdJfbqDXlB9Q
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJy2sZMYEaXTS66dNL2UR1-de3rWzUL3EBRaaZdz=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
   customKeywords: []

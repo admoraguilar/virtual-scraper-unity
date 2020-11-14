@@ -18,7 +18,7 @@ namespace VirtualHole.Scraper
 	{
 		public string localJsonPath 
 		{
-			get => PathUtilities.CreateDataPath("VirtualHole", "videos.json", PathType.Data);
+			get => PathUtilities.CreateDataPath("VirtualHoleScraper", "videos.json", PathType.Data);
 		}
 
 		private VirtualHoleDBClient _dbClient = null;
@@ -103,19 +103,25 @@ namespace VirtualHole.Scraper
 
 		public IEnumerable<Video> LoadFromJson()
 		{
+			JsonSerializerSettings jsonSerializerSettings = JsonConfig.DefaultSettings;
+			jsonSerializerSettings.TypeNameHandling = TypeNameHandling.Auto;
+
 			return JsonUtilities.LoadFromDisk<Video[]>(new JsonUtilities.LoadFromDiskParameters {
-				filePath = localJsonPath
+				filePath = localJsonPath,
+				jsonSerializerSettings = jsonSerializerSettings
 			});
 		}
 
 		public void SaveToJson(IEnumerable<Video> videos)
 		{
 			List<Video> list = new List<Video>(videos);
+
+			JsonSerializerSettings jsonSerializerSettings = JsonConfig.DefaultSettings;
+			jsonSerializerSettings.TypeNameHandling = TypeNameHandling.Auto;
+
 			JsonUtilities.SaveToDisk(list, new JsonUtilities.SaveToDiskParameters {
 				filePath = localJsonPath,
-				jsonSerializerSettings = new JsonSerializerSettings {
-					TypeNameHandling = TypeNameHandling.Auto
-				}
+				jsonSerializerSettings = jsonSerializerSettings
 			});
 		}
 	}

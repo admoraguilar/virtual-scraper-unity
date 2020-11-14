@@ -29,14 +29,14 @@ namespace VirtualHole.Scraper
 		public Social[] socials = new Social[0];
 		public string[] customKeywords = new string[0];
 
-		private YouTubeScraper _youtubeScraper = null;
+		private YouTubeScraper _youTubeScraper = new YouTubeScraper();
 
 		public async Task AutoFillInfoAsync()
 		{
 			using(StopwatchScope stopwatchScope = new StopwatchScope(
 				nameof(CreatorObject),
-				$"Start [{universalName}] auto filling creator object info",
-				$"Finsihed [{universalName}] auto filling creator object info")) {
+				$"Start auto fill [{universalName}] info",
+				$"Finished auto filling [{universalName}] info")) {
 				universalId = universalName.RemoveSpecialCharacters().Replace(" ", "");
 				wikiUrl = $"https://virtualyoutuber.fandom.com/wiki/{universalName.Replace(" ", "_")}";
 
@@ -44,7 +44,7 @@ namespace VirtualHole.Scraper
 				for(int i = 0; i < socials.Length; i++) {
 					Social social = socials[i];
 					if(social.Platform == Platform.YouTube) {
-						social = socials[i] = await _youtubeScraper.GetChannelInfoAsync(social.Url);
+						social = socials[i] = await _youTubeScraper.GetChannelInfoAsync(social.Url);
 						if(!isMainAvatarUrlSet) {
 							isMainAvatarUrlSet = true;
 							avatarUrl = social.AvatarUrl;
@@ -52,7 +52,19 @@ namespace VirtualHole.Scraper
 					}
 				}
 			}
-		
+		}
+
+		public void AutoFillFromJson()
+		{
+			CreatorClient creatorClient = new CreatorClient(null);
+			
+			Creator creator = creatorClient.LoadFromJson().FirstOrDefault(c => c.UniversalId == universalId);
+			if(creator == null) { 
+				MLog.Log(nameof(CreatorObject), $"Can't find [{universalId}] data on json.");
+				return;
+			}
+
+			socials = creator.Socials;
 		}
 
 		public CreatorObject[] GetAffiliations()

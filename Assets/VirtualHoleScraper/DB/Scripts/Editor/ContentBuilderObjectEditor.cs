@@ -68,6 +68,18 @@ namespace VirtualHole.Scraper
 			}
 		}
 
+		public void AutofillCreatorObjectInfosFromJson()
+		{
+			List<CreatorObject> creatorObjs = GetCreatorObjects();
+
+			foreach(CreatorObject creatorObj in creatorObjs) {
+				creatorObj.AutoFillFromJson();
+				EditorUtility.SetDirty(creatorObj);
+			}
+
+			AssetDatabase.Refresh();
+		}
+
 		public void ExportCreatorsJSON()
 		{
 			target.ExportCreatorsJSON(GetCreatorObjects().Select(obj => obj.ToCreator()).ToArray());
