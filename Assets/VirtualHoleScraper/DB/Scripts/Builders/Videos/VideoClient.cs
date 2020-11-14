@@ -77,15 +77,21 @@ namespace VirtualHole.Scraper
 				// YouTube
 				foreach(Social youtube in creator.Socials.Where(s => s.Platform == Platform.YouTube)) {
 					await Task.WhenAll(
-						Task.Run(() => ProcessSocialVideo(
-							youtube, "Videos", 
-							(Social yt) => _youtubeScraperFactory.Get().GetChannelVideosAsync(creator, yt.Url, channelVideoSettings))),
-						Task.Run(() => ProcessSocialVideo(
-							youtube, "Scheduled",
-							(Social yt) => _youtubeScraperFactory.Get().GetChannelUpcomingBroadcastsAsync(creator, yt.Url))),
-						Task.Run(() => ProcessSocialVideo(
-							youtube, "Live",
-							(Social yt) => _youtubeScraperFactory.Get().GetChannelLiveBroadcastsAsync(creator, yt.Url)))
+						Task.Run(async () => {
+							videos.AddRange(await ProcessSocialVideo(
+							   youtube, "Videos",
+							   (Social yt) => _youtubeScraperFactory.Get().GetChannelVideosAsync(creator, yt.Url, channelVideoSettings)));
+						}),
+						Task.Run(async () => {
+							videos.AddRange(await ProcessSocialVideo(
+							   youtube, "Scheduled",
+							   (Social yt) => _youtubeScraperFactory.Get().GetChannelUpcomingBroadcastsAsync(creator, yt.Url)));
+						}),
+						Task.Run(async () => {
+							videos.AddRange(await ProcessSocialVideo(
+								youtube, "Live",
+								(Social yt) => _youtubeScraperFactory.Get().GetChannelLiveBroadcastsAsync(creator, yt.Url)));
+						})
 					);
 				}
 

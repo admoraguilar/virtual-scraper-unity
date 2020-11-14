@@ -101,7 +101,7 @@ namespace VirtualHole.Scraper
 					CreationDate = uploadDateAnchor,
 					Tags = video.Keywords.ToArray(),
 
-					ThumbnailUrl = video.Thumbnails.MediumResUrl,
+					ThumbnailUrl = video.Thumbnails.HighRes720Url,
 					Description = video.Description,
 					Duration = video.Duration,
 					ViewCount = video.Engagement.ViewCount
@@ -143,7 +143,7 @@ namespace VirtualHole.Scraper
 					CreationDate = broadcast.UploadDate,
 					Tags = broadcast.Keywords.ToArray(),
 
-					ThumbnailUrl = broadcast.Thumbnails.MediumResUrl,
+					ThumbnailUrl = broadcast.Thumbnails.HighRes720Url,
 					Description = broadcast.Description,
 					Duration = broadcast.Duration,
 					ViewCount = broadcast.Engagement.ViewCount,

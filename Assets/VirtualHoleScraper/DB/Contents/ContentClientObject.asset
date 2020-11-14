@@ -15,7 +15,7 @@ MonoBehaviour:
   _connectionString: mongodb+srv://<username>:<password>@us-east-1-free.41hlb.mongodb.net/test
   _userName: holoverse-editor
   _password: RBqYN3ugVTb2stqD
-  _isUseProxy: 1
+  _isUseProxy: 0
   _proxyList: '64.34.204.163:24519
 
     64.34.204.163:26254
@@ -117,5 +117,6 @@ MonoBehaviour:
     64.34.204.163:22557'
   _editor_creatorObjectsFolderPath: {fileID: 102900000, guid: a83073264a0ae05419e4a22ea4df7ac5,
     type: 3}
-  _editor_creatorsList: []
+  _editor_creatorsList:
+  - {fileID: 11400000, guid: 4b2290d380862804db932ee61d1c3cf8, type: 2}
   _editor_creatorListMode: 0

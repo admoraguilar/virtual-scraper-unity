@@ -47,7 +47,7 @@ namespace VirtualHole.Scraper
 
 		public void SetProxies(string source)
 		{
-			_proxyPool.Set(source);
+			_youTubeScraperFactory.SetProxies(source);
 		}
 	}
 }
