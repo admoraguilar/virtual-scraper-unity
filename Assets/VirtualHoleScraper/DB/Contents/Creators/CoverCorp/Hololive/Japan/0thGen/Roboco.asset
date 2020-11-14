@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43910ccb2860f8646b8d5c01236b6542, type: 3}
+  m_Name: Roboco
+  m_EditorClassIdentifier: 
+  universalName: Roboco
+  universalId: Roboco
+  wikiUrl: https://virtualyoutuber.fandom.com/wiki/Roboco
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJwaRkjEGAJYsolluzMRIgGvapzUY06q87q4yGJJ_Q=s900-c-k-c0x00ffffff-no-rj
+  isHidden: 0
+  affiliations:
+  - {fileID: 11400000, guid: f3a53d8e797355b4d916d827a0a5b7ac, type: 2}
+  isGroup: 0
+  depth: 0
+  socials:
+  - Name: "Roboco Ch. - \u30ED\u30DC\u5B50"
+    Platform: 1
+    Id: UCDqI2jOz0weumE8s7paEk6g
+    Url: https://www.youtube.com/channel/UCDqI2jOz0weumE8s7paEk6g
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJwaRkjEGAJYsolluzMRIgGvapzUY06q87q4yGJJ_Q=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
+  customKeywords: []

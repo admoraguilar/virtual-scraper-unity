@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43910ccb2860f8646b8d5c01236b6542, type: 3}
+  m_Name: AragamiOga
+  m_EditorClassIdentifier: 
+  universalName: Aragami Oga
+  universalId: AragamiOga
+  wikiUrl: https://virtualyoutuber.fandom.com/wiki/Aragami_Oga
+  avatarUrl: https://yt3.ggpht.com/ytc/AAUvwnjlWUBWdQLhIjfcEH9Eg3OPnI-rLgR7PrrlXYT4=s900-c-k-c0x00ffffff-no-rj
+  isHidden: 0
+  affiliations:
+  - {fileID: 11400000, guid: 5f24838fcbe20474689b5c46a7bc8488, type: 2}
+  isGroup: 0
+  depth: 0
+  socials:
+  - Name: "Oga Ch.\u8352\u54AC\u30AA\u30A6\u30AC"
+    Platform: 1
+    Id: UCwL7dgTxKo8Y4RFIKWaf8gA
+    Url: https://www.youtube.com/channel/UCwL7dgTxKo8Y4RFIKWaf8gA
+    AvatarUrl: https://yt3.ggpht.com/ytc/AAUvwnjlWUBWdQLhIjfcEH9Eg3OPnI-rLgR7PrrlXYT4=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
+  customKeywords: []

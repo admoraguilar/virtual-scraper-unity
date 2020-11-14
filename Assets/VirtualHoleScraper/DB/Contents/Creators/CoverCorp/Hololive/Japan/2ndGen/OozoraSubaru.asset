@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43910ccb2860f8646b8d5c01236b6542, type: 3}
+  m_Name: OozoraSubaru
+  m_EditorClassIdentifier: 
+  universalName: Oozora Subaru
+  universalId: OozoraSubaru
+  wikiUrl: https://virtualyoutuber.fandom.com/wiki/Oozora_Subaru
+  avatarUrl: https://yt3.ggpht.com/ytc/AAUvwniCgko15I_x5bYWm0G2vnf5hZqD5hLOtLEDw0Na=s900-c-k-c0x00ffffff-no-rj
+  isHidden: 0
+  affiliations:
+  - {fileID: 11400000, guid: 6e8dc2b9fc2154a4fa9575b307e7301b, type: 2}
+  isGroup: 0
+  depth: 0
+  socials:
+  - Name: "Subaru Ch. \u5927\u7A7A\u30B9\u30D0\u30EB"
+    Platform: 1
+    Id: UCvzGlP9oQwU--Y0r9id_jnA
+    Url: https://www.youtube.com/channel/UCvzGlP9oQwU--Y0r9id_jnA
+    AvatarUrl: https://yt3.ggpht.com/ytc/AAUvwniCgko15I_x5bYWm0G2vnf5hZqD5hLOtLEDw0Na=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
+  customKeywords: []

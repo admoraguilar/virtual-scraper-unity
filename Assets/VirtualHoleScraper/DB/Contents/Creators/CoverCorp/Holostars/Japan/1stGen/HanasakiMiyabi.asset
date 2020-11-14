@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43910ccb2860f8646b8d5c01236b6542, type: 3}
+  m_Name: HanasakiMiyabi
+  m_EditorClassIdentifier: 
+  universalName: Hanasaki Miyabi
+  universalId: HanasakiMiyabi
+  wikiUrl: https://virtualyoutuber.fandom.com/wiki/Hanasaki_Miyabi
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJxB0OqaMlTW_mviIOFpcA5T7BednuyLzWTqh5DX=s900-c-k-c0x00ffffff-no-rj
+  isHidden: 0
+  affiliations:
+  - {fileID: 11400000, guid: 9d007c255a7f9e14ea6fbbe4b468bb6d, type: 2}
+  isGroup: 0
+  depth: 0
+  socials:
+  - Name: "Miyabi Ch. \u82B1\u54B2\u307F\u3084\u3073"
+    Platform: 1
+    Id: UC6t3-_N8A6ME1JShZHHqOMw
+    Url: https://www.youtube.com/channel/UC6t3-_N8A6ME1JShZHHqOMw
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJxB0OqaMlTW_mviIOFpcA5T7BednuyLzWTqh5DX=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
+  customKeywords: []

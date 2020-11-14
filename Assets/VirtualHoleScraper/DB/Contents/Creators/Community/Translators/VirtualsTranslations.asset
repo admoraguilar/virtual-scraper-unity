@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43910ccb2860f8646b8d5c01236b6542, type: 3}
+  m_Name: VirtualsTranslations
+  m_EditorClassIdentifier: 
+  universalName: Virtuals Translations
+  universalId: VirtualsTranslations
+  wikiUrl: https://virtualyoutuber.fandom.com/wiki/Virtuals_Translations
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJwRxb3ZZ2xOrU9w11dwlekeSKNfIxfoXSwlFYZc=s900-c-k-c0x00ffffff-no-rj
+  isHidden: 0
+  affiliations:
+  - {fileID: 11400000, guid: 76cb7fac7c2f0474f9185618939d8ec8, type: 2}
+  isGroup: 0
+  depth: 0
+  socials:
+  - Name: Virtuals Translated
+    Platform: 1
+    Id: UCg-5I4KD3L2zBTTbFKid91w
+    Url: https://www.youtube.com/channel/UCg-5I4KD3L2zBTTbFKid91w
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJwRxb3ZZ2xOrU9w11dwlekeSKNfIxfoXSwlFYZc=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
+  customKeywords: []

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e1634b50ba46114084d62d3ca654b37, type: 3}
+  m_Name: ContentClientObject
+  m_EditorClassIdentifier: 
+  _connectionString: mongodb+srv://<username>:<password>@us-east-1-free.41hlb.mongodb.net/test
+  _userName: holoverse-editor
+  _password: RBqYN3ugVTb2stqD
+  _isUseProxy: 1
+  _editor_creatorObjectsFolderPath: {fileID: 102900000, guid: a83073264a0ae05419e4a22ea4df7ac5,
+    type: 3}
+  _editor_creatorsList: []
+  _editor_creatorListMode: 0

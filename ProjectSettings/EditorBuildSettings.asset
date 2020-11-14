@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/VirtualHoleScraper/Produce/VirtualHoleScraper.unity
+    path: Assets/VirtualHoleScraper/VirtualHoleScraper.unity
     guid: 11dd477fc521c2d4da59f6030e1493db
   m_configObjects: {}

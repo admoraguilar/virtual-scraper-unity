@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43910ccb2860f8646b8d5c01236b6542, type: 3}
+  m_Name: TokinoSora
+  m_EditorClassIdentifier: 
+  universalName: Tokino Sora
+  universalId: TokinoSora
+  wikiUrl: https://virtualyoutuber.fandom.com/wiki/Tokino_Sora
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJxvfkV0UikqTA-yx4opKjGB36TXtUG9jLX1PO1FOQ=s900-c-k-c0x00ffffff-no-rj
+  isHidden: 0
+  affiliations:
+  - {fileID: 11400000, guid: f3a53d8e797355b4d916d827a0a5b7ac, type: 2}
+  isGroup: 0
+  depth: 0
+  socials:
+  - Name: "SoraCh. \u3068\u304D\u306E\u305D\u3089\u30C1\u30E3\u30F3\u30CD\u30EB"
+    Platform: 1
+    Id: UCp6993wxpyDPHUpavwDFqgg
+    Url: https://www.youtube.com/channel/UCp6993wxpyDPHUpavwDFqgg
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJxvfkV0UikqTA-yx4opKjGB36TXtUG9jLX1PO1FOQ=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
+  customKeywords: []

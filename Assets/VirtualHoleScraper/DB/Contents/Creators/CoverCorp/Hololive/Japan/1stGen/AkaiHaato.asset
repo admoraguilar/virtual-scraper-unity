@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43910ccb2860f8646b8d5c01236b6542, type: 3}
+  m_Name: AkaiHaato
+  m_EditorClassIdentifier: 
+  universalName: Akai Haato
+  universalId: AkaiHaato
+  wikiUrl: https://virtualyoutuber.fandom.com/wiki/Akai_Haato
+  avatarUrl: https://yt3.ggpht.com/a/AATXAJw3IoOJZlLAn_Eyy0r6gJHR3vt64XHfuXCailaCPw=s900-c-k-c0x00ffffff-no-rj
+  isHidden: 0
+  affiliations:
+  - {fileID: 11400000, guid: 3a8cfb64d8c1c2843b45c2ee01972131, type: 2}
+  isGroup: 0
+  depth: 0
+  socials:
+  - Name: "Haachama Ch. \u8D64\u4E95\u306F\u3042\u3068"
+    Platform: 1
+    Id: UC1CfXB_kRs3C-zaeTG3oGyg
+    Url: https://www.youtube.com/channel/UC1CfXB_kRs3C-zaeTG3oGyg
+    AvatarUrl: https://yt3.ggpht.com/a/AATXAJw3IoOJZlLAn_Eyy0r6gJHR3vt64XHfuXCailaCPw=s900-c-k-c0x00ffffff-no-rj
+    CustomKeywords: []
+  customKeywords: []
