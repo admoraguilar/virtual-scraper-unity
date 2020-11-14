@@ -7,8 +7,8 @@ using Midnight.Concurrency;
 
 namespace VirtualHole.Scraper
 {
-	using Api.DB.Contents;
-	using Api.DB.Contents.Creators;
+	using DB.Contents;
+	using DB.Contents.Creators;
 
 	[CreateAssetMenu(menuName = "VirtualHole/Content Database/Creator Object")]
 	public class CreatorObject : ScriptableObject
@@ -39,11 +39,11 @@ namespace VirtualHole.Scraper
 			bool isMainAvatarUrlSet = false;
 			for(int i = 0; i < socials.Length; i++) {
 				Social social = socials[i];
-				if(social.platform == Platform.YouTube) {
-					social = socials[i] = await _youtubeScraper.GetChannelInfoAsync(social.url);
+				if(social.Platform == Platform.YouTube) {
+					social = socials[i] = await _youtubeScraper.GetChannelInfoAsync(social.Url);
 					if(!isMainAvatarUrlSet) {
 						isMainAvatarUrlSet = true;
-						avatarUrl = social.avatarUrl;
+						avatarUrl = social.AvatarUrl;
 					}
 				}
 			}
@@ -74,19 +74,19 @@ namespace VirtualHole.Scraper
 		{
 			return new Creator 
 			{
-				universalName = universalName,
-				universalId = universalId,
-				wikiUrl = wikiUrl,
-				avatarUrl = avatarUrl,
+				UniversalName = universalName,
+				UniversalId = universalId,
+				WikiUrl = wikiUrl,
+				AvatarUrl = avatarUrl,
 
-				isHidden = isHidden,
+				IsHidden = isHidden,
 
-				affiliations = GetAffiliations().Select(a => a.universalId).ToArray(),
-				isGroup = isGroup,
-				depth = depth,
+				Affiliations = GetAffiliations().Select(a => a.universalId).ToArray(),
+				IsGroup = isGroup,
+				Depth = depth,
 
-				socials = socials,
-				customKeywords = customKeywords
+				Socials = socials,
+				CustomKeywords = customKeywords
 			};
 		}
 

@@ -9,11 +9,11 @@ using Midnight.Concurrency;
 
 namespace VirtualHole.Scraper
 {
-	using Api.DB;
-	using Api.DB.Common;
-	using Api.DB.Contents;
-	using Api.DB.Contents.Creators;
-	using Api.DB.Contents.Videos;
+	using DB;
+	using DB.Common;
+	using DB.Contents;
+	using DB.Contents.Creators;
+	using DB.Contents.Videos;
 
 	public class ContentDatabaseClient
 	{
@@ -74,8 +74,8 @@ namespace VirtualHole.Scraper
 		public async Task<FindResults<Creator>> GetAllCreatorsAsync(
 			CancellationToken cancellationToken = default)
 		{
-			return await _dataClient.contents.creators.FindCreatorsAsync(
-				new FindCreatorsStrictSettings { isAll = true }, cancellationToken);
+			return await _dataClient.Contents.Creators.FindCreatorsAsync(
+				new FindCreatorsStrictSettings { IsAll = true }, cancellationToken);
 		}
 
 		public void ExportCreatorsJSON(IEnumerable<Creator> creators)
@@ -88,7 +88,7 @@ namespace VirtualHole.Scraper
 		public async Task WriteToCreatorsCollectionAsync(
 			IEnumerable<Creator> creators, CancellationToken cancellationToken = default)
 		{
-			await _dataClient.contents.creators.UpsertManyCreatorsAndDeleteDanglingAsync(
+			await _dataClient.Contents.Creators.UpsertManyCreatorsAndDeleteDanglingAsync(
 				creators, cancellationToken);
 		}
 
@@ -140,7 +140,7 @@ namespace VirtualHole.Scraper
 				while(await cursor.MoveNextAsync()) {
 					cancellationToken.ThrowIfCancellationRequested();
 					videos.AddRange(await ScrapeVideosAsync(
-						cursor.current, incremental,
+						cursor.Current, incremental,
 						cancellationToken));
 				}
 			}
@@ -161,7 +161,7 @@ namespace VirtualHole.Scraper
 
 			async Task ProcessCreator(Creator creator)
 			{
-				if(creator.isGroup) {
+				if(creator.IsGroup) {
 					await Task.CompletedTask;
 					return;
 				}
@@ -175,24 +175,24 @@ namespace VirtualHole.Scraper
 				}
 
 				// YouTube
-				foreach(Social youtube in creator.socials.Where(s => s.platform == Platform.YouTube)) {
-					MLog.Log(nameof(ContentDatabaseClient), $"[YouTube: {youtube.name}] Scraping videos...");
+				foreach(Social youtube in creator.Socials.Where(s => s.Platform == Platform.YouTube)) {
+					MLog.Log(nameof(ContentDatabaseClient), $"[YouTube: {youtube.Name}] Scraping videos...");
 					videos.AddRange(await TaskExt.RetryAsync(
-						() => youtubeScraper.GetChannelVideosAsync(creator, youtube.url, channelVideoSettings),
+						() => youtubeScraper.GetChannelVideosAsync(creator, youtube.Url, channelVideoSettings),
 						TimeSpan.FromSeconds(1), 3, cancellationToken
 					));
 					cancellationToken.ThrowIfCancellationRequested();
 
-					MLog.Log(nameof(ContentDatabaseClient), $"[YouTube: {youtube.name}] Scraping upcoming broadcasts...");
+					MLog.Log(nameof(ContentDatabaseClient), $"[YouTube: {youtube.Name}] Scraping upcoming broadcasts...");
 					videos.AddRange(await TaskExt.RetryAsync(
-						() => youtubeScraper.GetChannelUpcomingBroadcastsAsync(creator, youtube.url),
+						() => youtubeScraper.GetChannelUpcomingBroadcastsAsync(creator, youtube.Url),
 						TimeSpan.FromSeconds(1), 3, cancellationToken
 					));
 					cancellationToken.ThrowIfCancellationRequested();
 
-					MLog.Log(nameof(ContentDatabaseClient), $"[YouTube: {youtube.name}] Scraping now broadcasts...");
+					MLog.Log(nameof(ContentDatabaseClient), $"[YouTube: {youtube.Name}] Scraping now broadcasts...");
 					videos.AddRange(await TaskExt.RetryAsync(
-						() => youtubeScraper.GetChannelLiveBroadcastsAsync(creator, youtube.url),
+						() => youtubeScraper.GetChannelLiveBroadcastsAsync(creator, youtube.Url),
 						TimeSpan.FromSeconds(1), 3, cancellationToken
 					));
 					cancellationToken.ThrowIfCancellationRequested();
@@ -213,8 +213,8 @@ namespace VirtualHole.Scraper
 
 			Task WriteAsync()
 			{
-				if(incremental) { return _dataClient.contents.videos.UpsertManyVideosAsync(videos, cancellationToken); }
-				else { return _dataClient.contents.videos.UpsertManyVideosAndDeleteDanglingAsync(videos, cancellationToken); }
+				if(incremental) { return _dataClient.Contents.Videos.UpsertManyVideosAsync(videos, cancellationToken); }
+				else { return _dataClient.Contents.Videos.UpsertManyVideosAndDeleteDanglingAsync(videos, cancellationToken); }
 			}
 		}
 	}

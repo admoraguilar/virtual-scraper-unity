@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace VirtualHole.Scraper
 {
-	using Api.DB.Contents.Creators;
+	using DB.Contents.Creators;
 
 	using UObject = UnityEngine.Object;
 

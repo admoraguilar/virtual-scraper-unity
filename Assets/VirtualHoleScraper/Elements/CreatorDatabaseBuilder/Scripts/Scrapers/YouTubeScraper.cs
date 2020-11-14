@@ -9,9 +9,9 @@ using YoutubeExplode.Videos;
 
 namespace VirtualHole.Scraper
 {
-	using Api.DB.Contents;
-	using Api.DB.Contents.Creators;
-	using Api.DB.Contents.Videos;
+	using DB.Contents;
+	using DB.Contents.Creators;
+	using DB.Contents.Videos;
 
 	using ExChannel = YoutubeExplode.Channels.Channel;
 	using ExVideo = YoutubeExplode.Videos.Video;
@@ -41,11 +41,11 @@ namespace VirtualHole.Scraper
 		{
 			ExChannel channel = await _client.Channels.GetAsync(channelUrl);
 			return new Social {
-				name = channel.Title,
-				platform = Platform.YouTube,
-				id = channel.Id,
-				url = channel.Url,
-				avatarUrl = channel.LogoUrl
+				Name = channel.Title,
+				Platform = Platform.YouTube,
+				Id = channel.Id,
+				Url = channel.Url,
+				AvatarUrl = channel.LogoUrl
 			};
 		}
 
@@ -88,23 +88,23 @@ namespace VirtualHole.Scraper
 				}
 
 				results.Add(new Video {
-					title = video.Title,
-					platform = Platform.YouTube,
-					id = video.Id,
-					url = video.Url,
+					Title = video.Title,
+					Platform = Platform.YouTube,
+					Id = video.Id,
+					Url = video.Url,
 
-					creator = video.Author,
-					creatorId = video.ChannelId,
-					creatorUniversal = creator.universalName,
-					creatorIdUniversal = creator.universalId,
+					Creator = video.Author,
+					CreatorId = video.ChannelId,
+					CreatorUniversal = creator.UniversalName,
+					CreatorIdUniversal = creator.UniversalId,
 
-					creationDate = uploadDateAnchor,
-					tags = video.Keywords.ToArray(),
+					CreationDate = uploadDateAnchor,
+					Tags = video.Keywords.ToArray(),
 
-					thumbnailUrl = video.Thumbnails.MediumResUrl,
-					description = video.Description,
-					duration = video.Duration,
-					viewCount = video.Engagement.ViewCount
+					ThumbnailUrl = video.Thumbnails.MediumResUrl,
+					Description = video.Description,
+					Duration = video.Duration,
+					ViewCount = video.Engagement.ViewCount
 				});
 			}
 
@@ -134,27 +134,27 @@ namespace VirtualHole.Scraper
 			IReadOnlyList<ExVideo> broadcasts = await _client.Channels.GetBroadcastsAsync(channelUrl, type);
 			foreach(ExBroadcast broadcast in broadcasts.Select(v => v as ExBroadcast)) {
 				results.Add(new Broadcast {
-					title = broadcast.Title,
-					platform = Platform.YouTube,
-					id = broadcast.Id,
-					url = broadcast.Url,
+					Title = broadcast.Title,
+					Platform = Platform.YouTube,
+					Id = broadcast.Id,
+					Url = broadcast.Url,
 
-					creator = broadcast.Author,
-					creatorId = broadcast.ChannelId,
-					creatorUniversal = creator.universalName,
-					creatorIdUniversal = creator.universalId,
+					Creator = broadcast.Author,
+					CreatorId = broadcast.ChannelId,
+					CreatorUniversal = creator.UniversalName,
+					CreatorIdUniversal = creator.UniversalId,
 
-					creationDate = broadcast.UploadDate,
-					tags = broadcast.Keywords.ToArray(),
+					CreationDate = broadcast.UploadDate,
+					Tags = broadcast.Keywords.ToArray(),
 
-					thumbnailUrl = broadcast.Thumbnails.MediumResUrl,
-					description = broadcast.Description,
-					duration = broadcast.Duration,
-					viewCount = broadcast.Engagement.ViewCount,
+					ThumbnailUrl = broadcast.Thumbnails.MediumResUrl,
+					Description = broadcast.Description,
+					Duration = broadcast.Duration,
+					ViewCount = broadcast.Engagement.ViewCount,
 
-					isLive = broadcast.IsLive,
-					viewerCount = broadcast.ViewerCount,
-					schedule = broadcast.Schedule
+					IsLive = broadcast.IsLive,
+					ViewerCount = broadcast.ViewerCount,
+					ScheduleDate = broadcast.Schedule
 				});
 			}
 
