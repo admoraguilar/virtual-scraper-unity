@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using Midnight.Concurrency;
+using Midnight.Tasks;
 
 namespace VirtualHole.Scraper.Editor
 {

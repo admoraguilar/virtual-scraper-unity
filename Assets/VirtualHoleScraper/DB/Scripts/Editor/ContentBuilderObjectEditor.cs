@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEditor;
-using Midnight.Concurrency;
+using Midnight.Tasks;
 
 namespace VirtualHole.Scraper
 {
@@ -49,7 +49,7 @@ namespace VirtualHole.Scraper
 		private void DrawCommands()
 		{
 			EditorGUILayout.LabelField("Commands");
-			if(GUILayout.Button("Cancel")) { CancellationTokenSourceFactory.CancelToken(ref _cts); }
+			if(GUILayout.Button("Cancel")) { CancellationTokenSourceExt.Cancel(ref _cts); }
 		}
 
 		public void AutoFillCreaterObjectInfos()
@@ -169,7 +169,7 @@ namespace VirtualHole.Scraper
 
 		private void RunTask(Func<CancellationToken, Task> taskFactory)
 		{
-			CancellationTokenSourceFactory.CancelAndCreateCancellationTokenSource(ref _cts);
+			CancellationTokenSourceExt.CancelAndCreate(ref _cts);
 
 			_isRunning = true;
 			TaskExt.FireForget(Execute(), (Exception e) => { _isRunning = false; });

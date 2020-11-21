@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Midnight;
-using Midnight.Concurrency;
+using Midnight.Tasks;
 
 namespace VirtualHole.Scraper.UI
 {
@@ -172,7 +172,7 @@ namespace VirtualHole.Scraper.UI
 
 		private void RunTask(Func<CancellationToken, Task> taskFactory)
 		{
-			CancellationTokenSourceFactory.CancelAndCreateCancellationTokenSource(ref _cts);
+			CancellationTokenSourceExt.CancelAndCreate(ref _cts);
 
 			isRunning = true;
 			TaskExt.FireForget(Execute(), (Exception e) => { isRunning = false; });
@@ -186,7 +186,7 @@ namespace VirtualHole.Scraper.UI
 
 		private void Cancel()
 		{
-			CancellationTokenSourceFactory.CancelToken(ref _cts);
+			CancellationTokenSourceExt.Cancel(ref _cts);
 		}
 
 		private void OnIterationGapInputFieldValueChanged(string value)

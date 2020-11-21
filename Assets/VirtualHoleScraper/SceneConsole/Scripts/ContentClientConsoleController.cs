@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using UnityEngine;
 using Midnight;
-using Midnight.Concurrency;
+using Midnight.Tasks;
 
 namespace VirtualHole.Scraper
 {
@@ -86,7 +86,7 @@ namespace VirtualHole.Scraper
 
 		private void RunTask(Func<CancellationToken, Task> taskFactory)
 		{
-			CancellationTokenSourceFactory.CancelAndCreateCancellationTokenSource(ref _cts);
+			CancellationTokenSourceExt.CancelAndCreate(ref _cts);
 
 			_isRunning = true;
 			TaskExt.FireForget(Execute(), (Exception e) => { _isRunning = false; });
