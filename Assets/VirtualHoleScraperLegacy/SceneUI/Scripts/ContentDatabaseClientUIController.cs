@@ -8,7 +8,7 @@ using TMPro;
 using Midnight;
 using Midnight.Tasks;
 
-namespace VirtualHole.Scraper.UI
+namespace VirtualHole.LegacyScraper.UI
 {
 	public class ContentDatabaseClientUIController : MonoBehaviour
 	{

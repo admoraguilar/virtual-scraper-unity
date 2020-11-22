@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Midnight;
 
-namespace VirtualHole.Scraper
+namespace VirtualHole.LegacyScraper
 {
 	public abstract class ScraperFactory<T>
 	{

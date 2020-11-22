@@ -1,6 +1,6 @@
 ﻿using Midnight;
 
-namespace VirtualHole.Scraper
+namespace VirtualHole.LegacyScraper
 {
 	using DB;
 

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using Midnight;
 
-namespace VirtualHole.Scraper
+namespace VirtualHole.LegacyScraper
 {
 	using DB.Common;
 	using DB.Contents.Creators;

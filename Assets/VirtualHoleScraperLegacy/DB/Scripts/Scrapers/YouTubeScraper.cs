@@ -7,7 +7,7 @@ using Midnight;
 using YoutubeExplode;
 using YoutubeExplode.Videos;
 
-namespace VirtualHole.Scraper
+namespace VirtualHole.LegacyScraper
 {
 	using DB.Contents;
 	using DB.Contents.Creators;

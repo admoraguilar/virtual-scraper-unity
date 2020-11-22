@@ -4,7 +4,7 @@ using UnityEngine;
 using Midnight;
 using System.Linq;
 
-namespace VirtualHole.Scraper
+namespace VirtualHole.LegacyScraper
 {
 	public class UsedCharactersScraper : MonoBehaviour
 	{

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace VirtualHole.Scraper
+namespace VirtualHole.LegacyScraper
 {
 	public class ContentClientConsoleSettings
 	{

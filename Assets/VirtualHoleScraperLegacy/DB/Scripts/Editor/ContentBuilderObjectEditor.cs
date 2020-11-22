@@ -8,8 +8,10 @@ using UnityEngine.Assertions;
 using UnityEditor;
 using Midnight.Tasks;
 
-namespace VirtualHole.Scraper
+namespace VirtualHole.LegacyScraper
 {
+	using Scraper;
+
 	using UEditor = UnityEditor.Editor;
 
 	[CustomEditor(typeof(ContentClientObject), true)]

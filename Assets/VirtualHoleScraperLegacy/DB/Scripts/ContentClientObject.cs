@@ -6,8 +6,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Midnight;
 
-namespace VirtualHole.Scraper
+namespace VirtualHole.LegacyScraper
 {
+	using Scraper;
 	using DB.Contents.Videos;
 	using DB.Contents.Creators;
 	using UObject = UnityEngine.Object;

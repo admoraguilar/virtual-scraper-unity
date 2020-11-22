@@ -1,5 +1,5 @@
 ﻿
-namespace VirtualHole.Scraper
+namespace VirtualHole.LegacyScraper
 {
 	public class YouTubeScraperFactory : ScraperFactory<YouTubeScraper>
 	{

@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 using Midnight;
 using Midnight.Tasks;
 
-namespace VirtualHole.Scraper
+namespace VirtualHole.LegacyScraper
 {
 	using DB;
 	using DB.Contents;

@@ -6,7 +6,7 @@ using UnityEngine;
 using Midnight;
 using Midnight.Tasks;
 
-namespace VirtualHole.Scraper
+namespace VirtualHole.LegacyScraper
 {
 	public class ContentClientConsoleController : MonoBehaviour
 	{

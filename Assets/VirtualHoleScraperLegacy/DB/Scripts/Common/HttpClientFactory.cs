@@ -2,7 +2,7 @@
 using System.Net.Http;
 using System.Collections.Generic;
 
-namespace VirtualHole.Scraper
+namespace VirtualHole.LegacyScraper
 {
 	public class HttpClientFactory
 	{
