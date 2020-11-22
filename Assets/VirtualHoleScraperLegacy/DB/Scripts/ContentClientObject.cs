@@ -83,6 +83,9 @@ namespace VirtualHole.Scraper
 			IEnumerable<Creator> creators = client.creators.LoadFromJson();
 			List<Video> videos = await client.videos.ScrapeAsync(creators, incremental, cancellationToken);
 			client.videos.SaveToJson(videos);
+
+			// Test clear for memory leaks
+			videos.Clear();
 		}
 
 		public async Task WriteToVideosDBUsingCreatorsDBAsync(
@@ -97,6 +100,9 @@ namespace VirtualHole.Scraper
 			if(videos.Count > 0) {
 				await client.videos.WriteToDBAsync(videos, incremental, cancellationToken);
 			}
+
+			// Test clear for memory leaks
+			videos.Clear();
 		}
 
 		public async Task WriteToVideosDBUsingJsonAsync(

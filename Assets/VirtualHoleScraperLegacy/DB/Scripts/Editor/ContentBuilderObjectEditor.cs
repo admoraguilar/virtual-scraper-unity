@@ -64,7 +64,7 @@ namespace VirtualHole.Scraper
 
 				async Task Process(CreatorObject creatorObj)
 				{
-					await creatorObj.AutoFillInfoAsync();
+					//await creatorObj.AutoFillInfoAsync();
 					EditorUtility.SetDirty(creatorObj);
 				}
 			}
@@ -75,7 +75,7 @@ namespace VirtualHole.Scraper
 			List<CreatorObject> creatorObjs = GetCreatorObjects();
 
 			foreach(CreatorObject creatorObj in creatorObjs) {
-				creatorObj.AutoFillFromJson();
+				//creatorObj.AutoFillInfoFromJson();
 				EditorUtility.SetDirty(creatorObj);
 			}
 
@@ -84,7 +84,7 @@ namespace VirtualHole.Scraper
 
 		public void SaveCreatorsToJson()
 		{
-			target.SaveCreatorsToJson(GetCreatorObjects().Select(obj => obj.ToCreator()).ToArray());
+			target.SaveCreatorsToJson(GetCreatorObjects().Select(obj => obj.AsCreator()).ToArray());
 		}
 
 		public void WriteToCreatorsDB()
@@ -94,7 +94,7 @@ namespace VirtualHole.Scraper
 			async Task Execute(CancellationToken cancellationToken = default)
 			{
 				await target.WriteToCreatorsDBAsync(
-					GetCreatorObjects().Select(obj => obj.ToCreator()).ToArray(),
+					GetCreatorObjects().Select(obj => obj.AsCreator()).ToArray(),
 					cancellationToken);
 			}
 		}

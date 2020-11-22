@@ -559,7 +559,8 @@ PlayerSettings:
   scriptingDefineSymbols:
     1: MLOG
   platformArchitecture: {}
-  scriptingBackend: {}
+  scriptingBackend:
+    Standalone: 0
   il2cppCompilerConfiguration: {}
   managedStrippingLevel: {}
   incrementalIl2cppBuild: {}

@@ -83,7 +83,7 @@ namespace VirtualHole.Scraper.Editor
 			EditorGUILayout.HelpBox("In order to use Autofill, universal name and social (youtube) must be filled first.", MessageType.Info);
 			if(GUILayout.Button("Autofill Async")) {
 				foreach(CreatorObject target in targets) {
-					TaskExt.FireForget(target.AutoFillInfoAsync());
+					//TaskExt.FireForget(target.AutoFillInfoAsync());
 					EditorUtility.SetDirty(target);
 					AssetDatabase.Refresh();
 				}
@@ -91,7 +91,7 @@ namespace VirtualHole.Scraper.Editor
 
 			if(GUILayout.Button("Autofill From Json")) {
 				foreach(CreatorObject target in targets) {
-					target.AutoFillFromJson();
+					//target.AutoFillInfoFromJson();
 					EditorUtility.SetDirty(target);
 					AssetDatabase.Refresh();
 				} 
