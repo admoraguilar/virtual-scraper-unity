@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Net;
 
-namespace VirtualHole.LegacyScraper
+namespace VirtualHole.Scraper
 {
 	public struct Proxy
 	{
 		public static Proxy Parse(string value)
 		{
 			if(!TryParse(value, out Proxy result)) {
-				throw new InvalidOperationException("String is not a parsable proxy.");
+				throw new InvalidOperationException("Not a valid proxy");
 			}
 			return result;
 		}

@@ -1,8 +1,7 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
-using Midnight.Tasks;
+using UnityEditor;
 
 namespace VirtualHole.Scraper.Editor
 {

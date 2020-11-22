@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Midnight;
 
-namespace VirtualHole.LegacyScraper
+namespace VirtualHole.Scraper
 {
 	public class ProxyPool
 	{

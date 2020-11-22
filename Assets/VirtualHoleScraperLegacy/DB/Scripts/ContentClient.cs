@@ -3,6 +3,7 @@
 namespace VirtualHole.LegacyScraper
 {
 	using DB;
+	using Scraper;
 
 	public class ContentBuilderSettings
 	{
@@ -47,7 +48,7 @@ namespace VirtualHole.LegacyScraper
 
 		public void SetProxies(string source)
 		{
-			_youTubeScraperFactory.SetProxies(source);
+			//_youTubeScraperFactory.SetProxies(source);
 		}
 	}
 }

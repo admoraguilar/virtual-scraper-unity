@@ -14,6 +14,8 @@ namespace VirtualHole.LegacyScraper
 	using DB.Contents.Videos;
 	using DB.Contents.Creators;
 
+	using Scraper;
+
 	public class VideoClient
 	{
 		public string localJsonPath 
