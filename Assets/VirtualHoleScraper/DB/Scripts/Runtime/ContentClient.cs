@@ -14,6 +14,7 @@ namespace VirtualHole.Scraper
 
 	public class ContentClient
 	{
+		public VideoClient videos { get; private set; } = null;
 		public CreatorClient creators { get; private set; } = null;
 
 		private ScraperClient _scraperClient = null;
@@ -23,6 +24,8 @@ namespace VirtualHole.Scraper
 		{
 			_scraperClient = new ScraperClient(settings.proxyPool);
 			_dbClient = new VirtualHoleDBClient(settings.connectionString, settings.userName, settings.password);
+
+			videos = new VideoClient(_scraperClient, _dbClient);
 			creators = new CreatorClient(_scraperClient, _dbClient);
 		}
 	}

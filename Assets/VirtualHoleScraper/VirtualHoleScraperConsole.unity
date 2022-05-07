@@ -166,6 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7910d9e24ec4dc541813df66ee9efc64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetFramerate: 10
 --- !u!1 &1716534429
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,8 +176,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1716534430}
+  - component: {fileID: 1716534431}
   m_Layer: 0
-  m_Name: VirtualHoleScraper
+  m_Name: VirtualHoleScraperConsole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -196,3 +198,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1716534431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716534429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3509c0fbf43c2144b663cde2ef02591, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _creatorObjects:
+  - {fileID: 11400000, guid: 65480ee39144a3a44a69a1836f3ab8e6, type: 2}
+  - {fileID: 11400000, guid: cd179766e38d88f4ea2f25ef5cdab3fa, type: 2}
+  - {fileID: 11400000, guid: 9539e1ab46dd34947a0320aebd25bb27, type: 2}
+  - {fileID: 11400000, guid: 9acc7cb35d597d340a6e016c5c4a0a2e, type: 2}
+  - {fileID: 11400000, guid: 30a0cc8a04200c146a141870ff472d06, type: 2}
+  - {fileID: 11400000, guid: efd2bf34c87c59845bf38bfbbb6e7697, type: 2}
+  - {fileID: 11400000, guid: 68bcef7bcc9d8e748b3b84824e317d56, type: 2}
+  - {fileID: 11400000, guid: c3ec073d4d39ad844a5d02af262ca801, type: 2}
+  - {fileID: 11400000, guid: 28a915e0a7002d842b22d4bbf06d6b3d, type: 2}
+  - {fileID: 11400000, guid: 6caf0d3211e79674c9c9163399d46770, type: 2}
+  - {fileID: 11400000, guid: 433e83466314b114cb209230d6856547, type: 2}
+  - {fileID: 11400000, guid: c3014d93b744ca14f8b39830a3f67a3c, type: 2}
+  - {fileID: 11400000, guid: 3796f2d454986f94e86dd8b79efdeab0, type: 2}
+  - {fileID: 11400000, guid: b511171573de580439910ca02c2f5a72, type: 2}
+  - {fileID: 11400000, guid: ba70fb7739d464c4e8b94a2dd5317ecb, type: 2}
+  - {fileID: 11400000, guid: 17e336a1635e73443acc8874dcefaca6, type: 2}
+  - {fileID: 11400000, guid: 37c3f492d49039a41a34fc3db3d614d2, type: 2}
+  - {fileID: 11400000, guid: 019161220acdc124298b6f630d8f9913, type: 2}
+  - {fileID: 11400000, guid: 0e7d618db1cafe6489f8840559f7223a, type: 2}

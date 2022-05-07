@@ -35,7 +35,7 @@
 	<ItemGroup>
 		<!--Add NuGet or Project references here-->
 		<PackageReference Include="VirtualHole.SDK" Version="0.0.1.2" />
-		<PackageReference Include="YoutubeExplode" Version="5.1.5.6" />
+		<PackageReference Include="YoutubeExplode" Version="5.1.5.7" />
 
 		<PackageReference Include="Newtonsoft.Json" Version="*">
 			<ExcludeAssets>all</ExcludeAssets>
